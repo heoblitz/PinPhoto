@@ -3,19 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C4D13A024AB716B009BDCDE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4D139F24AB716B009BDCDE /* MainViewController.swift */; };
+		3C8AA01024B05D32005EB75C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8AA00F24B05D32005EB75C /* SettingViewController.swift */; };
 		3CF8B44B24A9CBA300D6C11C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */; };
 		3CF8B44D24A9CBA300D6C11C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8B44C24A9CBA300D6C11C /* SceneDelegate.swift */; };
 		3CF8B44F24A9CBA300D6C11C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8B44E24A9CBA300D6C11C /* ViewController.swift */; };
 		3CF8B45224A9CBA300D6C11C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45024A9CBA300D6C11C /* Main.storyboard */; };
 		3CF8B45424A9CBA700D6C11C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45324A9CBA700D6C11C /* Assets.xcassets */; };
 		3CF8B45724A9CBA700D6C11C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45524A9CBA700D6C11C /* LaunchScreen.storyboard */; };
+		CB1692998E593C22B791A4EB /* Pods_PinPhoto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA523F7E45D6CE0F898D5FD /* Pods_PinPhoto.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0FA523F7E45D6CE0F898D5FD /* Pods_PinPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C4D139F24AB716B009BDCDE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3C8AA00F24B05D32005EB75C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		3CF8B44724A9CBA300D6C11C /* PinPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CF8B44C24A9CBA300D6C11C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +30,8 @@
 		3CF8B45324A9CBA700D6C11C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CF8B45624A9CBA700D6C11C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CF8B45824A9CBA700D6C11C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB1AB7809CA550BBE61F7293 /* Pods-PinPhoto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPhoto.debug.xcconfig"; path = "Target Support Files/Pods-PinPhoto/Pods-PinPhoto.debug.xcconfig"; sourceTree = "<group>"; };
+		F470BBD50AC3ED7FE3891DC1 /* Pods-PinPhoto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPhoto.release.xcconfig"; path = "Target Support Files/Pods-PinPhoto/Pods-PinPhoto.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +39,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB1692998E593C22B791A4EB /* Pods_PinPhoto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		309399C368E69F88FF9A34D3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AB1AB7809CA550BBE61F7293 /* Pods-PinPhoto.debug.xcconfig */,
+				F470BBD50AC3ED7FE3891DC1 /* Pods-PinPhoto.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		3CF8B43E24A9CBA300D6C11C = {
 			isa = PBXGroup;
 			children = (
 				3CF8B44924A9CBA300D6C11C /* PinPhoto */,
 				3CF8B44824A9CBA300D6C11C /* Products */,
+				309399C368E69F88FF9A34D3 /* Pods */,
+				FF87DE9F94AF38898587A269 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,12 +79,22 @@
 				3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */,
 				3CF8B44C24A9CBA300D6C11C /* SceneDelegate.swift */,
 				3CF8B44E24A9CBA300D6C11C /* ViewController.swift */,
+				3C4D139F24AB716B009BDCDE /* MainViewController.swift */,
+				3C8AA00F24B05D32005EB75C /* SettingViewController.swift */,
 				3CF8B45024A9CBA300D6C11C /* Main.storyboard */,
 				3CF8B45324A9CBA700D6C11C /* Assets.xcassets */,
 				3CF8B45524A9CBA700D6C11C /* LaunchScreen.storyboard */,
 				3CF8B45824A9CBA700D6C11C /* Info.plist */,
 			);
 			path = PinPhoto;
+			sourceTree = "<group>";
+		};
+		FF87DE9F94AF38898587A269 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0FA523F7E45D6CE0F898D5FD /* Pods_PinPhoto.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3CF8B45B24A9CBA700D6C11C /* Build configuration list for PBXNativeTarget "PinPhoto" */;
 			buildPhases = (
+				7FC9D59A058E4746858FEB3F /* [CP] Check Pods Manifest.lock */,
 				3CF8B44324A9CBA300D6C11C /* Sources */,
 				3CF8B44424A9CBA300D6C11C /* Frameworks */,
 				3CF8B44524A9CBA300D6C11C /* Resources */,
+				3357F8FB1DA41188368B6724 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +165,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3357F8FB1DA41188368B6724 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PinPhoto/Pods-PinPhoto-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PinPhoto/Pods-PinPhoto-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PinPhoto/Pods-PinPhoto-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FC9D59A058E4746858FEB3F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PinPhoto-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3CF8B44324A9CBA300D6C11C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C8AA01024B05D32005EB75C /* SettingViewController.swift in Sources */,
 				3CF8B44F24A9CBA300D6C11C /* ViewController.swift in Sources */,
 				3CF8B44B24A9CBA300D6C11C /* AppDelegate.swift in Sources */,
 				3CF8B44D24A9CBA300D6C11C /* SceneDelegate.swift in Sources */,
+				3C4D13A024AB716B009BDCDE /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +358,7 @@
 		};
 		3CF8B45C24A9CBA700D6C11C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB1AB7809CA550BBE61F7293 /* Pods-PinPhoto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +377,7 @@
 		};
 		3CF8B45D24A9CBA700D6C11C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F470BBD50AC3ED7FE3891DC1 /* Pods-PinPhoto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
