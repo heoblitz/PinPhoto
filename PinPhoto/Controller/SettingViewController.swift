@@ -11,7 +11,7 @@ import UIKit
 class SettingViewController: UIViewController {
 
     @IBOutlet private weak var settingTableView: UITableView!
-    
+    let shared = CoreDataManager.shared
     private let settingTitleDatas: [String] = ["사진 콕", "기타"]
     private let settingCellDatas: [[String]] = [
         ["만든 이", "사용 방법"],
@@ -21,6 +21,21 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.settingTableView.dataSource = self
+        self.settingTableView.delegate = self
+    }
+    
+    func alertDestructiveAllItem() {
+        let alert = UIAlertController(title: "데이터를 초기화 하시겠습니까?", message: "데이터는 다시 복구할 수 없습니다.", preferredStyle: .alert)
+        
+        let removeAction = UIAlertAction(title: "삭제", style: .destructive, handler: { action in
+            self.shared.destructiveAllItem()
+        })
+        let cancleAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        alert.addAction(removeAction)
+        alert.addAction(cancleAction)
+        
+        present(alert, animated: true)
     }
 }
 
@@ -75,5 +90,23 @@ extension SettingViewController: UITableViewDataSource {
         }
         
         return title
+    }
+}
+
+extension SettingViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 1:
+            if indexPath.item == 0 {
+                alertDestructiveAllItem()
+            }
+        default:
+            break
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.isSelected = false
     }
 }
