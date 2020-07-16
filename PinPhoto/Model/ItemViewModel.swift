@@ -17,15 +17,15 @@ class ItemViewModel {
     }
     
     var idForAdd: Int64 {
-        return Int64(items.count - 1)
+        return Int64(items.count)
     }
     
     func item(at index: Int) -> Item {
         return items[index]
     }
 
-    func remove(id: Int) {
-        shared.removeItem(id: Int64(id))
+    func remove(id: Int64) {
+        shared.removeItem(id: id)
     }
 
     func add(content: Int64, image: Data?, text: String?, date: Date, id: Int64) {
@@ -48,5 +48,15 @@ class ItemViewModel {
     
     func loadItems() {
         items = shared.getItem()
+        items.reverse()
+    }
+    
+    func printID() {
+        print("\(items.count)")
+        for item in items {
+            print("----->\(item.id)")
+            print("----->\(item.contentType)")
+            print("----->\(item.contentText)")
+        }
     }
 }

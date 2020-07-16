@@ -18,7 +18,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kuA-Jh-zPF">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" red="0.94911187890000004" green="0.94876331089999999" blue="0.96863871810000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="2Y1-SE-mXm">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -121,7 +121,7 @@
                         <outlet property="deleteButton" destination="ehL-js-gt2" id="uzT-qj-6DC"/>
                         <outlet property="itemCollectionView" destination="kuA-Jh-zPF" id="ZY8-Ud-N6j"/>
                         <outlet property="toolbar" destination="4hm-ei-7cm" id="qB4-Jl-kBg"/>
-                        <segue destination="rAM-Ny-c0b" kind="presentation" id="LLw-ul-TGc"/>
+                        <segue destination="rAM-Ny-c0b" kind="presentation" identifier="editText" id="LLw-ul-TGc"/>
                         <segue destination="bR0-Bu-AHs" kind="presentation" id="1pc-wq-sFs"/>
                     </connections>
                 </viewController>
@@ -152,19 +152,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text=" 텍스트를 추가합니다 asdklsadalskdaksldmaslkmdklasmdklamdkslamdklasmlksamdlkasmdlaskmlkasmdklasmdaklmd" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fB9-6d-l5J">
-                                <rect key="frame" x="0.0" y="125" width="414" height="131"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ww-fh-90j">
                                 <rect key="frame" x="324" y="20" width="70" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="저장하기">
                                     <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <state key="disabled">
+                                    <color key="titleColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="rAM-Ny-c0b" eventType="touchUpInside" id="AHi-ww-zmc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3Z-zu-Lcq">
                                 <rect key="frame" x="20" y="20" width="35" height="36"/>
@@ -176,18 +175,31 @@
                                     <action selector="cancelButtonTapped:" destination="rAM-Ny-c0b" eventType="touchUpInside" id="DQw-V2-oTE"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fB9-6d-l5J">
+                                <rect key="frame" x="10" y="70" width="394" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="XFD-gU-IGR"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="R3Z-zu-Lcq" firstAttribute="top" secondItem="Jh0-oi-pvd" secondAttribute="top" constant="20" id="2UK-Zc-mJY"/>
                             <constraint firstItem="6ww-fh-90j" firstAttribute="top" secondItem="Jh0-oi-pvd" secondAttribute="top" constant="20" id="8cP-9r-P0z"/>
+                            <constraint firstItem="fB9-6d-l5J" firstAttribute="top" secondItem="Jh0-oi-pvd" secondAttribute="top" constant="70" id="GYQ-aw-PTt"/>
+                            <constraint firstItem="fB9-6d-l5J" firstAttribute="leading" secondItem="Jh0-oi-pvd" secondAttribute="leading" constant="10" id="dxo-Ah-ryt"/>
                             <constraint firstItem="Jh0-oi-pvd" firstAttribute="trailing" secondItem="6ww-fh-90j" secondAttribute="trailing" constant="20" id="jby-Mz-gwI"/>
+                            <constraint firstItem="Jh0-oi-pvd" firstAttribute="trailing" secondItem="fB9-6d-l5J" secondAttribute="trailing" constant="10" id="r35-Yw-sgj"/>
                             <constraint firstItem="R3Z-zu-Lcq" firstAttribute="leading" secondItem="Jh0-oi-pvd" secondAttribute="leading" constant="20" id="vt2-mN-34p"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jh0-oi-pvd"/>
                     </view>
                     <connections>
                         <outlet property="inputTextView" destination="fB9-6d-l5J" id="lkx-gm-fDC"/>
+                        <outlet property="saveButton" destination="6ww-fh-90j" id="eyy-NL-UmR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9h3-Bk-9cO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -267,7 +279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gH2-QA-dZo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042" y="1611"/>
+            <point key="canvasLocation" x="1042" y="877"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="JUY-3R-qXq">
@@ -328,7 +340,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xLJ-b3-e05" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039.1304347826087" y="855.80357142857144"/>
+            <point key="canvasLocation" x="132" y="877"/>
         </scene>
     </scenes>
     <resources>

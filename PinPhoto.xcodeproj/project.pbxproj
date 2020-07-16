@@ -74,6 +74,7 @@
 		3C3ACC8924BB52A300311F7A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3C4F2F2F24BC9BAE008C27E6 /* TestModel.swift */,
 				3C4D139F24AB716B009BDCDE /* MainViewController.swift */,
 				3C21CC0624BEDC10004BEAF0 /* EditTextItemViewController.swift */,
 				3C8AA00F24B05D32005EB75C /* SettingViewController.swift */,
@@ -98,7 +99,6 @@
 				3C3ACC9524BB5BD600311F7A /* CoreDataManager.swift */,
 				3CF52DF824BF0D6400E7B8D4 /* ItemViewModel.swift */,
 				3C3ACC8E24BB558B00311F7A /* Item.xcdatamodeld */,
-				3C4F2F2F24BC9BAE008C27E6 /* TestModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

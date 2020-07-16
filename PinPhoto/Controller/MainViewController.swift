@@ -17,28 +17,25 @@ class MainViewController: UIViewController {
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     
     // MARK:- Propertises
-//    let shared = CoreDataManager.shared
     let imageManager = PHImageManager()
     let itemViewModel = ItemViewModel()
     
-    let model = TestViewModel()
-
+    var feedbackGenerator: UIFeedbackGenerator?
     var isEditMode: Bool = false
-    var selectedCell: [IndexPath] = [] {
+
+    var testSelectedCell: [IndexPath:Int64] = [:] {
         didSet {
-            if selectedCell.count > 0 {
+            if testSelectedCell.count > 0 {
                 self.deleteButton.isEnabled = true
             } else {
                 self.deleteButton.isEnabled = false
             }
         }
     }
-
+    
     // MARk:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.itemViewModel.loadItems()
-        
         self.itemCollectionView.dataSource = self
         self.itemCollectionView.delegate = self
         self.itemCollectionView.allowsMultipleSelection = true
@@ -46,24 +43,66 @@ class MainViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
         self.deleteButton.isEnabled = false
         self.toolbar.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.itemViewModel.loadItems()
+        self.itemCollectionView.reloadData()
+    }
+    
+    // MARK:- Methods
+    func deselectCells() {
+        testSelectedCell.forEach { indexPath, _ in
+            let cell = self.itemCollectionView.cellForItem(at: indexPath) as? ItemCustomCell
+            cell?.isSelectedForRemove = false
+        }
+    }
+    
+    func presentImagePikcer() {
+        let imagePicker = ImagePickerController()
+        let imageWidth = itemCollectionView.bounds.width
+        let imageSize = CGSize(width: imageWidth, height: imageWidth)
         
-        // self.test()
+        let option = PHImageRequestOptions()
+        option.isSynchronous = true
+        option.isNetworkAccessAllowed = true
+        option.deliveryMode = .highQualityFormat
+        option.version = .current
+        option.resizeMode = .exact
+        
+        presentImagePicker(imagePicker, select: { (asset) in
+            // User selected an asset. Do something with it. Perhaps begin processing/upload?
+        }, deselect: { (asset) in
+            // User deselected an asset. Cancel whatever you did when asset was selected.
+        }, cancel: { (assets) in
+            // User canceled selection.
+        }, finish: { (assets) in
+            for asset in assets {
+                self.imageManager.requestImage(for: asset, targetSize: imageSize, contentMode: .aspectFit, options: option, resultHandler: {[weak self] image, _ in
+                    let image = self?.itemViewModel.convertImageToData(image: image)
+                    let id = self?.itemViewModel.idForAdd ?? 0
+                    self?.itemViewModel.add(content: 0, image: image, text: nil, date: Date(), id: id)
+                    self?.itemViewModel.loadItems()
+                    
+                    OperationQueue.main.addOperation {
+                        self?.itemCollectionView.reloadData()
+                    }
+                })
+            }
+        })
     }
     
-    func test() {
-//        for i in 1..<10 {
-//            shared.saveItem(contentType: 1, contentImage: nil, contentText: "hello", updateDate: Date(), id: Int64(i))
-//        }
-//        shared.deleteItem(id: 1)
-//
-//        let b = shared.getItem()
-//        print(b.count)
-//
-//        for a in b {
-//            print(a.contentText)
-//        }
+    func presentaddTextItem() {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "addTextItemViewController") as? EditTextItemViewController else {
+            return
+        }
+        vc.itemViewModel = itemViewModel
+        vc.mainItemCollectionView = itemCollectionView
+        
+        present(vc, animated: true)
     }
     
+    // MARK:- IBAction Methods
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
         sender.title = sender.title == "편집" ? "완료" : "편집"
         
@@ -71,6 +110,9 @@ class MainViewController: UIViewController {
         toolbar.isHidden.toggle()
         isEditMode.toggle()
         deselectCells()
+        testSelectedCell = [:]
+        
+        itemViewModel.printID()
     }
     
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
@@ -98,68 +140,17 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func removeButtonTapped(_ sender: UIBarButtonItem) {
-        var removeditems = 0
-        
-        selectedCell.forEach { indexPath in
-            self.model.remove(at: indexPath.item - removeditems)
-            removeditems += 1
+        testSelectedCell.forEach { indexPath, id in
+            self.itemViewModel.remove(id: id)
         }
-        selectedCell = []
+        testSelectedCell = [:]
         
+        itemViewModel.loadItems()
         itemCollectionView.reloadData()
-    }
-    
-    func deselectCells() {
-        selectedCell.forEach { indexPath in
-            let cell = self.itemCollectionView.cellForItem(at: indexPath) as? ItemCustomCell
-            cell?.isSelectedForRemove = false
-        }
-        
-        selectedCell = []
-    }
-    
-    func presentImagePikcer() {
-        let imagePicker = ImagePickerController()
-        let imageWidth = itemCollectionView.bounds.width
-        let imageSize = CGSize(width: imageWidth, height: imageWidth)
-        
-        let option = PHImageRequestOptions()
-        option.isSynchronous = true
-        option.isNetworkAccessAllowed = true
-        option.deliveryMode = .highQualityFormat
-        option.version = .current
-        option.resizeMode = .exact
-        
-        presentImagePicker(imagePicker, select: { (asset) in
-            // User selected an asset. Do something with it. Perhaps begin processing/upload?
-        }, deselect: { (asset) in
-            // User deselected an asset. Cancel whatever you did when asset was selected.
-        }, cancel: { (assets) in
-            // User canceled selection.
-        }, finish: { (assets) in
-            for asset in assets {
-                self.imageManager.requestImage(for: asset, targetSize: imageSize, contentMode: .aspectFit, options: option, resultHandler: {[weak self] image, _ in
-                    let image = self?.itemViewModel.convertImageToData(image: image)
-                    let id = self?.itemViewModel.idForAdd ?? 0
-                    self?.itemViewModel.add(content: 0, image: image, text: nil, date: Date(), id: id)
-                    
-                    OperationQueue.main.addOperation {
-                        self?.itemViewModel.loadItems()
-                        self?.itemCollectionView.reloadData()
-                    }
-                })
-            }
-        })
-    }
-    
-    func presentaddTextItem() {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "addTextItemViewController") else {
-            return
-        }
-        present(vc, animated: true)
     }
 }
 
+// MARK:- UICollectionView Data Source
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemViewModel.numberOfItems
@@ -171,7 +162,9 @@ extension MainViewController: UICollectionViewDataSource {
         }
         let itemInfo = itemViewModel.item(at: indexPath.item)
     
-        if !selectedCell.contains(indexPath) {
+        if testSelectedCell.contains(where: { (selectedIndexPath, _) in return selectedIndexPath == indexPath }) {
+            cell.isSelectedForRemove = true
+        } else {
             cell.isSelectedForRemove = false
         }
         
@@ -192,6 +185,7 @@ extension MainViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK:- UICollectionView Delegate
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? ItemCustomCell else {
@@ -199,13 +193,17 @@ extension MainViewController: UICollectionViewDelegate {
         }
         
         if isEditMode {
-            selectedCell.append(indexPath)
+            let item = itemViewModel.item(at: indexPath.item)
+            testSelectedCell[indexPath] = item.id
+            
             cell.isSelectedForRemove = true
         } else {
-            guard let vc = storyboard?.instantiateViewController(withIdentifier: "addTextItemViewController") else {
-                return
+            if cell.itemtype == "text" {
+                guard let vc = storyboard?.instantiateViewController(withIdentifier: "addTextItemViewController") else {
+                    return
+                }
+                navigationController?.pushViewController(vc, animated: true)
             }
-            navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -213,11 +211,13 @@ extension MainViewController: UICollectionViewDelegate {
         let cell = collectionView.cellForItem(at: indexPath) as? ItemCustomCell
         cell?.isSelectedForRemove = false
         
-        selectedCell = selectedCell.filter { $0 != indexPath }
+        testSelectedCell = testSelectedCell.filter { selectedIndexPath, id in
+            selectedIndexPath != indexPath
+        }
     }
 }
 
-
+// MARK:- UICollectionView Delegate Flow Layout
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, layout: UICollectionViewLayout, sizeForItemAt: IndexPath) -> CGSize {
         let width = itemCollectionView.bounds.width / 3.1
