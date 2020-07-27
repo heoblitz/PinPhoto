@@ -43,11 +43,19 @@ class MainViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
         self.deleteButton.isEnabled = false
         self.toolbar.isHidden = true
+        self.test()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.itemViewModel.loadItems()
         self.itemCollectionView.reloadData()
+    }
+    
+    func test() {
+        print("send")
+        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
+        defaults?.set("hell world", forKey: "test")
+        defaults?.synchronize()
     }
     
     // MARK:- Methods

@@ -10,10 +10,19 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
+    
+    @IBOutlet weak var textLabel: UILabel!
         
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
+        defaults?.synchronize()
+        textLabel.text = defaults?.string(forKey: "test") ?? "not work"
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {

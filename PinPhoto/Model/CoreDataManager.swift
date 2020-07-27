@@ -96,67 +96,7 @@ class CoreDataManager {
         }
     }
 }
-//    
-//    func getItems(ascending: Bool = false) -> [Item] {
-//        var models: [Item] = [Item]()
-//        
-//        if let context = context {
-//            let idSort: NSSortDescriptor = NSSortDescriptor(key: "id", ascending: ascending)
-//            let fetchRequest: NSFetchRequest<NSManagedObject>
-//                = NSFetchRequest<NSManagedObject>(entityName: modelName)
-//            fetchRequest.sortDescriptors = [idSort]
-//            
-//            do {
-//                if let fetchResult: [Item] = try context.fetch(fetchRequest) as? [Item] {
-//                    models = fetchResult
-//                }
-//            } catch let error as NSError {
-//                print("Could not fetch🥺: \(error), \(error.userInfo)")
-//            }
-//        }
-//        return models
-//    }
-//    
-//    func saveUser(contentType: Int64, contentImage: Data,
-//                  contentText: String, updateDate: Date, id: [String], onSuccess: @escaping ((Bool) -> Void)) {
-//        if let context = context,
-//            let entity: NSEntityDescription
-//            = NSEntityDescription.entity(forEntityName: modelName, in: context) {
-//            
-////            if let user: Users = NSManagedObject(entity: entity, insertInto: context) as? Users {
-//                user.contentType = contentType
-//                user.contentImage = contentImage
-//                user.contentText = contentText
-//                user.updateDate = date
-//                user.id = id
-//                
-//                contextSave { success in
-//                    onSuccess(success)
-//                }
-//            }
-//        }
-//    }
-//    
-//    func deleteUser(id: Int64, onSuccess: @escaping ((Bool) -> Void)) {
-//        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = filteredRequest(id: id)
-//        
-//        do {
-//            if let results: [Users] = try context?.fetch(fetchRequest) as? [Users] {
-//                if results.count != 0 {
-//                    context?.delete(results[0])
-//                }
-//            }
-//        } catch let error as NSError {
-//            print("Could not fatch🥺: \(error), \(error.userInfo)")
-//            onSuccess(false)
-//        }
-//        
-//        contextSave { success in
-//            onSuccess(success)
-//        }
-//    }
-//}
-//
+
 extension CoreDataManager {
     fileprivate func filteredRequest(id: Int64) -> NSFetchRequest<NSFetchRequestResult> {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>
