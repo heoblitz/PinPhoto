@@ -56,7 +56,7 @@ class ItemViewModel {
         for item in items {
             print("----->\(item.id)")
             print("----->\(item.contentType)")
-            print("----->\(item.contentText)")
+            print("----->\(item.contentText ?? "")")
         }
     }
 }

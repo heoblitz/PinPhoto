@@ -17,6 +17,10 @@
 		3C4F2F3024BC9BAE008C27E6 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F2F2F24BC9BAE008C27E6 /* TestModel.swift */; };
 		3C8AA01024B05D32005EB75C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8AA00F24B05D32005EB75C /* SettingViewController.swift */; };
 		3CAA167E24BC211200635F6D /* ItemCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA167D24BC211200635F6D /* ItemCustomCell.swift */; };
+		3CEB643B24CEC742004D8C3C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CEB643A24CEC742004D8C3C /* NotificationCenter.framework */; };
+		3CEB643E24CEC742004D8C3C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB643D24CEC742004D8C3C /* TodayViewController.swift */; };
+		3CEB644124CEC742004D8C3C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CEB643F24CEC742004D8C3C /* MainInterface.storyboard */; };
+		3CEB644524CEC742004D8C3C /* PinPhotoExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3CEB643924CEC742004D8C3C /* PinPhotoExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3CF52DF924BF0D6400E7B8D4 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF52DF824BF0D6400E7B8D4 /* ItemViewModel.swift */; };
 		3CF8B44B24A9CBA300D6C11C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */; };
 		3CF8B44D24A9CBA300D6C11C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8B44C24A9CBA300D6C11C /* SceneDelegate.swift */; };
@@ -25,6 +29,30 @@
 		3CF8B45724A9CBA700D6C11C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45524A9CBA700D6C11C /* LaunchScreen.storyboard */; };
 		CB1692998E593C22B791A4EB /* Pods_PinPhoto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA523F7E45D6CE0F898D5FD /* Pods_PinPhoto.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3CEB644324CEC742004D8C3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3CF8B43F24A9CBA300D6C11C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3CEB643824CEC742004D8C3C;
+			remoteInfo = PinPhotoExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3CEB644624CEC742004D8C3C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3CEB644524CEC742004D8C3C /* PinPhotoExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0FA523F7E45D6CE0F898D5FD /* Pods_PinPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +66,13 @@
 		3C4F2F2F24BC9BAE008C27E6 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		3C8AA00F24B05D32005EB75C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		3CAA167D24BC211200635F6D /* ItemCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCustomCell.swift; sourceTree = "<group>"; };
+		3CEB643924CEC742004D8C3C /* PinPhotoExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PinPhotoExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CEB643A24CEC742004D8C3C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		3CEB643D24CEC742004D8C3C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		3CEB644024CEC742004D8C3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		3CEB644224CEC742004D8C3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CEB644A24CEC805004D8C3C /* PinPhoto.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PinPhoto.entitlements; sourceTree = "<group>"; };
+		3CEB644B24CEC80E004D8C3C /* PinPhotoExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PinPhotoExtension.entitlements; sourceTree = "<group>"; };
 		3CF52DF824BF0D6400E7B8D4 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		3CF8B44724A9CBA300D6C11C /* PinPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +86,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3CEB643624CEC742004D8C3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CEB643B24CEC742004D8C3C /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3CF8B44424A9CBA300D6C11C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -103,10 +146,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3CEB643C24CEC742004D8C3C /* PinPhotoExtension */ = {
+			isa = PBXGroup;
+			children = (
+				3CEB644B24CEC80E004D8C3C /* PinPhotoExtension.entitlements */,
+				3CEB643D24CEC742004D8C3C /* TodayViewController.swift */,
+				3CEB643F24CEC742004D8C3C /* MainInterface.storyboard */,
+				3CEB644224CEC742004D8C3C /* Info.plist */,
+			);
+			path = PinPhotoExtension;
+			sourceTree = "<group>";
+		};
 		3CF8B43E24A9CBA300D6C11C = {
 			isa = PBXGroup;
 			children = (
 				3CF8B44924A9CBA300D6C11C /* PinPhoto */,
+				3CEB643C24CEC742004D8C3C /* PinPhotoExtension */,
 				3CF8B44824A9CBA300D6C11C /* Products */,
 				309399C368E69F88FF9A34D3 /* Pods */,
 				FF87DE9F94AF38898587A269 /* Frameworks */,
@@ -117,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				3CF8B44724A9CBA300D6C11C /* PinPhoto.app */,
+				3CEB643924CEC742004D8C3C /* PinPhotoExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,6 +180,7 @@
 		3CF8B44924A9CBA300D6C11C /* PinPhoto */ = {
 			isa = PBXGroup;
 			children = (
+				3CEB644A24CEC805004D8C3C /* PinPhoto.entitlements */,
 				3CF8B45024A9CBA300D6C11C /* Main.storyboard */,
 				3CF8B45524A9CBA700D6C11C /* LaunchScreen.storyboard */,
 				3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */,
@@ -141,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				0FA523F7E45D6CE0F898D5FD /* Pods_PinPhoto.framework */,
+				3CEB643A24CEC742004D8C3C /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -148,6 +206,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3CEB643824CEC742004D8C3C /* PinPhotoExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CEB644924CEC742004D8C3C /* Build configuration list for PBXNativeTarget "PinPhotoExtension" */;
+			buildPhases = (
+				3CEB643524CEC742004D8C3C /* Sources */,
+				3CEB643624CEC742004D8C3C /* Frameworks */,
+				3CEB643724CEC742004D8C3C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PinPhotoExtension;
+			productName = PinPhotoExtension;
+			productReference = 3CEB643924CEC742004D8C3C /* PinPhotoExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		3CF8B44624A9CBA300D6C11C /* PinPhoto */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3CF8B45B24A9CBA700D6C11C /* Build configuration list for PBXNativeTarget "PinPhoto" */;
@@ -157,10 +232,12 @@
 				3CF8B44424A9CBA300D6C11C /* Frameworks */,
 				3CF8B44524A9CBA300D6C11C /* Resources */,
 				3357F8FB1DA41188368B6724 /* [CP] Embed Pods Frameworks */,
+				3CEB644624CEC742004D8C3C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3CEB644424CEC742004D8C3C /* PBXTargetDependency */,
 			);
 			name = PinPhoto;
 			productName = PinPhoto;
@@ -173,10 +250,13 @@
 		3CF8B43F24A9CBA300D6C11C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "won heo";
 				TargetAttributes = {
+					3CEB643824CEC742004D8C3C = {
+						CreatedOnToolsVersion = 11.6;
+					};
 					3CF8B44624A9CBA300D6C11C = {
 						CreatedOnToolsVersion = 11.5;
 					};
@@ -196,11 +276,20 @@
 			projectRoot = "";
 			targets = (
 				3CF8B44624A9CBA300D6C11C /* PinPhoto */,
+				3CEB643824CEC742004D8C3C /* PinPhotoExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3CEB643724CEC742004D8C3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CEB644124CEC742004D8C3C /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3CF8B44524A9CBA300D6C11C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,6 +345,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3CEB643524CEC742004D8C3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CEB643E24CEC742004D8C3C /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3CF8B44324A9CBA300D6C11C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,7 +375,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3CEB644424CEC742004D8C3C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3CEB643824CEC742004D8C3C /* PinPhotoExtension */;
+			targetProxy = 3CEB644324CEC742004D8C3C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		3CEB643F24CEC742004D8C3C /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3CEB644024CEC742004D8C3C /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		3CF8B45024A9CBA300D6C11C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -298,6 +411,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3CEB644724CEC742004D8C3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PinPhotoExtension/PinPhotoExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HK54HM2TC6;
+				INFOPLIST_FILE = PinPhotoExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3CEB644824CEC742004D8C3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PinPhotoExtension/PinPhotoExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HK54HM2TC6;
+				INFOPLIST_FILE = PinPhotoExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		3CF8B45924A9CBA700D6C11C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -348,7 +503,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -402,7 +557,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -416,10 +571,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AB1AB7809CA550BBE61F7293 /* Pods-PinPhoto.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PinPhoto/PinPhoto.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhoto/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -435,10 +593,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F470BBD50AC3ED7FE3891DC1 /* Pods-PinPhoto.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PinPhoto/PinPhoto.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhoto/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,6 +614,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3CEB644924CEC742004D8C3C /* Build configuration list for PBXNativeTarget "PinPhotoExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CEB644724CEC742004D8C3C /* Debug */,
+				3CEB644824CEC742004D8C3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3CF8B44224A9CBA300D6C11C /* Build configuration list for PBXProject "PinPhoto" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
