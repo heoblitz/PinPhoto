@@ -12,12 +12,16 @@ import NotificationCenter
 class TodayViewController: UIViewController, NCWidgetProviding {
     
     @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var itemImageView: UIImageView!
     
     let itemViewModel = ItemViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.extensionContext?.widgetLargestAvailableDisplayMode = NCWidgetDisplayMode.expanded
+        
+        self.itemViewModel.loadItems()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,9 +29,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 //        defaults?.synchronize()
 //        textLabel.text = defaults?.string(forKey: "test") ?? "not work"
         
-        itemViewModel.loadItems()
-        itemViewModel.printID()
         textLabel.text = "\(itemViewModel.numberOfItems)"
+        
+        let item = itemViewModel.item(at: 0)
+            
+        self.itemImageView.image = itemViewModel.convertDataToImage(data: item.contentImage)
+
     }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
@@ -40,4 +47,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         completionHandler(NCUpdateResult.newData)
     }
     
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+
+        if activeDisplayMode == NCWidgetDisplayMode.compact {
+            //compact
+            self.preferredContentSize = maxSize
+        } else {
+            //extended
+            self.preferredContentSize = CGSize(width: maxSize.width, height: 200)
+        }
+    }
 }

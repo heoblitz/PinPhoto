@@ -23,13 +23,13 @@ class EditTextItemViewController: UIViewController {
         self.saveButton.isEnabled = false
         
         self.inputTextView.layer.backgroundColor = UIColor.white.cgColor
-
+        
         self.inputTextView.layer.masksToBounds = false
         self.inputTextView.layer.shadowColor = UIColor.gray.cgColor
         self.inputTextView.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         self.inputTextView.layer.shadowOpacity = 1.0
         self.inputTextView.layer.shadowRadius = 0.0
-        }
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         self.inputTextView.becomeFirstResponder()
