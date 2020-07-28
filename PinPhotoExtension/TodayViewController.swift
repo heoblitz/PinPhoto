@@ -12,19 +12,24 @@ import NotificationCenter
 class TodayViewController: UIViewController, NCWidgetProviding {
     
     @IBOutlet weak var textLabel: UILabel!
-        
+    
+    let itemViewModel = ItemViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
-        defaults?.synchronize()
-        textLabel.text = defaults?.string(forKey: "test") ?? "not work"
-    }
+//        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
+//        defaults?.synchronize()
+//        textLabel.text = defaults?.string(forKey: "test") ?? "not work"
         
+        itemViewModel.loadItems()
+        itemViewModel.printID()
+        textLabel.text = "\(itemViewModel.numberOfItems)"
+    }
+    
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
         

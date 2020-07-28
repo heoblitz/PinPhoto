@@ -13,16 +13,44 @@ class CoreDataManager {
     static let shared: CoreDataManager = CoreDataManager()
     
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
-    lazy var context = appDelegate?.persistentContainer.viewContext
+    // lazy var context = appDelegate?.persistentContainer.viewContext
     
     let modelName: String = "Item"
+
+    // new code
+    let persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "Item")
+        let storeURL = URL.storeURL(for: "group.com.wonheo.PinPhoto", databaseName: "Pin")
+        container.persistentStoreDescriptions = [NSPersistentStoreDescription(url: storeURL)]
+        
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+
+                /*
+                 Typical reasons for an error here include:
+                 * The parent directory does not exist, cannot be created, or disallows writing.
+                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
+                 * The device is out of space.
+                 * The store could not be migrated to the current model version.
+                 Check the error message to determine what the actual problem was.
+                 */
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        
+        return container
+    }()
+    
+    lazy var context = persistentContainer.viewContext
     
     func getItem() -> [Item] {
         var models: [Item] = []
         
-        guard let context = context else {
-            return models
-        }
+//        guard let context = context else {
+//            return models
+//        }
         
         let idSort = NSSortDescriptor(key: "updateDate", ascending: false)
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: modelName)
@@ -44,9 +72,9 @@ class CoreDataManager {
     func saveItem(contentType: Int64, contentImage: Data?,
                   contentText: String?, updateDate: Date, id: Int64) {
         // id: [String]?
-        guard let context = context else {
-            return
-        }
+//        guard let context = context else {
+//            return
+//        }
         guard let entity = NSEntityDescription.entity(forEntityName: modelName, in: context) else {
             return
         }
@@ -69,9 +97,9 @@ class CoreDataManager {
         let fetchRequest = filteredRequest(id: id)
         
         do {
-            if let results: [Item] = try context?.fetch(fetchRequest) as? [Item] {
+            if let results: [Item] = try context.fetch(fetchRequest) as? [Item] {
                 if results.count != 0 {
-                    context?.delete(results[0])
+                    context.delete(results[0])
                 }
             }
         } catch let error as NSError {
@@ -88,8 +116,8 @@ class CoreDataManager {
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
 
         do {
-            try context?.execute(deleteRequest)
-            try context?.save()
+            try context.execute(deleteRequest)
+            try context.save()
         } catch let error as NSError {
              print("---> destructiveAllItem")
             print("could not excute \(error) \(error.userInfo)")
@@ -107,7 +135,7 @@ extension CoreDataManager {
     
     fileprivate func contextSave(onSuccess: ((Bool) -> Void)) {
         do {
-            try context?.save()
+            try context.save()
             onSuccess(true)
         } catch let error as NSError {
             print("Could not save🥶: \(error), \(error.userInfo)")
