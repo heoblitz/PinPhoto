@@ -33,37 +33,36 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hd1-In-oMU">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <color key="backgroundColor" systemColor="quaternarySystemFillColor" red="0.4549019608" green="0.4549019608" blue="0.50196078430000002" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4sG-Gg-ymz">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                 </imageView>
-                                                <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5u2-cK-4d5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
                                                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cYG-1S-02Z">
                                                     <rect key="frame" x="95" y="102" width="25" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="5u2-cK-4d5" secondAttribute="trailing" id="Gzg-Qv-4Nn"/>
+                                                <constraint firstAttribute="trailing" secondItem="hd1-In-oMU" secondAttribute="trailing" id="2AJ-OR-TaA"/>
                                                 <constraint firstAttribute="bottom" secondItem="4sG-Gg-ymz" secondAttribute="bottom" id="Hhm-UU-kjg"/>
                                                 <constraint firstItem="4sG-Gg-ymz" firstAttribute="top" secondItem="HHq-j1-gzT" secondAttribute="top" id="IIb-pV-w97"/>
                                                 <constraint firstItem="4sG-Gg-ymz" firstAttribute="leading" secondItem="HHq-j1-gzT" secondAttribute="leading" id="JBN-bF-LDP"/>
-                                                <constraint firstItem="5u2-cK-4d5" firstAttribute="top" secondItem="HHq-j1-gzT" secondAttribute="top" id="NVt-U0-Jup"/>
-                                                <constraint firstAttribute="bottom" secondItem="5u2-cK-4d5" secondAttribute="bottom" id="fcu-7O-VsJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="hd1-In-oMU" secondAttribute="bottom" id="Zll-Om-Mql"/>
+                                                <constraint firstItem="hd1-In-oMU" firstAttribute="top" secondItem="HHq-j1-gzT" secondAttribute="top" id="kL2-VS-zsw"/>
                                                 <constraint firstAttribute="trailing" secondItem="4sG-Gg-ymz" secondAttribute="trailing" id="lFm-pt-hH5"/>
-                                                <constraint firstItem="5u2-cK-4d5" firstAttribute="leading" secondItem="HHq-j1-gzT" secondAttribute="leading" id="v6f-8l-Eaa"/>
+                                                <constraint firstItem="hd1-In-oMU" firstAttribute="leading" secondItem="HHq-j1-gzT" secondAttribute="leading" id="yjF-sO-0CP"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="checkImage" destination="cYG-1S-02Z" id="bQ7-Ck-GaA"/>
-                                            <outlet property="itemImage" destination="4sG-Gg-ymz" id="5Du-GD-iei"/>
-                                            <outlet property="itemText" destination="5u2-cK-4d5" id="gfG-2P-vmb"/>
+                                            <outlet property="checkImageView" destination="cYG-1S-02Z" id="CFb-Ov-hal"/>
+                                            <outlet property="itemImageView" destination="4sG-Gg-ymz" id="LIy-Xf-rNA"/>
+                                            <outlet property="itemTextLabel" destination="hd1-In-oMU" id="SVm-Fr-b3Y"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="textItemCell" id="cOS-9S-KOn">
@@ -122,7 +121,7 @@
                         <outlet property="itemCollectionView" destination="kuA-Jh-zPF" id="ZY8-Ud-N6j"/>
                         <outlet property="toolbar" destination="4hm-ei-7cm" id="qB4-Jl-kBg"/>
                         <segue destination="rAM-Ny-c0b" kind="presentation" identifier="editText" id="LLw-ul-TGc"/>
-                        <segue destination="bR0-Bu-AHs" kind="presentation" id="1pc-wq-sFs"/>
+                        <segue destination="bR0-Bu-AHs" kind="presentation" identifier="viewItem" id="1pc-wq-sFs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -177,6 +176,7 @@
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fB9-6d-l5J">
                                 <rect key="frame" x="10" y="70" width="394" height="38"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="XFD-gU-IGR"/>
                                 </constraints>
@@ -193,6 +193,7 @@
                             <constraint firstItem="fB9-6d-l5J" firstAttribute="leading" secondItem="Jh0-oi-pvd" secondAttribute="leading" constant="10" id="dxo-Ah-ryt"/>
                             <constraint firstItem="Jh0-oi-pvd" firstAttribute="trailing" secondItem="6ww-fh-90j" secondAttribute="trailing" constant="20" id="jby-Mz-gwI"/>
                             <constraint firstItem="Jh0-oi-pvd" firstAttribute="trailing" secondItem="fB9-6d-l5J" secondAttribute="trailing" constant="10" id="r35-Yw-sgj"/>
+                            <constraint firstItem="6ww-fh-90j" firstAttribute="leading" relation="lessThanOrEqual" secondItem="R3Z-zu-Lcq" secondAttribute="trailing" constant="269" id="ssR-QO-5Zk"/>
                             <constraint firstItem="R3Z-zu-Lcq" firstAttribute="leading" secondItem="Jh0-oi-pvd" secondAttribute="leading" constant="20" id="vt2-mN-34p"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jh0-oi-pvd"/>
@@ -205,31 +206,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9h3-Bk-9cO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3005.7971014492755" y="855.80357142857144"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="mKh-sr-z66">
-            <objects>
-                <viewController id="1iD-ho-9r2" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yGV-r4-Dbj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qex-Vs-Cl1">
-                                <rect key="frame" x="123" y="343" width="131" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                </segments>
-                            </segmentedControl>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="U2i-P1-PeW"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="poA-0D-JAz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4377" y="129"/>
         </scene>
         <!--사진 콕-->
         <scene sceneID="MsN-W6-rvn">

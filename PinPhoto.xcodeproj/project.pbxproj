@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C070A9024D26F670077C3AE /* ExtensionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C070A8F24D26F670077C3AE /* ExtensionItemCell.swift */; };
+		3C070A9224D2E7D40077C3AE /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C070A9124D2E7D40077C3AE /* UITextViewExtension.swift */; };
 		3C21CC0724BEDC10004BEAF0 /* EditTextItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C21CC0624BEDC10004BEAF0 /* EditTextItemViewController.swift */; };
 		3C3ACC9024BB558B00311F7A /* Item.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC8E24BB558B00311F7A /* Item.xcdatamodeld */; };
 		3C3ACC9624BB5BD600311F7A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9524BB5BD600311F7A /* CoreDataManager.swift */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		0FA523F7E45D6CE0F898D5FD /* Pods_PinPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C070A8F24D26F670077C3AE /* ExtensionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionItemCell.swift; sourceTree = "<group>"; };
+		3C070A9124D2E7D40077C3AE /* UITextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
 		3C21CC0624BEDC10004BEAF0 /* EditTextItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextItemViewController.swift; sourceTree = "<group>"; };
 		3C3ACC8F24BB558B00311F7A /* Item.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Item.xcdatamodel; sourceTree = "<group>"; };
 		3C3ACC9524BB5BD600311F7A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				3CEB644B24CEC80E004D8C3C /* PinPhotoExtension.entitlements */,
 				3CEB643D24CEC742004D8C3C /* TodayViewController.swift */,
 				3C070A8F24D26F670077C3AE /* ExtensionItemCell.swift */,
+				3C070A9124D2E7D40077C3AE /* UITextViewExtension.swift */,
 				3CEB643F24CEC742004D8C3C /* MainInterface.storyboard */,
 				3CEB644224CEC742004D8C3C /* Info.plist */,
 				3CC13F4A24CFCD7F00726E51 /* CoreDataManager.swift */,
@@ -379,6 +382,7 @@
 				3C070A9024D26F670077C3AE /* ExtensionItemCell.swift in Sources */,
 				3CC13F4F24CFD05000726E51 /* ItemViewModel.swift in Sources */,
 				3CEB643E24CEC742004D8C3C /* TodayViewController.swift in Sources */,
+				3C070A9224D2E7D40077C3AE /* UITextViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

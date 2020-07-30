@@ -17,22 +17,31 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet private weak var nextButton: UIButton!
     @IBOutlet private weak var prevButton: UIButton!
     
+    @IBOutlet private weak var nextButtonImageView: UIImageView!
+    @IBOutlet private weak var prevButtonImageView: UIImageView!
+
     private let itemViewModel = ItemViewModel()
 
     private var shouldContentAppear: Bool = false {
         didSet {
             if shouldContentAppear {
                 itemCollectionView.isHidden = false
+                nextButtonImageView.isHidden = false
+                prevButtonImageView.isHidden = false
                 pageControl.isHidden = false
-                nextButton.isHidden = false
-                prevButton.isHidden = false
+                
                 noticeLabel.isHidden = true
+                nextButton.isEnabled = true
+                prevButton.isEnabled = true
             } else {
                 itemCollectionView.isHidden = true
+                nextButtonImageView.isHidden = true
+                prevButtonImageView.isHidden = true
                 pageControl.isHidden = true
-                nextButton.isHidden = true
-                prevButton.isHidden = true
+                
                 noticeLabel.isHidden = false
+                nextButton.isEnabled = false
+                prevButton.isEnabled = false
             }
         }
     }
@@ -44,14 +53,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         self.itemViewModel.loadItems()
         
         self.pageControl.numberOfPages = self.itemViewModel.numberOfItems
-        self.prevButton.layer.opacity = 0.5
-        self.nextButton.layer.opacity = 0.5
+        self.nextButtonImageView.layer.opacity = 0.5
+        self.prevButtonImageView.layer.opacity = 0.5
                 
         self.itemCollectionView.dataSource = self
         self.itemCollectionView.delegate = self
     }
         
     override func viewWillAppear(_ animated: Bool) {
+        self.itemCollectionView.reloadData()
+        
         if let index = getIndexPath(), index <= self.itemViewModel.numberOfItems {
             self.pageControl.currentPage = index
             self.itemCollectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: false)
@@ -125,7 +136,16 @@ extension TodayViewController: UICollectionViewDataSource {
         }
         let item = itemViewModel.item(at: indexPath.item)
         
-        cell.contentImageView.image = itemViewModel.convertDataToImage(data: item.contentImage)
+        switch item.contentType {
+        case 0:
+            cell.itemtype = "image"
+            cell.contentImageView.image = itemViewModel.convertDataToImage(data: item.contentImage)
+        case 1:
+            cell.itemtype = "text"
+            cell.contentTextLabel.text = item.contentText
+        default:
+            break
+        }
         
         return cell
     }

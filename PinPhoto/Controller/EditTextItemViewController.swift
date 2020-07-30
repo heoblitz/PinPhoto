@@ -22,8 +22,7 @@ class EditTextItemViewController: UIViewController {
         self.inputTextView.isScrollEnabled = false
         self.saveButton.isEnabled = false
         
-        self.inputTextView.layer.backgroundColor = UIColor.white.cgColor
-        
+        self.inputTextView.layer.backgroundColor = UIColor.systemBackground.cgColor
         self.inputTextView.layer.masksToBounds = false
         self.inputTextView.layer.shadowColor = UIColor.gray.cgColor
         self.inputTextView.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)

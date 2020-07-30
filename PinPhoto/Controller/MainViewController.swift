@@ -178,12 +178,12 @@ extension MainViewController: UICollectionViewDataSource {
         case 0:
             let imageData = itemInfo.contentImage
             cell.itemtype = "image"
-            cell.itemImage?.contentMode = .scaleAspectFill
-            cell.itemImage?.image = itemViewModel.convertDataToImage(data: imageData)
+            cell.itemImageView?.contentMode = .scaleAspectFill
+            cell.itemImageView?.image = itemViewModel.convertDataToImage(data: imageData)
             return cell
         case 1:
             cell.itemtype = "text"
-            cell.itemText.text = itemInfo.contentText
+            cell.itemTextLabel.text = itemInfo.contentText
             return cell
         default:
             return cell

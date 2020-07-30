@@ -9,19 +9,19 @@
 import UIKit
 
 class ItemCustomCell: UICollectionViewCell {
-    @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var itemText: UITextView!
-    @IBOutlet weak var checkImage: UIImageView!
+    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var itemTextLabel: UILabel!
+    @IBOutlet weak var checkImageView: UIImageView!
     
     var itemtype: String = "image" {
         didSet {
             switch self.itemtype {
             case "image":
-                itemText.isHidden = true
-                itemImage.isHidden = false
+                itemTextLabel.isHidden = true
+                itemImageView.isHidden = false
             case "text":
-                itemText.isHidden = false
-                itemImage.isHidden = true
+                itemTextLabel.isHidden = false
+                itemImageView.isHidden = true
             default:
                 break
             }
@@ -31,14 +31,13 @@ class ItemCustomCell: UICollectionViewCell {
     var isSelectedForRemove: Bool = false {
         didSet {
             if isSelectedForRemove {
-                checkImage.isHidden = false
-                itemImage.alpha = 0.5
-                itemText.alpha = 0.5
+                checkImageView.isHidden = false
+                itemImageView.alpha = 0.5
+                itemTextLabel.alpha = 0.5
             } else {
-                checkImage.isHidden = true
-                itemText.alpha = 1
-                //itemImage.layer.borderWidth = 0
-                itemImage.alpha = 1
+                checkImageView.isHidden = true
+                itemTextLabel.alpha = 1
+                itemImageView.alpha = 1
             }
         }
     }
