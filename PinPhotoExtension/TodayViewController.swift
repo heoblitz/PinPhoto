@@ -10,31 +10,56 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
+    @IBOutlet private weak var itemCollectionView: UICollectionView!
+    @IBOutlet private weak var noticeLabel: UILabel!
     
-    @IBOutlet weak var textLabel: UILabel!
-    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet private weak var pageControl: UIPageControl!
+    @IBOutlet private weak var nextButton: UIButton!
+    @IBOutlet private weak var prevButton: UIButton!
     
-    let itemViewModel = ItemViewModel()
+    private let itemViewModel = ItemViewModel()
+
+    private var shouldContentAppear: Bool = false {
+        didSet {
+            if shouldContentAppear {
+                itemCollectionView.isHidden = false
+                pageControl.isHidden = false
+                nextButton.isHidden = false
+                prevButton.isHidden = false
+                noticeLabel.isHidden = true
+            } else {
+                itemCollectionView.isHidden = true
+                pageControl.isHidden = true
+                nextButton.isHidden = true
+                prevButton.isHidden = true
+                noticeLabel.isHidden = false
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.extensionContext?.widgetLargestAvailableDisplayMode = NCWidgetDisplayMode.expanded
-        
         self.itemViewModel.loadItems()
+        
+        self.pageControl.numberOfPages = self.itemViewModel.numberOfItems
+        self.prevButton.layer.opacity = 0.5
+        self.nextButton.layer.opacity = 0.5
+                
+        self.itemCollectionView.dataSource = self
+        self.itemCollectionView.delegate = self
     }
-    
+        
     override func viewWillAppear(_ animated: Bool) {
-//        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
-//        defaults?.synchronize()
-//        textLabel.text = defaults?.string(forKey: "test") ?? "not work"
-        
-        textLabel.text = "\(itemViewModel.numberOfItems)"
-        
-        let item = itemViewModel.item(at: 0)
-            
-        self.itemImageView.image = itemViewModel.convertDataToImage(data: item.contentImage)
-
+        if let index = getIndexPath(), index <= self.itemViewModel.numberOfItems {
+            self.pageControl.currentPage = index
+            self.itemCollectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: false)
+        } else {
+            let index = self.itemViewModel.numberOfItems
+            self.pageControl.currentPage = index
+            self.itemCollectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: false)
+        }
     }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
@@ -48,13 +73,69 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
-
         if activeDisplayMode == NCWidgetDisplayMode.compact {
             //compact
             self.preferredContentSize = maxSize
+            shouldContentAppear = false
+
         } else {
             //extended
-            self.preferredContentSize = CGSize(width: maxSize.width, height: 200)
+            self.preferredContentSize = CGSize(width: maxSize.width, height: 300)
+            shouldContentAppear = true
         }
+    }
+    
+    func saveIndexPath(at index: Int) {
+        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
+        defaults?.set(index, forKey: "indexPath")
+    }
+    
+    func getIndexPath() -> Int? {
+        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
+        return defaults?.integer(forKey: "indexPath")
+    }
+    
+    @IBAction func nextButtonTapped(_ sender: UIButton) {
+        let nextIndex = min(pageControl.currentPage + 1, pageControl.numberOfPages - 1)
+        let indexPath = IndexPath(item: nextIndex, section: 0)
+        
+        pageControl.currentPage = nextIndex
+        itemCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        saveIndexPath(at: nextIndex)
+    }
+    
+    @IBAction func prevButtonTapped(_ sender: UIButton) {
+        let prevIndex = max(pageControl.currentPage - 1, 0)
+        let indexPath = IndexPath(item: prevIndex, section: 0)
+        
+        pageControl.currentPage = prevIndex
+        itemCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        saveIndexPath(at: prevIndex)
+    }
+}
+
+extension TodayViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return itemViewModel.numberOfItems
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ExtensionItemCell else {
+            return UICollectionViewCell()
+        }
+        let item = itemViewModel.item(at: indexPath.item)
+        
+        cell.contentImageView.image = itemViewModel.convertDataToImage(data: item.contentImage)
+        
+        return cell
+    }
+}
+
+extension TodayViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = itemCollectionView.bounds.width
+        let height = itemCollectionView.bounds.height
+        
+        return CGSize(width: width, height: height)
     }
 }

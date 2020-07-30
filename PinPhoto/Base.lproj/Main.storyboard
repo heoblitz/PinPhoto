@@ -281,10 +281,10 @@
             </objects>
             <point key="canvasLocation" x="1042" y="877"/>
         </scene>
-        <!--Main Tab Bar Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="JUY-3R-qXq">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="tH9-MQ-v7D" customClass="MainTabBarController" customModule="PinPhoto" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="tH9-MQ-v7D" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GmY-cP-y6Z">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

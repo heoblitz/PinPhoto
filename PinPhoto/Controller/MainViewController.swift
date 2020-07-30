@@ -67,7 +67,7 @@ class MainViewController: UIViewController {
     
     func presentImagePikcer() {
         let imagePicker = ImagePickerController()
-        let imageWidth = itemCollectionView.bounds.width
+        let imageWidth = itemCollectionView.bounds.height
         let imageSize = CGSize(width: imageWidth, height: imageWidth)
         
         let option = PHImageRequestOptions()
