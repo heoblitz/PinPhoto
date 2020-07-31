@@ -75,4 +75,8 @@ class ItemViewModel {
             return nil
         }
     }
+    
+    func registerObserver(_ target: ItemObserver) {
+        shared.addObserver(target)
+    }
 }

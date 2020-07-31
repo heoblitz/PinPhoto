@@ -11,6 +11,7 @@ import CoreData
 
 class CoreDataManager {
     static let shared: CoreDataManager = CoreDataManager()
+    var itemObservers: [ItemObserver] = []
     
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     // lazy var context = appDelegate?.persistentContainer.viewContext
@@ -56,10 +57,12 @@ class CoreDataManager {
         do {
             if let fetchResult = try context.fetch(fetchRequest) as? [Item] {
                 models = fetchResult
+                self.noticeUpdate()
             }
         } catch let error as NSError {
             print("---> getItem")
             print("could not fetch \(error) \(error.userInfo)")
+            self.noticeError(error)
         }
         
         return models
@@ -79,8 +82,8 @@ class CoreDataManager {
             item.id = id
         
             contextSave { success in
-                print("---> saveItem")
-                print(success)
+                print("---> CoreData save \(success)")
+                self.noticeUpdate()
             }
         }
     }
@@ -96,10 +99,12 @@ class CoreDataManager {
             }
         } catch let error as NSError {
             print("could not fetch \(error) \(error.userInfo)")
+            self.noticeError(error)
         }
         
         contextSave { success in
             print("---> coreData remove \(success)")
+            self.noticeUpdate()
         }
     }
     
@@ -118,10 +123,12 @@ class CoreDataManager {
             }
         } catch let error as NSError {
             print("could not fetch \(error) \(error.userInfo)")
+            self.noticeError(error)
         }
         
         contextSave { success in
             print("---> coreData edit \(success)")
+            self.noticeUpdate()
         }
     }
     
@@ -132,9 +139,28 @@ class CoreDataManager {
         do {
             try context.execute(deleteRequest)
             try context.save()
+            self.noticeUpdate()
         } catch let error as NSError {
-             print("---> destructiveAllItem")
+            print("---> destructiveAllItem")
             print("could not excute \(error) \(error.userInfo)")
+            self.noticeError(error)
+        }
+    }
+    
+    func addObserver(_ target: ItemObserver) {
+        itemObservers.append(target)
+    }
+    
+    func noticeUpdate() {
+        print("update")
+        for observer in itemObservers {
+            observer.updateItem()
+        }
+    }
+    
+    func noticeError(_ error: Error) {
+        for observer in itemObservers {
+            observer.errorItem(error)
         }
     }
 }

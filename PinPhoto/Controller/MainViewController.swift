@@ -38,9 +38,9 @@ class MainViewController: UIViewController {
     private var itemCounts: Int = 0 {
         didSet {
             if itemCounts > 0 {
-                self.noticeView.isHidden = false
-            } else {
                 self.noticeView.isHidden = true
+            } else {
+                self.noticeView.isHidden = false
             }
         }
     }
@@ -56,13 +56,16 @@ class MainViewController: UIViewController {
         self.noticeView.layer.opacity = 0.8
         self.noticeView.layer.cornerRadius = 5
         
+        self.itemViewModel.loadItems()
+        self.itemViewModel.registerObserver(self)
+        self.itemCounts = itemViewModel.numberOfItems
+        
         self.tabBarController?.tabBar.isHidden = false
         self.toolbar.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.itemViewModel.loadItems()
-        self.itemCollectionView.reloadData()
+        print(itemCounts)
     }
 
     // MARK:- Methods
@@ -254,5 +257,29 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         let height = itemCollectionView.bounds.width / 3.1
         
         return CGSize(width: width, height: height)
+    }
+}
+
+extension MainViewController: ItemObserver {
+    func updateItem() {
+        guard let itemCollectionView = itemCollectionView else {
+            return
+        }
+        
+        OperationQueue.main.addOperation {
+            self.itemViewModel.loadItems()
+            self.itemCounts = self.itemViewModel.numberOfItems
+            itemCollectionView.reloadData()
+        }
+    }
+    
+    func errorItem(_ error: Error) {
+        OperationQueue.main.addOperation {
+            let alert = UIAlertController(title: "알림", message: error.localizedDescription, preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "확인", style: .default, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true)
+        }
     }
 }
