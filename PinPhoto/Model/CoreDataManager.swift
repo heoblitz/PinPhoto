@@ -103,6 +103,28 @@ class CoreDataManager {
         }
     }
     
+    func editItem(contentType: Int64, contentImage: Data?,
+                  contentText: String?, updateDate: Date, id: Int64) {
+        let fetchRequest = filteredRequest(id: id)
+        
+        do {
+            if let results: [Item] = try context.fetch(fetchRequest) as? [Item] {
+                if results.count != 0 {
+                    results[0].setValue(contentType, forKey: "contentType")
+                    results[0].setValue(contentImage, forKey: "contentImage")
+                    results[0].setValue(contentText, forKey: "contentText")
+                    results[0].setValue(updateDate, forKey: "updateDate")
+                }
+            }
+        } catch let error as NSError {
+            print("could not fetch \(error) \(error.userInfo)")
+        }
+        
+        contextSave { success in
+            print("---> coreData edit \(success)")
+        }
+    }
+    
     func destructiveAllItem() {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: modelName)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)

@@ -212,7 +212,7 @@ extension MainViewController: UICollectionViewDelegate {
                     return
                 }
                 vc.item = item
-                    
+                vc.itemViewModel = itemViewModel
                 navigationController?.pushViewController(vc, animated: true)
             case "image":
                 break

@@ -32,6 +32,10 @@ class ItemViewModel {
         shared.saveItem(contentType: content, contentImage: image, contentText: text, updateDate: date, id: id)
     }
     
+    func edit(content: Int64, image: Data?, text: String?, date: Date, id: Int64) {
+         shared.editItem(contentType: content, contentImage: image, contentText: text, updateDate: date, id: id)
+    }
+    
     func convertImageToData(image: UIImage?) -> Data? {
         guard let image = image else {
             return nil

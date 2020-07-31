@@ -90,18 +90,18 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S9f-WQ-K8a">
-                                <rect key="frame" x="270" y="44" width="50" height="256"/>
+                                <rect key="frame" x="240" y="44" width="80" height="256"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="3L5-kF-TnD"/>
+                                    <constraint firstAttribute="width" constant="80" id="3L5-kF-TnD"/>
                                 </constraints>
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="ZBZ-Xu-UoH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WbG-SL-BvP">
-                                <rect key="frame" x="0.0" y="44" width="50" height="256"/>
+                                <rect key="frame" x="0.0" y="44" width="80" height="256"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="ZGq-HV-DGX"/>
+                                    <constraint firstAttribute="width" constant="80" id="ZGq-HV-DGX"/>
                                 </constraints>
                                 <connections>
                                     <action selector="prevButtonTapped:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="tC6-Ak-a4B"/>

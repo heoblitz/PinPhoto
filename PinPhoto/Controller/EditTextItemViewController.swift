@@ -14,6 +14,7 @@ class EditTextItemViewController: UIViewController {
     @IBOutlet private weak var saveButton: UIBarButtonItem!
     
     static let storyboardIdentifier: String = "editTextItem"
+    var itemViewModel: ItemViewModel?
     var item: Item?
     
     override func viewDidLoad() {
@@ -32,7 +33,11 @@ class EditTextItemViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        if let item = item {
+            itemViewModel?.edit(content: item.contentType, image: nil, text: itemTextView.text, date: item.updateDate, id: item.id)
+        }
         
+        navigationController?.popToRootViewController(animated: true)
     }
     
     func setTextViewSize() {
@@ -49,6 +54,12 @@ class EditTextItemViewController: UIViewController {
 
 extension EditTextItemViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
+        if textView.text.isEmpty, textView.text == "" {
+            saveButton.isEnabled = false
+        } else {
+            saveButton.isEnabled = true
+        }
+        
         let size = CGSize(width: view.frame.width, height: .infinity)
         let estimatedSize = textView.sizeThatFits(size)
         
