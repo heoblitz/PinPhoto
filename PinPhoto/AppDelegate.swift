@@ -11,7 +11,6 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     // MARK: - CoreData
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Item") // 여기는 파일명을 적어줘요.

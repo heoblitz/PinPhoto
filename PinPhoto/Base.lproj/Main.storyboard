@@ -120,33 +120,61 @@
                         <outlet property="deleteButton" destination="ehL-js-gt2" id="uzT-qj-6DC"/>
                         <outlet property="itemCollectionView" destination="kuA-Jh-zPF" id="ZY8-Ud-N6j"/>
                         <outlet property="toolbar" destination="4hm-ei-7cm" id="qB4-Jl-kBg"/>
-                        <segue destination="rAM-Ny-c0b" kind="presentation" identifier="editText" id="LLw-ul-TGc"/>
-                        <segue destination="bR0-Bu-AHs" kind="presentation" identifier="viewItem" id="1pc-wq-sFs"/>
+                        <segue destination="rAM-Ny-c0b" kind="presentation" identifier="createTextItem" id="LLw-ul-TGc"/>
+                        <segue destination="bR0-Bu-AHs" kind="show" identifier="editTextItem" id="1pc-wq-sFs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1952.1739130434785" y="128.57142857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Text Item View Controller-->
         <scene sceneID="hUu-Yf-gqx">
             <objects>
-                <viewController id="bR0-Bu-AHs" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editTextItem" id="bR0-Bu-AHs" customClass="EditTextItemViewController" customModule="PinPhoto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lnq-1q-UvQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gW1-KB-Ehs">
+                                <rect key="frame" x="10" y="108" width="394" height="38"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="BXe-8f-01P"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gW1-KB-Ehs" firstAttribute="top" secondItem="w0S-pB-91j" secondAttribute="top" constant="20" id="AYU-V7-yZZ"/>
+                            <constraint firstItem="w0S-pB-91j" firstAttribute="trailing" secondItem="gW1-KB-Ehs" secondAttribute="trailing" constant="10" id="Gak-hV-Nzk"/>
+                            <constraint firstItem="gW1-KB-Ehs" firstAttribute="leading" secondItem="w0S-pB-91j" secondAttribute="leading" constant="10" id="wA4-X1-gth"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="w0S-pB-91j"/>
                     </view>
+                    <navigationItem key="navigationItem" id="sBK-kx-knt">
+                        <barButtonItem key="rightBarButtonItem" title="저장하기" id="uax-z8-tlh">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="bR0-Bu-AHs" id="sQ4-NS-xlq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="itemTextView" destination="gW1-KB-Ehs" id="0XN-3g-ow1"/>
+                        <outlet property="saveButton" destination="uax-z8-tlh" id="yvu-wS-ykE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jLQ-MK-DzV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3006" y="129"/>
         </scene>
-        <!--Edit Text Item View Controller-->
+        <!--Create Text Item View Controller-->
         <scene sceneID="BXA-TK-Cdz">
             <objects>
-                <viewController storyboardIdentifier="addTextItemViewController" id="rAM-Ny-c0b" customClass="EditTextItemViewController" customModule="PinPhoto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="createTextItem" id="rAM-Ny-c0b" customClass="CreateTextItemViewController" customModule="PinPhoto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZCP-v7-ahn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -286,6 +314,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Df3-7m-WJ0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vPP-Ep-GQQ">

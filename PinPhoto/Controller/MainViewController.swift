@@ -17,13 +17,13 @@ class MainViewController: UIViewController {
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     
     // MARK:- Propertises
-    let imageManager = PHImageManager()
-    let itemViewModel = ItemViewModel()
+    private let imageManager = PHImageManager()
+    private let itemViewModel = ItemViewModel()
     
-    var feedbackGenerator: UIFeedbackGenerator?
-    var isEditMode: Bool = false
+    private var feedbackGenerator: UIFeedbackGenerator?
+    private var isEditMode: Bool = false
 
-    var testSelectedCell: [IndexPath:Int64] = [:] {
+    private var testSelectedCell: [IndexPath:Int64] = [:] {
         didSet {
             if testSelectedCell.count > 0 {
                 self.deleteButton.isEnabled = true
@@ -58,14 +58,14 @@ class MainViewController: UIViewController {
     }
     
     // MARK:- Methods
-    func deselectCells() {
+    private func deselectCells() {
         testSelectedCell.forEach { indexPath, _ in
             let cell = self.itemCollectionView.cellForItem(at: indexPath) as? ItemCustomCell
             cell?.isSelectedForRemove = false
         }
     }
     
-    func presentImagePikcer() {
+    private func presentImagePikcer() {
         let imagePicker = ImagePickerController()
         let imageWidth = itemCollectionView.bounds.height
         let imageSize = CGSize(width: imageWidth, height: imageWidth)
@@ -99,8 +99,8 @@ class MainViewController: UIViewController {
         })
     }
     
-    func presentaddTextItem() {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "addTextItemViewController") as? EditTextItemViewController else {
+    private func presentaddTextItem() {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: CreateTextItemViewController.storyboardIdentifier) as? CreateTextItemViewController else {
             return
         }
         vc.itemViewModel = itemViewModel
@@ -198,17 +198,26 @@ extension MainViewController: UICollectionViewDelegate {
             return
         }
         
+        let item = itemViewModel.item(at: indexPath.item)
+        
         if isEditMode {
-            let item = itemViewModel.item(at: indexPath.item)
+            // let item = itemViewModel.item(at: indexPath.item)
             testSelectedCell[indexPath] = item.id
             
             cell.isSelectedForRemove = true
         } else {
-            if cell.itemtype == "text" {
-                guard let vc = storyboard?.instantiateViewController(withIdentifier: "addTextItemViewController") else {
+            switch cell.itemtype {
+            case "text":
+                guard let vc = storyboard?.instantiateViewController(withIdentifier: EditTextItemViewController.storyboardIdentifier) as? EditTextItemViewController else {
                     return
                 }
+                vc.item = item
+                    
                 navigationController?.pushViewController(vc, animated: true)
+            case "image":
+                break
+            default:
+                break
             }
         }
     }

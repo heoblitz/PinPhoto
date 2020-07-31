@@ -48,10 +48,6 @@ class CoreDataManager {
     func getItem() -> [Item] {
         var models: [Item] = []
         
-//        guard let context = context else {
-//            return models
-//        }
-        
         let idSort = NSSortDescriptor(key: "updateDate", ascending: false)
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: modelName)
         
@@ -71,10 +67,6 @@ class CoreDataManager {
     
     func saveItem(contentType: Int64, contentImage: Data?,
                   contentText: String?, updateDate: Date, id: Int64) {
-        // id: [String]?
-//        guard let context = context else {
-//            return
-//        }
         guard let entity = NSEntityDescription.entity(forEntityName: modelName, in: context) else {
             return
         }
