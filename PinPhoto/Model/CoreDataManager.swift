@@ -57,7 +57,6 @@ class CoreDataManager {
         do {
             if let fetchResult = try context.fetch(fetchRequest) as? [Item] {
                 models = fetchResult
-                self.noticeUpdate()
             }
         } catch let error as NSError {
             print("---> getItem")

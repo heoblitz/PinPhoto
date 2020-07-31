@@ -37,10 +37,10 @@ class MainViewController: UIViewController {
     
     private var itemCounts: Int = 0 {
         didSet {
-            if itemCounts > 0 {
-                self.noticeView.isHidden = true
-            } else {
+            if itemCounts == 0 {
                 self.noticeView.isHidden = false
+            } else {
+                self.noticeView.isHidden = true
             }
         }
     }
@@ -57,9 +57,9 @@ class MainViewController: UIViewController {
         self.noticeView.layer.cornerRadius = 5
         
         self.itemViewModel.loadItems()
-        self.itemViewModel.registerObserver(self)
         self.itemCounts = itemViewModel.numberOfItems
-        
+        self.itemViewModel.registerObserver(self)
+
         self.tabBarController?.tabBar.isHidden = false
         self.toolbar.isHidden = true
     }
@@ -266,20 +266,16 @@ extension MainViewController: ItemObserver {
             return
         }
         
-        OperationQueue.main.addOperation {
-            self.itemViewModel.loadItems()
-            self.itemCounts = self.itemViewModel.numberOfItems
-            itemCollectionView.reloadData()
-        }
+        self.itemViewModel.loadItems()
+        self.itemCounts = self.itemViewModel.numberOfItems
+        itemCollectionView.reloadData()
     }
     
     func errorItem(_ error: Error) {
-        OperationQueue.main.addOperation {
-            let alert = UIAlertController(title: "알림", message: error.localizedDescription, preferredStyle: .alert)
-            
-            let action = UIAlertAction(title: "확인", style: .default, handler: nil)
-            alert.addAction(action)
-            self.present(alert, animated: true)
-        }
+        let alert = UIAlertController(title: "알림", message: error.localizedDescription, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true)
     }
 }
