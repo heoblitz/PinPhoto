@@ -88,7 +88,7 @@
 		3CEB644B24CEC80E004D8C3C /* PinPhotoExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PinPhotoExtension.entitlements; sourceTree = "<group>"; };
 		3CEB644D24CF109A004D8C3C /* URLextension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLextension.swift; sourceTree = "<group>"; };
 		3CF52DF824BF0D6400E7B8D4 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
-		3CF8B44724A9CBA300D6C11C /* 사진 콕.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "사진 콕.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CF8B44724A9CBA300D6C11C /* PinPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CF8B44C24A9CBA300D6C11C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3CF8B45124A9CBA300D6C11C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 		3CF8B44824A9CBA300D6C11C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3CF8B44724A9CBA300D6C11C /* 사진 콕.app */,
+				3CF8B44724A9CBA300D6C11C /* PinPhoto.app */,
 				3CEB643924CEC742004D8C3C /* PinPhotoExtension.appex */,
 			);
 			name = Products;
@@ -293,7 +293,7 @@
 			);
 			name = PinPhoto;
 			productName = PinPhoto;
-			productReference = 3CF8B44724A9CBA300D6C11C /* 사진 콕.app */;
+			productReference = 3CF8B44724A9CBA300D6C11C /* PinPhoto.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -647,7 +647,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto;
-				PRODUCT_NAME = "사진 콕";
+				PRODUCT_NAME = PinPhoto;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -669,7 +669,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto;
-				PRODUCT_NAME = "사진 콕";
+				PRODUCT_NAME = PinPhoto;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
