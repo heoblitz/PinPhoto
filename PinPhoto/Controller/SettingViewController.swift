@@ -99,6 +99,7 @@ extension SettingViewController: UITableViewDelegate {
         case 1:
             if indexPath.item == 0 {
                 alertDestructiveAllItem()
+                tableView.deselectRow(at: indexPath, animated: true)
             }
         default:
             break

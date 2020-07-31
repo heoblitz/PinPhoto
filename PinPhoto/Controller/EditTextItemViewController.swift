@@ -21,6 +21,7 @@ class EditTextItemViewController: UIViewController {
         super.viewDidLoad()
         self.itemTextView.delegate = self
         self.itemTextView.text = item?.contentText
+        self.navigationItem.title = itemViewModel?.creationData(date: item?.updateDate)
         // Do any additional setup after loading the view.
         self.itemTextView.isScrollEnabled = false
         self.itemTextView.layer.masksToBounds = false
@@ -28,7 +29,6 @@ class EditTextItemViewController: UIViewController {
         self.itemTextView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         self.itemTextView.layer.shadowOpacity = 1.0
         self.itemTextView.layer.shadowRadius = 0.0
-        
         self.setTextViewSize()
     }
     

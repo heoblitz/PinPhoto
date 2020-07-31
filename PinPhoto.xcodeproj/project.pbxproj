@@ -10,6 +10,8 @@
 		3C070A9024D26F670077C3AE /* ExtensionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C070A8F24D26F670077C3AE /* ExtensionItemCell.swift */; };
 		3C070A9224D2E7D40077C3AE /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C070A9124D2E7D40077C3AE /* UITextViewExtension.swift */; };
 		3C070A9524D3A4CA0077C3AE /* EditTextItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C070A9424D3A4CA0077C3AE /* EditTextItemViewController.swift */; };
+		3C070A9724D3BAB30077C3AE /* EditImageItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C070A9624D3BAB30077C3AE /* EditImageItemViewController.swift */; };
+		3C070A9824D3E3E90077C3AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45324A9CBA700D6C11C /* Assets.xcassets */; };
 		3C21CC0724BEDC10004BEAF0 /* CreateTextItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C21CC0624BEDC10004BEAF0 /* CreateTextItemViewController.swift */; };
 		3C3ACC9024BB558B00311F7A /* Item.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC8E24BB558B00311F7A /* Item.xcdatamodeld */; };
 		3C3ACC9624BB5BD600311F7A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9524BB5BD600311F7A /* CoreDataManager.swift */; };
@@ -33,7 +35,6 @@
 		3CF8B44B24A9CBA300D6C11C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */; };
 		3CF8B44D24A9CBA300D6C11C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8B44C24A9CBA300D6C11C /* SceneDelegate.swift */; };
 		3CF8B45224A9CBA300D6C11C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45024A9CBA300D6C11C /* Main.storyboard */; };
-		3CF8B45424A9CBA700D6C11C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45324A9CBA700D6C11C /* Assets.xcassets */; };
 		3CF8B45724A9CBA700D6C11C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45524A9CBA700D6C11C /* LaunchScreen.storyboard */; };
 		CB1692998E593C22B791A4EB /* Pods_PinPhoto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA523F7E45D6CE0F898D5FD /* Pods_PinPhoto.framework */; };
 /* End PBXBuildFile section */
@@ -67,6 +68,7 @@
 		3C070A8F24D26F670077C3AE /* ExtensionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionItemCell.swift; sourceTree = "<group>"; };
 		3C070A9124D2E7D40077C3AE /* UITextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
 		3C070A9424D3A4CA0077C3AE /* EditTextItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextItemViewController.swift; sourceTree = "<group>"; };
+		3C070A9624D3BAB30077C3AE /* EditImageItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageItemViewController.swift; sourceTree = "<group>"; };
 		3C21CC0624BEDC10004BEAF0 /* CreateTextItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTextItemViewController.swift; sourceTree = "<group>"; };
 		3C3ACC8F24BB558B00311F7A /* Item.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Item.xcdatamodel; sourceTree = "<group>"; };
 		3C3ACC9524BB5BD600311F7A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -88,7 +90,7 @@
 		3CEB644B24CEC80E004D8C3C /* PinPhotoExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PinPhotoExtension.entitlements; sourceTree = "<group>"; };
 		3CEB644D24CF109A004D8C3C /* URLextension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLextension.swift; sourceTree = "<group>"; };
 		3CF52DF824BF0D6400E7B8D4 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
-		3CF8B44724A9CBA300D6C11C /* PinPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CF8B44724A9CBA300D6C11C /* 사진 콕.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "사진 콕.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CF8B44C24A9CBA300D6C11C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3CF8B45124A9CBA300D6C11C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			children = (
 				3C4D139F24AB716B009BDCDE /* MainViewController.swift */,
 				3C21CC0624BEDC10004BEAF0 /* CreateTextItemViewController.swift */,
+				3C070A9624D3BAB30077C3AE /* EditImageItemViewController.swift */,
 				3C070A9424D3A4CA0077C3AE /* EditTextItemViewController.swift */,
 				3C8AA00F24B05D32005EB75C /* SettingViewController.swift */,
 			);
@@ -199,7 +202,7 @@
 		3CF8B44824A9CBA300D6C11C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3CF8B44724A9CBA300D6C11C /* PinPhoto.app */,
+				3CF8B44724A9CBA300D6C11C /* 사진 콕.app */,
 				3CEB643924CEC742004D8C3C /* PinPhotoExtension.appex */,
 			);
 			name = Products;
@@ -269,7 +272,7 @@
 			);
 			name = PinPhoto;
 			productName = PinPhoto;
-			productReference = 3CF8B44724A9CBA300D6C11C /* PinPhoto.app */;
+			productReference = 3CF8B44724A9CBA300D6C11C /* 사진 콕.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -323,8 +326,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C070A9824D3E3E90077C3AE /* Assets.xcassets in Resources */,
 				3CF8B45724A9CBA700D6C11C /* LaunchScreen.storyboard in Resources */,
-				3CF8B45424A9CBA700D6C11C /* Assets.xcassets in Resources */,
 				3CF8B45224A9CBA300D6C11C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +405,7 @@
 				3C3ACC9A24BB5C2100311F7A /* Item+CoreDataProperties.swift in Sources */,
 				3C070A9524D3A4CA0077C3AE /* EditTextItemViewController.swift in Sources */,
 				3CEB644E24CF109A004D8C3C /* URLextension.swift in Sources */,
+				3C070A9724D3BAB30077C3AE /* EditImageItemViewController.swift in Sources */,
 				3CF8B44B24A9CBA300D6C11C /* AppDelegate.swift in Sources */,
 				3CF8B44D24A9CBA300D6C11C /* SceneDelegate.swift in Sources */,
 				3C4D13A024AB716B009BDCDE /* MainViewController.swift in Sources */,
@@ -463,7 +467,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PinPhotoExtension;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -486,7 +490,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PinPhotoExtension;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -623,7 +627,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "사진 콕";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -645,7 +649,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "사진 콕";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

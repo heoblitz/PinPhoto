@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var itemCollectionView: UICollectionView!
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var deleteButton: UIBarButtonItem!
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
     // MARK:- Propertises
     private let imageManager = PHImageManager()
@@ -41,22 +42,14 @@ class MainViewController: UIViewController {
         self.itemCollectionView.allowsMultipleSelection = true
         
         self.tabBarController?.tabBar.isHidden = false
-        self.deleteButton.isEnabled = false
         self.toolbar.isHidden = true
-        // self.test()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.itemViewModel.loadItems()
         self.itemCollectionView.reloadData()
     }
-    
-    func test() {
-        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
-        defaults?.set("hell world", forKey: "test")
-        defaults?.synchronize()
-    }
-    
+
     // MARK:- Methods
     private func deselectCells() {
         testSelectedCell.forEach { indexPath, _ in
@@ -115,6 +108,8 @@ class MainViewController: UIViewController {
         
         tabBarController?.tabBar.isHidden.toggle()
         toolbar.isHidden.toggle()
+        
+        addButton.isEnabled.toggle()
         isEditMode.toggle()
         deselectCells()
         testSelectedCell = [:]
@@ -215,7 +210,12 @@ extension MainViewController: UICollectionViewDelegate {
                 vc.itemViewModel = itemViewModel
                 navigationController?.pushViewController(vc, animated: true)
             case "image":
-                break
+                guard let vc = storyboard?.instantiateViewController(withIdentifier:          EditImageItemViewController.storyboardIdentifier) as? EditImageItemViewController else {
+                    return
+                }
+                vc.item = item
+                vc.itemViewModel = itemViewModel
+                navigationController?.pushViewController(vc, animated: true)
             default:
                 break
             }

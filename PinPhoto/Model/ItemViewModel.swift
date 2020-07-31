@@ -63,4 +63,16 @@ class ItemViewModel {
             print("----->\(item.contentText ?? "")")
         }
     }
+    
+    func creationData(date: Date?) -> String? {
+        if let date = date {
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "ko_KR")
+            dateFormatter.dateFormat = "YYYY년 MM월 dd일"
+            
+            return dateFormatter.string(from: date)
+        } else {
+            return nil
+        }
+    }
 }
