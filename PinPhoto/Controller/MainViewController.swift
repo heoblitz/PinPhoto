@@ -16,6 +16,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
+    @IBOutlet weak var noticeView: UIView!
     
     // MARK:- Propertises
     private let imageManager = PHImageManager()
@@ -34,12 +35,26 @@ class MainViewController: UIViewController {
         }
     }
     
+    private var itemCounts: Int = 0 {
+        didSet {
+            if itemCounts > 0 {
+                self.noticeView.isHidden = false
+            } else {
+                self.noticeView.isHidden = true
+            }
+        }
+    }
+        
     // MARk:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.itemCollectionView.dataSource = self
         self.itemCollectionView.delegate = self
         self.itemCollectionView.allowsMultipleSelection = true
+        
+        self.noticeView.clipsToBounds = false
+        self.noticeView.layer.opacity = 0.8
+        self.noticeView.layer.cornerRadius = 5
         
         self.tabBarController?.tabBar.isHidden = false
         self.toolbar.isHidden = true

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3C070A9024D26F670077C3AE /* ExtensionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C070A8F24D26F670077C3AE /* ExtensionItemCell.swift */; };
-		3C070A9224D2E7D40077C3AE /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C070A9124D2E7D40077C3AE /* UITextViewExtension.swift */; };
 		3C070A9524D3A4CA0077C3AE /* EditTextItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C070A9424D3A4CA0077C3AE /* EditTextItemViewController.swift */; };
 		3C070A9724D3BAB30077C3AE /* EditImageItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C070A9624D3BAB30077C3AE /* EditImageItemViewController.swift */; };
 		3C070A9824D3E3E90077C3AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45324A9CBA700D6C11C /* Assets.xcassets */; };
@@ -66,7 +65,6 @@
 /* Begin PBXFileReference section */
 		0FA523F7E45D6CE0F898D5FD /* Pods_PinPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C070A8F24D26F670077C3AE /* ExtensionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionItemCell.swift; sourceTree = "<group>"; };
-		3C070A9124D2E7D40077C3AE /* UITextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
 		3C070A9424D3A4CA0077C3AE /* EditTextItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextItemViewController.swift; sourceTree = "<group>"; };
 		3C070A9624D3BAB30077C3AE /* EditImageItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageItemViewController.swift; sourceTree = "<group>"; };
 		3C21CC0624BEDC10004BEAF0 /* CreateTextItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTextItemViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +128,33 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		3C070A9924D3FD0C0077C3AE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3CEB643D24CEC742004D8C3C /* TodayViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3C070A9A24D3FD2C0077C3AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3C070A8F24D26F670077C3AE /* ExtensionItemCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3C070A9B24D3FD380077C3AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3CC13F4A24CFCD7F00726E51 /* CoreDataManager.swift */,
+				3CC13F4E24CFD05000726E51 /* ItemViewModel.swift */,
+				3CC13F5124D0512200726E51 /* Item+CoreDataClass.swift */,
+				3CC13F5324D0514300726E51 /* Item-CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3C3ACC8924BB52A300311F7A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,7 +183,6 @@
 				3C3ACC9524BB5BD600311F7A /* CoreDataManager.swift */,
 				3CF52DF824BF0D6400E7B8D4 /* ItemViewModel.swift */,
 				3C3ACC8E24BB558B00311F7A /* Item.xcdatamodeld */,
-				3CEB644F24CF10A3004D8C3C /* Extension */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -167,15 +191,11 @@
 			isa = PBXGroup;
 			children = (
 				3CEB644B24CEC80E004D8C3C /* PinPhotoExtension.entitlements */,
-				3CEB643D24CEC742004D8C3C /* TodayViewController.swift */,
-				3C070A8F24D26F670077C3AE /* ExtensionItemCell.swift */,
-				3C070A9124D2E7D40077C3AE /* UITextViewExtension.swift */,
 				3CEB643F24CEC742004D8C3C /* MainInterface.storyboard */,
 				3CEB644224CEC742004D8C3C /* Info.plist */,
-				3CC13F4A24CFCD7F00726E51 /* CoreDataManager.swift */,
-				3CC13F4E24CFD05000726E51 /* ItemViewModel.swift */,
-				3CC13F5124D0512200726E51 /* Item+CoreDataClass.swift */,
-				3CC13F5324D0514300726E51 /* Item-CoreDataProperties.swift */,
+				3C070A9B24D3FD380077C3AE /* Model */,
+				3C070A9A24D3FD2C0077C3AE /* View */,
+				3C070A9924D3FD0C0077C3AE /* Controller */,
 			);
 			path = PinPhotoExtension;
 			sourceTree = "<group>";
@@ -219,6 +239,7 @@
 				3C3ACC8D24BB533F00311F7A /* Model */,
 				3C3ACC8A24BB52C600311F7A /* View */,
 				3C3ACC8924BB52A300311F7A /* Controller */,
+				3CEB644F24CF10A3004D8C3C /* Extension */,
 				3CF8B45324A9CBA700D6C11C /* Assets.xcassets */,
 				3CF8B45824A9CBA700D6C11C /* Info.plist */,
 			);
@@ -388,7 +409,6 @@
 				3C070A9024D26F670077C3AE /* ExtensionItemCell.swift in Sources */,
 				3CC13F4F24CFD05000726E51 /* ItemViewModel.swift in Sources */,
 				3CEB643E24CEC742004D8C3C /* TodayViewController.swift in Sources */,
-				3C070A9224D2E7D40077C3AE /* UITextViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

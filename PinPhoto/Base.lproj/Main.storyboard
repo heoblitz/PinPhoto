@@ -75,6 +75,34 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4C8-qb-F5Z">
+                                <rect key="frame" x="47.5" y="425.5" width="319" height="50"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7EO-lK-Chy">
+                                        <rect key="frame" x="10" y="15" width="23" height="19"/>
+                                        <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="23" id="5ek-cH-i2R"/>
+                                            <constraint firstAttribute="width" constant="23" id="Iva-EJ-Q1H"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="버튼을 클릭해서 아이템을 추가해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciz-wi-q63">
+                                        <rect key="frame" x="41" y="15" width="268" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="secondarySystemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1Yd-pQ-A4w"/>
+                                    <constraint firstItem="ciz-wi-q63" firstAttribute="leading" secondItem="7EO-lK-Chy" secondAttribute="trailing" constant="8" id="75U-29-a7z"/>
+                                    <constraint firstItem="7EO-lK-Chy" firstAttribute="leading" secondItem="4C8-qb-F5Z" secondAttribute="leading" constant="10" id="8zV-6d-F0l"/>
+                                    <constraint firstItem="7EO-lK-Chy" firstAttribute="top" secondItem="ciz-wi-q63" secondAttribute="top" constant="-2" id="Aux-Y1-pxV"/>
+                                    <constraint firstItem="ciz-wi-q63" firstAttribute="centerY" secondItem="4C8-qb-F5Z" secondAttribute="centerY" id="B1B-Bl-Ncf"/>
+                                    <constraint firstAttribute="trailing" secondItem="ciz-wi-q63" secondAttribute="trailing" constant="10" id="PrJ-d4-7bK"/>
+                                </constraints>
+                            </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hm-ei-7cm">
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
@@ -96,8 +124,10 @@
                             <constraint firstItem="kuA-Jh-zPF" firstAttribute="leading" secondItem="qg6-SA-Yw5" secondAttribute="leading" id="FRT-fp-cuL"/>
                             <constraint firstItem="qg6-SA-Yw5" firstAttribute="trailing" secondItem="kuA-Jh-zPF" secondAttribute="trailing" id="GzD-Jz-xj2"/>
                             <constraint firstItem="qg6-SA-Yw5" firstAttribute="bottom" secondItem="kuA-Jh-zPF" secondAttribute="bottom" id="S88-qX-zrA"/>
+                            <constraint firstItem="4C8-qb-F5Z" firstAttribute="centerY" secondItem="qg6-SA-Yw5" secondAttribute="centerY" id="U1K-IE-0XF"/>
                             <constraint firstItem="qg6-SA-Yw5" firstAttribute="trailing" secondItem="4hm-ei-7cm" secondAttribute="trailing" id="iGZ-zM-o0T"/>
                             <constraint firstItem="4hm-ei-7cm" firstAttribute="leading" secondItem="qg6-SA-Yw5" secondAttribute="leading" id="iMe-OW-OtA"/>
+                            <constraint firstItem="4C8-qb-F5Z" firstAttribute="centerX" secondItem="qg6-SA-Yw5" secondAttribute="centerX" id="poC-cw-RGI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qg6-SA-Yw5"/>
                     </view>
@@ -120,6 +150,7 @@
                         <outlet property="addButton" destination="toI-pY-0Nw" id="yn6-Ud-7Q7"/>
                         <outlet property="deleteButton" destination="ehL-js-gt2" id="uzT-qj-6DC"/>
                         <outlet property="itemCollectionView" destination="kuA-Jh-zPF" id="ZY8-Ud-N6j"/>
+                        <outlet property="noticeView" destination="4C8-qb-F5Z" id="Chf-ZR-eMH"/>
                         <outlet property="toolbar" destination="4hm-ei-7cm" id="qB4-Jl-kBg"/>
                         <segue destination="rAM-Ny-c0b" kind="presentation" identifier="createTextItem" id="LLw-ul-TGc"/>
                         <segue destination="bR0-Bu-AHs" kind="show" identifier="editTextItem" id="1pc-wq-sFs"/>
@@ -383,6 +414,7 @@
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="tray.full.fill" catalog="system" width="128" height="88"/>
     </resources>
 </document>
