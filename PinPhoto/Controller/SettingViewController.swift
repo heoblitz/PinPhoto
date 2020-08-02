@@ -124,11 +124,12 @@ extension SettingViewController: UITableViewDelegate {
         case 1:
             if indexPath.item == 0 {
                 alertDestructiveAllItem()
-                tableView.deselectRow(at: indexPath, animated: true)
             }
         default:
-            tableView.deselectRow(at: indexPath, animated: true)
+            break
         }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

@@ -11,7 +11,7 @@ import Photos
 import BSImagePicker
 
 class MainViewController: UIViewController {
-    // MARK:- IBOutlet Properties
+    // MARK:- @IBOutlet Properties
     @IBOutlet private weak var itemCollectionView: UICollectionView!
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var deleteButton: UIBarButtonItem!
