@@ -9,20 +9,21 @@
 import UIKit
 
 class EditTextItemViewController: UIViewController {
-    
+    // MARK:- @IBOutlet Properties
     @IBOutlet private weak var itemTextView: UITextView!
     @IBOutlet private weak var saveButton: UIBarButtonItem!
     
+    // MARK:- Propertises
     static let storyboardIdentifier: String = "editTextItem"
     var itemViewModel: ItemViewModel?
     var item: Item?
     
+    // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.itemTextView.delegate = self
         self.itemTextView.text = item?.contentText
         self.navigationItem.title = itemViewModel?.creationData(date: item?.updateDate)
-        // Do any additional setup after loading the view.
         self.itemTextView.isScrollEnabled = false
         self.itemTextView.layer.masksToBounds = false
         self.itemTextView.layer.shadowColor = UIColor.gray.cgColor
@@ -32,6 +33,7 @@ class EditTextItemViewController: UIViewController {
         self.setTextViewSize()
     }
     
+    // MARK:- @IBAction Methods
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         if let item = item {
             itemViewModel?.edit(content: item.contentType, image: nil, text: itemTextView.text, date: item.updateDate, id: item.id)
@@ -40,7 +42,7 @@ class EditTextItemViewController: UIViewController {
         navigationController?.popToRootViewController(animated: true)
     }
     
-    func setTextViewSize() {
+    private func setTextViewSize() {
         let size = CGSize(width: view.frame.width, height: .infinity)
         let estimatedSize = itemTextView.sizeThatFits(size)
         
@@ -52,6 +54,7 @@ class EditTextItemViewController: UIViewController {
     }
 }
 
+// MARK:- UITextView Delegate
 extension EditTextItemViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         if textView.text.isEmpty, textView.text == "" {

@@ -10,15 +10,14 @@ import UIKit
 import CoreData
 
 class CoreDataManager {
+    // MARK:- Propertises
     static let shared: CoreDataManager = CoreDataManager()
     var itemObservers: [ItemObserver] = []
     
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
-    // lazy var context = appDelegate?.persistentContainer.viewContext
     
     let modelName: String = "Item"
 
-    // new code
     let persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Item")
         let storeURL = URL.storeURL(for: "group.com.wonheo.PinPhoto", databaseName: "Pin")
@@ -46,6 +45,7 @@ class CoreDataManager {
     
     lazy var context = persistentContainer.viewContext
     
+    // MARK:- Methods
     func getItem() -> [Item] {
         var models: [Item] = []
         

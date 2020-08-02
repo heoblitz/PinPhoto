@@ -9,20 +9,23 @@
 import UIKit
 
 class SettingManualViewController: UIViewController {
+    // MARK:- @IBOutlet Properties
     @IBOutlet private weak var manualCollectionView: UICollectionView!
     @IBOutlet private weak var manualPageControl: UIPageControl!
     
-    let assetNames: [String] = [
+    // MARK:- Propertises
+    private let assetNames: [String] = [
         "manual1", "manual2", "manual3", "manual4"
     ]
     
-    let manualTexts: [String] = [
+    private let manualTexts: [String] = [
         "먼저 아이템을 추가해주세요",
         "홈 화면에서 왼쪽으로 스크롤하고 \n위젯을 클릭해주세요",
         "사진 콕 위젯을 추가해주세요",
         "> 버튼을 누르고 사용해주세요"
     ]
     
+    // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.manualCollectionView.dataSource = self
@@ -30,11 +33,13 @@ class SettingManualViewController: UIViewController {
         self.manualPageControl.numberOfPages = assetNames.count
     }
     
+    // MARK:- @IBAction Methods
     @IBAction func dismissButtonTapped(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
 }
 
+// MARK:- UICollectionView Data Source
 extension SettingManualViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return assetNames.count
@@ -52,6 +57,7 @@ extension SettingManualViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK:- UICollectionView Delegate
 extension SettingManualViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let index = self.manualCollectionView.contentOffset.x / self.manualCollectionView.frame.size.width;
@@ -60,6 +66,7 @@ extension SettingManualViewController: UICollectionViewDelegate {
     }
 }
 
+// MARK:- UICollectionView Delegate Flow Layout
 extension SettingManualViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width

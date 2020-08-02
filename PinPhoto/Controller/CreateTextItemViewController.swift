@@ -9,14 +9,16 @@
 import UIKit
 
 class CreateTextItemViewController: UIViewController {
-    
+    // MARK:- @IBOutlet Properties
     @IBOutlet weak var inputTextView: UITextView!
     @IBOutlet weak var saveButton: UIButton!
     
+    // MARK:- Propertises
     static let storyboardIdentifier: String = "createTextItem"
     var mainItemCollectionView: UICollectionView?
     var itemViewModel: ItemViewModel?
     
+    // MARk:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.inputTextView.delegate = self
@@ -35,6 +37,7 @@ class CreateTextItemViewController: UIViewController {
         self.inputTextView.becomeFirstResponder()
     }
     
+    // MARK:- @IBAction Methods
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         let id = itemViewModel?.idForAdd ?? 0
         itemViewModel?.add(content: 1, image: nil, text: inputTextView.text, date: Date(), id: id)
@@ -49,6 +52,7 @@ class CreateTextItemViewController: UIViewController {
     }
 }
 
+// MARK:- UITextView Delegate
 extension CreateTextItemViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         let size = CGSize(width: view.frame.width, height: .infinity)

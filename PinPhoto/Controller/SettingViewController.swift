@@ -9,22 +9,25 @@
 import UIKit
 
 class SettingViewController: UIViewController {
-
+    // MARK:- @IBOutlet Properties
     @IBOutlet private weak var settingTableView: UITableView!
-    let shared = CoreDataManager.shared
+    // MARK:- Propertises
+    private let shared = CoreDataManager.shared
     private let settingTitleDatas: [String] = ["사진 콕", "기타"]
     private let settingCellDatas: [[String]] = [
         ["버전 정보", "사용 방법"],
         ["데이터 초기화하기"]
     ]
     
+    // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.settingTableView.dataSource = self
         self.settingTableView.delegate = self
     }
     
-    func alertDestructiveAllItem() {
+    // MARK:- Methods
+    private func alertDestructiveAllItem() {
         let alert = UIAlertController(title: "데이터를 초기화 하시겠습니까?", message: "데이터는 다시 복구할 수 없습니다.", preferredStyle: .alert)
         
         let removeAction = UIAlertAction(title: "삭제", style: .destructive, handler: { action in
@@ -38,7 +41,7 @@ class SettingViewController: UIViewController {
         present(alert, animated: true)
     }
     
-    func presentManual() {
+    private func presentManual() {
         guard let vc = storyboard?.instantiateViewController(identifier: "settingManual") else {
             return
         }
@@ -48,13 +51,12 @@ class SettingViewController: UIViewController {
     }
 }
 
+// MARK:- UITableView Data Source
 extension SettingViewController: UITableViewDataSource {
-    // section 이 몇개
     func numberOfSections(in: UITableView) -> Int {
         return settingCellDatas.count
     }
     
-    // row 가 몇 개
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
@@ -67,7 +69,7 @@ extension SettingViewController: UITableViewDataSource {
         
         return 0
     }
-    // cell 을 어떻게 표시
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell") else {
             return UITableViewCell()
@@ -97,7 +99,7 @@ extension SettingViewController: UITableViewDataSource {
     
         return cell
     }
-    // header 를 어떻게 표시
+
     func tableView(_: UITableView, titleForHeaderInSection: Int) -> String? {
         var title = ""
         
@@ -114,6 +116,7 @@ extension SettingViewController: UITableViewDataSource {
     }
 }
 
+// MARK:- UITableView Delegate
 extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {

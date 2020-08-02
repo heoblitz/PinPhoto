@@ -9,13 +9,15 @@
 import UIKit
 
 class EditImageItemViewController: UIViewController {
-    
+    // MARK:- @IBOutlet Properties
     @IBOutlet private weak var itemImageView: UIImageView!
     
+    // MARK:- Propertises
     static let storyboardIdentifier: String = "editImageItem"
     var itemViewModel: ItemViewModel?
     var item: Item?
     
+    // MARk:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = itemViewModel?.creationData(date: item?.updateDate)

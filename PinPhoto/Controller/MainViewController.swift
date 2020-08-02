@@ -45,7 +45,7 @@ class MainViewController: UIViewController {
         }
     }
         
-    // MARk:- View Life Sycle
+    // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.itemCollectionView.dataSource = self
@@ -116,7 +116,7 @@ class MainViewController: UIViewController {
         present(vc, animated: true)
     }
     
-    // MARK:- IBAction Methods
+    // MARK:- @IBAction Methods
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
         sender.title = sender.title == "편집" ? "완료" : "편집"
         
@@ -210,7 +210,6 @@ extension MainViewController: UICollectionViewDelegate {
         let item = itemViewModel.item(at: indexPath.item)
         
         if isEditMode {
-            // let item = itemViewModel.item(at: indexPath.item)
             testSelectedCell[indexPath] = item.id
             
             cell.isSelectedForRemove = true
@@ -256,6 +255,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK:- ItemObserver Protocol
 extension MainViewController: ItemObserver {
     func updateItem() {
         guard let itemCollectionView = itemCollectionView else {

@@ -14,6 +14,7 @@ class ItemCustomCell: UICollectionViewCell {
     @IBOutlet weak var itemTextLabel: UILabel!
     @IBOutlet weak var checkImageView: UIImageView!
     
+    // MARK:- Propertises
     var itemtype: String = "image" {
         didSet {
             switch self.itemtype {

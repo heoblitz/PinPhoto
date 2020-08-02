@@ -9,9 +9,11 @@
 import UIKit
 
 class ExtensionItemCell: UICollectionViewCell {
+    // MARK:- @IBOutlet Properties
     @IBOutlet weak var contentImageView: UIImageView!
     @IBOutlet weak var contentTextLabel: UILabel!
     
+    // MARK:- Propertises
     var itemtype: String = "image" {
         didSet {
             switch self.itemtype {
