@@ -63,13 +63,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewWillAppear(_ animated: Bool) {
         self.itemCollectionView.reloadData()
         
-        if let index = getIndexPath(), index <= self.itemViewModel.numberOfItems {
-            self.pageControl.currentPage = index
-            self.itemCollectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: false)
+        if let index = getIndexPath() {
+            let indexRow = min(self.itemViewModel.numberOfItems, index)
+            self.pageControl.currentPage = indexRow
+            self.itemCollectionView.scrollToItem(at: IndexPath(item: indexRow, section: 0), at: .centeredHorizontally, animated: false)
         } else {
-            let index = self.itemViewModel.numberOfItems
-            self.pageControl.currentPage = index
-            self.itemCollectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: false)
+            let indexRow = 0
+            self.pageControl.currentPage = indexRow
+            self.itemCollectionView.scrollToItem(at: IndexPath(item: indexRow, section: 0), at: .centeredHorizontally, animated: false)
         }
     }
     
