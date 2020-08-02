@@ -63,10 +63,6 @@ class MainViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
         self.toolbar.isHidden = true
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        print(itemCounts)
-    }
 
     // MARK:- Methods
     private func deselectCells() {

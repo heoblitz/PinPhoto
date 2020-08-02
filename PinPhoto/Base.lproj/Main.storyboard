@@ -159,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1952.1739130434785" y="128.57142857142856"/>
+            <point key="canvasLocation" x="1951" y="129"/>
         </scene>
         <!--Edit Text Item View Controller-->
         <scene sceneID="hUu-Yf-gqx">
@@ -202,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jLQ-MK-DzV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2945" y="129"/>
+            <point key="canvasLocation" x="2945" y="-568"/>
         </scene>
         <!--Create Text Item View Controller-->
         <scene sceneID="BXA-TK-Cdz">
@@ -266,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9h3-Bk-9cO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1952" y="877"/>
+            <point key="canvasLocation" x="2945" y="877"/>
         </scene>
         <!--Edit Image Item View Controller-->
         <scene sceneID="Wsw-Nr-Zig">
@@ -296,7 +296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gf9-eu-hp1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2945" y="877"/>
+            <point key="canvasLocation" x="2945" y="129"/>
         </scene>
         <!--사진 콕-->
         <scene sceneID="MsN-W6-rvn">
@@ -309,7 +309,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ey7-Ky-2VM">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settingCell" textLabel="Bxq-I2-Oej" style="IBUITableViewCellStyleDefault" id="pFR-5W-NrD">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settingCell" textLabel="Bxq-I2-Oej" detailTextLabel="y1h-SK-72Y" style="IBUITableViewCellStyleValue1" id="pFR-5W-NrD">
                                         <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pFR-5W-NrD" id="iVc-rX-3IQ">
@@ -317,10 +317,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="만든 이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bxq-I2-Oej">
-                                                    <rect key="frame" x="20" y="0.0" width="315" height="43.5"/>
+                                                    <rect key="frame" x="20" y="12" width="49" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y1h-SK-72Y">
+                                                    <rect key="frame" x="291" y="12" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -342,11 +349,62 @@
                     <navigationItem key="navigationItem" title="사진 콕" id="rZ1-0h-HFz"/>
                     <connections>
                         <outlet property="settingTableView" destination="ey7-Ky-2VM" id="n79-ES-PLX"/>
+                        <segue destination="suT-Je-skV" kind="showDetail" identifier="settingManual" id="8XR-9m-Jd4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gH2-QA-dZo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1042" y="877"/>
+        </scene>
+        <!--settingManual-->
+        <scene sceneID="qFJ-9o-qoC">
+            <objects>
+                <viewController storyboardIdentifier="settingManual" title="settingManual" modalPresentationStyle="fullScreen" id="suT-Je-skV" customClass="SettingManualViewController" customModule="PinPhoto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gxK-68-Qin">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YQg-fa-MJG">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="c2m-U9-n4r">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="menualCell" id="r3M-sd-JMM">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5bo-yY-wx7">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="BBs-q7-doO">
+                                <rect key="frame" x="0.0" y="805" width="414" height="37"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="BBs-q7-doO" firstAttribute="leading" secondItem="cbF-tw-GcY" secondAttribute="leading" id="0AW-wX-wvW"/>
+                            <constraint firstItem="YQg-fa-MJG" firstAttribute="top" secondItem="cbF-tw-GcY" secondAttribute="top" id="7yO-eW-LfH"/>
+                            <constraint firstItem="cbF-tw-GcY" firstAttribute="trailing" secondItem="YQg-fa-MJG" secondAttribute="trailing" id="GLN-2N-ogj"/>
+                            <constraint firstItem="cbF-tw-GcY" firstAttribute="bottom" secondItem="YQg-fa-MJG" secondAttribute="bottom" id="JvI-kL-ykX"/>
+                            <constraint firstItem="cbF-tw-GcY" firstAttribute="trailing" secondItem="BBs-q7-doO" secondAttribute="trailing" id="OL2-Kl-ebU"/>
+                            <constraint firstItem="YQg-fa-MJG" firstAttribute="leading" secondItem="cbF-tw-GcY" secondAttribute="leading" id="iGC-k6-tlN"/>
+                            <constraint firstItem="cbF-tw-GcY" firstAttribute="bottom" secondItem="BBs-q7-doO" secondAttribute="bottom" constant="20" id="sAf-Km-h31"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cbF-tw-GcY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="JnI-kA-kGs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bqa-4h-UWt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1951" y="877"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="JUY-3R-qXq">

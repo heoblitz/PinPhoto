@@ -25,6 +25,7 @@
 		3CC13F5024D0259100726E51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45324A9CBA700D6C11C /* Assets.xcassets */; };
 		3CC13F5224D0512200726E51 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC13F5124D0512200726E51 /* Item+CoreDataClass.swift */; };
 		3CC13F5424D0514300726E51 /* Item-CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC13F5324D0514300726E51 /* Item-CoreDataProperties.swift */; };
+		3CCA560224D6853F00F32671 /* SettingManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA560124D6853F00F32671 /* SettingManualViewController.swift */; };
 		3CEB643B24CEC742004D8C3C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CEB643A24CEC742004D8C3C /* NotificationCenter.framework */; };
 		3CEB643E24CEC742004D8C3C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB643D24CEC742004D8C3C /* TodayViewController.swift */; };
 		3CEB644124CEC742004D8C3C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CEB643F24CEC742004D8C3C /* MainInterface.storyboard */; };
@@ -81,6 +82,7 @@
 		3CC13F4E24CFD05000726E51 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		3CC13F5124D0512200726E51 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3CC13F5324D0514300726E51 /* Item-CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item-CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3CCA560124D6853F00F32671 /* SettingManualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManualViewController.swift; sourceTree = "<group>"; };
 		3CEB643924CEC742004D8C3C /* PinPhotoExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PinPhotoExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CEB643A24CEC742004D8C3C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		3CEB643D24CEC742004D8C3C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				3C070A9624D3BAB30077C3AE /* EditImageItemViewController.swift */,
 				3C070A9424D3A4CA0077C3AE /* EditTextItemViewController.swift */,
 				3C8AA00F24B05D32005EB75C /* SettingViewController.swift */,
+				3CCA560124D6853F00F32671 /* SettingManualViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				3CAA167E24BC211200635F6D /* ItemCustomCell.swift in Sources */,
 				3C070AA324D419600077C3AE /* ItemObserver.swift in Sources */,
 				3C21CC0724BEDC10004BEAF0 /* CreateTextItemViewController.swift in Sources */,
+				3CCA560224D6853F00F32671 /* SettingManualViewController.swift in Sources */,
 				3C8AA01024B05D32005EB75C /* SettingViewController.swift in Sources */,
 				3C3ACC9924BB5C2100311F7A /* Item+CoreDataClass.swift in Sources */,
 				3C3ACC9A24BB5C2100311F7A /* Item+CoreDataProperties.swift in Sources */,

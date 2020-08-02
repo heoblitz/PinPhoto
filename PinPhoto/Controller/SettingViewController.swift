@@ -14,7 +14,7 @@ class SettingViewController: UIViewController {
     let shared = CoreDataManager.shared
     private let settingTitleDatas: [String] = ["사진 콕", "기타"]
     private let settingCellDatas: [[String]] = [
-        ["만든 이", "사용 방법"],
+        ["버전 정보", "사용 방법"],
         ["데이터 초기화하기"]
     ]
     
@@ -36,6 +36,15 @@ class SettingViewController: UIViewController {
         alert.addAction(cancleAction)
         
         present(alert, animated: true)
+    }
+    
+    func presentManual() {
+        guard let vc = storyboard?.instantiateViewController(identifier: "settingManual") else {
+            return
+        }
+        
+        // vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }
 
@@ -66,10 +75,22 @@ extension SettingViewController: UITableViewDataSource {
         
         switch indexPath.section {
         case 0:
-            cell.textLabel?.text = settingCellDatas[0][indexPath.row]
+            switch indexPath.row {
+            case 0:
+                cell.textLabel?.text = settingCellDatas[0][indexPath.row]
+                if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                    cell.detailTextLabel?.text = appVersion
+                }
+            case 1:
+                cell.textLabel?.text = settingCellDatas[0][indexPath.row]
+                cell.detailTextLabel?.text = nil
+            default:
+                break
+            }
         case 1:
             cell.textLabel?.text = settingCellDatas[1][indexPath.row]
             cell.textLabel?.textColor = .red
+            cell.detailTextLabel?.text = nil
         default:
             break
         }
@@ -96,13 +117,17 @@ extension SettingViewController: UITableViewDataSource {
 extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
+        case 0:
+            if indexPath.item == 1 {
+                presentManual()
+            }
         case 1:
             if indexPath.item == 0 {
                 alertDestructiveAllItem()
                 tableView.deselectRow(at: indexPath, animated: true)
             }
         default:
-            break
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
