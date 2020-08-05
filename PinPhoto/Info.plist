@@ -17,13 +17,15 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>앱에 사진을 추가하고 위젯에서 보여주기 위해 카메라 앨범 접근 권한이 필요합니다. 이 권한은 사용자가 사진을 추가하는 경우를 제외하고 사용되지 않습니다.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>add image to tableview for present widget</string>
+	<string>앱에 사진을 추가하고 위젯에서 보여주기 위해 앨범 접근 권한이 필요합니다. 이 권한은 사용자가 사진을 추가하는 경우를 제외하고 사용되지 않습니다.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -489,6 +489,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_ENTITLEMENTS = PinPhotoExtension/PinPhotoExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhotoExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -512,6 +513,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_ENTITLEMENTS = PinPhotoExtension/PinPhotoExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhotoExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -651,6 +653,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PinPhoto/PinPhoto.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhoto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -658,6 +661,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto;
 				PRODUCT_NAME = PinPhoto;
 				SWIFT_VERSION = 5.0;
@@ -673,6 +677,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PinPhoto/PinPhoto.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhoto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -680,6 +685,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto;
 				PRODUCT_NAME = PinPhoto;
 				SWIFT_VERSION = 5.0;
