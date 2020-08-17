@@ -10,7 +10,7 @@
         <!--Edit Image Item View Controller-->
         <scene sceneID="U3L-Hs-QBA">
             <objects>
-                <viewController storyboardIdentifier="editImageItem" id="X5R-LP-PE8" customClass="EditImageItemViewController" customModule="PinPhoto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="X5R-LP-PE8" customClass="EditImageItemViewController" customModule="PinPhoto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kat-IF-R6g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
