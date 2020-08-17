@@ -11,6 +11,7 @@ import UIKit
 class SettingViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var settingTableView: UITableView!
+    
     // MARK:- Propertises
     private let shared = CoreDataManager.shared
     private let settingTitleDatas: [String] = ["사진 콕", "기타"]
@@ -42,7 +43,7 @@ class SettingViewController: UIViewController {
     }
     
     private func presentManual() {
-        guard let vc = storyboard?.instantiateViewController(identifier: "settingManual") else {
+        guard let vc = ManualViewController.storyboardInstance() else {
             return
         }
         

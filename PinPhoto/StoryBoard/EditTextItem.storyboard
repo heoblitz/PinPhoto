@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DwS-De-OHA">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Edit Text Item View Controller-->
+        <scene sceneID="Uhs-uv-UyX">
+            <objects>
+                <viewController storyboardIdentifier="editTextItem" id="DwS-De-OHA" customClass="EditTextItemViewController" customModule="PinPhoto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vr7-YY-QYE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7pT-vA-3JQ">
+                                <rect key="frame" x="10" y="64" width="394" height="38"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="jbd-0E-xKv"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7pT-vA-3JQ" firstAttribute="leading" secondItem="vW9-dS-ft2" secondAttribute="leading" constant="10" id="ce1-le-oLb"/>
+                            <constraint firstItem="7pT-vA-3JQ" firstAttribute="top" secondItem="vW9-dS-ft2" secondAttribute="top" constant="20" id="jMz-0t-g3f"/>
+                            <constraint firstItem="vW9-dS-ft2" firstAttribute="trailing" secondItem="7pT-vA-3JQ" secondAttribute="trailing" constant="10" id="sLO-E4-jrz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vW9-dS-ft2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YVn-PB-GYF">
+                        <barButtonItem key="rightBarButtonItem" title="저장하기" id="mBh-Ok-Gv5">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="DwS-De-OHA" id="v2b-qa-tUi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="itemTextView" destination="7pT-vA-3JQ" id="RFe-aL-DwF"/>
+                        <outlet property="saveButton" destination="mBh-Ok-Gv5" id="B0c-MO-K1d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gN2-Ug-q3V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2945" y="-568"/>
+        </scene>
+    </scenes>
+</document>

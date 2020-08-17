@@ -1,5 +1,5 @@
 //
-//  SettingManualViewController.swift
+//  ManualViewController.swift
 //  PinPhoto
 //
 //  Created by won heo on 2020/08/02.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingManualViewController: UIViewController {
+class ManualViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var manualCollectionView: UICollectionView!
     @IBOutlet private weak var manualPageControl: UIPageControl!
@@ -25,6 +25,13 @@ class SettingManualViewController: UIViewController {
         "> 버튼을 누르고 사용해주세요"
     ]
     
+    // MARK:- Methods
+    static func storyboardInstance() -> ManualViewController? {
+        let storyboard = UIStoryboard(name: ManualViewController.storyboardName(), bundle: nil)
+        
+        return storyboard.instantiateInitialViewController()
+    }
+    
     // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +47,7 @@ class SettingManualViewController: UIViewController {
 }
 
 // MARK:- UICollectionView Data Source
-extension SettingManualViewController: UICollectionViewDataSource {
+extension ManualViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return assetNames.count
     }
@@ -58,7 +65,7 @@ extension SettingManualViewController: UICollectionViewDataSource {
 }
 
 // MARK:- UICollectionView Delegate
-extension SettingManualViewController: UICollectionViewDelegate {
+extension ManualViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let index = self.manualCollectionView.contentOffset.x / self.manualCollectionView.frame.size.width;
         
@@ -67,7 +74,7 @@ extension SettingManualViewController: UICollectionViewDelegate {
 }
 
 // MARK:- UICollectionView Delegate Flow Layout
-extension SettingManualViewController: UICollectionViewDelegateFlowLayout {
+extension ManualViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width
         let height = collectionView.bounds.height

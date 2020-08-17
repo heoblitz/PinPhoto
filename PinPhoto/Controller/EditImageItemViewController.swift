@@ -13,9 +13,15 @@ class EditImageItemViewController: UIViewController {
     @IBOutlet private weak var itemImageView: UIImageView!
     
     // MARK:- Propertises
-    static let storyboardIdentifier: String = "editImageItem"
     var itemViewModel: ItemViewModel?
     var item: Item?
+    
+    // MARK:- Methods
+    static func storyboardInstance() -> EditImageItemViewController? {
+        let storyboard = UIStoryboard(name: EditImageItemViewController.storyboardName(), bundle: nil)
+        
+        return storyboard.instantiateInitialViewController()
+    }
     
     // MARk:- View Life Sycle
     override func viewDidLoad() {

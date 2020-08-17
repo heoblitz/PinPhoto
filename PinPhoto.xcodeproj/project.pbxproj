@@ -12,20 +12,27 @@
 		3C070A9724D3BAB30077C3AE /* EditImageItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C070A9624D3BAB30077C3AE /* EditImageItemViewController.swift */; };
 		3C070A9824D3E3E90077C3AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45324A9CBA700D6C11C /* Assets.xcassets */; };
 		3C070AA324D419600077C3AE /* ItemObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C070AA224D419600077C3AE /* ItemObserver.swift */; };
+		3C0C004A24EA4F1A00BF137B /* Manual.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C0C004924EA4F1A00BF137B /* Manual.storyboard */; };
+		3C0C004C24EA4F4500BF137B /* CreateTextItem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C0C004B24EA4F4500BF137B /* CreateTextItem.storyboard */; };
+		3C0C004E24EA4FED00BF137B /* EditImageItem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C0C004D24EA4FED00BF137B /* EditImageItem.storyboard */; };
+		3C0C005024EA50D200BF137B /* EditTextItem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C0C004F24EA50D200BF137B /* EditTextItem.storyboard */; };
+		3C0C005224EA581900BF137B /* ClassNameToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C005124EA581900BF137B /* ClassNameToString.swift */; };
+		3C20173F24EA4E2400DD3BA0 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C20173E24EA4E2400DD3BA0 /* Setting.storyboard */; };
 		3C21CC0724BEDC10004BEAF0 /* CreateTextItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C21CC0624BEDC10004BEAF0 /* CreateTextItemViewController.swift */; };
 		3C3ACC9024BB558B00311F7A /* Item.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC8E24BB558B00311F7A /* Item.xcdatamodeld */; };
 		3C3ACC9624BB5BD600311F7A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9524BB5BD600311F7A /* CoreDataManager.swift */; };
 		3C3ACC9924BB5C2100311F7A /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9724BB5C2100311F7A /* Item+CoreDataClass.swift */; };
 		3C3ACC9A24BB5C2100311F7A /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9824BB5C2100311F7A /* Item+CoreDataProperties.swift */; };
-		3C4D13A024AB716B009BDCDE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4D139F24AB716B009BDCDE /* MainViewController.swift */; };
+		3C4D13A024AB716B009BDCDE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4D139F24AB716B009BDCDE /* HomeViewController.swift */; };
 		3C8AA01024B05D32005EB75C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8AA00F24B05D32005EB75C /* SettingViewController.swift */; };
+		3C8C6C6024EA368400689329 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C8C6C5F24EA368400689329 /* Home.storyboard */; };
 		3CAA167E24BC211200635F6D /* ItemCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA167D24BC211200635F6D /* ItemCustomCell.swift */; };
 		3CC13F4B24CFCD7F00726E51 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC13F4A24CFCD7F00726E51 /* CoreDataManager.swift */; };
 		3CC13F4F24CFD05000726E51 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC13F4E24CFD05000726E51 /* ItemViewModel.swift */; };
 		3CC13F5024D0259100726E51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45324A9CBA700D6C11C /* Assets.xcassets */; };
 		3CC13F5224D0512200726E51 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC13F5124D0512200726E51 /* Item+CoreDataClass.swift */; };
 		3CC13F5424D0514300726E51 /* Item-CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC13F5324D0514300726E51 /* Item-CoreDataProperties.swift */; };
-		3CCA560224D6853F00F32671 /* SettingManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA560124D6853F00F32671 /* SettingManualViewController.swift */; };
+		3CCA560224D6853F00F32671 /* ManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA560124D6853F00F32671 /* ManualViewController.swift */; };
 		3CCA560424D697EE00F32671 /* ManualCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA560324D697EE00F32671 /* ManualCustomCell.swift */; };
 		3CEB643B24CEC742004D8C3C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CEB643A24CEC742004D8C3C /* NotificationCenter.framework */; };
 		3CEB643E24CEC742004D8C3C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB643D24CEC742004D8C3C /* TodayViewController.swift */; };
@@ -71,19 +78,26 @@
 		3C070A9424D3A4CA0077C3AE /* EditTextItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextItemViewController.swift; sourceTree = "<group>"; };
 		3C070A9624D3BAB30077C3AE /* EditImageItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageItemViewController.swift; sourceTree = "<group>"; };
 		3C070AA224D419600077C3AE /* ItemObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemObserver.swift; sourceTree = "<group>"; };
+		3C0C004924EA4F1A00BF137B /* Manual.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Manual.storyboard; sourceTree = "<group>"; };
+		3C0C004B24EA4F4500BF137B /* CreateTextItem.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateTextItem.storyboard; sourceTree = "<group>"; };
+		3C0C004D24EA4FED00BF137B /* EditImageItem.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditImageItem.storyboard; sourceTree = "<group>"; };
+		3C0C004F24EA50D200BF137B /* EditTextItem.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditTextItem.storyboard; sourceTree = "<group>"; };
+		3C0C005124EA581900BF137B /* ClassNameToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassNameToString.swift; sourceTree = "<group>"; };
+		3C20173E24EA4E2400DD3BA0 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		3C21CC0624BEDC10004BEAF0 /* CreateTextItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTextItemViewController.swift; sourceTree = "<group>"; };
 		3C3ACC8F24BB558B00311F7A /* Item.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Item.xcdatamodel; sourceTree = "<group>"; };
 		3C3ACC9524BB5BD600311F7A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3C3ACC9724BB5C2100311F7A /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataClass.swift"; path = "/Users/wonheo/workspace/PinPhoto/PinPhoto/Model/Item+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		3C3ACC9824BB5C2100311F7A /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataProperties.swift"; path = "/Users/wonheo/workspace/PinPhoto/PinPhoto/Model/Item+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
-		3C4D139F24AB716B009BDCDE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3C4D139F24AB716B009BDCDE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3C8AA00F24B05D32005EB75C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		3C8C6C5F24EA368400689329 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		3CAA167D24BC211200635F6D /* ItemCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCustomCell.swift; sourceTree = "<group>"; };
 		3CC13F4A24CFCD7F00726E51 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3CC13F4E24CFD05000726E51 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		3CC13F5124D0512200726E51 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3CC13F5324D0514300726E51 /* Item-CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item-CoreDataProperties.swift"; sourceTree = "<group>"; };
-		3CCA560124D6853F00F32671 /* SettingManualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManualViewController.swift; sourceTree = "<group>"; };
+		3CCA560124D6853F00F32671 /* ManualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualViewController.swift; sourceTree = "<group>"; };
 		3CCA560324D697EE00F32671 /* ManualCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualCustomCell.swift; sourceTree = "<group>"; };
 		3CEB643924CEC742004D8C3C /* PinPhotoExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PinPhotoExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CEB643A24CEC742004D8C3C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -164,12 +178,12 @@
 		3C3ACC8924BB52A300311F7A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3C4D139F24AB716B009BDCDE /* MainViewController.swift */,
+				3C4D139F24AB716B009BDCDE /* HomeViewController.swift */,
 				3C21CC0624BEDC10004BEAF0 /* CreateTextItemViewController.swift */,
 				3C070A9624D3BAB30077C3AE /* EditImageItemViewController.swift */,
 				3C070A9424D3A4CA0077C3AE /* EditTextItemViewController.swift */,
 				3C8AA00F24B05D32005EB75C /* SettingViewController.swift */,
-				3CCA560124D6853F00F32671 /* SettingManualViewController.swift */,
+				3CCA560124D6853F00F32671 /* ManualViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -195,6 +209,20 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3C8C6C5E24EA363200689329 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				3CF8B45024A9CBA300D6C11C /* Main.storyboard */,
+				3C8C6C5F24EA368400689329 /* Home.storyboard */,
+				3C0C004B24EA4F4500BF137B /* CreateTextItem.storyboard */,
+				3C0C004D24EA4FED00BF137B /* EditImageItem.storyboard */,
+				3C0C004F24EA50D200BF137B /* EditTextItem.storyboard */,
+				3C20173E24EA4E2400DD3BA0 /* Setting.storyboard */,
+				3C0C004924EA4F1A00BF137B /* Manual.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
 		3CEB643C24CEC742004D8C3C /* PinPhotoExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +241,7 @@
 			children = (
 				3CEB644D24CF109A004D8C3C /* URLextension.swift */,
 				3C070AA224D419600077C3AE /* ItemObserver.swift */,
+				3C0C005124EA581900BF137B /* ClassNameToString.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -241,10 +270,10 @@
 			isa = PBXGroup;
 			children = (
 				3CEB644A24CEC805004D8C3C /* PinPhoto.entitlements */,
-				3CF8B45024A9CBA300D6C11C /* Main.storyboard */,
 				3CF8B45524A9CBA700D6C11C /* LaunchScreen.storyboard */,
 				3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */,
 				3CF8B44C24A9CBA300D6C11C /* SceneDelegate.swift */,
+				3C8C6C5E24EA363200689329 /* StoryBoard */,
 				3C3ACC8D24BB533F00311F7A /* Model */,
 				3C3ACC8A24BB52C600311F7A /* View */,
 				3C3ACC8924BB52A300311F7A /* Controller */,
@@ -356,8 +385,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C8C6C6024EA368400689329 /* Home.storyboard in Resources */,
 				3C070A9824D3E3E90077C3AE /* Assets.xcassets in Resources */,
+				3C0C004C24EA4F4500BF137B /* CreateTextItem.storyboard in Resources */,
+				3C20173F24EA4E2400DD3BA0 /* Setting.storyboard in Resources */,
+				3C0C005024EA50D200BF137B /* EditTextItem.storyboard in Resources */,
 				3CF8B45724A9CBA700D6C11C /* LaunchScreen.storyboard in Resources */,
+				3C0C004A24EA4F1A00BF137B /* Manual.storyboard in Resources */,
+				3C0C004E24EA4FED00BF137B /* EditImageItem.storyboard in Resources */,
 				3CF8B45224A9CBA300D6C11C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,16 +465,17 @@
 				3CAA167E24BC211200635F6D /* ItemCustomCell.swift in Sources */,
 				3C070AA324D419600077C3AE /* ItemObserver.swift in Sources */,
 				3C21CC0724BEDC10004BEAF0 /* CreateTextItemViewController.swift in Sources */,
-				3CCA560224D6853F00F32671 /* SettingManualViewController.swift in Sources */,
+				3CCA560224D6853F00F32671 /* ManualViewController.swift in Sources */,
 				3C8AA01024B05D32005EB75C /* SettingViewController.swift in Sources */,
 				3C3ACC9924BB5C2100311F7A /* Item+CoreDataClass.swift in Sources */,
 				3C3ACC9A24BB5C2100311F7A /* Item+CoreDataProperties.swift in Sources */,
+				3C0C005224EA581900BF137B /* ClassNameToString.swift in Sources */,
 				3C070A9524D3A4CA0077C3AE /* EditTextItemViewController.swift in Sources */,
 				3CEB644E24CF109A004D8C3C /* URLextension.swift in Sources */,
 				3C070A9724D3BAB30077C3AE /* EditImageItemViewController.swift in Sources */,
 				3CF8B44B24A9CBA300D6C11C /* AppDelegate.swift in Sources */,
 				3CF8B44D24A9CBA300D6C11C /* SceneDelegate.swift in Sources */,
-				3C4D13A024AB716B009BDCDE /* MainViewController.swift in Sources */,
+				3C4D13A024AB716B009BDCDE /* HomeViewController.swift in Sources */,
 				3CCA560424D697EE00F32671 /* ManualCustomCell.swift in Sources */,
 				3C3ACC9624BB5BD600311F7A /* CoreDataManager.swift in Sources */,
 			);

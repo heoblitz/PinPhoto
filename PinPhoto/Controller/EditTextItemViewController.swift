@@ -14,16 +14,15 @@ class EditTextItemViewController: UIViewController {
     @IBOutlet private weak var saveButton: UIBarButtonItem!
     
     // MARK:- Propertises
-    static let storyboardIdentifier: String = "editTextItem"
     var itemViewModel: ItemViewModel?
     var item: Item?
     
     // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = itemViewModel?.creationData(date: item?.updateDate)
         self.itemTextView.delegate = self
         self.itemTextView.text = item?.contentText
-        self.navigationItem.title = itemViewModel?.creationData(date: item?.updateDate)
         self.itemTextView.isScrollEnabled = false
         self.itemTextView.layer.masksToBounds = false
         self.itemTextView.layer.shadowColor = UIColor.gray.cgColor
@@ -31,6 +30,13 @@ class EditTextItemViewController: UIViewController {
         self.itemTextView.layer.shadowOpacity = 1.0
         self.itemTextView.layer.shadowRadius = 0.0
         self.setTextViewSize()
+    }
+    
+    // MARK:- Methods
+    static func storyboardInstance() -> EditTextItemViewController? {
+        let storyboard = UIStoryboard(name: EditTextItemViewController.storyboardName(), bundle: nil)
+        
+        return storyboard.instantiateInitialViewController()
     }
     
     // MARK:- @IBAction Methods

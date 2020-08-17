@@ -10,13 +10,13 @@ import UIKit
 import Photos
 import BSImagePicker
 
-class MainViewController: UIViewController {
+class HomeViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var itemCollectionView: UICollectionView!
-    @IBOutlet weak var toolbar: UIToolbar!
-    @IBOutlet weak var deleteButton: UIBarButtonItem!
-    @IBOutlet weak var addButton: UIBarButtonItem!
-    @IBOutlet weak var noticeView: UIView!
+    @IBOutlet private weak var toolbar: UIToolbar!
+    @IBOutlet private weak var deleteButton: UIBarButtonItem!
+    @IBOutlet private weak var addButton: UIBarButtonItem!
+    @IBOutlet private weak var noticeView: UIView!
     
     // MARK:- Propertises
     private let imageManager = PHImageManager()
@@ -107,11 +107,10 @@ class MainViewController: UIViewController {
     }
     
     private func presentaddTextItem() {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: CreateTextItemViewController.storyboardIdentifier) as? CreateTextItemViewController else {
+        guard let vc = CreateTextItemViewController.storyboardInstance() else {
             return
         }
         vc.itemViewModel = itemViewModel
-        vc.mainItemCollectionView = itemCollectionView
         
         present(vc, animated: true)
     }
@@ -166,7 +165,7 @@ class MainViewController: UIViewController {
 }
 
 // MARK:- UICollectionView Data Source
-extension MainViewController: UICollectionViewDataSource {
+extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemViewModel.numberOfItems
     }
@@ -201,29 +200,29 @@ extension MainViewController: UICollectionViewDataSource {
 }
 
 // MARK:- UICollectionView Delegate
-extension MainViewController: UICollectionViewDelegate {
+extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? ItemCustomCell else {
             return
         }
-        
+
         let item = itemViewModel.item(at: indexPath.item)
-        
+
         if isEditMode {
             testSelectedCell[indexPath] = item.id
-            
+
             cell.isSelectedForRemove = true
         } else {
             switch cell.itemtype {
             case "text":
-                guard let vc = storyboard?.instantiateViewController(withIdentifier: EditTextItemViewController.storyboardIdentifier) as? EditTextItemViewController else {
+                guard let vc = EditTextItemViewController.storyboardInstance() else {
                     return
                 }
                 vc.item = item
                 vc.itemViewModel = itemViewModel
                 navigationController?.pushViewController(vc, animated: true)
             case "image":
-                guard let vc = storyboard?.instantiateViewController(withIdentifier:          EditImageItemViewController.storyboardIdentifier) as? EditImageItemViewController else {
+                guard let vc = EditImageItemViewController.storyboardInstance() else {
                     return
                 }
                 vc.item = item
@@ -233,7 +232,7 @@ extension MainViewController: UICollectionViewDelegate {
                 break
             }
         }
-    }
+     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? ItemCustomCell
@@ -246,7 +245,7 @@ extension MainViewController: UICollectionViewDelegate {
 }
 
 // MARK:- UICollectionView Delegate Flow Layout
-extension MainViewController: UICollectionViewDelegateFlowLayout {
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, layout: UICollectionViewLayout, sizeForItemAt: IndexPath) -> CGSize {
         let width = itemCollectionView.bounds.width / 3.1
         let height = itemCollectionView.bounds.width / 3.1
@@ -256,7 +255,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK:- ItemObserver Protocol
-extension MainViewController: ItemObserver {
+extension HomeViewController: ItemObserver {
     func updateItem() {
         guard let itemCollectionView = itemCollectionView else {
             return

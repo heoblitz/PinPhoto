@@ -10,12 +10,10 @@ import UIKit
 
 class CreateTextItemViewController: UIViewController {
     // MARK:- @IBOutlet Properties
-    @IBOutlet weak var inputTextView: UITextView!
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet private weak var inputTextView: UITextView!
+    @IBOutlet private weak var saveButton: UIButton!
     
     // MARK:- Propertises
-    static let storyboardIdentifier: String = "createTextItem"
-    var mainItemCollectionView: UICollectionView?
     var itemViewModel: ItemViewModel?
     
     // MARk:- View Life Sycle
@@ -37,13 +35,19 @@ class CreateTextItemViewController: UIViewController {
         self.inputTextView.becomeFirstResponder()
     }
     
+    // MARk:- Methods
+    static func storyboardInstance() -> CreateTextItemViewController? {
+        let storyboard = UIStoryboard(name: CreateTextItemViewController.storyboardName(), bundle: nil)
+        
+        return storyboard.instantiateInitialViewController()
+    }
+    
     // MARK:- @IBAction Methods
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         let id = itemViewModel?.idForAdd ?? 0
         itemViewModel?.add(content: 1, image: nil, text: inputTextView.text, date: Date(), id: id)
         itemViewModel?.loadItems()
         
-        mainItemCollectionView?.reloadData()
         dismiss(animated: true, completion: nil)
     }
     
