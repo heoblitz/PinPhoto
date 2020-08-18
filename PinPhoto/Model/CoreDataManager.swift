@@ -15,19 +15,16 @@ class CoreDataManager {
     var itemObservers: [ItemObserver] = []
     
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
-    
     let modelName: String = "Item"
-
+    
     let persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Item")
         let storeURL = URL.storeURL(for: "group.com.wonheo.PinPhoto", databaseName: "Pin")
         container.persistentStoreDescriptions = [NSPersistentStoreDescription(url: storeURL)]
-        
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -44,6 +41,10 @@ class CoreDataManager {
     }()
     
     lazy var context = persistentContainer.viewContext
+    
+    // MARK:- Methods
+    private init() {
+    }
     
     // MARK:- Methods
     func getItem() -> [Item] {
@@ -153,6 +154,7 @@ class CoreDataManager {
     func noticeUpdate() {
         print("update")
         for observer in itemObservers {
+            print(observer)
             observer.updateItem()
         }
     }

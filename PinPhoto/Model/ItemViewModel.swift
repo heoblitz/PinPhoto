@@ -9,7 +9,7 @@
 import UIKit
 
 class ItemViewModel {
-    let shared: CoreDataManager = CoreDataManager()
+    let shared: CoreDataManager = CoreDataManager.shared
     var items: [Item] = []
     
     var numberOfItems: Int {

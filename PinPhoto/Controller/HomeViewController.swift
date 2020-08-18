@@ -49,6 +49,7 @@ class HomeViewController: UIViewController {
     // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("home vc momory")
         self.itemCollectionView.dataSource = self
         self.itemCollectionView.delegate = self
         self.itemCollectionView.allowsMultipleSelection = true
@@ -266,7 +267,7 @@ extension HomeViewController: ItemObserver {
         guard let itemCollectionView = itemCollectionView else {
             return
         }
-        
+        print("item updated")
         self.itemViewModel.loadItems()
         self.itemCounts = self.itemViewModel.numberOfItems
         itemCollectionView.reloadData()

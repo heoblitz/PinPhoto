@@ -13,6 +13,7 @@ class SettingViewController: UIViewController {
     @IBOutlet private weak var settingTableView: UITableView!
     
     // MARK:- Propertises
+    //private let itemViewModel = ItemViewModel()
     private let shared = CoreDataManager.shared
     private let settingTitleDatas: [String] = ["사진 콕", "기타"]
     private let settingCellDatas: [[String]] = [
@@ -33,6 +34,7 @@ class SettingViewController: UIViewController {
         
         let removeAction = UIAlertAction(title: "삭제", style: .destructive, handler: { action in
             self.shared.destructiveAllItem()
+            //self.itemViewModel.shared.destructiveAllItem()
         })
         let cancleAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
