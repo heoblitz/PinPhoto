@@ -22,11 +22,12 @@ class HomeViewController: UIViewController {
     private let imageManager = PHImageManager()
     private let itemViewModel = ItemViewModel()
     
-    private var feedbackGenerator: UIFeedbackGenerator?
+    private var feedbackGenerator: UISelectionFeedbackGenerator?
     private var isEditMode: Bool = false
 
     private var testSelectedCell: [IndexPath:Int64] = [:] {
         didSet {
+            feedbackGenerator?.selectionChanged()
             if testSelectedCell.count > 0 {
                 self.deleteButton.isEnabled = true
             } else {
@@ -59,7 +60,8 @@ class HomeViewController: UIViewController {
         self.itemViewModel.loadItems()
         self.itemCounts = itemViewModel.numberOfItems
         self.itemViewModel.registerObserver(self)
-
+        
+        self.setupGenerator()
         self.tabBarController?.tabBar.isHidden = false
         self.toolbar.isHidden = true
     }
@@ -113,6 +115,11 @@ class HomeViewController: UIViewController {
         vc.itemViewModel = itemViewModel
         
         present(vc, animated: true)
+    }
+    
+    private func setupGenerator() {
+        feedbackGenerator = UISelectionFeedbackGenerator()
+        feedbackGenerator?.prepare()
     }
     
     // MARK:- @IBAction Methods
@@ -210,7 +217,6 @@ extension HomeViewController: UICollectionViewDelegate {
 
         if isEditMode {
             testSelectedCell[indexPath] = item.id
-
             cell.isSelectedForRemove = true
         } else {
             switch cell.itemtype {

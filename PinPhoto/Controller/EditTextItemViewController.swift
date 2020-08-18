@@ -32,6 +32,10 @@ class EditTextItemViewController: UIViewController {
         self.setTextViewSize()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.itemTextView.becomeFirstResponder()
+    }
+    
     // MARK:- Methods
     static func storyboardInstance() -> EditTextItemViewController? {
         let storyboard = UIStoryboard(name: EditTextItemViewController.storyboardName(), bundle: nil)
