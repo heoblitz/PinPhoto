@@ -27,7 +27,6 @@ class HomeViewController: UIViewController {
 
     private var testSelectedCell: [IndexPath:Int64] = [:] {
         didSet {
-            feedbackGenerator?.selectionChanged()
             if testSelectedCell.count > 0 {
                 self.deleteButton.isEnabled = true
             } else {
@@ -49,7 +48,6 @@ class HomeViewController: UIViewController {
     // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("home vc momory")
         self.itemCollectionView.dataSource = self
         self.itemCollectionView.delegate = self
         self.itemCollectionView.allowsMultipleSelection = true
@@ -219,6 +217,7 @@ extension HomeViewController: UICollectionViewDelegate {
         if isEditMode {
             testSelectedCell[indexPath] = item.id
             cell.isSelectedForRemove = true
+            feedbackGenerator?.selectionChanged()
         } else {
             switch cell.itemtype {
             case "text":
@@ -244,7 +243,8 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? ItemCustomCell
         cell?.isSelectedForRemove = false
-        
+        feedbackGenerator?.selectionChanged()
+
         testSelectedCell = testSelectedCell.filter { selectedIndexPath, id in
             selectedIndexPath != indexPath
         }

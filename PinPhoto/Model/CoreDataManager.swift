@@ -42,7 +42,7 @@ class CoreDataManager {
     
     lazy var context = persistentContainer.viewContext
     
-    // MARK:- Methods
+    // MARK:- Initializer
     private init() {
     }
     
