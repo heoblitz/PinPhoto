@@ -26,6 +26,8 @@
 		3C4D13A024AB716B009BDCDE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4D139F24AB716B009BDCDE /* HomeViewController.swift */; };
 		3C8AA01024B05D32005EB75C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8AA00F24B05D32005EB75C /* SettingViewController.swift */; };
 		3C8C6C6024EA368400689329 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C8C6C5F24EA368400689329 /* Home.storyboard */; };
+		3C9D666224ECB51C00021E48 /* SettingWidget.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C9D666124ECB51C00021E48 /* SettingWidget.storyboard */; };
+		3C9D666424ECD0B900021E48 /* SettingWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9D666324ECD0B900021E48 /* SettingWidgetViewController.swift */; };
 		3CAA167E24BC211200635F6D /* ItemCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA167D24BC211200635F6D /* ItemCustomCell.swift */; };
 		3CC13F4B24CFCD7F00726E51 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC13F4A24CFCD7F00726E51 /* CoreDataManager.swift */; };
 		3CC13F4F24CFD05000726E51 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC13F4E24CFD05000726E51 /* ItemViewModel.swift */; };
@@ -92,6 +94,8 @@
 		3C4D139F24AB716B009BDCDE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3C8AA00F24B05D32005EB75C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		3C8C6C5F24EA368400689329 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		3C9D666124ECB51C00021E48 /* SettingWidget.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingWidget.storyboard; sourceTree = "<group>"; };
+		3C9D666324ECD0B900021E48 /* SettingWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWidgetViewController.swift; sourceTree = "<group>"; };
 		3CAA167D24BC211200635F6D /* ItemCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCustomCell.swift; sourceTree = "<group>"; };
 		3CC13F4A24CFCD7F00726E51 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3CC13F4E24CFD05000726E51 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 				3C070A9424D3A4CA0077C3AE /* EditTextItemViewController.swift */,
 				3C8AA00F24B05D32005EB75C /* SettingViewController.swift */,
 				3CCA560124D6853F00F32671 /* ManualViewController.swift */,
+				3C9D666324ECD0B900021E48 /* SettingWidgetViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 				3C0C004F24EA50D200BF137B /* EditTextItem.storyboard */,
 				3C20173E24EA4E2400DD3BA0 /* Setting.storyboard */,
 				3C0C004924EA4F1A00BF137B /* Manual.storyboard */,
+				3C9D666124ECB51C00021E48 /* SettingWidget.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -390,6 +396,7 @@
 				3C0C004C24EA4F4500BF137B /* CreateTextItem.storyboard in Resources */,
 				3C20173F24EA4E2400DD3BA0 /* Setting.storyboard in Resources */,
 				3C0C005024EA50D200BF137B /* EditTextItem.storyboard in Resources */,
+				3C9D666224ECB51C00021E48 /* SettingWidget.storyboard in Resources */,
 				3CF8B45724A9CBA700D6C11C /* LaunchScreen.storyboard in Resources */,
 				3C0C004A24EA4F1A00BF137B /* Manual.storyboard in Resources */,
 				3C0C004E24EA4FED00BF137B /* EditImageItem.storyboard in Resources */,
@@ -477,6 +484,7 @@
 				3CF8B44D24A9CBA300D6C11C /* SceneDelegate.swift in Sources */,
 				3C4D13A024AB716B009BDCDE /* HomeViewController.swift in Sources */,
 				3CCA560424D697EE00F32671 /* ManualCustomCell.swift in Sources */,
+				3C9D666424ECD0B900021E48 /* SettingWidgetViewController.swift in Sources */,
 				3C3ACC9624BB5BD600311F7A /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

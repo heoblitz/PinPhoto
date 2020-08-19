@@ -135,6 +135,12 @@ extension SettingViewController: UITableViewDelegate {
             }
         case 1:
             switch indexPath.item {
+            case 0:
+                guard let vc = SettingWidgetViewController.storyboardInstance() else {
+                    return
+                }
+                
+                navigationController?.pushViewController(vc, animated: true)
             default:
                 break
             }

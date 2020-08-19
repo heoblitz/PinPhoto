@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gl9-zM-uM7">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Setting Widget View Controller-->
+        <scene sceneID="T94-iq-rjg">
+            <objects>
+                <viewController id="gl9-zM-uM7" customClass="SettingWidgetViewController" customModule="PinPhoto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qiu-Bf-bQH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="0.0" maxValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="sno-kf-Bjc">
+                                <rect key="frame" x="18" y="782" width="378" height="31"/>
+                                <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="gl9-zM-uM7" eventType="valueChanged" id="AZn-74-fyg"/>
+                                </connections>
+                            </slider>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0U-F0-FW4" userLabel="WidgetHeader">
+                                <rect key="frame" x="15" y="64" width="384" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사진 콕" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKY-pB-1YU">
+                                        <rect key="frame" x="45" y="13.5" width="43" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="widgetIcon" translatesAutoresizingMaskIntoConstraints="NO" id="niv-fQ-eVR">
+                                        <rect key="frame" x="10" y="10" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="GWe-3K-WnM"/>
+                                            <constraint firstAttribute="width" constant="25" id="HUl-9J-TkQ"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="lKY-pB-1YU" firstAttribute="leading" secondItem="niv-fQ-eVR" secondAttribute="trailing" constant="10" id="Vfa-nR-M7p"/>
+                                    <constraint firstItem="lKY-pB-1YU" firstAttribute="centerY" secondItem="niv-fQ-eVR" secondAttribute="centerY" id="XOa-kN-Zs0"/>
+                                    <constraint firstItem="niv-fQ-eVR" firstAttribute="top" secondItem="b0U-F0-FW4" secondAttribute="top" constant="10" id="Zwp-gT-e6C"/>
+                                    <constraint firstAttribute="height" constant="40" id="sHh-65-Dwe"/>
+                                    <constraint firstItem="niv-fQ-eVR" firstAttribute="leading" secondItem="b0U-F0-FW4" secondAttribute="leading" constant="10" id="vmR-cv-sbY"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="widgetImage" translatesAutoresizingMaskIntoConstraints="NO" id="kQW-e5-KAP" userLabel="WidgetImage">
+                                <rect key="frame" x="15" y="104" width="384" height="300"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" identifier="widgetHeight" id="hWg-rZ-qJR"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M8d-Re-PXj" userLabel="WidgetFooterView">
+                                <rect key="frame" x="15" y="404" width="384" height="15"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="AVi-Ij-hGf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hOy-QO-tqX" firstAttribute="trailing" secondItem="sno-kf-Bjc" secondAttribute="trailing" constant="20" id="32P-ZN-9GV"/>
+                            <constraint firstItem="M8d-Re-PXj" firstAttribute="top" secondItem="kQW-e5-KAP" secondAttribute="bottom" id="5GB-Wb-dIt"/>
+                            <constraint firstItem="hOy-QO-tqX" firstAttribute="trailing" secondItem="kQW-e5-KAP" secondAttribute="trailing" constant="15" id="8EC-ja-QRY"/>
+                            <constraint firstItem="hOy-QO-tqX" firstAttribute="trailing" secondItem="b0U-F0-FW4" secondAttribute="trailing" constant="15" id="AKu-fI-3AT"/>
+                            <constraint firstItem="b0U-F0-FW4" firstAttribute="leading" secondItem="hOy-QO-tqX" secondAttribute="leading" constant="15" id="DO2-z6-Ot0"/>
+                            <constraint firstItem="sno-kf-Bjc" firstAttribute="leading" secondItem="hOy-QO-tqX" secondAttribute="leading" constant="20" id="EI1-d9-5LF"/>
+                            <constraint firstItem="b0U-F0-FW4" firstAttribute="top" secondItem="hOy-QO-tqX" secondAttribute="top" constant="20" id="QYY-cZ-6ff"/>
+                            <constraint firstItem="kQW-e5-KAP" firstAttribute="leading" secondItem="hOy-QO-tqX" secondAttribute="leading" constant="15" id="mKH-X3-lKE"/>
+                            <constraint firstItem="hOy-QO-tqX" firstAttribute="bottom" secondItem="sno-kf-Bjc" secondAttribute="bottom" constant="50" id="qF1-h7-YuV"/>
+                            <constraint firstItem="hOy-QO-tqX" firstAttribute="trailing" secondItem="M8d-Re-PXj" secondAttribute="trailing" constant="15" id="rBZ-Ce-ZAi"/>
+                            <constraint firstItem="M8d-Re-PXj" firstAttribute="leading" secondItem="hOy-QO-tqX" secondAttribute="leading" constant="15" id="wdB-Ca-MjL"/>
+                            <constraint firstItem="kQW-e5-KAP" firstAttribute="top" secondItem="b0U-F0-FW4" secondAttribute="bottom" id="zIc-YT-IGd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hOy-QO-tqX"/>
+                    </view>
+                    <connections>
+                        <outlet property="widgetFooterView" destination="M8d-Re-PXj" id="Uxf-e3-rP1"/>
+                        <outlet property="widgetHeaderView" destination="b0U-F0-FW4" id="Y6p-uf-fft"/>
+                        <outlet property="widgetImage" destination="kQW-e5-KAP" id="iZo-eD-OFR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EKr-Mb-E6D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-250.72463768115944" y="-76.339285714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="widgetIcon" width="341" height="341"/>
+        <image name="widgetImage" width="349" height="358"/>
+    </resources>
+</document>
