@@ -15,9 +15,10 @@ class SettingViewController: UIViewController {
     // MARK:- Propertises
     //private let itemViewModel = ItemViewModel()
     private let shared = CoreDataManager.shared
-    private let settingTitleDatas: [String] = ["사진 콕", "기타"]
+    private let settingTitleDatas: [String] = ["사진 콕", "설정", "기타"]
     private let settingCellDatas: [[String]] = [
-        ["버전 정보", "사용 방법"],
+        ["버전 정보","사용 방법"],
+        ["위젯 크기"],
         ["데이터 초기화하기"]
     ]
     
@@ -34,7 +35,6 @@ class SettingViewController: UIViewController {
         
         let removeAction = UIAlertAction(title: "삭제", style: .destructive, handler: { action in
             self.shared.destructiveAllItem()
-            //self.itemViewModel.shared.destructiveAllItem()
         })
         let cancleAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
@@ -47,9 +47,8 @@ class SettingViewController: UIViewController {
     private func presentManual() {
         guard let vc = ManualViewController.storyboardInstance() else {
             return
+            
         }
-        
-        // vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
 }
@@ -66,11 +65,11 @@ extension SettingViewController: UITableViewDataSource {
             return settingCellDatas[0].count
         case 1:
             return settingCellDatas[1].count
+        case 2:
+            return settingCellDatas[2].count
         default:
-            break
+            return 0
         }
-        
-        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -89,11 +88,17 @@ extension SettingViewController: UITableViewDataSource {
             case 1:
                 cell.textLabel?.text = settingCellDatas[0][indexPath.row]
                 cell.detailTextLabel?.text = nil
+            case 2:
+                cell.textLabel?.text = settingCellDatas[0][indexPath.row]
+                cell.detailTextLabel?.text = nil
             default:
                 break
             }
         case 1:
             cell.textLabel?.text = settingCellDatas[1][indexPath.row]
+            cell.detailTextLabel?.text = nil
+        case 2:
+            cell.textLabel?.text = settingCellDatas[2][indexPath.row]
             cell.textLabel?.textColor = .red
             cell.detailTextLabel?.text = nil
         default:
@@ -104,18 +109,16 @@ extension SettingViewController: UITableViewDataSource {
     }
 
     func tableView(_: UITableView, titleForHeaderInSection: Int) -> String? {
-        var title = ""
-        
         switch titleForHeaderInSection {
         case 0:
-            title = settingTitleDatas[0]
+            return settingTitleDatas[0]
         case 1:
-            title = settingTitleDatas[1]
+            return settingTitleDatas[1]
+        case 2:
+            return settingTitleDatas[2]
         default:
-            break
+            return nil
         }
-        
-        return title
     }
 }
 
@@ -124,12 +127,23 @@ extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            if indexPath.item == 1 {
-                presentManual()
+            switch indexPath.item {
+            case 1:
+                 presentManual()
+            default:
+                break
             }
         case 1:
-            if indexPath.item == 0 {
-                alertDestructiveAllItem()
+            switch indexPath.item {
+            default:
+                break
+            }
+        case 2:
+            switch indexPath.item {
+            case 0:
+                 alertDestructiveAllItem()
+            default:
+                break
             }
         default:
             break
