@@ -11,6 +11,7 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet private weak var itemCollectionView: UICollectionView!
+    @IBOutlet private weak var itemCollectionViewHeight: NSLayoutConstraint!
     @IBOutlet private weak var noticeLabel: UILabel!
     
     @IBOutlet private weak var pageControl: UIPageControl!
@@ -61,8 +62,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
         
     override func viewWillAppear(_ animated: Bool) {
+        // 콜렉션 뷰 높이 지정
+        let height = getWidgetHeight() ?? 300
+        self.itemCollectionViewHeight.constant = CGFloat(height)
         self.itemCollectionView.reloadData()
+        self.itemCollectionView.layoutIfNeeded()
         
+        // 콜렉션 뷰 위치 지정
         if let index = getIndexPath() {
             let indexRow = min(self.itemViewModel.numberOfItems, index)
             self.pageControl.currentPage = indexRow
@@ -92,7 +98,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
         } else {
             //extended
-            self.preferredContentSize = CGSize(width: maxSize.width, height: 300)
+            let height = getWidgetHeight() ?? 300
+            self.preferredContentSize = CGSize(width: maxSize.width, height: CGFloat(height))
             shouldContentAppear = true
         }
     }
@@ -105,6 +112,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     func getIndexPath() -> Int? {
         let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
         return defaults?.integer(forKey: "indexPath")
+    }
+    
+    func getWidgetHeight() -> Float? {
+        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
+        return defaults?.float(forKey: "widgetHeight")
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {

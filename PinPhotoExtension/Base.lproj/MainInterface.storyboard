@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="uBb-ul-4bC"/>
+                                    <constraint firstAttribute="height" constant="300" id="w9R-zM-hGD"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="PLG-tL-oB6">
                                     <size key="itemSize" width="128" height="128"/>
@@ -136,6 +136,7 @@
                     <size key="freeformSize" width="320" height="300"/>
                     <connections>
                         <outlet property="itemCollectionView" destination="ySp-zl-0PH" id="AcB-nh-SR0"/>
+                        <outlet property="itemCollectionViewHeight" destination="w9R-zM-hGD" id="xUy-0h-f5U"/>
                         <outlet property="nextButton" destination="S9f-WQ-K8a" id="A51-ba-fP1"/>
                         <outlet property="nextButtonImageView" destination="Vk6-rD-6ye" id="5uK-dp-RMg"/>
                         <outlet property="noticeLabel" destination="b86-DN-hSK" id="dYa-sb-95E"/>

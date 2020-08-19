@@ -12,11 +12,19 @@ class SettingWidgetViewController: UIViewController {
     @IBOutlet private weak var widgetImage: UIImageView!
     @IBOutlet private weak var widgetHeaderView: UIView!
     @IBOutlet private weak var widgetFooterView: UIView!
+    @IBOutlet private weak var heightSilder: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.widgetImage.translatesAutoresizingMaskIntoConstraints = false
         // Do any additional setup after loading the view.
+        if let height = getWidgetHeight() {
+            let value = (height - 200) / 50
+            self.heightSilder.value = value
+        } else {
+            saveWidgetHeight(at: 300)
+        }
+        
         widgetHeaderView.clipsToBounds = true
         widgetHeaderView.layer.cornerRadius = 10
         widgetHeaderView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
@@ -32,11 +40,22 @@ class SettingWidgetViewController: UIViewController {
         return storyboard.instantiateInitialViewController()
     }
     
+    func saveWidgetHeight(at height: Float) {
+        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
+        defaults?.set(height, forKey: "widgetHeight")
+    }
+    
+    func getWidgetHeight() -> Float? {
+        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
+        return defaults?.float(forKey: "widgetHeight")
+    }
+    
     @IBAction func sliderChanged(_ sender: UISlider) {
         let mul = round(sender.value)
         let height = 200 + (mul * 50)
         
         sender.value = mul
+        saveWidgetHeight(at: height)
         
         for constraint in widgetImage.constraints {
             if constraint.identifier == "widgetHeight" {
