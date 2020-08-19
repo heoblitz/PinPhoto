@@ -9,31 +9,44 @@
 import UIKit
 
 class SettingWidgetViewController: UIViewController {
-    @IBOutlet private weak var widgetImage: UIImageView!
+    @IBOutlet private weak var widgetImageView: UIImageView!
     @IBOutlet private weak var widgetHeaderView: UIView!
-    @IBOutlet private weak var widgetFooterView: UIView!
     @IBOutlet private weak var heightSilder: UISlider!
+    
+    private var selectionGenerator: UISelectionFeedbackGenerator!
+    private var currentValue: Float = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.widgetImage.translatesAutoresizingMaskIntoConstraints = false
+        self.widgetImageView.translatesAutoresizingMaskIntoConstraints = false
         // Do any additional setup after loading the view.
-        if let height = getWidgetHeight() {
-            let value = (height - 200) / 50
-            self.heightSilder.value = value
-            self.setWidgetImageHeight(height)
-        } else {
-            self.saveWidgetHeight(at: 300)
-            self.setWidgetImageHeight(300)
+        var height: Float = 300
+        
+        if let getHeight = getWidgetHeight(), getHeight != 0.0 {
+            height = getHeight
         }
         
+        print(height)
+        let value = (height - 200) / 50
+        
+        self.heightSilder.value = value
+        self.saveWidgetHeight(at: height)
+        self.currentValue = value
+        
+        selectionGenerator = UISelectionFeedbackGenerator()
+        selectionGenerator?.prepare()
         widgetHeaderView.clipsToBounds = true
         widgetHeaderView.layer.cornerRadius = 10
         widgetHeaderView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
-        widgetFooterView.clipsToBounds = true
-        widgetFooterView.layer.cornerRadius = 10
-        widgetFooterView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        widgetImageView.clipsToBounds = true
+        widgetImageView.layer.cornerRadius = 10
+        widgetImageView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let height = 200 + (currentValue * 50)
+        self.setWidgetImageHeight(height)
     }
     
     // MARK:- Methods
@@ -53,20 +66,24 @@ class SettingWidgetViewController: UIViewController {
     }
     
     func setWidgetImageHeight(_ height: Float) {
-        for constraint in widgetImage.constraints {
+        for constraint in widgetImageView.constraints {
             if constraint.identifier == "widgetHeight" {
                constraint.constant = CGFloat(height)
             }
         }
-        widgetImage.layoutIfNeeded()
+        widgetImageView.layoutIfNeeded()
     }
     
     @IBAction func sliderChanged(_ sender: UISlider) {
         let mul = round(sender.value)
         let height = 200 + (mul * 50)
-        
         sender.value = mul
-        saveWidgetHeight(at: height)
-        setWidgetImageHeight(height)
+
+        if mul != currentValue {
+            currentValue = mul
+            saveWidgetHeight(at: height)
+            setWidgetImageHeight(height)
+            selectionGenerator?.selectionChanged()
+        }
     }
 }

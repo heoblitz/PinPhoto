@@ -131,19 +131,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dTn-gi-Lny"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem systemItem="add" id="INI-uQ-3qY">
-                            <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="addButtonTapped:" destination="AyT-FP-RHP" id="Ku7-vv-kWA"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="사진 콕" id="JiE-NP-Hwa">
                         <barButtonItem key="leftBarButtonItem" title="편집" id="Ix7-p2-eny">
                             <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="editButtonTapped:" destination="AyT-FP-RHP" id="fxF-Lj-YXB"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="INI-uQ-3qY">
+                            <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addButtonTapped:" destination="AyT-FP-RHP" id="Ku7-vv-kWA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
