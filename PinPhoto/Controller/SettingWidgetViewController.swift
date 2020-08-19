@@ -21,8 +21,10 @@ class SettingWidgetViewController: UIViewController {
         if let height = getWidgetHeight() {
             let value = (height - 200) / 50
             self.heightSilder.value = value
+            self.setWidgetImageHeight(height)
         } else {
-            saveWidgetHeight(at: 300)
+            self.saveWidgetHeight(at: 300)
+            self.setWidgetImageHeight(300)
         }
         
         widgetHeaderView.clipsToBounds = true
@@ -50,18 +52,21 @@ class SettingWidgetViewController: UIViewController {
         return defaults?.float(forKey: "widgetHeight")
     }
     
-    @IBAction func sliderChanged(_ sender: UISlider) {
-        let mul = round(sender.value)
-        let height = 200 + (mul * 50)
-        
-        sender.value = mul
-        saveWidgetHeight(at: height)
-        
+    func setWidgetImageHeight(_ height: Float) {
         for constraint in widgetImage.constraints {
             if constraint.identifier == "widgetHeight" {
                constraint.constant = CGFloat(height)
             }
         }
         widgetImage.layoutIfNeeded()
+    }
+    
+    @IBAction func sliderChanged(_ sender: UISlider) {
+        let mul = round(sender.value)
+        let height = 200 + (mul * 50)
+        
+        sender.value = mul
+        saveWidgetHeight(at: height)
+        setWidgetImageHeight(height)
     }
 }
