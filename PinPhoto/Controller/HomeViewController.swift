@@ -8,7 +8,7 @@
 
 import UIKit
 import Photos
-import BSImagePicker
+import YPImagePicker
 
 class HomeViewController: UIViewController {
     // MARK:- @IBOutlet Properties
@@ -19,11 +19,17 @@ class HomeViewController: UIViewController {
     @IBOutlet private weak var noticeView: UIView!
     
     // MARK:- Propertises
-    private let imageManager = PHImageManager()
     private let itemViewModel = ItemViewModel()
-    
     private var feedbackGenerator: UISelectionFeedbackGenerator?
     private var isEditMode: Bool = false
+    
+    private lazy var imagePicker: YPImagePicker = {
+        var config = YPImagePickerConfiguration()
+        config.showsPhotoFilters = false
+        config.screens = [.library]
+        let picker = YPImagePicker(configuration: config)
+        return picker
+    }()
     
     private var testSelectedCell: [IndexPath:Int64] = [:] {
         didSet {
@@ -77,32 +83,21 @@ class HomeViewController: UIViewController {
     }
     
     private func presentImagePikcer() {
-        let imagePicker = ImagePickerController()
-        let imageWidth = itemCollectionView.bounds.height
-        let imageSize = CGSize(width: imageWidth, height: imageWidth)
-        
-        let option = PHImageRequestOptions()
-        option.isSynchronous = true
-        option.isNetworkAccessAllowed = true
-        option.deliveryMode = .highQualityFormat
-        option.version = .current
-        option.resizeMode = .exact
-        
-        presentImagePicker(imagePicker, select: nil, deselect: nil, cancel: nil,
-                           finish: { (assets) in
-                            for asset in assets {
-                                self.imageManager.requestImage(for: asset, targetSize: imageSize, contentMode: .aspectFit, options: option, resultHandler: {[weak self] image, _ in
-                                    let image = self?.itemViewModel.convertImageToData(image: image)
-                                    let id = self?.itemViewModel.idForAdd ?? 0
-                                    self?.itemViewModel.add(content: 0, image: image, text: nil, date: Date(), id: id)
-                                    self?.itemViewModel.loadItems()
-                                    
-                                    OperationQueue.main.addOperation {
-                                        self?.itemCollectionView.reloadData()
-                                    }
-                                })
-                            }
-        })
+        imagePicker.didFinishPicking { [unowned imagePicker, weak self] items, _ in
+            if let photo = items.singlePhoto?.originalImage {
+                let imageData = self?.itemViewModel.convertImageToData(image: photo)
+                let id = self?.itemViewModel.idForAdd ?? 0
+                
+                self?.itemViewModel.add(content: 0, image: imageData, text: nil, date: Date(), id: id)
+                self?.itemViewModel.loadItems()
+                
+                OperationQueue.main.addOperation {
+                    self?.itemCollectionView.reloadData()
+                }
+            }
+            imagePicker.dismiss(animated: true, completion: nil)
+        }
+        present(imagePicker, animated: true, completion: nil)
     }
     
     private func presentaddTextItem() {
