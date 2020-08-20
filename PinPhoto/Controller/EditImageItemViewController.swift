@@ -16,17 +16,17 @@ class EditImageItemViewController: UIViewController {
     var itemViewModel: ItemViewModel?
     var item: Item?
     
-    // MARK:- Methods
-    static func storyboardInstance() -> EditImageItemViewController? {
-        let storyboard = UIStoryboard(name: EditImageItemViewController.storyboardName(), bundle: nil)
-        
-        return storyboard.instantiateInitialViewController()
-    }
-    
     // MARk:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = itemViewModel?.creationData(date: item?.updateDate)
         self.itemImageView.image = itemViewModel?.convertDataToImage(data: item?.contentImage)
+    }
+    
+    // MARK:- Methods
+    static func storyboardInstance() -> EditImageItemViewController? {
+        let storyboard = UIStoryboard(name: EditImageItemViewController.storyboardName(), bundle: nil)
+        
+        return storyboard.instantiateInitialViewController()
     }
 }

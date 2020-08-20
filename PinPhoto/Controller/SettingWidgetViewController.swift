@@ -21,27 +21,22 @@ class SettingWidgetViewController: UIViewController {
         self.widgetImageView.translatesAutoresizingMaskIntoConstraints = false
         // Do any additional setup after loading the view.
         var height: Float = 300
-        
-        if let getHeight = getWidgetHeight(), getHeight != 0.0 {
-            height = getHeight
-        }
-        
-        print(height)
+        if let getHeight = getWidgetHeight(), getHeight != 0.0 { height = getHeight }
         let value = (height - 200) / 50
         
         self.heightSilder.value = value
         self.saveWidgetHeight(at: height)
         self.currentValue = value
+        self.selectionGenerator = UISelectionFeedbackGenerator()
+        self.selectionGenerator?.prepare()
         
-        selectionGenerator = UISelectionFeedbackGenerator()
-        selectionGenerator?.prepare()
-        widgetHeaderView.clipsToBounds = true
-        widgetHeaderView.layer.cornerRadius = 10
-        widgetHeaderView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        self.widgetHeaderView.clipsToBounds = true
+        self.widgetHeaderView.layer.cornerRadius = 10
+        self.widgetHeaderView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
-        widgetImageView.clipsToBounds = true
-        widgetImageView.layer.cornerRadius = 10
-        widgetImageView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        self.widgetImageView.clipsToBounds = true
+        self.widgetImageView.layer.cornerRadius = 10
+        self.widgetImageView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
     }
     
     override func viewWillAppear(_ animated: Bool) {

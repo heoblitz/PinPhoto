@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
     
     private var feedbackGenerator: UISelectionFeedbackGenerator?
     private var isEditMode: Bool = false
-
+    
     private var testSelectedCell: [IndexPath:Int64] = [:] {
         didSet {
             if testSelectedCell.count > 0 {
@@ -44,7 +44,7 @@ class HomeViewController: UIViewController {
             }
         }
     }
-        
+    
     // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +52,9 @@ class HomeViewController: UIViewController {
         self.itemCollectionView.delegate = self
         self.itemCollectionView.allowsMultipleSelection = true
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentAddActionSheet))
+        self.noticeView.isUserInteractionEnabled = true
+        self.noticeView.addGestureRecognizer(tapGesture)
         self.noticeView.clipsToBounds = false
         self.noticeView.layer.opacity = 0.8
         self.noticeView.layer.cornerRadius = 5
@@ -64,7 +67,7 @@ class HomeViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
         self.toolbar.isHidden = true
     }
-
+    
     // MARK:- Methods
     private func deselectCells() {
         testSelectedCell.forEach { indexPath, _ in
@@ -85,25 +88,20 @@ class HomeViewController: UIViewController {
         option.version = .current
         option.resizeMode = .exact
         
-        presentImagePicker(imagePicker, select: { (asset) in
-            // User selected an asset. Do something with it. Perhaps begin processing/upload?
-        }, deselect: { (asset) in
-            // User deselected an asset. Cancel whatever you did when asset was selected.
-        }, cancel: { (assets) in
-            // User canceled selection.
-        }, finish: { (assets) in
-            for asset in assets {
-                self.imageManager.requestImage(for: asset, targetSize: imageSize, contentMode: .aspectFit, options: option, resultHandler: {[weak self] image, _ in
-                    let image = self?.itemViewModel.convertImageToData(image: image)
-                    let id = self?.itemViewModel.idForAdd ?? 0
-                    self?.itemViewModel.add(content: 0, image: image, text: nil, date: Date(), id: id)
-                    self?.itemViewModel.loadItems()
-                    
-                    OperationQueue.main.addOperation {
-                        self?.itemCollectionView.reloadData()
-                    }
-                })
-            }
+        presentImagePicker(imagePicker, select: nil, deselect: nil, cancel: nil,
+                           finish: { (assets) in
+                            for asset in assets {
+                                self.imageManager.requestImage(for: asset, targetSize: imageSize, contentMode: .aspectFit, options: option, resultHandler: {[weak self] image, _ in
+                                    let image = self?.itemViewModel.convertImageToData(image: image)
+                                    let id = self?.itemViewModel.idForAdd ?? 0
+                                    self?.itemViewModel.add(content: 0, image: image, text: nil, date: Date(), id: id)
+                                    self?.itemViewModel.loadItems()
+                                    
+                                    OperationQueue.main.addOperation {
+                                        self?.itemCollectionView.reloadData()
+                                    }
+                                })
+                            }
         })
     }
     
@@ -121,21 +119,7 @@ class HomeViewController: UIViewController {
         feedbackGenerator?.prepare()
     }
     
-    // MARK:- @IBAction Methods
-    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
-        sender.title = sender.title == "편집" ? "완료" : "편집"
-        
-        tabBarController?.tabBar.isHidden.toggle()
-        toolbar.isHidden.toggle()
-        
-        addButton.isEnabled.toggle()
-        isEditMode.toggle()
-        deselectCells()
-        testSelectedCell = [:]
-        // itemViewModel.printID()
-    }
-    
-    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func presentAddActionSheet() {
         let actionMenu = UIAlertController(title: nil, message: "아이템 종류", preferredStyle: .actionSheet)
         
         let imageAction = UIAlertAction(title: "이미지 추가하기", style: .default, handler: {
@@ -148,8 +132,8 @@ class HomeViewController: UIViewController {
             self.presentaddTextItem()
         })
         
-         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
-              (alert: UIAlertAction!) -> Void in
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
         })
         
         actionMenu.addAction(imageAction)
@@ -157,6 +141,23 @@ class HomeViewController: UIViewController {
         actionMenu.addAction(cancelAction)
         
         present(actionMenu, animated: true)
+    }
+    
+    // MARK:- @IBAction Methods
+    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
+        sender.title = sender.title == "편집" ? "완료" : "편집"
+        
+        tabBarController?.tabBar.isHidden.toggle()
+        toolbar.isHidden.toggle()
+        
+        addButton.isEnabled.toggle()
+        isEditMode.toggle()
+        deselectCells()
+        testSelectedCell = [:]
+    }
+    
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        presentAddActionSheet()
     }
     
     @IBAction func removeButtonTapped(_ sender: UIBarButtonItem) {
@@ -181,7 +182,7 @@ extension HomeViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let itemInfo = itemViewModel.item(at: indexPath.item)
-    
+        
         if testSelectedCell.contains(where: { (selectedIndexPath, _) in return selectedIndexPath == indexPath }) {
             cell.isSelectedForRemove = true
         } else {
@@ -211,9 +212,9 @@ extension HomeViewController: UICollectionViewDelegate {
         guard let cell = collectionView.cellForItem(at: indexPath) as? ItemCustomCell else {
             return
         }
-
+        
         let item = itemViewModel.item(at: indexPath.item)
-
+        
         if isEditMode {
             testSelectedCell[indexPath] = item.id
             cell.isSelectedForRemove = true
@@ -238,13 +239,13 @@ extension HomeViewController: UICollectionViewDelegate {
                 break
             }
         }
-     }
+    }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? ItemCustomCell
         cell?.isSelectedForRemove = false
         feedbackGenerator?.selectionChanged()
-
+        
         testSelectedCell = testSelectedCell.filter { selectedIndexPath, id in
             selectedIndexPath != indexPath
         }
