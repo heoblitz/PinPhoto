@@ -1,2 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-PinPhoto/Pods-PinPhoto-frameworks.sh
-${BUILT_PRODUCTS_DIR}/BSImagePicker/BSImagePicker.framework
+${BUILT_PRODUCTS_DIR}/PryntTrimmerView/PryntTrimmerView.framework
+${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework
+${BUILT_PRODUCTS_DIR}/YPImagePicker/YPImagePicker.framework

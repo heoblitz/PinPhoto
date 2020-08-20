@@ -1,16 +1,24 @@
 PODS:
-  - BSImagePicker (3.2.0)
+  - PryntTrimmerView (4.0.0)
+  - SteviaLayout (4.7.3)
+  - YPImagePicker (4.3.1):
+    - PryntTrimmerView (~> 4.0.0)
+    - SteviaLayout (~> 4.7.3)
 
 DEPENDENCIES:
-  - BSImagePicker (~> 3.1)
+  - YPImagePicker
 
 SPEC REPOS:
   trunk:
-    - BSImagePicker
+    - PryntTrimmerView
+    - SteviaLayout
+    - YPImagePicker
 
 SPEC CHECKSUMS:
-  BSImagePicker: 1c0d14fa6f1b55380cd49cbebe47584f10e180c6
+  PryntTrimmerView: 67e67573ffd4c073f1308effa66aefd0cfa667a0
+  SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
+  YPImagePicker: 08bbb809ed62bf4149fc015c97249eb4b9463ff9
 
-PODFILE CHECKSUM: d4b43ac848caa62a67ff45ab000ee505b0c79fdf
+PODFILE CHECKSUM: 728ec82709b0d20aa2ebcb4de44c565009b89919
 
 COCOAPODS: 1.9.3
