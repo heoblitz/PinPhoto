@@ -24,9 +24,10 @@ class EditTextItemViewController: UIViewController {
         self.itemTextView.delegate = self
         self.itemTextView.text = item?.contentText
         self.itemTextView.isScrollEnabled = false
+        self.itemTextView.layer.backgroundColor = UIColor.systemBackground.cgColor
         self.itemTextView.layer.masksToBounds = false
         self.itemTextView.layer.shadowColor = UIColor.gray.cgColor
-        self.itemTextView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        self.itemTextView.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         self.itemTextView.layer.shadowOpacity = 1.0
         self.itemTextView.layer.shadowRadius = 0.0
         self.setTextViewSize()

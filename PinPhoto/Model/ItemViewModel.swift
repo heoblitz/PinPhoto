@@ -12,6 +12,14 @@ class ItemViewModel {
     let shared: CoreDataManager = CoreDataManager.shared
     var items: [Item] = []
     
+    var numberOfImages: Int {
+        var count = 0
+        items.forEach { item in
+            if item.contentType == 0 { count += 1 }
+        }
+        return count
+    }
+    
     var numberOfItems: Int {
         return items.count
     }

@@ -115,12 +115,24 @@ class HomeViewController: UIViewController {
         feedbackGenerator?.prepare()
     }
     
+    private func presentImagelimitedAlert() {
+        let alert = UIAlertController(title: "알림", message: "위젯 메모리 제한으로 인해 \n 이미지는 15개를 초과할 수 없습니다!", preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(action)
+        
+        present(alert, animated: true)
+    }
+    
     @objc func presentAddActionSheet() {
         let actionMenu = UIAlertController(title: nil, message: "아이템 종류", preferredStyle: .actionSheet)
         
         let imageAction = UIAlertAction(title: "이미지 추가하기", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
-            self.presentImagePikcer()
+            if self.itemViewModel.numberOfImages >= 15 {
+                self.presentImagelimitedAlert()
+            } else {
+                self.presentImagePikcer()
+            }
         })
         
         let textAction = UIAlertAction(title: "텍스트 추가하기", style: .default, handler: {
