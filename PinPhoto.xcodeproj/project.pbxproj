@@ -224,6 +224,7 @@
 		3C8C6C5E24EA363200689329 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				3CF8B45524A9CBA700D6C11C /* LaunchScreen.storyboard */,
 				3CF8B45024A9CBA300D6C11C /* Main.storyboard */,
 				3C8C6C5F24EA368400689329 /* Home.storyboard */,
 				3C0C004B24EA4F4500BF137B /* CreateTextItem.storyboard */,
@@ -283,7 +284,6 @@
 			isa = PBXGroup;
 			children = (
 				3CEB644A24CEC805004D8C3C /* PinPhoto.entitlements */,
-				3CF8B45524A9CBA700D6C11C /* LaunchScreen.storyboard */,
 				3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */,
 				3CF8B44C24A9CBA300D6C11C /* SceneDelegate.swift */,
 				3C8C6C5E24EA363200689329 /* StoryBoard */,

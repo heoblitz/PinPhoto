@@ -9,7 +9,8 @@
 import UIKit
 import NotificationCenter
 
-class TodayViewController: UIViewController, NCWidgetProviding {
+class TodayViewController: UIViewController {
+    // MARK:- @IBOutlet Properties
     @IBOutlet private weak var itemCollectionView: UICollectionView!
     @IBOutlet private weak var itemCollectionViewHeight: NSLayoutConstraint!
     @IBOutlet private weak var noticeLabel: UILabel!
@@ -21,6 +22,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet private weak var nextButtonImageView: UIImageView!
     @IBOutlet private weak var prevButtonImageView: UIImageView!
 
+    // MARK:- Properties
     private let itemViewModel = ItemViewModel()
 
     private var shouldContentAppear: Bool = false {
@@ -47,6 +49,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
+    // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -80,6 +83,44 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
+    // MARK:- Methods
+    private func saveIndexPath(at index: Int) {
+        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
+        defaults?.set(index, forKey: "indexPath")
+    }
+    
+    private func getIndexPath() -> Int? {
+        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
+        return defaults?.integer(forKey: "indexPath")
+    }
+    
+    private func getWidgetHeight() -> Float? {
+        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
+        return defaults?.float(forKey: "widgetHeight")
+    }
+    
+    @IBAction func nextButtonTapped(_ sender: UIButton) {
+        let nextIndex = min(pageControl.currentPage + 1, pageControl.numberOfPages - 1)
+        let indexPath = IndexPath(item: nextIndex, section: 0)
+        
+        pageControl.currentPage = nextIndex
+        itemCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        saveIndexPath(at: nextIndex)
+    }
+    
+    // MARK:- @IBAction Methods
+    @IBAction func prevButtonTapped(_ sender: UIButton) {
+        let prevIndex = max(pageControl.currentPage - 1, 0)
+        let indexPath = IndexPath(item: prevIndex, section: 0)
+        
+        pageControl.currentPage = prevIndex
+        itemCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        saveIndexPath(at: prevIndex)
+    }
+}
+
+// MARK:- NCWidgetProviding
+extension TodayViewController: NCWidgetProviding {
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
         
@@ -103,41 +144,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             shouldContentAppear = true
         }
     }
-    
-    func saveIndexPath(at index: Int) {
-        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
-        defaults?.set(index, forKey: "indexPath")
-    }
-    
-    func getIndexPath() -> Int? {
-        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
-        return defaults?.integer(forKey: "indexPath")
-    }
-    
-    func getWidgetHeight() -> Float? {
-        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
-        return defaults?.float(forKey: "widgetHeight")
-    }
-    
-    @IBAction func nextButtonTapped(_ sender: UIButton) {
-        let nextIndex = min(pageControl.currentPage + 1, pageControl.numberOfPages - 1)
-        let indexPath = IndexPath(item: nextIndex, section: 0)
-        
-        pageControl.currentPage = nextIndex
-        itemCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        saveIndexPath(at: nextIndex)
-    }
-    
-    @IBAction func prevButtonTapped(_ sender: UIButton) {
-        let prevIndex = max(pageControl.currentPage - 1, 0)
-        let indexPath = IndexPath(item: prevIndex, section: 0)
-        
-        pageControl.currentPage = prevIndex
-        itemCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        saveIndexPath(at: prevIndex)
-    }
 }
 
+// MARK:- UICollectionView Data Source
 extension TodayViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemViewModel.numberOfItems
@@ -164,6 +173,7 @@ extension TodayViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK:- UICollectionView Delegate FlowLayout
 extension TodayViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = itemCollectionView.bounds.width

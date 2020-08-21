@@ -59,23 +59,31 @@ class HomeViewController: UIViewController {
         self.itemCollectionView.delegate = self
         self.itemCollectionView.allowsMultipleSelection = true
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentAddActionSheet))
-        self.noticeView.isUserInteractionEnabled = true
-        self.noticeView.addGestureRecognizer(tapGesture)
-        self.noticeView.clipsToBounds = false
-        self.noticeView.layer.opacity = 0.8
-        self.noticeView.layer.cornerRadius = 5
-        
         self.itemViewModel.loadItems()
         self.itemCounts = itemViewModel.numberOfItems
         self.itemViewModel.registerObserver(self)
         
+        self.setupNoticeView()
         self.setupGenerator()
         self.tabBarController?.tabBar.isHidden = false
         self.toolbar.isHidden = true
     }
     
     // MARK:- Methods
+    private func setupGenerator() {
+        feedbackGenerator = UISelectionFeedbackGenerator()
+        feedbackGenerator?.prepare()
+    }
+    
+    private func setupNoticeView() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentAddActionSheet))
+        self.noticeView.isUserInteractionEnabled = true
+        self.noticeView.addGestureRecognizer(tapGesture)
+        self.noticeView.clipsToBounds = false
+        self.noticeView.layer.opacity = 0.8
+        self.noticeView.layer.cornerRadius = 5
+    }
+    
     private func deselectCells() {
         testSelectedCell.forEach { indexPath, _ in
             let cell = self.itemCollectionView.cellForItem(at: indexPath) as? ItemCustomCell
@@ -108,11 +116,6 @@ class HomeViewController: UIViewController {
         vc.itemViewModel = itemViewModel
         
         present(vc, animated: true)
-    }
-    
-    private func setupGenerator() {
-        feedbackGenerator = UISelectionFeedbackGenerator()
-        feedbackGenerator?.prepare()
     }
     
     private func presentImagelimitedAlert() {

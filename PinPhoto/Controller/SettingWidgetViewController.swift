@@ -50,17 +50,17 @@ class SettingWidgetViewController: UIViewController {
         return storyboard.instantiateInitialViewController()
     }
     
-    func saveWidgetHeight(at height: Float) {
+    private func saveWidgetHeight(at height: Float) {
         let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
         defaults?.set(height, forKey: "widgetHeight")
     }
     
-    func getWidgetHeight() -> Float? {
+    private func getWidgetHeight() -> Float? {
         let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
         return defaults?.float(forKey: "widgetHeight")
     }
     
-    func setWidgetImageHeight(_ height: Float) {
+    private func setWidgetImageHeight(_ height: Float) {
         for constraint in widgetImageView.constraints {
             if constraint.identifier == "widgetHeight" {
                constraint.constant = CGFloat(height)
