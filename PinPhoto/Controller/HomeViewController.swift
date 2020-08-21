@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
         var config = YPImagePickerConfiguration()
         config.showsPhotoFilters = false
         config.screens = [.library]
+        config.targetImageSize = YPImageSize.cappedTo(size: self.itemCollectionView.bounds.height)
         let picker = YPImagePicker(configuration: config)
         return picker
     }()
