@@ -20,6 +20,10 @@ class EditTextItemViewController: UIViewController {
     // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        self.view.addGestureRecognizer(tapGesture)
+        self.view.isUserInteractionEnabled = true
+        
         self.navigationItem.title = itemViewModel?.creationData(date: item?.updateDate)
         self.itemTextView.delegate = self
         self.itemTextView.text = item?.contentText
@@ -44,15 +48,6 @@ class EditTextItemViewController: UIViewController {
         return storyboard.instantiateInitialViewController()
     }
     
-    // MARK:- @IBAction Methods
-    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        if let item = item {
-            itemViewModel?.edit(content: item.contentType, image: nil, text: itemTextView.text, date: item.updateDate, id: item.id)
-        }
-        
-        navigationController?.popToRootViewController(animated: true)
-    }
-    
     private func setTextViewSize() {
         let size = CGSize(width: view.frame.width, height: .infinity)
         let estimatedSize = itemTextView.sizeThatFits(size)
@@ -62,6 +57,19 @@ class EditTextItemViewController: UIViewController {
                 constraint.constant = estimatedSize.height
             }
         }
+    }
+    
+    @objc private func viewTapped() {
+        view.endEditing(true)
+    }
+    
+    // MARK:- @IBAction Methods
+    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        if let item = item {
+            itemViewModel?.edit(content: item.contentType, image: nil, text: itemTextView.text, date: item.updateDate, id: item.id)
+        }
+        
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 

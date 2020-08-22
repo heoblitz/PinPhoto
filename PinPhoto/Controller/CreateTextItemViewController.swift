@@ -19,6 +19,10 @@ class CreateTextItemViewController: UIViewController {
     // MARk:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        self.view.addGestureRecognizer(tapGesture)
+        self.view.isUserInteractionEnabled = true
+        
         self.inputTextView.delegate = self
         self.inputTextView.isScrollEnabled = false
         self.saveButton.isEnabled = false
@@ -53,6 +57,10 @@ class CreateTextItemViewController: UIViewController {
     
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func viewTapped() {
+        view.endEditing(true)
     }
 }
 
