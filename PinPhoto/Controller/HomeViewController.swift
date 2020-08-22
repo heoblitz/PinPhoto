@@ -126,7 +126,7 @@ class HomeViewController: UIViewController {
         present(alert, animated: true)
     }
     
-    @objc func presentAddActionSheet() {
+    @objc private func presentAddActionSheet() {
         let actionMenu = UIAlertController(title: nil, message: "아이템 종류", preferredStyle: .actionSheet)
         
         let imageAction = UIAlertAction(title: "이미지 추가하기", style: .default, handler: {

@@ -19,6 +19,7 @@
 		3C0C005224EA581900BF137B /* ClassNameToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C005124EA581900BF137B /* ClassNameToString.swift */; };
 		3C20173F24EA4E2400DD3BA0 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C20173E24EA4E2400DD3BA0 /* Setting.storyboard */; };
 		3C21CC0724BEDC10004BEAF0 /* CreateTextItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C21CC0624BEDC10004BEAF0 /* CreateTextItemViewController.swift */; };
+		3C25284E24EFD2C4002ADBDC /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C25284D24EFD2C4002ADBDC /* HomeNavigationController.swift */; };
 		3C3ACC9024BB558B00311F7A /* Item.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC8E24BB558B00311F7A /* Item.xcdatamodeld */; };
 		3C3ACC9624BB5BD600311F7A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9524BB5BD600311F7A /* CoreDataManager.swift */; };
 		3C3ACC9924BB5C2100311F7A /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9724BB5C2100311F7A /* Item+CoreDataClass.swift */; };
@@ -87,6 +88,7 @@
 		3C0C005124EA581900BF137B /* ClassNameToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassNameToString.swift; sourceTree = "<group>"; };
 		3C20173E24EA4E2400DD3BA0 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		3C21CC0624BEDC10004BEAF0 /* CreateTextItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTextItemViewController.swift; sourceTree = "<group>"; };
+		3C25284D24EFD2C4002ADBDC /* HomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
 		3C3ACC8F24BB558B00311F7A /* Item.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Item.xcdatamodel; sourceTree = "<group>"; };
 		3C3ACC9524BB5BD600311F7A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3C3ACC9724BB5C2100311F7A /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataClass.swift"; path = "/Users/wonheo/workspace/PinPhoto/PinPhoto/Model/Item+CoreDataClass.swift"; sourceTree = "<absolute>"; };
@@ -189,13 +191,14 @@
 		3C3ACC8924BB52A300311F7A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3C25284D24EFD2C4002ADBDC /* HomeNavigationController.swift */,
 				3C4D139F24AB716B009BDCDE /* HomeViewController.swift */,
 				3C21CC0624BEDC10004BEAF0 /* CreateTextItemViewController.swift */,
 				3C070A9624D3BAB30077C3AE /* EditImageItemViewController.swift */,
 				3C070A9424D3A4CA0077C3AE /* EditTextItemViewController.swift */,
 				3C8AA00F24B05D32005EB75C /* SettingViewController.swift */,
-				3CCA560124D6853F00F32671 /* ManualViewController.swift */,
 				3C9D666324ECD0B900021E48 /* SettingWidgetViewController.swift */,
+				3CCA560124D6853F00F32671 /* ManualViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -231,8 +234,8 @@
 				3C0C004D24EA4FED00BF137B /* EditImageItem.storyboard */,
 				3C0C004F24EA50D200BF137B /* EditTextItem.storyboard */,
 				3C20173E24EA4E2400DD3BA0 /* Setting.storyboard */,
-				3C0C004924EA4F1A00BF137B /* Manual.storyboard */,
 				3C9D666124ECB51C00021E48 /* SettingWidget.storyboard */,
+				3C0C004924EA4F1A00BF137B /* Manual.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				3C3ACC9924BB5C2100311F7A /* Item+CoreDataClass.swift in Sources */,
 				3C3ACC9A24BB5C2100311F7A /* Item+CoreDataProperties.swift in Sources */,
 				3C0C005224EA581900BF137B /* ClassNameToString.swift in Sources */,
+				3C25284E24EFD2C4002ADBDC /* HomeNavigationController.swift in Sources */,
 				3C070A9524D3A4CA0077C3AE /* EditTextItemViewController.swift in Sources */,
 				3CEB644E24CF109A004D8C3C /* URLextension.swift in Sources */,
 				3C070A9724D3BAB30077C3AE /* EditImageItemViewController.swift in Sources */,

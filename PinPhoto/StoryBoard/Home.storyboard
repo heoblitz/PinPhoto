@@ -162,7 +162,7 @@
         <!--내 항목-->
         <scene sceneID="YDd-MX-7fy">
             <objects>
-                <navigationController storyboardIdentifier="homeViewController" automaticallyAdjustsScrollViewInsets="NO" id="fZz-BE-iHq" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="homeViewController" automaticallyAdjustsScrollViewInsets="NO" id="fZz-BE-iHq" customClass="HomeNavigationController" customModule="PinPhoto" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="내 항목" image="tray.full.fill" catalog="system" id="Rf2-ui-Mox"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kZl-V2-zSF">
