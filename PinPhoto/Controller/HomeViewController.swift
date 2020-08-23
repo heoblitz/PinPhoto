@@ -266,10 +266,14 @@ extension HomeViewController: UICollectionViewDelegate {
 // MARK:- UICollectionView Delegate Flow Layout
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, layout: UICollectionViewLayout, sizeForItemAt: IndexPath) -> CGSize {
-        let width = itemCollectionView.bounds.width / 3.1
-        let height = itemCollectionView.bounds.width / 3.1
+        let width = (itemCollectionView.bounds.width - 4) / 3
+        let height = (itemCollectionView.bounds.width - 4) / 3
         
         return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 }
 
