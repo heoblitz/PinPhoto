@@ -57,6 +57,7 @@ class TodayViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.extensionContext?.widgetLargestAvailableDisplayMode = NCWidgetDisplayMode.expanded
         self.itemViewModel.loadItems()
+        self.isImageFill = getWidgetImageFill() ?? false
         
         self.pageControl.numberOfPages = self.itemViewModel.numberOfItems
         self.nextButtonImageView.layer.opacity = 0.5
