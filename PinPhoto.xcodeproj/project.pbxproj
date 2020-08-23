@@ -30,6 +30,8 @@
 		3C9D666224ECB51C00021E48 /* SettingWidget.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C9D666124ECB51C00021E48 /* SettingWidget.storyboard */; };
 		3C9D666424ECD0B900021E48 /* SettingWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9D666324ECD0B900021E48 /* SettingWidgetViewController.swift */; };
 		3CAA167E24BC211200635F6D /* ItemCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA167D24BC211200635F6D /* ItemCustomCell.swift */; };
+		3CB8E0A124F1436D00FEE93C /* SettingWidgetSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB8E0A024F1436D00FEE93C /* SettingWidgetSliderCell.swift */; };
+		3CB8E0A324F1482600FEE93C /* SettingWidgetSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB8E0A224F1482600FEE93C /* SettingWidgetSwitchCell.swift */; };
 		3CC13F4B24CFCD7F00726E51 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC13F4A24CFCD7F00726E51 /* CoreDataManager.swift */; };
 		3CC13F4F24CFD05000726E51 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC13F4E24CFD05000726E51 /* ItemViewModel.swift */; };
 		3CC13F5024D0259100726E51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45324A9CBA700D6C11C /* Assets.xcassets */; };
@@ -99,6 +101,8 @@
 		3C9D666124ECB51C00021E48 /* SettingWidget.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingWidget.storyboard; sourceTree = "<group>"; };
 		3C9D666324ECD0B900021E48 /* SettingWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWidgetViewController.swift; sourceTree = "<group>"; };
 		3CAA167D24BC211200635F6D /* ItemCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCustomCell.swift; sourceTree = "<group>"; };
+		3CB8E0A024F1436D00FEE93C /* SettingWidgetSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWidgetSliderCell.swift; sourceTree = "<group>"; };
+		3CB8E0A224F1482600FEE93C /* SettingWidgetSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWidgetSwitchCell.swift; sourceTree = "<group>"; };
 		3CC13F4A24CFCD7F00726E51 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3CC13F4E24CFD05000726E51 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		3CC13F5124D0512200726E51 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -208,6 +212,8 @@
 			children = (
 				3CAA167D24BC211200635F6D /* ItemCustomCell.swift */,
 				3CCA560324D697EE00F32671 /* ManualCustomCell.swift */,
+				3CB8E0A224F1482600FEE93C /* SettingWidgetSwitchCell.swift */,
+				3CB8E0A024F1436D00FEE93C /* SettingWidgetSliderCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -516,6 +522,8 @@
 				3CEB644E24CF109A004D8C3C /* URLextension.swift in Sources */,
 				3C070A9724D3BAB30077C3AE /* EditImageItemViewController.swift in Sources */,
 				3CF8B44B24A9CBA300D6C11C /* AppDelegate.swift in Sources */,
+				3CB8E0A124F1436D00FEE93C /* SettingWidgetSliderCell.swift in Sources */,
+				3CB8E0A324F1482600FEE93C /* SettingWidgetSwitchCell.swift in Sources */,
 				3CF8B44D24A9CBA300D6C11C /* SceneDelegate.swift in Sources */,
 				3C4D13A024AB716B009BDCDE /* HomeViewController.swift in Sources */,
 				3CCA560424D697EE00F32671 /* ManualCustomCell.swift in Sources */,

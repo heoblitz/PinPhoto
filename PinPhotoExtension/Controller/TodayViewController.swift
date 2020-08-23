@@ -23,7 +23,9 @@ class TodayViewController: UIViewController {
     @IBOutlet private weak var prevButtonImageView: UIImageView!
 
     // MARK:- Properties
+    private let defaults: UserDefaults? = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
     private let itemViewModel = ItemViewModel()
+    private var isImageFill: Bool = false
 
     private var shouldContentAppear: Bool = false {
         didSet {
@@ -81,23 +83,27 @@ class TodayViewController: UIViewController {
             self.pageControl.currentPage = indexRow
             self.itemCollectionView.scrollToItem(at: IndexPath(item: indexRow, section: 0), at: .centeredHorizontally, animated: false)
         }
+        
+        // 이미지 모드 설정
+        self.isImageFill = getWidgetImageFill() ?? false
     }
     
     // MARK:- Methods
     private func saveIndexPath(at index: Int) {
-        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
         defaults?.set(index, forKey: "indexPath")
     }
     
     private func getIndexPath() -> Int? {
-        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
         return defaults?.integer(forKey: "indexPath")
     }
     
     private func getWidgetHeight() -> Float? {
-        let defaults = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
         return defaults?.float(forKey: "widgetHeight")
     }
+    
+    private func getWidgetImageFill() -> Bool? {
+         return defaults?.bool(forKey: "widgetImageFill")
+     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         let nextIndex = min(pageControl.currentPage + 1, pageControl.numberOfPages - 1)
@@ -162,6 +168,7 @@ extension TodayViewController: UICollectionViewDataSource {
         case 0:
             cell.itemtype = "image"
             cell.contentImageView.image = itemViewModel.convertDataToImage(data: item.contentImage)
+            cell.contentImageView.contentMode = isImageFill ? .scaleToFill : .scaleAspectFit
         case 1:
             cell.itemtype = "text"
             cell.contentTextLabel.text = item.contentText
