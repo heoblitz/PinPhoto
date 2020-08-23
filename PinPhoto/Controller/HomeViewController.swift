@@ -20,8 +20,8 @@ class HomeViewController: UIViewController {
     
     // MARK:- Propertises
     private let itemViewModel = ItemViewModel()
-    private var feedbackGenerator: UISelectionFeedbackGenerator?
-    private var isEditMode: Bool = false
+    // private var feedbackGenerator: UISelectionFeedbackGenerator?
+    static var isEditMode: Bool = false
     
     private lazy var imagePicker: YPImagePicker = {
         var config = YPImagePickerConfiguration()
@@ -58,25 +58,27 @@ class HomeViewController: UIViewController {
         self.itemCollectionView.dataSource = self
         self.itemCollectionView.delegate = self
         self.itemCollectionView.allowsMultipleSelection = true
+        self.itemCollectionView.delaysContentTouches = false
         
         self.itemViewModel.loadItems()
         self.itemCounts = itemViewModel.numberOfItems
         self.itemViewModel.registerObserver(self)
         
         self.setupNoticeView()
-        self.setupGenerator()
+        // self.setupGenerator()
         self.tabBarController?.tabBar.isHidden = false
         self.toolbar.isHidden = true
     }
     
     // MARK:- Methods
     private func setupGenerator() {
-        feedbackGenerator = UISelectionFeedbackGenerator()
-        feedbackGenerator?.prepare()
+//        feedbackGenerator = UISelectionFeedbackGenerator()
+//        feedbackGenerator?.prepare()
     }
     
     private func setupNoticeView() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentAddActionSheet))
+        tapGesture.cancelsTouchesInView = false
         self.noticeView.isUserInteractionEnabled = true
         self.noticeView.addGestureRecognizer(tapGesture)
         self.noticeView.clipsToBounds = false
@@ -162,7 +164,7 @@ class HomeViewController: UIViewController {
         toolbar.isHidden.toggle()
         
         addButton.isEnabled.toggle()
-        isEditMode.toggle()
+        HomeViewController.isEditMode.toggle()
         deselectCells()
         testSelectedCell = [:]
     }
@@ -223,14 +225,11 @@ extension HomeViewController: UICollectionViewDelegate {
         guard let cell = collectionView.cellForItem(at: indexPath) as? ItemCustomCell else {
             return
         }
-        
         let item = itemViewModel.item(at: indexPath.item)
-        
-        if isEditMode {
-            testSelectedCell[indexPath] = item.id
-            cell.isSelectedForRemove = true
-            feedbackGenerator?.selectionChanged()
-        } else {
+
+        if !HomeViewController.isEditMode { // Default Mode
+            cell.freezeAnimations()
+            collectionView.deselectItem(at: indexPath, animated: false)
             switch cell.itemtype {
             case "text":
                 guard let vc = EditTextItemViewController.storyboardInstance() else {
@@ -238,6 +237,7 @@ extension HomeViewController: UICollectionViewDelegate {
                 }
                 vc.item = item
                 vc.itemViewModel = itemViewModel
+                cell.unfreezeAnimations()
                 navigationController?.pushViewController(vc, animated: true)
             case "image":
                 guard let vc = EditImageItemViewController.storyboardInstance() else {
@@ -245,17 +245,20 @@ extension HomeViewController: UICollectionViewDelegate {
                 }
                 vc.item = item
                 vc.itemViewModel = itemViewModel
+                cell.unfreezeAnimations()
                 navigationController?.pushViewController(vc, animated: true)
             default:
                 break
             }
+        } else { // Edit Mode
+            testSelectedCell[indexPath] = item.id
+            cell.isSelectedForRemove = true
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? ItemCustomCell
         cell?.isSelectedForRemove = false
-        feedbackGenerator?.selectionChanged()
         
         testSelectedCell = testSelectedCell.filter { selectedIndexPath, id in
             selectedIndexPath != indexPath

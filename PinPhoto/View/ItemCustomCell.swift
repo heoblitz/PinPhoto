@@ -15,6 +15,17 @@ class ItemCustomCell: UICollectionViewCell {
     @IBOutlet weak var checkImageView: UIImageView!
     
     // MARK:- Propertises
+    var disabledHighlightedAnimation: Bool = false
+    
+    func freezeAnimations() {
+        disabledHighlightedAnimation = true
+        layer.removeAllAnimations()
+    }
+
+    func unfreezeAnimations() {
+        disabledHighlightedAnimation = false
+    }
+    
     var itemtype: String = "image" {
         didSet {
             switch self.itemtype {
@@ -40,6 +51,36 @@ class ItemCustomCell: UICollectionViewCell {
                 checkImageView.isHidden = true
                 itemTextLabel.alpha = 1
                 itemImageView.alpha = 1
+            }
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        animate(isHighlighted: true)
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        animate(isHighlighted: false)
+    }
+
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        animate(isHighlighted: false)
+    }
+    
+    private func animate(isHighlighted: Bool) {
+        if disabledHighlightedAnimation || HomeViewController.isEditMode {
+            return
+        }
+        
+        UIView.animate(withDuration: 0.3) {
+            if isHighlighted {
+                self.contentView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            }
+            else {
+                self.contentView.transform = .identity
             }
         }
     }

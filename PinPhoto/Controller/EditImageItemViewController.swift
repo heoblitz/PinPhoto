@@ -51,7 +51,6 @@ class EditImageItemViewController: UIViewController {
         self.itemImageView.isUserInteractionEnabled = true
         self.itemImageView.image = itemViewModel?.convertDataToImage(data: item?.contentImage)
         
-        
         self.itemScrollView.alwaysBounceVertical = false
         self.itemScrollView.alwaysBounceHorizontal = false
         
