@@ -28,7 +28,7 @@ class SettingWidgetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.tabBar.isHidden = true
+        // self.tabBarController?.tabBar.isHidden = true
         self.widgetSettingTableView.dataSource = self
         var height: Float = 300
         if let getHeight = getWidgetHeight(), getHeight != 0.0 { height = getHeight }
