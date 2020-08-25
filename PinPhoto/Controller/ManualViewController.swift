@@ -53,7 +53,7 @@ extension ManualViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "manualCell", for: indexPath) as? ManualCustomCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ManualCustomCell.cellIdentifier, for: indexPath) as? ManualCustomCell else {
             return UICollectionViewCell()
         }
         

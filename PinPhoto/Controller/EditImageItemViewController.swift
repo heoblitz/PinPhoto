@@ -48,6 +48,7 @@ class EditImageItemViewController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
         self.itemImageView.addGestureRecognizer(tapGesture)
+
         self.itemImageView.isUserInteractionEnabled = true
         self.itemImageView.image = itemViewModel?.convertDataToImage(data: item?.contentImage)
         
@@ -59,7 +60,7 @@ class EditImageItemViewController: UIViewController {
         self.itemScrollView.contentInsetAdjustmentBehavior = .never
         self.itemScrollView.delegate = self
     }
-    
+
     // MARK:- Methods
     static func storyboardInstance() -> EditImageItemViewController? {
         let storyboard = UIStoryboard(name: EditImageItemViewController.storyboardName(), bundle: nil)
@@ -72,6 +73,7 @@ class EditImageItemViewController: UIViewController {
         shouldBackgroundViewDark.toggle()
         tabBarController?.tabBar.isHidden.toggle()
         navigationController?.navigationBar.isHidden.toggle()
+        navigationController?.interactivePopGestureRecognizer?.isEnabled.toggle()
     }
 }
 

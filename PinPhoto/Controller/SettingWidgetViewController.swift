@@ -56,10 +56,6 @@ class SettingWidgetViewController: UIViewController {
         self.setWidgetImageHeight(height)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false
-    }
-    
     // MARK:- Methods
     static func storyboardInstance() -> SettingWidgetViewController? {
         let storyboard = UIStoryboard(name: SettingWidgetViewController.storyboardName(), bundle: nil)
@@ -85,7 +81,7 @@ class SettingWidgetViewController: UIViewController {
     private func setWidgetImageHeight(_ height: Float) {
         for constraint in widgetImageView.constraints {
             if constraint.identifier == "widgetHeight" {
-               constraint.constant = CGFloat(height - 10)
+               constraint.constant = CGFloat(height)
             }
         }
         widgetImageView.layoutIfNeeded()

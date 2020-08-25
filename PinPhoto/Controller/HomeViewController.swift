@@ -65,17 +65,11 @@ class HomeViewController: UIViewController {
         self.itemViewModel.registerObserver(self)
         
         self.setupNoticeView()
-        // self.setupGenerator()
         self.tabBarController?.tabBar.isHidden = false
         self.toolbar.isHidden = true
     }
     
     // MARK:- Methods
-    private func setupGenerator() {
-//        feedbackGenerator = UISelectionFeedbackGenerator()
-//        feedbackGenerator?.prepare()
-    }
-    
     private func setupNoticeView() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentAddActionSheet))
         tapGesture.cancelsTouchesInView = false
@@ -191,7 +185,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageItemcell", for: indexPath) as? ItemCustomCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCustomCell.cellIdentifier, for: indexPath) as? ItemCustomCell else {
             return UICollectionViewCell()
         }
         let itemInfo = itemViewModel.item(at: indexPath.item)

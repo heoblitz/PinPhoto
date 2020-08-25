@@ -15,6 +15,7 @@ class ItemCustomCell: UICollectionViewCell {
     @IBOutlet weak var checkImageView: UIImageView!
     
     // MARK:- Propertises
+    static let cellIdentifier: String = "itemCustomCell"
     var disabledHighlightedAnimation: Bool = false
     
     func freezeAnimations() {

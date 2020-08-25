@@ -9,6 +9,6 @@
 import UIKit
 
 class SettingWidgetSwitchCell: UITableViewCell {
-    static let cellIdentifier: String = "settingWidgetSwitch"
     @IBOutlet weak var imageSwitch: UISwitch!
+    static let cellIdentifier: String = "settingWidgetSwitchCell"
 }
