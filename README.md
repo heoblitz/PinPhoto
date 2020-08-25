@@ -3,7 +3,7 @@
 
 ![swift](https://img.shields.io/badge/Swift-5.0-orange.svg)
 ![pod](https://img.shields.io/badge/pod-1.9.3-blue)
-![version](https://img.shields.io/badge/version-1.0.0-blue)
+![version](https://img.shields.io/badge/version-1.1.0-blue)
 
 ![](header.jpg)
 
@@ -27,5 +27,5 @@
 
 - UIKIt
 - CoreData
-- BSImagePicker
+- YPImagePicker
 
