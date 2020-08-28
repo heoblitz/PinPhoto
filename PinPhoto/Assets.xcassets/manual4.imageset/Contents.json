@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "manual_4.png",
+      "filename" : "iPhone X - Silver.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "manual_4@2x.png",
+      "filename" : "iPhone X - Silver@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "manual_4@3x.png",
+      "filename" : "iPhone X - Silver@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
