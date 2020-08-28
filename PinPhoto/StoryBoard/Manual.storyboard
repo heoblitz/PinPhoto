@@ -69,7 +69,7 @@
                                 <color key="currentPageIndicatorTintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T9d-aK-QAO">
-                                <rect key="frame" x="359" y="59" width="35" height="36"/>
+                                <rect key="frame" x="359" y="54" width="35" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="닫기">
                                     <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -84,7 +84,7 @@
                             <constraint firstItem="T9d-aK-QAO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gbU-0b-S0d" secondAttribute="leading" constant="100" id="0XZ-ge-jiz"/>
                             <constraint firstItem="tbW-Nv-MzQ" firstAttribute="bottom" secondItem="WtP-2E-dzi" secondAttribute="bottom" id="BsG-9i-uzs"/>
                             <constraint firstItem="WtP-2E-dzi" firstAttribute="leading" secondItem="gbU-0b-S0d" secondAttribute="leading" id="Cxz-TO-Fho"/>
-                            <constraint firstItem="T9d-aK-QAO" firstAttribute="top" secondItem="gbU-0b-S0d" secondAttribute="top" constant="15" id="Lbh-Jt-D9D"/>
+                            <constraint firstItem="T9d-aK-QAO" firstAttribute="top" secondItem="gbU-0b-S0d" secondAttribute="top" constant="10" id="Lbh-Jt-D9D"/>
                             <constraint firstItem="gbU-0b-S0d" firstAttribute="trailing" secondItem="WtP-2E-dzi" secondAttribute="trailing" id="PzT-BH-K4i"/>
                             <constraint firstItem="tbW-Nv-MzQ" firstAttribute="leading" secondItem="gbU-0b-S0d" secondAttribute="leading" id="Qk5-34-EzF"/>
                             <constraint firstItem="gbU-0b-S0d" firstAttribute="trailing" secondItem="tbW-Nv-MzQ" secondAttribute="trailing" id="h8J-jm-qUI"/>

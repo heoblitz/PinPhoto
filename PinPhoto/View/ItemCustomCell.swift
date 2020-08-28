@@ -62,12 +62,12 @@ class ItemCustomCell: UICollectionViewCell {
         animate(isHighlighted: false)
     }
     
-    private func freezeAnimations() {
+    func freezeAnimations() {
         disabledHighlightedAnimation = true
         layer.removeAllAnimations()
     }
 
-    private func unfreezeAnimations() {
+    func unfreezeAnimations() {
         disabledHighlightedAnimation = false
     }
     
