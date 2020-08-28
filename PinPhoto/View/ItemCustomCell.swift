@@ -18,15 +18,6 @@ class ItemCustomCell: UICollectionViewCell {
     static let cellIdentifier: String = "itemCustomCell"
     var disabledHighlightedAnimation: Bool = false
     
-    func freezeAnimations() {
-        disabledHighlightedAnimation = true
-        layer.removeAllAnimations()
-    }
-
-    func unfreezeAnimations() {
-        disabledHighlightedAnimation = false
-    }
-    
     var itemtype: String = "image" {
         didSet {
             switch self.itemtype {
@@ -69,6 +60,15 @@ class ItemCustomCell: UICollectionViewCell {
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
         animate(isHighlighted: false)
+    }
+    
+    private func freezeAnimations() {
+        disabledHighlightedAnimation = true
+        layer.removeAllAnimations()
+    }
+
+    private func unfreezeAnimations() {
+        disabledHighlightedAnimation = false
     }
     
     private func animate(isHighlighted: Bool) {

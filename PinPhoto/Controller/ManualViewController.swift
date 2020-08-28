@@ -25,13 +25,6 @@ class ManualViewController: UIViewController {
         "> 버튼을 누르고 사용해주세요"
     ]
     
-    // MARK:- Methods
-    static func storyboardInstance() -> ManualViewController? {
-        let storyboard = UIStoryboard(name: ManualViewController.storyboardName(), bundle: nil)
-        
-        return storyboard.instantiateInitialViewController()
-    }
-    
     // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +33,13 @@ class ManualViewController: UIViewController {
         self.manualPageControl.numberOfPages = assetNames.count
     }
     
+    // MARK:- Methods
+    static func storyboardInstance() -> ManualViewController? {
+        let storyboard = UIStoryboard(name: ManualViewController.storyboardName(), bundle: nil)
+        
+        return storyboard.instantiateInitialViewController()
+    }
+
     // MARK:- @IBAction Methods
     @IBAction func dismissButtonTapped(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)

@@ -9,6 +9,9 @@
 import UIKit
 
 class SettingWidgetSliderCell: UITableViewCell {
+    // MARK:- @IBOutlet Properties
     @IBOutlet weak var heightSilder: UISlider!
+    
+    // MARK:- Propertises
     static let cellIdentifier: String = "settingWidgetSliderCell"
 }

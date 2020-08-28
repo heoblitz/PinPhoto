@@ -13,5 +13,6 @@ class ManualCustomCell: UICollectionViewCell {
     @IBOutlet weak var manualImageView: UIImageView!
     @IBOutlet weak var manualTextLabel: UILabel!
     
+    // MARK:- Propertises
     static let cellIdentifier: String = "manualCustomCell"
 }

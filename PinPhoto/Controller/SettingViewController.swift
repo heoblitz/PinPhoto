@@ -13,7 +13,6 @@ class SettingViewController: UIViewController {
     @IBOutlet private weak var settingTableView: UITableView!
     
     // MARK:- Propertises
-    //private let itemViewModel = ItemViewModel()
     private let shared = CoreDataManager.shared
     private let settingTitleDatas: [String] = ["사진 콕", "설정", "기타"]
     private let settingCellDatas: [[String]] = [

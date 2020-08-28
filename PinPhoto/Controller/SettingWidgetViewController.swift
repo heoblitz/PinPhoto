@@ -9,10 +9,12 @@
 import UIKit
 
 class SettingWidgetViewController: UIViewController {
+    // MARK:- @IBOutlet Properties
     @IBOutlet private weak var widgetImageView: UIImageView!
     @IBOutlet private weak var widgetHeaderView: UIView!
     @IBOutlet private weak var widgetSettingTableView: UITableView!
     
+    // MARK:- Propertises
     private let defaults: UserDefaults? = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
     private var selectionGenerator: UISelectionFeedbackGenerator!
     private var currentValue: Float = 0
@@ -26,6 +28,7 @@ class SettingWidgetViewController: UIViewController {
         }
     }
     
+    // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // self.tabBarController?.tabBar.isHidden = true
@@ -106,6 +109,7 @@ class SettingWidgetViewController: UIViewController {
     }
 }
 
+// MARK:- UITableView Data Source
 extension SettingWidgetViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
