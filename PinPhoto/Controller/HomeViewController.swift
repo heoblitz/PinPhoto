@@ -20,7 +20,6 @@ class HomeViewController: UIViewController {
     
     // MARK:- Propertises
     private let itemViewModel = ItemViewModel()
-    // private var feedbackGenerator: UISelectionFeedbackGenerator?
     static var isEditMode: Bool = false
     
     private lazy var imagePicker: YPImagePicker = {
@@ -263,8 +262,8 @@ extension HomeViewController: UICollectionViewDelegate {
 // MARK:- UICollectionView Delegate Flow Layout
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, layout: UICollectionViewLayout, sizeForItemAt: IndexPath) -> CGSize {
-        let width = (itemCollectionView.bounds.width - 4) / 3
-        let height = (itemCollectionView.bounds.width - 4) / 3
+        let width = (itemCollectionView.bounds.width - 2) / 3
+        let height = (itemCollectionView.bounds.width - 2) / 3
         
         return CGSize(width: width, height: height)
     }

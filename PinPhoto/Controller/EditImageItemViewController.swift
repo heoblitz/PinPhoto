@@ -21,8 +21,10 @@ class EditImageItemViewController: UIViewController {
         didSet {
             if shouldBackgroundViewDark {
                 view.backgroundColor = UIColor.black
+                navigationController?.interactivePopGestureRecognizer?.isEnabled = false
             } else {
                 view.backgroundColor = UIColor.systemBackground
+                navigationController?.interactivePopGestureRecognizer?.isEnabled = true
             }
         }
     }
@@ -73,7 +75,6 @@ class EditImageItemViewController: UIViewController {
         shouldBackgroundViewDark.toggle()
         tabBarController?.tabBar.isHidden.toggle()
         navigationController?.navigationBar.isHidden.toggle()
-        navigationController?.interactivePopGestureRecognizer?.isEnabled.toggle()
     }
 }
 
