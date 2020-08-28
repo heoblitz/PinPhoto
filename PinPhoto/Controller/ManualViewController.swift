@@ -20,8 +20,8 @@ class ManualViewController: UIViewController {
     
     private let manualTexts: [String] = [
         "먼저 아이템을 추가해주세요",
-        "홈 화면에서 왼쪽으로 스크롤하고 \n위젯을 클릭해주세요",
-        "사진 콕 위젯을 추가해주세요",
+        "홈 화면에서 왼쪽으로 스크롤하고 \n편집을 클릭해주세요",
+        "iOS 14 에서는 \"사용자화\"를 클릭하고 \n사진 콕 위젯을 추가해주세요",
         "> 버튼을 누르고 사용해주세요"
     ]
     
