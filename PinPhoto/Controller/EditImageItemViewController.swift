@@ -50,6 +50,11 @@ class EditImageItemViewController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
         self.itemImageView.addGestureRecognizer(tapGesture)
+        
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(imageDoubleTapped(_:)))
+        doubleTapGesture.numberOfTouchesRequired = 1
+        doubleTapGesture.numberOfTapsRequired = 2
+        self.itemImageView.addGestureRecognizer(doubleTapGesture)
 
         self.itemImageView.isUserInteractionEnabled = true
         self.itemImageView.image = itemViewModel?.convertDataToImage(data: item?.contentImage)
@@ -70,11 +75,29 @@ class EditImageItemViewController: UIViewController {
         return storyboard.instantiateInitialViewController()
     }
     
+    private func zoomRectangle(scale: CGFloat, center: CGPoint) -> CGRect {
+        var zoomRect = CGRect.zero
+        zoomRect.size.height = itemImageView.frame.size.height / scale
+        zoomRect.size.width  = itemImageView.frame.size.width  / scale
+        zoomRect.origin.x = max(center.x - (zoomRect.size.width / 2), 0)
+        zoomRect.origin.y = max(center.y - (zoomRect.size.height / 2), 0)
+        
+        return zoomRect
+    }
+    
     @objc private func imageTapped() {
         isStatusBarHidden.toggle()
         shouldBackgroundViewDark.toggle()
         tabBarController?.tabBar.isHidden.toggle()
         navigationController?.navigationBar.isHidden.toggle()
+    }
+    
+    @objc private func imageDoubleTapped(_ sender: UITapGestureRecognizer) {
+        if itemScrollView.zoomScale == itemScrollView.minimumZoomScale {
+            itemScrollView.zoom(to: zoomRectangle(scale: itemScrollView.maximumZoomScale, center: sender.location(in: sender.view)), animated: true)
+        } else {
+            itemScrollView.setZoomScale(itemScrollView.minimumZoomScale, animated: true)
+        }
     }
 }
 
