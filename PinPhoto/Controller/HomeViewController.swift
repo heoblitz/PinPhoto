@@ -22,13 +22,14 @@ class HomeViewController: UIViewController {
     private let itemViewModel = ItemViewModel()
     static var isEditMode: Bool = false
     
-    private lazy var imagePicker: YPImagePicker = {
+    private lazy var config: YPImagePickerConfiguration = {
         var config = YPImagePickerConfiguration()
         config.showsPhotoFilters = false
         config.screens = [.library]
         config.targetImageSize = YPImageSize.cappedTo(size: self.itemCollectionView.bounds.height)
-        let picker = YPImagePicker(configuration: config)
-        return picker
+        config.library.defaultMultipleSelection = false
+        config.library.maxNumberOfItems = 15
+        return config
     }()
     
     private var testSelectedCell: [IndexPath:Int64] = [:] {
@@ -87,21 +88,36 @@ class HomeViewController: UIViewController {
     }
     
     private func presentImagePikcer() {
-        imagePicker.didFinishPicking { [unowned imagePicker, weak self] items, _ in
-            if let photo = items.singlePhoto?.originalImage {
-                let imageData = self?.itemViewModel.convertImageToData(image: photo)
-                let id = self?.itemViewModel.idForAdd ?? 0
-                
-                self?.itemViewModel.add(content: 0, image: imageData, text: nil, date: Date(), id: id)
-                self?.itemViewModel.loadItems()
-                
-                OperationQueue.main.addOperation {
-                    self?.itemCollectionView.reloadData()
+        let picker = YPImagePicker(configuration: config)
+        var completion: (() -> Void)? = nil
+
+        picker.didFinishPicking { [unowned picker, weak self] items, _ in
+            for item in items {
+                switch item {
+                case .photo(let photo):
+                    if let numberOfImages = self?.itemViewModel.numberOfImages, numberOfImages < 15 {
+                    NSLog("%d", numberOfImages)
+                    let imageData = self?.itemViewModel.convertImageToData(image: photo.originalImage)
+                    let id = self?.itemViewModel.idForAdd ?? 0
+                    
+                    self?.itemViewModel.add(content: 0, image: imageData, text: nil, date: Date(), id: id)
+                    } else {
+                        completion = self?.presentImagelimitedAlert
+                    }
+                default:
+                    break
                 }
             }
-            imagePicker.dismiss(animated: true, completion: nil)
+            self?.itemViewModel.loadItems()
+            
+            OperationQueue.main.addOperation {
+                self?.itemCollectionView.reloadData()
+            }
+            
+            picker.dismiss(animated: true, completion: completion)
         }
-        present(imagePicker, animated: true, completion: nil)
+
+        present(picker, animated: true, completion: nil)
     }
     
     private func presentaddTextItem() {
