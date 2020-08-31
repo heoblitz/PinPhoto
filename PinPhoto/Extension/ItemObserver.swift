@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ItemObserver {
+public protocol ItemObserver {
     func updateItem()
     func errorItem(_ error: Error)
 }

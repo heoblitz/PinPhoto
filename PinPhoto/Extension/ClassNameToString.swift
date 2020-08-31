@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension NSObject {
+public extension NSObject {
     static func storyboardName() -> String {
         return String(describing: self).replacingOccurrences(of: "ViewController", with: "")
     }

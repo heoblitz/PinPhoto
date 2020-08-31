@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ItemViewModel {
+public class ItemViewModel {
     let shared: CoreDataManager = CoreDataManager.shared
-    var items: [Item] = []
+    private var items: [Item] = []
     
     var numberOfImages: Int {
         var count = 0

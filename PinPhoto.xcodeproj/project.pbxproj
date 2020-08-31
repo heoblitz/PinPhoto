@@ -24,6 +24,14 @@
 		3C3ACC9624BB5BD600311F7A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9524BB5BD600311F7A /* CoreDataManager.swift */; };
 		3C3ACC9924BB5C2100311F7A /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9724BB5C2100311F7A /* Item+CoreDataClass.swift */; };
 		3C3ACC9A24BB5C2100311F7A /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9824BB5C2100311F7A /* Item+CoreDataProperties.swift */; };
+		3C42651F24FD1BA000FA4F03 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9524BB5BD600311F7A /* CoreDataManager.swift */; };
+		3C42652024FD1BA700FA4F03 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9824BB5C2100311F7A /* Item+CoreDataProperties.swift */; };
+		3C42652124FD1BAA00FA4F03 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9724BB5C2100311F7A /* Item+CoreDataClass.swift */; };
+		3C42652224FD1BBA00FA4F03 /* ItemObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C070AA224D419600077C3AE /* ItemObserver.swift */; };
+		3C42652324FD1BCE00FA4F03 /* ClassNameToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C005124EA581900BF137B /* ClassNameToString.swift */; };
+		3C42652424FD1C4300FA4F03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */; };
+		3C42652524FD1D4800FA4F03 /* URLextension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB644D24CF109A004D8C3C /* URLextension.swift */; };
+		3C42652624FD1EC800FA4F03 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF52DF824BF0D6400E7B8D4 /* ItemViewModel.swift */; };
 		3C4D13A024AB716B009BDCDE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4D139F24AB716B009BDCDE /* HomeViewController.swift */; };
 		3C8AA01024B05D32005EB75C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8AA00F24B05D32005EB75C /* SettingViewController.swift */; };
 		3C8C6C6024EA368400689329 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C8C6C5F24EA368400689329 /* Home.storyboard */; };
@@ -32,11 +40,7 @@
 		3CAA167E24BC211200635F6D /* ItemCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA167D24BC211200635F6D /* ItemCustomCell.swift */; };
 		3CB8E0A124F1436D00FEE93C /* SettingWidgetSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB8E0A024F1436D00FEE93C /* SettingWidgetSliderCell.swift */; };
 		3CB8E0A324F1482600FEE93C /* SettingWidgetSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB8E0A224F1482600FEE93C /* SettingWidgetSwitchCell.swift */; };
-		3CC13F4B24CFCD7F00726E51 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC13F4A24CFCD7F00726E51 /* CoreDataManager.swift */; };
-		3CC13F4F24CFD05000726E51 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC13F4E24CFD05000726E51 /* ItemViewModel.swift */; };
 		3CC13F5024D0259100726E51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45324A9CBA700D6C11C /* Assets.xcassets */; };
-		3CC13F5224D0512200726E51 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC13F5124D0512200726E51 /* Item+CoreDataClass.swift */; };
-		3CC13F5424D0514300726E51 /* Item-CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC13F5324D0514300726E51 /* Item-CoreDataProperties.swift */; };
 		3CCA560224D6853F00F32671 /* ManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA560124D6853F00F32671 /* ManualViewController.swift */; };
 		3CCA560424D697EE00F32671 /* ManualCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA560324D697EE00F32671 /* ManualCustomCell.swift */; };
 		3CEB643B24CEC742004D8C3C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CEB643A24CEC742004D8C3C /* NotificationCenter.framework */; };
@@ -103,10 +107,6 @@
 		3CAA167D24BC211200635F6D /* ItemCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCustomCell.swift; sourceTree = "<group>"; };
 		3CB8E0A024F1436D00FEE93C /* SettingWidgetSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWidgetSliderCell.swift; sourceTree = "<group>"; };
 		3CB8E0A224F1482600FEE93C /* SettingWidgetSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWidgetSwitchCell.swift; sourceTree = "<group>"; };
-		3CC13F4A24CFCD7F00726E51 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		3CC13F4E24CFD05000726E51 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
-		3CC13F5124D0512200726E51 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
-		3CC13F5324D0514300726E51 /* Item-CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item-CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3CCA560124D6853F00F32671 /* ManualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualViewController.swift; sourceTree = "<group>"; };
 		3CCA560324D697EE00F32671 /* ManualCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualCustomCell.swift; sourceTree = "<group>"; };
 		3CEB643924CEC742004D8C3C /* PinPhotoExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PinPhotoExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,17 +181,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		3C070A9B24D3FD380077C3AE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3CC13F4A24CFCD7F00726E51 /* CoreDataManager.swift */,
-				3CC13F4E24CFD05000726E51 /* ItemViewModel.swift */,
-				3CC13F5124D0512200726E51 /* Item+CoreDataClass.swift */,
-				3CC13F5324D0514300726E51 /* Item-CoreDataProperties.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		3C3ACC8924BB52A300311F7A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,7 +222,6 @@
 		3C8C6C5E24EA363200689329 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
-				3CF8B45524A9CBA700D6C11C /* LaunchScreen.storyboard */,
 				3CF8B45024A9CBA300D6C11C /* Main.storyboard */,
 				3C8C6C5F24EA368400689329 /* Home.storyboard */,
 				3C0C004B24EA4F4500BF137B /* CreateTextItem.storyboard */,
@@ -242,6 +230,7 @@
 				3C20173E24EA4E2400DD3BA0 /* Setting.storyboard */,
 				3C9D666124ECB51C00021E48 /* SettingWidget.storyboard */,
 				3C0C004924EA4F1A00BF137B /* Manual.storyboard */,
+				3CF8B45524A9CBA700D6C11C /* LaunchScreen.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -252,7 +241,6 @@
 				3CEB644B24CEC80E004D8C3C /* PinPhotoExtension.entitlements */,
 				3CEB643F24CEC742004D8C3C /* MainInterface.storyboard */,
 				3CEB644224CEC742004D8C3C /* Info.plist */,
-				3C070A9B24D3FD380077C3AE /* Model */,
 				3C070A9A24D3FD2C0077C3AE /* View */,
 				3C070A9924D3FD0C0077C3AE /* Controller */,
 			);
@@ -493,13 +481,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CC13F5224D0512200726E51 /* Item+CoreDataClass.swift in Sources */,
-				3CC13F5424D0514300726E51 /* Item-CoreDataProperties.swift in Sources */,
-				3CC13F4B24CFCD7F00726E51 /* CoreDataManager.swift in Sources */,
+				3C42652324FD1BCE00FA4F03 /* ClassNameToString.swift in Sources */,
+				3C42652024FD1BA700FA4F03 /* Item+CoreDataProperties.swift in Sources */,
 				3CEB644C24CF01B5004D8C3C /* Item.xcdatamodeld in Sources */,
+				3C42652624FD1EC800FA4F03 /* ItemViewModel.swift in Sources */,
+				3C42652524FD1D4800FA4F03 /* URLextension.swift in Sources */,
 				3C070A9024D26F670077C3AE /* ExtensionItemCell.swift in Sources */,
-				3CC13F4F24CFD05000726E51 /* ItemViewModel.swift in Sources */,
+				3C42652224FD1BBA00FA4F03 /* ItemObserver.swift in Sources */,
+				3C42651F24FD1BA000FA4F03 /* CoreDataManager.swift in Sources */,
 				3CEB643E24CEC742004D8C3C /* TodayViewController.swift in Sources */,
+				3C42652424FD1C4300FA4F03 /* AppDelegate.swift in Sources */,
+				3C42652124FD1BAA00FA4F03 /* Item+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,7 +579,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoExtension;
 				PRODUCT_NAME = PinPhotoExtension;
 				SKIP_INSTALL = YES;
@@ -613,7 +605,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoExtension;
 				PRODUCT_NAME = PinPhotoExtension;
 				SKIP_INSTALL = YES;
@@ -626,6 +618,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -686,6 +679,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -741,6 +735,7 @@
 			baseConfigurationReference = 80EE58D3FBED7D66C4295092 /* Pods-PinPhoto.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PinPhoto/PinPhoto.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -765,6 +760,7 @@
 			baseConfigurationReference = A1624057D1CAB01FABDD5A48 /* Pods-PinPhoto.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PinPhoto/PinPhoto.entitlements;
 				CODE_SIGN_STYLE = Automatic;

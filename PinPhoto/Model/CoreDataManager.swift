@@ -9,11 +9,12 @@
 import UIKit
 import CoreData
 
-class CoreDataManager {
+public class CoreDataManager {
     // MARK:- Propertises
     static let shared: CoreDataManager = CoreDataManager()
+    lazy var context = persistentContainer.viewContext
     var itemObservers: [ItemObserver] = []
-    
+
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     let modelName: String = "Item"
     
@@ -39,13 +40,7 @@ class CoreDataManager {
         
         return container
     }()
-    
-    lazy var context = persistentContainer.viewContext
-    
-    // MARK:- Initializer
-    private init() {
-    }
-    
+        
     // MARK:- Methods
     func getItem() -> [Item] {
         var models: [Item] = []
