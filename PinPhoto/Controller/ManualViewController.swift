@@ -67,9 +67,9 @@ extension ManualViewController: UICollectionViewDataSource {
 // MARK:- UICollectionView Delegate
 extension ManualViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let index = self.manualCollectionView.contentOffset.x / self.manualCollectionView.frame.size.width;
+        let index = manualCollectionView.contentOffset.x / manualCollectionView.frame.size.width;
         
-        self.manualPageControl.currentPage = Int(index)
+        manualPageControl.currentPage = Int(index)
     }
 }
 

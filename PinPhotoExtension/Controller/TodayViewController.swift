@@ -141,17 +141,8 @@ extension TodayViewController: UICollectionViewDataSource {
         }
         let item = itemViewModel.item(at: indexPath.item)
         
-        switch item.contentType {
-        case 0:
-            cell.itemtype = "image"
-            cell.contentImageView.image = item.contentImage?.image
-            cell.contentImageView.contentMode = widgetViewModel.shouldImageFill ? .scaleToFill : .scaleAspectFit
-        case 1:
-            cell.itemtype = "text"
-            cell.contentTextLabel.text = item.contentText
-        default:
-            break
-        }
+        cell.update(item: item)
+        cell.contentImageView.contentMode = widgetViewModel.shouldImageFill ? .scaleToFill : .scaleAspectFit
         
         return cell
     }

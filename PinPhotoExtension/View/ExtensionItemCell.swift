@@ -14,18 +14,46 @@ class ExtensionItemCell: UICollectionViewCell {
     @IBOutlet weak var contentTextLabel: UILabel!
     
     // MARK:- Propertises
-    var itemtype: String = "image" {
+    var itemType: String = "" {
         didSet {
-            switch self.itemtype {
+            switch itemType {
             case "image":
                 contentTextLabel.isHidden = true
-                contentImageView.isHidden = false
             case "text":
-                contentTextLabel.isHidden = false
                 contentImageView.isHidden = true
             default:
                 break
             }
         }
     }
+
+    // MARK:- Method
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        reset()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        reset()
+    }
+    
+    private func reset() {
+        contentImageView.isHidden = false
+        contentImageView.image = nil
+        contentTextLabel.isHidden = false
+        contentTextLabel.text = nil
+    }
+    
+    func update(item: Item) {
+        contentImageView.image = item.contentImage?.image
+        contentTextLabel.text = item.contentText
+        
+        if item.contentType == 0 {
+            itemType = "image"
+        } else {
+            itemType = "text"
+        }
+    }
+
 }
