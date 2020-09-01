@@ -23,9 +23,8 @@ class TodayViewController: UIViewController {
     @IBOutlet private weak var prevButtonImageView: UIImageView!
     
     // MARK:- Properties
-    private let defaults: UserDefaults? = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
     private let itemViewModel = ItemViewModel()
-    private var isImageFill: Bool = false
+    private let widgetViewModel = WidgetViewModel()
 
     private var shouldContentAppear: Bool = false {
         didSet {
@@ -54,65 +53,42 @@ class TodayViewController: UIViewController {
     // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        self.extensionContext?.widgetLargestAvailableDisplayMode = NCWidgetDisplayMode.expanded
-        self.itemViewModel.loadItems()
-        self.isImageFill = getWidgetImageFill() ?? false
-        
-        self.pageControl.numberOfPages = self.itemViewModel.numberOfItems
-        self.nextButtonImageView.layer.opacity = 0.5
-        self.prevButtonImageView.layer.opacity = 0.5
-                
-        self.itemCollectionView.dataSource = self
-        self.itemCollectionView.delegate = self
+        extensionContext?.widgetLargestAvailableDisplayMode = NCWidgetDisplayMode.expanded
+        itemViewModel.loadItems()
+        pageControl.numberOfPages = itemViewModel.numberOfItems
+        nextButtonImageView.layer.opacity = 0.5
+        prevButtonImageView.layer.opacity = 0.5
+        itemCollectionView.dataSource = self
+        itemCollectionView.delegate = self
     }
         
     override func viewWillAppear(_ animated: Bool) {
         // 콜렉션 뷰 높이 지정
-        let height = getWidgetHeight() ?? 300
-        self.itemCollectionViewHeight.constant = CGFloat(height)
-        self.itemCollectionView.reloadData()
-        self.itemCollectionView.layoutIfNeeded()
+        let height = widgetViewModel.height
+        itemCollectionViewHeight.constant = CGFloat(height)
+        itemCollectionView.reloadData()
+        itemCollectionView.layoutIfNeeded()
         
         // 콜렉션 뷰 위치 지정
-        if let index = getIndexPath() {
-            let indexRow = min(self.itemViewModel.numberOfItems, index)
-            self.pageControl.currentPage = indexRow
-            self.itemCollectionView.scrollToItem(at: IndexPath(item: indexRow, section: 0), at: .centeredHorizontally, animated: false)
+        if let index = widgetViewModel.currentIndex {
+            let indexRow = min(itemViewModel.numberOfItems, index)
+            pageControl.currentPage = indexRow
+            itemCollectionView.scrollToItem(at: IndexPath(item: indexRow, section: 0), at: .centeredHorizontally, animated: false)
         } else {
             let indexRow = 0
-            self.pageControl.currentPage = indexRow
-            self.itemCollectionView.scrollToItem(at: IndexPath(item: indexRow, section: 0), at: .centeredHorizontally, animated: false)
+            pageControl.currentPage = indexRow
+            itemCollectionView.scrollToItem(at: IndexPath(item: indexRow, section: 0), at: .centeredHorizontally, animated: false)
         }
-        
-        // 이미지 모드 설정
-        self.isImageFill = getWidgetImageFill() ?? false
     }
     
     // MARK:- Methods
-    private func saveIndexPath(at index: Int) {
-        defaults?.set(index, forKey: "indexPath")
-    }
-    
-    private func getIndexPath() -> Int? {
-        return defaults?.integer(forKey: "indexPath")
-    }
-    
-    private func getWidgetHeight() -> Float? {
-        return defaults?.float(forKey: "widgetHeight")
-    }
-    
-    private func getWidgetImageFill() -> Bool? {
-         return defaults?.bool(forKey: "widgetImageFill")
-     }
-    
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         let nextIndex = min(pageControl.currentPage + 1, pageControl.numberOfPages - 1)
         let indexPath = IndexPath(item: nextIndex, section: 0)
         
         pageControl.currentPage = nextIndex
+        widgetViewModel.currentIndex = nextIndex
         itemCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        saveIndexPath(at: nextIndex)
     }
     
     // MARK:- @IBAction Methods
@@ -121,8 +97,8 @@ class TodayViewController: UIViewController {
         let indexPath = IndexPath(item: prevIndex, section: 0)
         
         pageControl.currentPage = prevIndex
+        widgetViewModel.currentIndex = prevIndex
         itemCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        saveIndexPath(at: prevIndex)
     }
 }
 
@@ -141,13 +117,13 @@ extension TodayViewController: NCWidgetProviding {
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == NCWidgetDisplayMode.compact {
             //compact
-            self.preferredContentSize = maxSize
+            preferredContentSize = maxSize
             shouldContentAppear = false
 
         } else {
             //extended
-            let height = getWidgetHeight() ?? 300
-            self.preferredContentSize = CGSize(width: maxSize.width, height: CGFloat(height))
+            let height = widgetViewModel.height
+            preferredContentSize = CGSize(width: maxSize.width, height: CGFloat(height))
             shouldContentAppear = true
         }
     }
@@ -169,7 +145,7 @@ extension TodayViewController: UICollectionViewDataSource {
         case 0:
             cell.itemtype = "image"
             cell.contentImageView.image = item.contentImage?.image
-            cell.contentImageView.contentMode = isImageFill ? .scaleToFill : .scaleAspectFit
+            cell.contentImageView.contentMode = widgetViewModel.shouldImageFill ? .scaleToFill : .scaleAspectFit
         case 1:
             cell.itemtype = "text"
             cell.contentTextLabel.text = item.contentText

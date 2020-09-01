@@ -12,6 +12,7 @@ public class WidgetViewModel {
     private let defaults: UserDefaults? = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
     private let widgetHeightKey: String = "widgetHeight"
     private let widgetImageFillKey: String = "widgetImageFill"
+    private let currentIndexKey: String = "widgetIndex"
     
     var height: Float {
         get {
@@ -28,6 +29,15 @@ public class WidgetViewModel {
         }
         set {
             defaults?.set(newValue, forKey: widgetImageFillKey)
+        }
+    }
+    
+    var currentIndex: Int? {
+        get {
+            return defaults?.value(forKey: currentIndexKey) as? Int
+        }
+        set {
+            defaults?.set(newValue, forKey: currentIndexKey)
         }
     }
 }
