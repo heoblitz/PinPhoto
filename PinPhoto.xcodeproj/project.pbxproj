@@ -33,6 +33,8 @@
 		3C42652524FD1D4800FA4F03 /* URLextension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB644D24CF109A004D8C3C /* URLextension.swift */; };
 		3C42652624FD1EC800FA4F03 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF52DF824BF0D6400E7B8D4 /* ItemViewModel.swift */; };
 		3C4D13A024AB716B009BDCDE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4D139F24AB716B009BDCDE /* HomeViewController.swift */; };
+		3C585BCF24FD33A600203C18 /* ConvertImageToData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C585BCE24FD33A600203C18 /* ConvertImageToData.swift */; };
+		3C585BD024FD33A600203C18 /* ConvertImageToData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C585BCE24FD33A600203C18 /* ConvertImageToData.swift */; };
 		3C8AA01024B05D32005EB75C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8AA00F24B05D32005EB75C /* SettingViewController.swift */; };
 		3C8C6C6024EA368400689329 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C8C6C5F24EA368400689329 /* Home.storyboard */; };
 		3C9D666224ECB51C00021E48 /* SettingWidget.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C9D666124ECB51C00021E48 /* SettingWidget.storyboard */; };
@@ -100,6 +102,7 @@
 		3C3ACC9724BB5C2100311F7A /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataClass.swift"; path = "/Users/wonheo/workspace/PinPhoto/PinPhoto/Model/Item+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		3C3ACC9824BB5C2100311F7A /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataProperties.swift"; path = "/Users/wonheo/workspace/PinPhoto/PinPhoto/Model/Item+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		3C4D139F24AB716B009BDCDE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3C585BCE24FD33A600203C18 /* ConvertImageToData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertImageToData.swift; sourceTree = "<group>"; };
 		3C8AA00F24B05D32005EB75C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		3C8C6C5F24EA368400689329 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		3C9D666124ECB51C00021E48 /* SettingWidget.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingWidget.storyboard; sourceTree = "<group>"; };
@@ -219,6 +222,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3C585BD124FD34A900203C18 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				3C070AA224D419600077C3AE /* ItemObserver.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		3C8C6C5E24EA363200689329 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,7 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				3CEB644D24CF109A004D8C3C /* URLextension.swift */,
-				3C070AA224D419600077C3AE /* ItemObserver.swift */,
+				3C585BCE24FD33A600203C18 /* ConvertImageToData.swift */,
 				3C0C005124EA581900BF137B /* ClassNameToString.swift */,
 			);
 			path = Extension;
@@ -288,6 +299,7 @@
 				3C3ACC8A24BB52C600311F7A /* View */,
 				3C3ACC8924BB52A300311F7A /* Controller */,
 				3CEB644F24CF10A3004D8C3C /* Extension */,
+				3C585BD124FD34A900203C18 /* Protocol */,
 				3CF8B45324A9CBA700D6C11C /* Assets.xcassets */,
 				3CF8B45824A9CBA700D6C11C /* Info.plist */,
 			);
@@ -489,6 +501,7 @@
 				3C070A9024D26F670077C3AE /* ExtensionItemCell.swift in Sources */,
 				3C42652224FD1BBA00FA4F03 /* ItemObserver.swift in Sources */,
 				3C42651F24FD1BA000FA4F03 /* CoreDataManager.swift in Sources */,
+				3C585BD024FD33A600203C18 /* ConvertImageToData.swift in Sources */,
 				3CEB643E24CEC742004D8C3C /* TodayViewController.swift in Sources */,
 				3C42652424FD1C4300FA4F03 /* AppDelegate.swift in Sources */,
 				3C42652124FD1BAA00FA4F03 /* Item+CoreDataClass.swift in Sources */,
@@ -499,6 +512,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C585BCF24FD33A600203C18 /* ConvertImageToData.swift in Sources */,
 				3CF52DF924BF0D6400E7B8D4 /* ItemViewModel.swift in Sources */,
 				3C3ACC9024BB558B00311F7A /* Item.xcdatamodeld in Sources */,
 				3CAA167E24BC211200635F6D /* ItemCustomCell.swift in Sources */,

@@ -32,9 +32,9 @@ class HomeViewController: UIViewController {
         return config
     }()
     
-    private var testSelectedCell: [IndexPath:Int64] = [:] {
+    private var selectedCell: [IndexPath:Int64] = [:] {
         didSet {
-            if testSelectedCell.count > 0 {
+            if selectedCell.count > 0 {
                 self.deleteButton.isEnabled = true
             } else {
                 self.deleteButton.isEnabled = false
@@ -42,9 +42,9 @@ class HomeViewController: UIViewController {
         }
     }
     
-    private var itemCounts: Int = 0 {
+    private var itemCount: Int = 0 {
         didSet {
-            if itemCounts == 0 {
+            if itemCount == 0 {
                 self.noticeView.isHidden = false
             } else {
                 self.noticeView.isHidden = true
@@ -55,33 +55,33 @@ class HomeViewController: UIViewController {
     // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.itemCollectionView.dataSource = self
-        self.itemCollectionView.delegate = self
-        self.itemCollectionView.allowsMultipleSelection = true
-        self.itemCollectionView.delaysContentTouches = false
+        itemCollectionView.dataSource = self
+        itemCollectionView.delegate = self
+        itemCollectionView.allowsMultipleSelection = true
+        itemCollectionView.delaysContentTouches = false
         
-        self.itemViewModel.loadItems()
-        self.itemCounts = itemViewModel.numberOfItems
-        self.itemViewModel.registerObserver(self)
-        
-        self.setupNoticeView()
-        self.tabBarController?.tabBar.isHidden = false
-        self.toolbar.isHidden = true
+        itemViewModel.loadItems()
+        itemViewModel.registerObserver(self)
+        itemCount = itemViewModel.numberOfItems
+
+        prepareNoticeView()
+        tabBarController?.tabBar.isHidden = false
+        toolbar.isHidden = true
     }
     
     // MARK:- Methods
-    private func setupNoticeView() {
+    private func prepareNoticeView() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentAddActionSheet))
         tapGesture.cancelsTouchesInView = false
-        self.noticeView.isUserInteractionEnabled = true
-        self.noticeView.addGestureRecognizer(tapGesture)
-        self.noticeView.clipsToBounds = false
-        self.noticeView.layer.opacity = 0.8
-        self.noticeView.layer.cornerRadius = 5
+        noticeView.isUserInteractionEnabled = true
+        noticeView.addGestureRecognizer(tapGesture)
+        noticeView.clipsToBounds = false
+        noticeView.layer.opacity = 0.8
+        noticeView.layer.cornerRadius = 5
     }
     
     private func deselectCells() {
-        testSelectedCell.forEach { indexPath, _ in
+        selectedCell.forEach { indexPath, _ in
             let cell = self.itemCollectionView.cellForItem(at: indexPath) as? ItemCustomCell
             cell?.isSelectedForRemove = false
         }
@@ -97,23 +97,19 @@ class HomeViewController: UIViewController {
                 case .photo(let photo):
                     if let numberOfImages = self?.itemViewModel.numberOfImages, numberOfImages < 15 {
                     NSLog("%d", numberOfImages)
-                    let imageData = self?.itemViewModel.convertImageToData(image: photo.originalImage)
                     let id = self?.itemViewModel.idForAdd ?? 0
-                    
+                    let imageData: Data? = photo.originalImage.data
+
                     self?.itemViewModel.add(content: 0, image: imageData, text: nil, date: Date(), id: id)
                     } else {
                         completion = self?.presentImagelimitedAlert
+                        break
                     }
                 default:
                     break
                 }
             }
             self?.itemViewModel.loadItems()
-            
-            OperationQueue.main.addOperation {
-                self?.itemCollectionView.reloadData()
-            }
-            
             picker.dismiss(animated: true, completion: completion)
         }
 
@@ -171,11 +167,10 @@ class HomeViewController: UIViewController {
         
         tabBarController?.tabBar.isHidden.toggle()
         toolbar.isHidden.toggle()
-        
         addButton.isEnabled.toggle()
         HomeViewController.isEditMode.toggle()
         deselectCells()
-        testSelectedCell = [:]
+        selectedCell = [:]
     }
     
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
@@ -183,13 +178,12 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func removeButtonTapped(_ sender: UIBarButtonItem) {
-        testSelectedCell.forEach { indexPath, id in
+        selectedCell.forEach { indexPath, id in
             self.itemViewModel.remove(id: id)
         }
-        testSelectedCell = [:]
+        selectedCell = [:]
         
         itemViewModel.loadItems()
-        itemCollectionView.reloadData()
     }
 }
 
@@ -203,29 +197,17 @@ extension HomeViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCustomCell.cellIdentifier, for: indexPath) as? ItemCustomCell else {
             return UICollectionViewCell()
         }
-        let itemInfo = itemViewModel.item(at: indexPath.item)
+        let item = itemViewModel.item(at: indexPath.item)
         
-        if testSelectedCell.contains(where: { (selectedIndexPath, _) in return selectedIndexPath == indexPath }) {
+        if selectedCell.contains(where: { (selectedIndexPath, _) in return selectedIndexPath == indexPath }) {
             cell.isSelectedForRemove = true
         } else {
             cell.isSelectedForRemove = false
         }
+        cell.update(item)
         
-        switch itemInfo.contentType {
-        case 0:
-            let imageData = itemInfo.contentImage
-            cell.itemtype = "image"
-            cell.itemImageView?.contentMode = .scaleAspectFill
-            cell.itemImageView?.image = itemViewModel.convertDataToImage(data: imageData)
-            return cell
-        case 1:
-            cell.itemtype = "text"
-            cell.itemTextLabel.text = itemInfo.contentText
-            return cell
-        default:
-            return cell
+        return cell
         }
-    }
 }
 
 // MARK:- UICollectionView Delegate
@@ -260,7 +242,7 @@ extension HomeViewController: UICollectionViewDelegate {
                 break
             }
         } else { // Edit Mode
-            testSelectedCell[indexPath] = item.id
+            selectedCell[indexPath] = item.id
             cell.isSelectedForRemove = true
         }
     }
@@ -269,7 +251,7 @@ extension HomeViewController: UICollectionViewDelegate {
         let cell = collectionView.cellForItem(at: indexPath) as? ItemCustomCell
         cell?.isSelectedForRemove = false
         
-        testSelectedCell = testSelectedCell.filter { selectedIndexPath, id in
+        selectedCell = selectedCell.filter { selectedIndexPath, id in
             selectedIndexPath != indexPath
         }
     }
@@ -291,9 +273,8 @@ extension HomeViewController: ItemObserver {
         guard let itemCollectionView = itemCollectionView else {
             return
         }
-        print("item updated")
         self.itemViewModel.loadItems()
-        self.itemCounts = self.itemViewModel.numberOfItems
+        self.itemCount = self.itemViewModel.numberOfItems
         itemCollectionView.reloadData()
     }
     

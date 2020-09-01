@@ -44,20 +44,6 @@ public class ItemViewModel {
          shared.editItem(contentType: content, contentImage: image, contentText: text, updateDate: date, id: id)
     }
     
-    func convertImageToData(image: UIImage?) -> Data? {
-        guard let image = image else {
-            return nil
-        }
-        return image.pngData()
-    }
-    
-    func convertDataToImage(data: Data?) -> UIImage? {
-        guard let data = data else {
-            return nil
-        }
-        return UIImage(data: data)
-    }
-    
     func loadItems() {
         items = shared.getItem()
         items.reverse()

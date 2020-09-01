@@ -21,7 +21,7 @@ class TodayViewController: UIViewController {
     
     @IBOutlet private weak var nextButtonImageView: UIImageView!
     @IBOutlet private weak var prevButtonImageView: UIImageView!
-
+    
     // MARK:- Properties
     private let defaults: UserDefaults? = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
     private let itemViewModel = ItemViewModel()
@@ -168,7 +168,7 @@ extension TodayViewController: UICollectionViewDataSource {
         switch item.contentType {
         case 0:
             cell.itemtype = "image"
-            cell.contentImageView.image = itemViewModel.convertDataToImage(data: item.contentImage)
+            cell.contentImageView.image = item.contentImage?.image
             cell.contentImageView.contentMode = isImageFill ? .scaleToFill : .scaleAspectFit
         case 1:
             cell.itemtype = "text"

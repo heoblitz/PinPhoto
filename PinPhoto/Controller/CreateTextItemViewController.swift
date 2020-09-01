@@ -20,23 +20,16 @@ class CreateTextItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
-        self.view.addGestureRecognizer(tapGesture)
-        self.view.isUserInteractionEnabled = true
-        
-        self.inputTextView.delegate = self
-        self.inputTextView.isScrollEnabled = false
-        self.saveButton.isEnabled = false
-        
-        self.inputTextView.layer.backgroundColor = UIColor.systemBackground.cgColor
-        self.inputTextView.layer.masksToBounds = false
-        self.inputTextView.layer.shadowColor = UIColor.gray.cgColor
-        self.inputTextView.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        self.inputTextView.layer.shadowOpacity = 1.0
-        self.inputTextView.layer.shadowRadius = 0.0
+        view.addGestureRecognizer(tapGesture)
+        view.isUserInteractionEnabled = true
+
+        saveButton.isEnabled = false
+        prepareInputTextView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.inputTextView.becomeFirstResponder()
+        super.viewDidAppear(animated)
+        inputTextView.becomeFirstResponder()
     }
     
     // MARk:- Methods
@@ -44,6 +37,17 @@ class CreateTextItemViewController: UIViewController {
         let storyboard = UIStoryboard(name: CreateTextItemViewController.storyboardName(), bundle: nil)
         
         return storyboard.instantiateInitialViewController()
+    }
+    
+    private func prepareInputTextView() {
+        inputTextView.delegate = self
+        inputTextView.isScrollEnabled = false
+        inputTextView.layer.backgroundColor = UIColor.systemBackground.cgColor
+        inputTextView.layer.masksToBounds = false
+        inputTextView.layer.shadowColor = UIColor.gray.cgColor
+        inputTextView.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        inputTextView.layer.shadowOpacity = 1.0
+        inputTextView.layer.shadowRadius = 0.0
     }
     
     // MARK:- @IBAction Methods
@@ -77,9 +81,9 @@ extension CreateTextItemViewController: UITextViewDelegate {
         }
         
         if !textView.text.isEmpty {
-            self.saveButton.isEnabled = true
+            saveButton.isEnabled = true
         } else {
-            self.saveButton.isEnabled = false
+            saveButton.isEnabled = false
         }
     }
 }

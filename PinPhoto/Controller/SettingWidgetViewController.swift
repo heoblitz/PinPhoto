@@ -31,27 +31,27 @@ class SettingWidgetViewController: UIViewController {
     // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // self.tabBarController?.tabBar.isHidden = true
-        self.widgetSettingTableView.dataSource = self
         var height: Float = 300
         if let getHeight = getWidgetHeight(), getHeight != 0.0 { height = getHeight }
         let value = (height - 200) / 50
         
-        self.isImageFill = getWidgetImageFill() ?? false
+        isImageFill = getWidgetImageFill() ?? false
         
-        self.saveWidgetHeight(at: height)
-        self.currentValue = value
-        self.selectionGenerator = UISelectionFeedbackGenerator()
-        self.selectionGenerator?.prepare()
+        saveWidgetHeight(at: height)
+        currentValue = value
+        selectionGenerator = UISelectionFeedbackGenerator()
+        selectionGenerator?.prepare()
         
-        self.widgetHeaderView.clipsToBounds = true
-        self.widgetHeaderView.layer.cornerRadius = 10
-        self.widgetHeaderView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        widgetSettingTableView.dataSource = self
         
-        self.widgetImageView.clipsToBounds = true
-        self.widgetImageView.layer.cornerRadius = 10
-        self.widgetImageView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-        self.widgetImageView.translatesAutoresizingMaskIntoConstraints = false
+        widgetHeaderView.clipsToBounds = true
+        widgetHeaderView.layer.cornerRadius = 10
+        widgetHeaderView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        
+        widgetImageView.clipsToBounds = true
+        widgetImageView.layer.cornerRadius = 10
+        widgetImageView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        widgetImageView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -21,20 +21,12 @@ class EditTextItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
-        self.view.addGestureRecognizer(tapGesture)
-        self.view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(tapGesture)
+        view.isUserInteractionEnabled = true
         
-        self.navigationItem.title = itemViewModel?.creationData(date: item?.updateDate)
-        self.itemTextView.delegate = self
-        self.itemTextView.text = item?.contentText
-        self.itemTextView.isScrollEnabled = false
-        self.itemTextView.layer.backgroundColor = UIColor.systemBackground.cgColor
-        self.itemTextView.layer.masksToBounds = false
-        self.itemTextView.layer.shadowColor = UIColor.gray.cgColor
-        self.itemTextView.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        self.itemTextView.layer.shadowOpacity = 1.0
-        self.itemTextView.layer.shadowRadius = 0.0
-        self.setTextViewSize()
+        navigationItem.title = itemViewModel?.creationData(date: item?.updateDate)
+        prepareItemTextView()
+        setTextViewSize()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,6 +49,18 @@ class EditTextItemViewController: UIViewController {
                 constraint.constant = estimatedSize.height
             }
         }
+    }
+    
+    private func prepareItemTextView() {
+        itemTextView.delegate = self
+        itemTextView.text = item?.contentText
+        itemTextView.isScrollEnabled = false
+        itemTextView.layer.backgroundColor = UIColor.systemBackground.cgColor
+        itemTextView.layer.masksToBounds = false
+        itemTextView.layer.shadowColor = UIColor.gray.cgColor
+        itemTextView.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        itemTextView.layer.shadowOpacity = 1.0
+        itemTextView.layer.shadowRadius = 0.0
     }
     
     @objc private func viewTapped() {

@@ -23,9 +23,7 @@ class ItemCustomCell: UICollectionViewCell {
             switch self.itemtype {
             case "image":
                 itemTextLabel.isHidden = true
-                itemImageView.isHidden = false
             case "text":
-                itemTextLabel.isHidden = false
                 itemImageView.isHidden = true
             default:
                 break
@@ -47,6 +45,16 @@ class ItemCustomCell: UICollectionViewCell {
         }
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        reset()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        reset()
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         animate(isHighlighted: true)
@@ -61,16 +69,7 @@ class ItemCustomCell: UICollectionViewCell {
         super.touchesCancelled(touches, with: event)
         animate(isHighlighted: false)
     }
-    
-    func freezeAnimations() {
-        disabledHighlightedAnimation = true
-        layer.removeAllAnimations()
-    }
 
-    func unfreezeAnimations() {
-        disabledHighlightedAnimation = false
-    }
-    
     private func animate(isHighlighted: Bool) {
         if disabledHighlightedAnimation || HomeViewController.isEditMode {
             return
@@ -85,4 +84,30 @@ class ItemCustomCell: UICollectionViewCell {
             }
         }
     }
+    
+    private func reset() {
+        itemImageView.isHidden = false
+        itemTextLabel.isHidden = false
+    }
+    
+    func update(_ item: Item) {
+        itemImageView.image = item.contentImage?.image
+        itemTextLabel.text = item.contentText
+        
+        if item.contentType == 0 {
+            itemtype = "image"
+        } else {
+            itemtype = "text"
+        }
+    }
+    
+    func freezeAnimations() {
+        disabledHighlightedAnimation = true
+        layer.removeAllAnimations()
+    }
+
+    func unfreezeAnimations() {
+        disabledHighlightedAnimation = false
+    }
+    
 }

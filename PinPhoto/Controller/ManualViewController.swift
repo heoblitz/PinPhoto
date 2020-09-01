@@ -28,9 +28,9 @@ class ManualViewController: UIViewController {
     // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.manualCollectionView.dataSource = self
-        self.manualCollectionView.delegate = self
-        self.manualPageControl.numberOfPages = assetNames.count
+        manualCollectionView.dataSource = self
+        manualCollectionView.delegate = self
+        manualPageControl.numberOfPages = assetNames.count
     }
     
     // MARK:- Methods

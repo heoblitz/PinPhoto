@@ -46,26 +46,26 @@ class EditImageItemViewController: UIViewController {
     // MARk:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = itemViewModel?.creationData(date: item?.updateDate)
+        navigationItem.title = itemViewModel?.creationData(date: item?.updateDate)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
-        self.itemImageView.addGestureRecognizer(tapGesture)
+        itemImageView.addGestureRecognizer(tapGesture)
         
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(imageDoubleTapped(_:)))
         doubleTapGesture.numberOfTouchesRequired = 1
         doubleTapGesture.numberOfTapsRequired = 2
-        self.itemImageView.addGestureRecognizer(doubleTapGesture)
-
-        self.itemImageView.isUserInteractionEnabled = true
-        self.itemImageView.image = itemViewModel?.convertDataToImage(data: item?.contentImage)
         
-        self.itemScrollView.alwaysBounceVertical = false
-        self.itemScrollView.alwaysBounceHorizontal = false
+        itemImageView.addGestureRecognizer(doubleTapGesture)
+        itemImageView.isUserInteractionEnabled = true
+        itemImageView.image = item?.contentImage?.image
         
-        self.itemScrollView.minimumZoomScale = 1.0
-        self.itemScrollView.maximumZoomScale = 3.0
-        self.itemScrollView.contentInsetAdjustmentBehavior = .never
-        self.itemScrollView.delegate = self
+        itemScrollView.alwaysBounceVertical = false
+        itemScrollView.alwaysBounceHorizontal = false
+        
+        itemScrollView.minimumZoomScale = 1.0
+        itemScrollView.maximumZoomScale = 3.0
+        itemScrollView.contentInsetAdjustmentBehavior = .never
+        itemScrollView.delegate = self
     }
 
     // MARK:- Methods
