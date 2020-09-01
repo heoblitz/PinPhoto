@@ -182,7 +182,7 @@
                                         <rect key="frame" x="15" y="45" width="384" height="300"/>
                                         <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="300" identifier="widgetHeight" id="hWg-rZ-qJR"/>
+                                            <constraint firstAttribute="height" constant="300" id="hWg-rZ-qJR"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -213,6 +213,7 @@
                     </view>
                     <connections>
                         <outlet property="widgetHeaderView" destination="b0U-F0-FW4" id="Y6p-uf-fft"/>
+                        <outlet property="widgetImageHeight" destination="hWg-rZ-qJR" id="ecN-Bv-Ucx"/>
                         <outlet property="widgetImageView" destination="kQW-e5-KAP" id="iZo-eD-OFR"/>
                         <outlet property="widgetSettingTableView" destination="eS5-Nb-I5z" id="sfT-Jd-mXw"/>
                     </connections>
