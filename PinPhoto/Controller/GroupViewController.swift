@@ -9,22 +9,77 @@
 import UIKit
 
 class GroupViewController: UIViewController {
-
+    @IBOutlet private weak var groupTableView: UITableView!
+    @IBOutlet private weak var inputTextField: UITextField!
+    @IBOutlet private weak var inputViewBottom: NSLayoutConstraint!
+    
+    let groupViewModel = GroupViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // iOS 9 이상 부터 블록 기반의 옵저버를 제외하고, 자동으로 처리해줌.
+        // deinit 에서 Observer 제거 필요 X
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAction(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAction(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+        view.isUserInteractionEnabled = true
+        
+        groupTableView.dataSource = self
+        groupTableView.dragInteractionEnabled = true
+        groupViewModel.load()
+    }
+            
+    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
+        groupTableView.isEditing = !groupTableView.isEditing
+        groupTableView.setEditing(groupTableView.isEditing, animated: true)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        guard let text = inputTextField.text, !text.isEmpty else { return }
+        inputTextField.text = ""
+        dismissKeyboard()
+        
+        groupViewModel.add(name: text)
+        groupViewModel.load()
+        groupTableView.reloadSections(IndexSet(0...0), with: .fade)
     }
-    */
+    
+    @objc private func keyboardAction(_ notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        
+        guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        
+        if notification.name == UIResponder.keyboardWillShowNotification {
+            let adjustmentHeight = keyboardFrame.height - view.safeAreaInsets.bottom
+            inputViewBottom.constant = adjustmentHeight
+        } else {
+            inputViewBottom.constant = 0
+        }
+    }
+    
+    @objc private func dismissKeyboard() {
+        inputTextField.resignFirstResponder()
+    }
+}
 
+extension GroupViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return groupViewModel.groups.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell") else { return UITableViewCell() }
+        cell.textLabel?.text = groupViewModel.groups[indexPath.row].sectionName
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+    }
 }

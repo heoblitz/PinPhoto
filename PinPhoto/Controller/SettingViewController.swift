@@ -82,7 +82,7 @@ extension SettingViewController: UITableViewDataSource {
         default:
             cell.textLabel?.text = settingCellDatas[indexPath.section][indexPath.row]
             cell.detailTextLabel?.text = nil
-            cell.textLabel?.textColor = (indexPath.section == 2) ? .red : .black
+            cell.textLabel?.textColor = (indexPath.section == 2) ? .red : .label
         }
     
         return cell
