@@ -71,8 +71,17 @@ extension GroupViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell") else { return UITableViewCell() }
-        cell.textLabel?.text = groupViewModel.groups[indexPath.row].sectionName
+        let group = groupViewModel.groups[indexPath.row]
+        
+        cell.textLabel?.text = group.name
+        cell.textLabel?.textColor = group.name == "위젯" ? .systemPink : .label
+        cell.detailTextLabel?.text = "\(group.numberOfItem)"
+
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "내 분류"
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -80,6 +89,10 @@ extension GroupViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        
+        groupViewModel.swap(sourceIndexPath, destinationIndexPath)
     }
 }
+
+extension GroupViewController: UITableViewDelegate {
+}
+

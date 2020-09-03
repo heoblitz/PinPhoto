@@ -11,4 +11,12 @@ import Foundation
 struct Group: Codable {
     var sectionName: String
     var ids: [Int]
+    
+    var name: String {
+        return sectionName
+    }
+    
+    var numberOfItem: Int {
+        return ids.count
+    }
 }

@@ -207,7 +207,7 @@ extension HomeViewController: UICollectionViewDataSource {
         cell.update(item)
         
         return cell
-        }
+    }
 }
 
 // MARK:- UICollectionView Delegate

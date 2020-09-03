@@ -19,7 +19,7 @@ class GroupViewModel {
         groupDataManager.load(from: .documents)
         
         if groupDataManager.groups.count == 0 {
-            groupDataManager.save([Group(sectionName: "hello", ids: [0])], to: .documents)
+            groupDataManager.save([Group(sectionName: "위젯", ids: [0])], to: .documents)
             groupDataManager.load(from: .documents)
         }
     }
@@ -32,5 +32,14 @@ class GroupViewModel {
         var addGroups = groupDataManager.groups
         addGroups.append(Group(sectionName: name, ids: []))
         groupDataManager.save(addGroups, to: .documents)
+    }
+    
+    func swap(_ start: IndexPath, _ end: IndexPath) {
+        var swapGroups = groupDataManager.groups
+        let temp = swapGroups[start.row]
+        swapGroups[start.row] = swapGroups[end.row]
+        swapGroups[end.row] = temp
+        
+        groupDataManager.save(swapGroups, to: .documents)
     }
 }
