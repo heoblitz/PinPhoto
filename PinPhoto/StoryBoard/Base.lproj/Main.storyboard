@@ -19,7 +19,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="C7a-jh-99k" kind="relationship" relationship="viewControllers" id="A66-GU-Ie3"/>
-                        <segue destination="6TN-Mu-3zr" kind="relationship" relationship="viewControllers" id="t7f-kt-Gm5"/>
+                        <segue destination="WPE-Ni-2Ft" kind="relationship" relationship="viewControllers" id="LzM-yF-A7G"/>
+                        <segue destination="6TN-Mu-3zr" kind="relationship" relationship="viewControllers" id="uS6-Ge-3np"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sb5-xh-rE2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -30,21 +31,36 @@
         <scene sceneID="ck6-dA-ahX">
             <objects>
                 <viewControllerPlaceholder storyboardName="Setting" id="6TN-Mu-3zr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="c4R-G4-hNU"/>
+                    <tabBarItem key="tabBarItem" title="설정" image="gear" catalog="system" id="c4R-G4-hNU"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4p-8i-iOh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-833" y="575"/>
+            <point key="canvasLocation" x="-341" y="575"/>
         </scene>
         <!--Home-->
         <scene sceneID="Qz6-aH-tbv">
             <objects>
                 <viewControllerPlaceholder storyboardName="Home" id="C7a-jh-99k" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="XTg-8b-HOK"/>
+                    <tabBarItem key="tabBarItem" title="내 항목" image="tray.full.fill" catalog="system" id="XTg-8b-HOK"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SXg-eA-25N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-335" y="575"/>
+            <point key="canvasLocation" x="-839" y="575"/>
+        </scene>
+        <!--Group-->
+        <scene sceneID="5kQ-X0-FhH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Group" id="WPE-Ni-2Ft" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="분류" image="folder.badge.plus" catalog="system" id="gQD-XJ-DxX"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="obZ-Ki-aFm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-586" y="575"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="folder.badge.plus" catalog="system" width="128" height="86"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="tray.full.fill" catalog="system" width="128" height="88"/>
+    </resources>
 </document>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3UH-3N-dki">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--사진 콕-->
+        <scene sceneID="DZG-Az-zlb">
+            <objects>
+                <viewController id="ysn-FP-fjh" customClass="GroupViewController" customModule="PinPhoto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g3O-Pg-6ZF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="BZa-BC-z4g">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="groupCell" id="0ME-ni-9cH">
+                                        <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0ME-ni-9cH" id="PJI-vX-SU4">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="BZa-BC-z4g" firstAttribute="top" secondItem="Mkv-DK-ZoK" secondAttribute="top" id="LjL-XZ-4CU"/>
+                            <constraint firstItem="BZa-BC-z4g" firstAttribute="trailing" secondItem="Mkv-DK-ZoK" secondAttribute="trailing" id="NXD-nc-TMJ"/>
+                            <constraint firstItem="BZa-BC-z4g" firstAttribute="leading" secondItem="Mkv-DK-ZoK" secondAttribute="leading" id="aZc-Xd-eUd"/>
+                            <constraint firstItem="BZa-BC-z4g" firstAttribute="bottom" secondItem="Mkv-DK-ZoK" secondAttribute="bottom" id="dZg-gy-3pI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Mkv-DK-ZoK"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="사진 콕" id="xns-tl-6DS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PrK-Od-6VI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1071.0144927536232" y="-303.34821428571428"/>
+        </scene>
+        <!--분류-->
+        <scene sceneID="IFF-qb-ie1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3UH-3N-dki" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="분류" image="folder.fill.badge.plus" catalog="system" id="HAJ-2S-xdF"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BTK-2C-kz4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ysn-FP-fjh" kind="relationship" relationship="rootViewController" id="Eyy-6Z-LD7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t5V-CX-ZyR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160.86956521739131" y="-303.34821428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="folder.fill.badge.plus" catalog="system" width="128" height="86"/>
+    </resources>
+</document>

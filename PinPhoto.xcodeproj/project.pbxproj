@@ -53,6 +53,9 @@
 		3CEB644E24CF109A004D8C3C /* URLextension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB644D24CF109A004D8C3C /* URLextension.swift */; };
 		3CF07B9424FE387E006D48CE /* WidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF07B9324FE387E006D48CE /* WidgetViewModel.swift */; };
 		3CF07B9524FE387E006D48CE /* WidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF07B9324FE387E006D48CE /* WidgetViewModel.swift */; };
+		3CF07B9724FE48B0006D48CE /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF07B9624FE48B0006D48CE /* Group.storyboard */; };
+		3CF07B9824FE48B0006D48CE /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF07B9624FE48B0006D48CE /* Group.storyboard */; };
+		3CF07B9A24FE4B67006D48CE /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF07B9924FE4B67006D48CE /* GroupViewController.swift */; };
 		3CF52DF924BF0D6400E7B8D4 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF52DF824BF0D6400E7B8D4 /* ItemViewModel.swift */; };
 		3CF8B44B24A9CBA300D6C11C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */; };
 		3CF8B44D24A9CBA300D6C11C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8B44C24A9CBA300D6C11C /* SceneDelegate.swift */; };
@@ -123,6 +126,8 @@
 		3CEB644B24CEC80E004D8C3C /* PinPhotoExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PinPhotoExtension.entitlements; sourceTree = "<group>"; };
 		3CEB644D24CF109A004D8C3C /* URLextension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLextension.swift; sourceTree = "<group>"; };
 		3CF07B9324FE387E006D48CE /* WidgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewModel.swift; sourceTree = "<group>"; };
+		3CF07B9624FE48B0006D48CE /* Group.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Group.storyboard; sourceTree = "<group>"; };
+		3CF07B9924FE4B67006D48CE /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		3CF52DF824BF0D6400E7B8D4 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		3CF8B44724A9CBA300D6C11C /* PinPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +200,7 @@
 				3C21CC0624BEDC10004BEAF0 /* CreateTextItemViewController.swift */,
 				3C070A9624D3BAB30077C3AE /* EditImageItemViewController.swift */,
 				3C070A9424D3A4CA0077C3AE /* EditTextItemViewController.swift */,
+				3CF07B9924FE4B67006D48CE /* GroupViewController.swift */,
 				3C8AA00F24B05D32005EB75C /* SettingViewController.swift */,
 				3C9D666324ECD0B900021E48 /* SettingWidgetViewController.swift */,
 				3CCA560124D6853F00F32671 /* ManualViewController.swift */,
@@ -242,6 +248,7 @@
 				3C0C004B24EA4F4500BF137B /* CreateTextItem.storyboard */,
 				3C0C004D24EA4FED00BF137B /* EditImageItem.storyboard */,
 				3C0C004F24EA50D200BF137B /* EditTextItem.storyboard */,
+				3CF07B9624FE48B0006D48CE /* Group.storyboard */,
 				3C20173E24EA4E2400DD3BA0 /* Setting.storyboard */,
 				3C9D666124ECB51C00021E48 /* SettingWidget.storyboard */,
 				3C0C004924EA4F1A00BF137B /* Manual.storyboard */,
@@ -405,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CC13F5024D0259100726E51 /* Assets.xcassets in Resources */,
+				3CF07B9824FE48B0006D48CE /* Group.storyboard in Resources */,
 				3CEB644124CEC742004D8C3C /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C8C6C6024EA368400689329 /* Home.storyboard in Resources */,
+				3CF07B9724FE48B0006D48CE /* Group.storyboard in Resources */,
 				3C070A9824D3E3E90077C3AE /* Assets.xcassets in Resources */,
 				3C0C004C24EA4F4500BF137B /* CreateTextItem.storyboard in Resources */,
 				3C20173F24EA4E2400DD3BA0 /* Setting.storyboard in Resources */,
@@ -521,6 +530,7 @@
 				3C585BCF24FD33A600203C18 /* ConvertImageToData.swift in Sources */,
 				3CF52DF924BF0D6400E7B8D4 /* ItemViewModel.swift in Sources */,
 				3C3ACC9024BB558B00311F7A /* Item.xcdatamodeld in Sources */,
+				3CF07B9A24FE4B67006D48CE /* GroupViewController.swift in Sources */,
 				3CAA167E24BC211200635F6D /* ItemCustomCell.swift in Sources */,
 				3C070AA324D419600077C3AE /* ItemObserver.swift in Sources */,
 				3C21CC0724BEDC10004BEAF0 /* CreateTextItemViewController.swift in Sources */,
