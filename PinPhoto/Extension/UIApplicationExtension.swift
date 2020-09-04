@@ -36,18 +36,4 @@ extension UIApplication {
         
         return nil
     }
-    
-    static func topNavigation(_ viewController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UINavigationController? {
-
-        if let nav = viewController as? UINavigationController {
-            return nav
-        }
-        if let tab = viewController as? UITabBarController {
-            if let selected = tab.selectedViewController {
-                return selected.navigationController
-            }
-        }
-        return viewController?.navigationController
-    }
-    
 }
