@@ -28,6 +28,10 @@ public class ItemViewModel {
         return Int64(items.count)
     }
     
+    var idForInitialize: [Int] {
+        return items.map { Int($0.id) }
+    }
+    
     func item(at index: Int) -> Item {
         return items[index]
     }

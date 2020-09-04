@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
     
     // MARK:- Propertises
     private let itemViewModel = ItemViewModel()
+    private let groupViewModel = GroupViewModel()
     static var isEditMode: Bool = false
     
     private lazy var config: YPImagePickerConfiguration = {
@@ -89,28 +90,18 @@ class HomeViewController: UIViewController {
     
     private func presentImagePikcer() {
         let picker = YPImagePicker(configuration: config)
-        var completion: (() -> Void)? = nil
 
-        picker.didFinishPicking { [unowned picker, weak self] items, _ in
-            for item in items {
-                switch item {
-                case .photo(let photo):
-                    if let numberOfImages = self?.itemViewModel.numberOfImages, numberOfImages < 15 {
-                    NSLog("%d", numberOfImages)
-                    let id = self?.itemViewModel.idForAdd ?? 0
-                    let imageData: Data? = photo.originalImage.data
-
-                    self?.itemViewModel.add(content: 0, image: imageData, text: nil, date: Date(), id: id)
-                    } else {
-                        completion = self?.presentImagelimitedAlert
-                        break
-                    }
-                default:
-                    break
-                }
+        picker.didFinishPicking { [unowned picker, weak self] items, isNotSelect in
+            guard let self = self else { return }
+            guard let vc = SelectGroupViewController.storyboardInstance() else { return }
+            
+            if isNotSelect { // 사용자가 선택을 취소했을 때
+                picker.dismiss(animated: true, completion: nil)
             }
-            self?.itemViewModel.loadItems()
-            picker.dismiss(animated: true, completion: completion)
+            // 사용자가 선택을 완료했을 때
+            vc.itemViewModel = self.itemViewModel
+            vc.items = items
+            picker.pushViewController(vc, animated: true)
         }
 
         present(picker, animated: true, completion: nil)
