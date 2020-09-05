@@ -10,6 +10,11 @@ import Foundation
 
 class GroupViewModel {
     let groupDataManager = GroupDataManager.shared
+    private weak var groupObserver: GroupObserver?
+    
+    deinit {
+        self.removeOberserver()
+    }
     
     var groups: [Group] {
         return groupDataManager.groups
@@ -35,11 +40,25 @@ class GroupViewModel {
     
     func swap(_ start: IndexPath, _ end: IndexPath) {
         var swapGroups = groupDataManager.groups
-        let temp = swapGroups[start.row]
-        swapGroups[start.row] = swapGroups[end.row]
-        swapGroups[end.row] = temp
-        
+        swapGroups.swapAt(start.row, end.row)
         groupDataManager.save(swapGroups, to: .documents)
+    }
+    
+    func insertId(at name: String, ids: [Int]) {
+        var insertGroup = groupDataManager.groups
+        if let index = insertGroup.firstIndex(where: { $0.name == name }) {
+            insertGroup[index].ids.append(contentsOf: ids)
+            groupDataManager.save(insertGroup, to: .documents)
+        }
+    }
+    
+    func attachObserver(_ observer: GroupObserver) {
+        groupObserver = observer
+        groupDataManager.obserbers.append(observer)
+    }
+    
+    func removeOberserver() {
+        groupDataManager.obserbers = groupDataManager.obserbers.filter { $0.groupIdentifier != self.groupObserver?.groupIdentifier }
     }
     
     private func initialize() {

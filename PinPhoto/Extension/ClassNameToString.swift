@@ -12,4 +12,8 @@ public extension NSObject {
     static func storyboardName() -> String {
         return String(describing: self).replacingOccurrences(of: "ViewController", with: "")
     }
+    
+    static func observerName() -> String {
+        return String(describing: self)
+    }
 }

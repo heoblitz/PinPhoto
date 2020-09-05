@@ -26,8 +26,15 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
         settingTableView.dataSource = self
         settingTableView.delegate = self
+        settingTableView.contentInsetAdjustmentBehavior = .never
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+
     // MARK:- Methods
     private func alertDestructiveAllItem() {
         let alert = UIAlertController(title: "데이터를 초기화 하시겠습니까?", message: "데이터는 다시 복구할 수 없습니다.", preferredStyle: .alert)

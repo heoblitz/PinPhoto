@@ -12,3 +12,8 @@ public protocol ItemObserver {
     func updateItem()
     func errorItem(_ error: Error)
 }
+
+public protocol GroupObserver: class {
+    var groupIdentifier: String { get }
+    func updateGroup()
+}

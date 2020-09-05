@@ -96,3 +96,16 @@ extension GroupViewController: UITableViewDataSource {
 extension GroupViewController: UITableViewDelegate {
 }
 
+extension GroupViewController: GroupObserver {
+    var groupIdentifier: String {
+        get {
+            return GroupViewController.observerName()
+        }
+    }
+    
+    func updateGroup() {
+        OperationQueue.main.addOperation {
+            self.groupTableView.reloadData()
+        }
+    }
+}

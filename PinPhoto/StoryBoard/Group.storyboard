@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--사진 콕-->
+        <!--분류-->
         <scene sceneID="DZG-Az-zlb">
             <objects>
                 <viewController id="ysn-FP-fjh" customClass="GroupViewController" customModule="PinPhoto" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,6 +17,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="BZa-BC-z4g">
                                 <rect key="frame" x="0.0" y="88" width="414" height="665"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="groupCell" textLabel="INj-pc-qd2" detailTextLabel="mPF-Og-Zfq" style="IBUITableViewCellStyleSubtitle" id="0ME-ni-9cH">
                                         <rect key="frame" x="20" y="55.5" width="374" height="55.5"/>
@@ -41,6 +42,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -67,7 +69,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="W6R-AI-9nb" firstAttribute="centerY" secondItem="U7u-v6-7yf" secondAttribute="centerY" id="KJm-YK-DLq"/>
                                     <constraint firstItem="s55-sa-IbH" firstAttribute="leading" secondItem="W6R-AI-9nb" secondAttribute="trailing" constant="10" id="Rfl-Fb-Egw"/>
@@ -90,7 +92,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mkv-DK-ZoK"/>
                     </view>
-                    <navigationItem key="navigationItem" title="사진 콕" id="xns-tl-6DS">
+                    <navigationItem key="navigationItem" title="분류" id="xns-tl-6DS">
                         <barButtonItem key="leftBarButtonItem" title="편집" id="PYP-m4-otO">
                             <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -115,8 +117,8 @@
                     <tabBarItem key="tabBarItem" title="분류" image="folder.badge.plus" catalog="system" id="HAJ-2S-xdF"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BTK-2C-kz4">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="BTK-2C-kz4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

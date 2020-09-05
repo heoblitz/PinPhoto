@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fZz-BE-iHq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hAX-Mx-wmK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6ba-6d-Gjy">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="ySR-5u-Z5C">
                                     <size key="itemSize" width="128" height="128"/>
@@ -81,7 +81,7 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTt-so-xp5">
-                                <rect key="frame" x="47.5" y="425.5" width="319" height="50"/>
+                                <rect key="frame" x="47.5" y="403.5" width="319" height="50"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="W4z-Pm-1ma">
                                         <rect key="frame" x="10" y="15" width="23" height="19"/>
@@ -162,30 +162,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtA-JO-xgP" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1330" y="17"/>
+            <point key="canvasLocation" x="2700" y="16.741071428571427"/>
         </scene>
-        <!--내 항목-->
-        <scene sceneID="YDd-MX-7fy">
+        <!--항목-->
+        <scene sceneID="SDP-fw-bqK">
             <objects>
-                <navigationController storyboardIdentifier="homeViewController" automaticallyAdjustsScrollViewInsets="NO" id="fZz-BE-iHq" customClass="HomeNavigationController" customModule="PinPhoto" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="내 항목" image="tray.full.fill" catalog="system" id="Rf2-ui-Mox"/>
+                <viewController id="PuJ-54-OP1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zdo-Hb-3WI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6j6-cw-PKL"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="항목" id="Ilx-D2-6Bb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="daa-NH-H85" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1660.8695652173915" y="16.741071428571427"/>
+        </scene>
+        <!--항목-->
+        <scene sceneID="VNH-7L-Fgj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hAX-Mx-wmK" customClass="HomeNavigationController" customModule="PinPhoto" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="항목" image="tray.full.fill" catalog="system" id="yf1-G0-bvv"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kZl-V2-zSF">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qsf-V2-J6g">
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lEr-go-gLh">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
                     <connections>
-                        <segue destination="AyT-FP-RHP" kind="relationship" relationship="rootViewController" id="8fv-K8-bMm"/>
+                        <segue destination="PuJ-54-OP1" kind="relationship" relationship="rootViewController" id="zZv-OE-Zbg"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="99Z-vm-Ohr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="20Z-Nw-3e9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="486" y="17"/>
+            <point key="canvasLocation" x="750.72463768115949" y="16.741071428571427"/>
         </scene>
     </scenes>
     <resources>

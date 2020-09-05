@@ -12,6 +12,7 @@ class GroupDataManager {
     static let shared = GroupDataManager()
     static let fileName: String = "group.json"
     private(set) var groups: [Group] = []
+    var obserbers: [GroupObserver] = []
     
     enum Directory {
         case documents
@@ -57,6 +58,13 @@ class GroupDataManager {
             groups = try decoder.decode([Group].self, from: data)
         } catch let error {
             print("---> Failed to decode: \(error)")
+        }
+        noticeObserbers()
+    }
+    
+    func noticeObserbers() {
+        for obserber in obserbers {
+            obserber.updateGroup()
         }
     }
 }

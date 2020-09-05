@@ -13,8 +13,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oZR-ip-vdd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="설정" image="gear" catalog="system" id="lGi-6H-ytc"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3n0-xa-Iez">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="3n0-xa-Iez">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -27,16 +27,17 @@
             </objects>
             <point key="canvasLocation" x="135" y="220"/>
         </scene>
-        <!--사진 콕-->
+        <!--설정-->
         <scene sceneID="NNw-Gl-CDb">
             <objects>
-                <viewController id="zj0-38-Cds" customClass="SettingViewController" customModule="PinPhoto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="zj0-38-Cds" customClass="SettingViewController" customModule="PinPhoto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2cv-ks-Ll2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="fi4-me-kQC">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settingCell" textLabel="cgn-AQ-3aZ" detailTextLabel="HFC-Xa-9lq" style="IBUITableViewCellStyleValue1" id="Gme-03-wyj">
                                         <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
@@ -61,6 +62,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -75,7 +77,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6EB-sV-gdb"/>
                     </view>
-                    <navigationItem key="navigationItem" title="사진 콕" id="U5t-YN-jQR"/>
+                    <navigationItem key="navigationItem" title="설정" largeTitleDisplayMode="always" id="U5t-YN-jQR"/>
                     <connections>
                         <outlet property="settingTableView" destination="fi4-me-kQC" id="diJ-1l-PLG"/>
                     </connections>

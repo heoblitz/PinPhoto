@@ -126,11 +126,11 @@ extension EditImageItemViewController: UIScrollViewDelegate {
                 let newWidth = image.size.width * ratio
                 let newHeight = image.size.height * ratio
                 
-                let conditionLeft = newWidth*scrollView.zoomScale > itemImageView.frame.width
+                let conditionLeft = newWidth * scrollView.zoomScale > itemImageView.frame.width
                 
                 let left = 0.5 * (conditionLeft ? newWidth - itemImageView.frame.width : (scrollView.frame.width - scrollView.contentSize.width))
                 
-                let conditionTop = newHeight*scrollView.zoomScale > itemImageView.frame.height
+                let conditionTop = newHeight * scrollView.zoomScale > itemImageView.frame.height
                 
                 let top = 0.5 * (conditionTop ? newHeight - itemImageView.frame.height : (scrollView.frame.height - scrollView.contentSize.height))
                 

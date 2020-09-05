@@ -10,10 +10,15 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
-    @IBOutlet var searchBar: UISearchBar!
+    let searchController: UISearchController = {
+        let search = UISearchController(searchResultsController: nil)
+        search.searchBar.tintColor = .systemPink
+        return search
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.titleView = searchBar
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
 }

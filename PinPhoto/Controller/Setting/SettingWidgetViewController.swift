@@ -34,10 +34,7 @@ class SettingWidgetViewController: UIViewController {
         let height: Float = widgetViewModel.height
         widgetImageHeight.constant = CGFloat(height)
         isImageFill = widgetViewModel.shouldImageFill
-        
-        selectionGenerator = UISelectionFeedbackGenerator()
         selectionGenerator?.prepare()
-        
         widgetSettingTableView.dataSource = self
         
         widgetHeaderView.clipsToBounds = true
@@ -49,7 +46,12 @@ class SettingWidgetViewController: UIViewController {
         widgetImageView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         widgetImageView.translatesAutoresizingMaskIntoConstraints = false
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.largeTitleDisplayMode = .never
+    }
+    
     // MARK:- Methods
     static func storyboardInstance() -> SettingWidgetViewController? {
         let storyboard = UIStoryboard(name: SettingWidgetViewController.storyboardName(), bundle: nil)
