@@ -27,10 +27,11 @@ class GroupViewController: UIViewController {
         view.isUserInteractionEnabled = true
         
         groupTableView.dataSource = self
+        groupTableView.delegate = self
         groupTableView.dragInteractionEnabled = true
         groupViewModel.load()
     }
-            
+    
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
         groupTableView.isEditing = !groupTableView.isEditing
         groupTableView.setEditing(groupTableView.isEditing, animated: true)
@@ -66,34 +67,75 @@ class GroupViewController: UIViewController {
 
 extension GroupViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groupViewModel.groups.count
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return groupViewModel.groups.count - 1
+        default:
+            return 0
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell") else { return UITableViewCell() }
-        let group = groupViewModel.groups[indexPath.row]
-        
-        cell.textLabel?.text = group.name
-        cell.textLabel?.textColor = group.name == "위젯" ? .systemPink : .label
-        cell.detailTextLabel?.text = "\(group.numberOfItem)"
-
-        return cell
+        switch indexPath.section {
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell") else { return UITableViewCell() }
+            let group = groupViewModel.groups[0]
+            cell.textLabel?.text = group.name
+            cell.detailTextLabel?.text = "\(group.numberOfItem)"
+            cell.textLabel?.textColor = .systemPink
+            return cell
+        case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell") else { return UITableViewCell() }
+            let group = groupViewModel.groups[indexPath.row + 1]
+            cell.textLabel?.text = group.name
+            cell.detailTextLabel?.text = "\(group.numberOfItem)"
+            return cell
+        default:
+            break
+        }
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "내 분류"
+        switch section {
+        case 0:
+            return "위젯"
+        case 1:
+            return "분류"
+        default:
+            return nil
+        }
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        groupViewModel.swap(sourceIndexPath, destinationIndexPath)
+        if indexPath.section == 1 {
+            return true
+        } else {
+            return false
+        }
     }
 }
 
 extension GroupViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        if sourceIndexPath.section == destinationIndexPath.section {
+            groupViewModel.swap(sourceIndexPath, destinationIndexPath)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        return sourceIndexPath.section != proposedDestinationIndexPath.section ? sourceIndexPath : proposedDestinationIndexPath
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return indexPath.section == 0 ? .none : .delete
+    }
 }
 
 extension GroupViewController: GroupObserver {

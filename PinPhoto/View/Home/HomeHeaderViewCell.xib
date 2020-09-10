@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gTV-IL-0wX" customClass="HomeHeaderViewCell" customModule="PinPhoto" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="327" height="279"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="327" height="279"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="widgetImage" translatesAutoresizingMaskIntoConstraints="NO" id="AMA-a0-VYv">
+                        <rect key="frame" x="0.0" y="0.0" width="327" height="279"/>
+                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위젯에 표시될 항목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WP-OD-ajE">
+                        <rect key="frame" x="15" y="235" width="176.5" height="29"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="leading" secondItem="AMA-a0-VYv" secondAttribute="leading" id="AcC-4p-OxL"/>
+                <constraint firstAttribute="bottom" secondItem="4WP-OD-ajE" secondAttribute="bottom" constant="15" id="I4s-QY-Bbm"/>
+                <constraint firstItem="4WP-OD-ajE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="Qqr-ye-bEd"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4WP-OD-ajE" secondAttribute="trailing" constant="20" id="cZH-nG-23k"/>
+                <constraint firstAttribute="bottom" secondItem="AMA-a0-VYv" secondAttribute="bottom" id="iKs-fu-ibV"/>
+                <constraint firstAttribute="trailing" secondItem="AMA-a0-VYv" secondAttribute="trailing" id="oLN-vp-4fT"/>
+                <constraint firstItem="AMA-a0-VYv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ozG-DO-kiF"/>
+            </constraints>
+            <size key="customSize" width="327" height="279"/>
+            <connections>
+                <outlet property="headerImageView" destination="AMA-a0-VYv" id="d1P-2H-Hve"/>
+            </connections>
+            <point key="canvasLocation" x="194.92753623188406" y="25.111607142857142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="widgetImage" width="349" height="358"/>
+    </resources>
+</document>

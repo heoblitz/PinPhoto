@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="Item">
     <entity name="Item" representedClassName=".Item" syncable="YES">
         <attribute name="contentImage" optional="YES" attributeType="Binary"/>
         <attribute name="contentText" optional="YES" attributeType="String"/>
@@ -7,9 +7,7 @@
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="updateDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
-    <entity name="PresentItem" representedClassName="PresentItem" syncable="YES" codeGenerationType="class"/>
     <elements>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="118"/>
-        <element name="PresentItem" positionX="-63" positionY="18" width="128" height="43"/>
     </elements>
 </model>

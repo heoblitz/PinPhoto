@@ -33,6 +33,10 @@ public class ItemViewModel {
         return items.map { Int($0.id) }
     }
     
+    var thumbnailItem: Item? {
+        return items.filter { $0.contentType == 0 }.randomElement()
+    }
+    
     func item(at index: Int) -> Item {
         return items[index]
     }

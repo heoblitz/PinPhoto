@@ -71,7 +71,7 @@ class ItemCustomCell: UICollectionViewCell {
     }
 
     private func animate(isHighlighted: Bool) {
-        if disabledHighlightedAnimation || HomeViewController.isEditMode {
+        if disabledHighlightedAnimation || HomeDetailViewController.isEditMode {
             return
         }
         
