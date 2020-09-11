@@ -38,6 +38,12 @@ class GroupViewModel {
         groupDataManager.save(addGroups, to: .documents)
     }
     
+    func remove(name: String) {
+        var removeGroups = groupDataManager.groups
+        removeGroups = removeGroups.filter { $0.name != name }
+        groupDataManager.save(removeGroups, to: .documents)
+    }
+    
     func swap(_ start: IndexPath, _ end: IndexPath) {
         var swapGroups = groupDataManager.groups
         swapGroups.swapAt(start.row, end.row)

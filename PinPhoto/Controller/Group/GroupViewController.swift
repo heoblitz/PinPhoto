@@ -19,17 +19,19 @@ class GroupViewController: UIViewController {
         super.viewDidLoad()
         // iOS 9 이상 부터 블록 기반의 옵저버를 제외하고, 자동으로 처리해줌.
         // deinit 에서 Observer 제거 필요 X
+        groupViewModel.attachObserver(self)
+        groupViewModel.load()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardAction(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardAction(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        //tapGesture.cancelsTouchesInView = false
+        tapGesture.delegate = self
         view.addGestureRecognizer(tapGesture)
         view.isUserInteractionEnabled = true
         
         groupTableView.dataSource = self
-        groupTableView.delegate = self
-        groupTableView.dragInteractionEnabled = true
-        groupViewModel.load()
     }
     
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
@@ -44,7 +46,6 @@ class GroupViewController: UIViewController {
         
         groupViewModel.add(name: text)
         groupViewModel.load()
-        groupTableView.reloadSections(IndexSet(0...0), with: .fade)
     }
     
     @objc private func keyboardAction(_ notification: Notification) {
@@ -54,9 +55,17 @@ class GroupViewController: UIViewController {
         
         if notification.name == UIResponder.keyboardWillShowNotification {
             let adjustmentHeight = keyboardFrame.height - view.safeAreaInsets.bottom
-            inputViewBottom.constant = adjustmentHeight
+            UIView.animate(withDuration: 0.5) {
+                self.inputViewBottom.constant = adjustmentHeight
+                self.view.layoutIfNeeded()
+            }
+            groupTableView.contentOffset.y += 50
         } else {
-            inputViewBottom.constant = 0
+            UIView.animate(withDuration: 0.5) {
+                self.inputViewBottom.constant = 0
+                self.view.layoutIfNeeded()
+            }
+            groupTableView.contentOffset.y -= 50
         }
     }
     
@@ -102,27 +111,15 @@ extension GroupViewController: UITableViewDataSource {
         return UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return "위젯"
-        case 1:
-            return "분류"
-        default:
-            return nil
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let cell = tableView.cellForRow(at: indexPath) else { return }
+            guard let name = cell.textLabel?.text else { return }
+            groupViewModel.remove(name: name)
+            groupViewModel.load()
         }
     }
     
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        if indexPath.section == 1 {
-            return true
-        } else {
-            return false
-        }
-    }
-}
-
-extension GroupViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         if sourceIndexPath.section == destinationIndexPath.section {
             groupViewModel.swap(sourceIndexPath, destinationIndexPath)
@@ -136,6 +133,18 @@ extension GroupViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return indexPath.section == 0 ? .none : .delete
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 0 ? "위젯" : "분류"
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.section == 0 ? false : true
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.section == 0 ? false : true
+    }
 }
 
 extension GroupViewController: GroupObserver {
@@ -147,7 +156,19 @@ extension GroupViewController: GroupObserver {
     
     func updateGroup() {
         OperationQueue.main.addOperation {
-            self.groupTableView.reloadData()
+            self.groupTableView.reloadSections(IndexSet(1...1), with: .fade)
         }
+    }
+}
+
+extension GroupViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool { // tap gesture 가 table cell 탭 했을때 동작되는 문제 해결
+        if touch.view?.isDescendant(of: groupTableView) == true {
+            if inputViewBottom.constant != 0 { // 키보드가 올라가 있다면
+                dismissKeyboard()
+            }
+           return false
+        }
+        return true
     }
 }

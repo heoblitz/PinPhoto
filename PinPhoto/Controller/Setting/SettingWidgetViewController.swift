@@ -34,6 +34,7 @@ class SettingWidgetViewController: UIViewController {
         let height: Float = widgetViewModel.height
         widgetImageHeight.constant = CGFloat(height)
         isImageFill = widgetViewModel.shouldImageFill
+        selectionGenerator = UISelectionFeedbackGenerator()
         selectionGenerator?.prepare()
         widgetSettingTableView.dataSource = self
         
