@@ -12,7 +12,7 @@ import YPImagePicker
 class HomeViewController: UIViewController {
     @IBOutlet private weak var homeCollectionView: UICollectionView!
     @IBOutlet private weak var addButtonView: UIView!
-
+    
     private let itemViewModel = ItemViewModel()
     private let groupViewModel = GroupViewModel()
     

@@ -125,6 +125,7 @@ extension GroupViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         if sourceIndexPath.section == destinationIndexPath.section {
             groupViewModel.swap(sourceIndexPath, destinationIndexPath)
+            groupViewModel.load()
         }
     }
     

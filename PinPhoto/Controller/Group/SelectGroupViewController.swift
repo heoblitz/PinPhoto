@@ -91,14 +91,14 @@ extension SelectGroupViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell") else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "selectGroupCell") else { return UITableViewCell() }
             let group = groupViewModel.groups[0]
             cell.textLabel?.text = group.name
             cell.detailTextLabel?.text = "\(group.numberOfItem)"
             cell.textLabel?.textColor = .systemPink
             return cell
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell") else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "selectGroupCell") else { return UITableViewCell() }
             let group = groupViewModel.groups[indexPath.row + 1]
             cell.textLabel?.text = group.name
             cell.detailTextLabel?.text = "\(group.numberOfItem)"

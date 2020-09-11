@@ -48,6 +48,9 @@ class HomeDetailViewController: UIViewController {
         itemViewModel.loadItems()
         itemViewModel.registerObserver(self)
         
+        let editBarbuttonItem = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(editButtonTapped(_:)))
+        navigationItem.rightBarButtonItem = editBarbuttonItem
+        
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.tintColor = .systemPink
         title = "위젯에 표시될 항목"
