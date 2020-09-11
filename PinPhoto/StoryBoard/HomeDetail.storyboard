@@ -80,26 +80,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rel-wt-Mtf" userLabel="AddButtonView">
-                                <rect key="frame" x="339" y="738" width="50" height="50"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="092-Va-9mO">
-                                        <rect key="frame" x="10" y="12" width="30" height="26"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="dhr-DL-HI0"/>
-                                            <constraint firstAttribute="height" constant="30" id="mh3-k5-CVz"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="092-Va-9mO" firstAttribute="centerX" secondItem="rel-wt-Mtf" secondAttribute="centerX" id="9Dx-NI-xaZ"/>
-                                    <constraint firstAttribute="height" constant="50" id="YZ6-GX-q1D"/>
-                                    <constraint firstItem="092-Va-9mO" firstAttribute="centerY" secondItem="rel-wt-Mtf" secondAttribute="centerY" id="feZ-5q-ah0"/>
-                                    <constraint firstAttribute="width" constant="50" id="vPC-W4-cMC"/>
-                                </constraints>
-                            </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gRB-sW-KKa">
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
@@ -116,14 +96,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="64Q-Vk-xe8" firstAttribute="bottom" secondItem="rel-wt-Mtf" secondAttribute="bottom" constant="25" id="5ZX-uE-hsw"/>
                             <constraint firstItem="gRB-sW-KKa" firstAttribute="top" secondItem="64Q-Vk-xe8" secondAttribute="bottom" id="KhI-KJ-pzO"/>
                             <constraint firstItem="64Q-Vk-xe8" firstAttribute="trailing" secondItem="gRB-sW-KKa" secondAttribute="trailing" id="PW8-aN-ggn"/>
                             <constraint firstItem="gRB-sW-KKa" firstAttribute="leading" secondItem="64Q-Vk-xe8" secondAttribute="leading" id="Pj2-bv-BWT"/>
                             <constraint firstItem="64Q-Vk-xe8" firstAttribute="bottom" secondItem="BIk-6N-Va6" secondAttribute="bottom" id="S5w-4w-MvN"/>
                             <constraint firstItem="BIk-6N-Va6" firstAttribute="top" secondItem="64Q-Vk-xe8" secondAttribute="top" id="YIW-4a-8VZ"/>
                             <constraint firstItem="64Q-Vk-xe8" firstAttribute="trailing" secondItem="BIk-6N-Va6" secondAttribute="trailing" id="b1T-tJ-Cst"/>
-                            <constraint firstItem="64Q-Vk-xe8" firstAttribute="trailing" secondItem="rel-wt-Mtf" secondAttribute="trailing" constant="25" id="jhG-0r-nQ4"/>
                             <constraint firstItem="BIk-6N-Va6" firstAttribute="leading" secondItem="64Q-Vk-xe8" secondAttribute="leading" id="q1s-44-zGu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="64Q-Vk-xe8"/>
@@ -131,7 +109,6 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="addButtonView" destination="rel-wt-Mtf" id="L3E-Gj-w6g"/>
                         <outlet property="deleteButton" destination="08c-VF-p0d" id="nfw-if-otH"/>
                         <outlet property="itemCollectionView" destination="BIk-6N-Va6" id="4Zd-Q3-woH"/>
                         <outlet property="toolbar" destination="gRB-sW-KKa" id="XC6-ey-L4K"/>
@@ -144,6 +121,5 @@
     </scenes>
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>

@@ -11,7 +11,7 @@ import YPImagePicker
 
 class HomeViewController: UIViewController {
     @IBOutlet private weak var homeCollectionView: UICollectionView!
-    @IBOutlet private weak var addButtonView: UIView!
+    //@IBOutlet private weak var addButtonView: UIView!
     
     private let itemViewModel = ItemViewModel()
     private let groupViewModel = GroupViewModel()
@@ -34,7 +34,7 @@ class HomeViewController: UIViewController {
         groupViewModel.attachObserver(self)
 
         prepareHomeCollectionView()
-        prepareAddButton()
+        //prepareAddButton()
     }
     
     private func prepareHomeCollectionView() {
@@ -48,14 +48,6 @@ class HomeViewController: UIViewController {
         homeCollectionView.register(UINib(nibName: "HomeSectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeSectionReusableView")
         homeCollectionView.register(UINib(nibName: "HomeHeaderViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeHeaderViewCell")
         homeCollectionView.register(UINib(nibName: "HomeGroupViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeGroupViewCell")
-    }
-    
-    private func prepareAddButton() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentAddActionSheet))
-        addButtonView.addGestureRecognizer(tapGesture)
-        addButtonView.isUserInteractionEnabled = true
-        addButtonView.layer.masksToBounds = true
-        addButtonView.layer.cornerRadius = addButtonView.frame.height / 2
     }
     
     private func presentImagePikcer() {

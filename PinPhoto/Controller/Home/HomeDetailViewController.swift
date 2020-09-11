@@ -15,7 +15,6 @@ class HomeDetailViewController: UIViewController {
     @IBOutlet private weak var itemCollectionView: UICollectionView!
     @IBOutlet private weak var toolbar: UIToolbar!
     @IBOutlet private weak var deleteButton: UIBarButtonItem!
-    @IBOutlet private weak var addButtonView: UIView!
     
     // MARK:- Propertises
     private let itemViewModel = ItemViewModel()
@@ -57,7 +56,6 @@ class HomeDetailViewController: UIViewController {
         tabBarController?.tabBar.isHidden = false
         toolbar.isHidden = true
         
-        prepareAddButton()
         prepareItemCollectionView()
     }
     
@@ -144,14 +142,6 @@ class HomeDetailViewController: UIViewController {
         actionMenu.addAction(cancelAction)
         
         present(actionMenu, animated: true)
-    }
-    
-    private func prepareAddButton() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentAddActionSheet))
-        addButtonView.addGestureRecognizer(tapGesture)
-        addButtonView.isUserInteractionEnabled = true
-        addButtonView.layer.masksToBounds = true
-        addButtonView.layer.cornerRadius = addButtonView.frame.height / 2
     }
     
     // MARK:- @IBAction Methods

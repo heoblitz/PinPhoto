@@ -67,6 +67,18 @@ class EditImageItemViewController: UIViewController {
         itemScrollView.contentInsetAdjustmentBehavior = .never
         itemScrollView.delegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let navVc = navigationController as? HomeNavigationController else { return }
+        navVc.dismissAddButtonView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let navVc = navigationController as? HomeNavigationController else { return }
+        navVc.presentAddButtonView()
+    }
 
     // MARK:- Methods
     static func storyboardInstance() -> EditImageItemViewController? {
