@@ -23,4 +23,15 @@ extension UIColor {
             return UIColor(r: 247, g: 247, b: 247)
         }
     }
+    
+    static var tapBarColor: UIColor {
+//        if #available(iOS 13, *) {
+//            return UIColor { (traitCollection: UITraitCollection) -> UIColor in
+//                let rgbValue: CGFloat = traitCollection.userInterfaceStyle == .dark ? 0 : 247
+//                return UIColor(r: rgbValue, g: rgbValue, b: rgbValue)
+//            }
+//        } else {
+            return UIColor(r: 248, g: 248, b: 248)
+        //}
+    }
 }

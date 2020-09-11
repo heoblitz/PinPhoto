@@ -31,7 +31,8 @@ class HomeViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .always
         itemViewModel.loadItems()
         groupViewModel.load()
-        
+        groupViewModel.attachObserver(self)
+
         prepareHomeCollectionView()
         prepareAddButton()
     }
@@ -41,7 +42,9 @@ class HomeViewController: UIViewController {
         homeCollectionView.delegate = self
         homeCollectionView.contentInsetAdjustmentBehavior = .never
         homeCollectionView.alwaysBounceVertical = true
-        homeCollectionView.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        let height: CGFloat = (view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0) + (navigationController?.navigationBar.frame.height ?? 0.0) + 50
+        print(height)
+        homeCollectionView.contentInset = UIEdgeInsets(top: height, left: 15, bottom: 15, right: 15)
         homeCollectionView.register(UINib(nibName: "HomeSectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeSectionReusableView")
         homeCollectionView.register(UINib(nibName: "HomeHeaderViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeHeaderViewCell")
         homeCollectionView.register(UINib(nibName: "HomeGroupViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeGroupViewCell")
@@ -114,7 +117,7 @@ extension HomeViewController: UICollectionViewDataSource {
         case 0:
             return 1
         case 1:
-            return groupViewModel.groups.count
+            return groupViewModel.groups.count - 1
         default:
             return 0
         }
@@ -134,7 +137,11 @@ extension HomeViewController: UICollectionViewDataSource {
             cell.update(at: item)
             return cell
         case 1:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeGroupViewCell", for: indexPath)
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeGroupViewCell", for: indexPath) as? HomeGroupViewCell else {
+                return UICollectionViewCell()
+            }
+            let group = groupViewModel.groups[indexPath.item + 1]
+            cell.update(at: group)
             return cell
         default:
             return UICollectionViewCell()
@@ -201,7 +208,21 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let height: CGFloat = (view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0) + (navigationController?.navigationBar.frame.height ?? 0.0)
-        return UIEdgeInsets(top: height, left: 0, bottom: 30, right: 0)
+        switch section {
+        case 0:
+            return UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0)
+        default:
+            return UIEdgeInsets.init()
+        }
+    }
+}
+
+extension HomeViewController: GroupObserver {
+    var groupIdentifier: String {
+        return HomeViewController.observerName()
+    }
+    
+    func updateGroup() {
+        homeCollectionView.reloadSections(IndexSet(1...1))
     }
 }

@@ -50,7 +50,7 @@ class HomeDetailViewController: UIViewController {
         
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.tintColor = .systemPink
-        title = "위젯에 나타날 항목"
+        title = "위젯에 표시될 항목"
         tabBarController?.tabBar.isHidden = false
         toolbar.isHidden = true
         

@@ -103,6 +103,7 @@
                     <connections>
                         <outlet property="groupTableView" destination="wrv-9A-YIn" id="iyF-uH-eqv"/>
                         <outlet property="inputTextField" destination="W6R-AI-9nb" id="9Hy-98-9HK"/>
+                        <outlet property="inputTextView" destination="U7u-v6-7yf" id="Uhr-C4-q7Y"/>
                         <outlet property="inputViewBottom" destination="tAb-ON-k3v" id="aD0-4k-JY9"/>
                     </connections>
                 </viewController>
@@ -118,7 +119,7 @@
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="BTK-2C-kz4">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

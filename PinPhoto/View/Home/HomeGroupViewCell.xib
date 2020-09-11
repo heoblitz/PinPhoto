@@ -38,6 +38,7 @@
             <size key="customSize" width="188" height="164"/>
             <connections>
                 <outlet property="groupImageView" destination="rsO-qi-5wr" id="b3U-sW-aIq"/>
+                <outlet property="groupNameLabel" destination="NVl-w3-mNj" id="DMY-PN-Bmh"/>
             </connections>
             <point key="canvasLocation" x="231.8840579710145" y="150"/>
         </collectionViewCell>

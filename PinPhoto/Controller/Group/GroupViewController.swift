@@ -11,6 +11,7 @@ import UIKit
 class GroupViewController: UIViewController {
     @IBOutlet private weak var groupTableView: UITableView!
     @IBOutlet private weak var inputTextField: UITextField!
+    @IBOutlet private weak var inputTextView: UIView!
     @IBOutlet private weak var inputViewBottom: NSLayoutConstraint!
     
     let groupViewModel = GroupViewModel()
@@ -30,8 +31,9 @@ class GroupViewController: UIViewController {
         tapGesture.delegate = self
         view.addGestureRecognizer(tapGesture)
         view.isUserInteractionEnabled = true
-        
         groupTableView.dataSource = self
+        
+        inputTextView.backgroundColor = UIColor.tapBarColor
     }
     
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {

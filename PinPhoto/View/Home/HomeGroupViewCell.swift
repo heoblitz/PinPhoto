@@ -10,6 +10,8 @@ import UIKit
 
 class HomeGroupViewCell: UICollectionViewCell {
     @IBOutlet private weak var groupImageView: UIImageView!
+    @IBOutlet private weak var groupNameLabel: UILabel!
+    
     var disabledHighlightedAnimation: Bool = false
 
     override func awakeFromNib() {
@@ -54,8 +56,13 @@ class HomeGroupViewCell: UICollectionViewCell {
         }
     }
     
+    func update(at group: Group?) {
+        guard let group = group else { return }
+        groupNameLabel.text = group.name
+    }
+    
     private func reset() {
-        groupImageView.image = nil
+        //groupImageView.image = nil
     }
     
     func freezeAnimations() {

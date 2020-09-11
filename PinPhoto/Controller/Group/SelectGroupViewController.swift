@@ -74,22 +74,43 @@ class SelectGroupViewController: UIViewController {
 
 extension SelectGroupViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groupViewModel.groups.count
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return groupViewModel.groups.count - 1
+        default:
+            return 0
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "selectGroupCell") else { return UITableViewCell() }
-        let group = groupViewModel.groups[indexPath.row]
-        
-        cell.textLabel?.text = group.name
-        cell.textLabel?.textColor = group.name == "위젯" ? .systemPink : .label
-        cell.detailTextLabel?.text = "\(group.numberOfItem)"
-
-        return cell
+        switch indexPath.section {
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell") else { return UITableViewCell() }
+            let group = groupViewModel.groups[0]
+            cell.textLabel?.text = group.name
+            cell.detailTextLabel?.text = "\(group.numberOfItem)"
+            cell.textLabel?.textColor = .systemPink
+            return cell
+        case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell") else { return UITableViewCell() }
+            let group = groupViewModel.groups[indexPath.row + 1]
+            cell.textLabel?.text = group.name
+            cell.detailTextLabel?.text = "\(group.numberOfItem)"
+            return cell
+        default:
+            break
+        }
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "내 그룹"
+        return section == 0 ? "위젯" : "분류"
     }
 }
 
