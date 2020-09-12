@@ -12,6 +12,11 @@ public class ItemViewModel {
     // deinit 될 때 옵저버 제거해주기. memory leak 제거
     let shared: CoreDataManager = CoreDataManager.shared
     private var items: [Item] = []
+    private var type: CoreDataType
+    
+    init(_ type: CoreDataType) {
+        self.type = type
+    }
     
     var numberOfImages: Int {
         var count = 0
@@ -42,19 +47,19 @@ public class ItemViewModel {
     }
 
     func remove(id: Int64) {
-        shared.removeItem(id: id)
+        shared.removeItem(type: type, id: id)
     }
 
     func add(content: Int64, image: Data?, text: String?, date: Date, id: Int64) {
-        shared.saveItem(contentType: content, contentImage: image, contentText: text, updateDate: date, id: id)
+        shared.saveItem(type: type, contentType: content, contentImage: image, contentText: text, updateDate: date, id: id)
     }
     
     func edit(content: Int64, image: Data?, text: String?, date: Date, id: Int64) {
-         shared.editItem(contentType: content, contentImage: image, contentText: text, updateDate: date, id: id)
+        shared.editItem(type: type, contentType: content, contentImage: image, contentText: text, updateDate: date, id: id)
     }
     
     func loadItems() {
-        items = shared.getItem()
+        items = shared.getItem(type: type)
         items.reverse()
     }
     

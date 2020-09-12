@@ -23,7 +23,7 @@ class TodayViewController: UIViewController {
     @IBOutlet private weak var prevButtonImageView: UIImageView!
     
     // MARK:- Properties
-    private let itemViewModel = ItemViewModel()
+    private let itemViewModel = ItemViewModel(.widget)
     private let widgetViewModel = WidgetViewModel()
 
     private var shouldContentAppear: Bool = false {

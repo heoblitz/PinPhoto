@@ -20,7 +20,7 @@ class SelectGroupViewController: UIViewController {
 
     let groupViewModel = GroupViewModel()
     var items: [YPMediaItem]?
-    var itemViewModel: ItemViewModel = ItemViewModel()
+    var itemViewModel: ItemViewModel = ItemViewModel(.widget)
     
     override func viewDidLoad() {
         super.viewDidLoad()

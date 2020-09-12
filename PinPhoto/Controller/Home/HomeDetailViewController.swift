@@ -17,7 +17,7 @@ class HomeDetailViewController: UIViewController {
     @IBOutlet private weak var deleteButton: UIBarButtonItem!
     
     // MARK:- Propertises
-    private let itemViewModel = ItemViewModel()
+    private let itemViewModel = ItemViewModel(.widget)
     private let groupViewModel = GroupViewModel()
     static var isEditMode: Bool = false
     

@@ -14,7 +14,7 @@ class CreateTextItemViewController: UIViewController {
     @IBOutlet private weak var saveButton: UIButton!
     
     // MARK:- Propertises
-    var itemViewModel = ItemViewModel()
+    var itemViewModel = ItemViewModel(.widget)
     
     // MARk:- View Life Sycle
     override func viewDidLoad() {

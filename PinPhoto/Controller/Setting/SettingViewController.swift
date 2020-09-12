@@ -20,6 +20,7 @@ class SettingViewController: UIViewController {
         ["위젯 크기"],
         ["데이터 초기화하기"]
     ]
+    // 여기 고쳐야 할듯
     
     // MARK:- View Life Sycle
     override func viewDidLoad() {
@@ -40,7 +41,7 @@ class SettingViewController: UIViewController {
         let alert = UIAlertController(title: "데이터를 초기화 하시겠습니까?", message: "데이터는 다시 복구할 수 없습니다.", preferredStyle: .alert)
         
         let removeAction = UIAlertAction(title: "삭제", style: .destructive, handler: { action in
-            self.shared.destructiveAllItem()
+            self.shared.destructiveAllItem(type: .widget)
         })
         let cancleAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
