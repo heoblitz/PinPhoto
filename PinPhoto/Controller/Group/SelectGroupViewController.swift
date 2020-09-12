@@ -20,7 +20,7 @@ class SelectGroupViewController: UIViewController {
 
     let groupViewModel = GroupViewModel()
     var items: [YPMediaItem]?
-    var itemViewModel: ItemViewModel?
+    var itemViewModel: ItemViewModel = ItemViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class SelectGroupViewController: UIViewController {
     }
     
     @objc private func completeTapped(_ sender: UIBarButtonItem) {
-        guard let itemViewModel = itemViewModel, let items = items else { return }
+        guard let items = items else { return }
         guard let selectedCell = selectedCell, let groupName = groupTableView.cellForRow(at: selectedCell)?.textLabel?.text else { return }
         
         var ids: [Int] = []

@@ -11,30 +11,17 @@ import YPImagePicker
 
 class HomeViewController: UIViewController {
     @IBOutlet private weak var homeCollectionView: UICollectionView!
-    //@IBOutlet private weak var addButtonView: UIView!
     
     private let itemViewModel = ItemViewModel()
     private let groupViewModel = GroupViewModel()
     
-    private lazy var config: YPImagePickerConfiguration = {
-        var config = YPImagePickerConfiguration()
-        config.showsPhotoFilters = false
-        config.screens = [.library]
-        config.targetImageSize = YPImageSize.cappedTo(size: self.homeCollectionView.bounds.height)
-        config.library.defaultMultipleSelection = false
-        config.library.maxNumberOfItems = 15
-        return config
-    }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .always
         itemViewModel.loadItems()
         groupViewModel.load()
         groupViewModel.attachObserver(self)
-
         prepareHomeCollectionView()
-        //prepareAddButton()
     }
     
     private func prepareHomeCollectionView() {
@@ -43,63 +30,10 @@ class HomeViewController: UIViewController {
         homeCollectionView.contentInsetAdjustmentBehavior = .never
         homeCollectionView.alwaysBounceVertical = true
         let height: CGFloat = (view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0) + (navigationController?.navigationBar.frame.height ?? 0.0) + 50
-        print(height)
         homeCollectionView.contentInset = UIEdgeInsets(top: height, left: 15, bottom: 15, right: 15)
         homeCollectionView.register(UINib(nibName: "HomeSectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeSectionReusableView")
         homeCollectionView.register(UINib(nibName: "HomeHeaderViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeHeaderViewCell")
         homeCollectionView.register(UINib(nibName: "HomeGroupViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeGroupViewCell")
-    }
-    
-    private func presentImagePikcer() {
-        let picker = YPImagePicker(configuration: config)
-
-        picker.didFinishPicking { [unowned picker, weak self] items, isNotSelect in
-            guard let self = self else { return }
-            guard let vc = SelectGroupViewController.storyboardInstance() else { return }
-            
-            if isNotSelect { // 사용자가 선택을 취소했을 때
-                picker.dismiss(animated: true, completion: nil)
-            }
-            // 사용자가 선택을 완료했을 때
-            vc.itemViewModel = self.itemViewModel
-            vc.items = items
-            picker.pushViewController(vc, animated: true)
-        }
-
-        present(picker, animated: true, completion: nil)
-    }
-    
-    private func presentaddTextItem() {
-        guard let vc = CreateTextItemViewController.storyboardInstance() else {
-            return
-        }
-        vc.itemViewModel = itemViewModel
-        
-        present(vc, animated: true)
-    }
-    
-    @objc private func presentAddActionSheet() {
-        let actionMenu = UIAlertController(title: nil, message: "아이템 종류", preferredStyle: .actionSheet)
-        
-        let imageAction = UIAlertAction(title: "이미지 추가하기", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            self.presentImagePikcer()
-        })
-        
-        let textAction = UIAlertAction(title: "텍스트 추가하기", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            self.presentaddTextItem()
-        })
-        
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
-            (alert: UIAlertAction!) -> Void in
-        })
-        
-        actionMenu.addAction(imageAction)
-        actionMenu.addAction(textAction)
-        actionMenu.addAction(cancelAction)
-        
-        present(actionMenu, animated: true)
     }
 }
 

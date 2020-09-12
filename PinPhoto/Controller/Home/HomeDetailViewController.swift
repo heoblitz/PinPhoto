@@ -21,16 +21,6 @@ class HomeDetailViewController: UIViewController {
     private let groupViewModel = GroupViewModel()
     static var isEditMode: Bool = false
     
-    private lazy var config: YPImagePickerConfiguration = {
-        var config = YPImagePickerConfiguration()
-        config.showsPhotoFilters = false
-        config.screens = [.library]
-        config.targetImageSize = YPImageSize.cappedTo(size: self.itemCollectionView.bounds.height)
-        config.library.defaultMultipleSelection = false
-        config.library.maxNumberOfItems = 15
-        return config
-    }()
-    
     private var selectedCell: [IndexPath:Int64] = [:] {
         didSet {
             if selectedCell.count > 0 {
@@ -49,7 +39,6 @@ class HomeDetailViewController: UIViewController {
         
         let editBarbuttonItem = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(editButtonTapped(_:)))
         navigationItem.rightBarButtonItem = editBarbuttonItem
-        
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.tintColor = .systemPink
         title = "위젯에 표시될 항목"
@@ -80,25 +69,6 @@ class HomeDetailViewController: UIViewController {
         }
     }
     
-    private func presentImagePikcer() {
-        let picker = YPImagePicker(configuration: config)
-
-        picker.didFinishPicking { [unowned picker, weak self] items, isNotSelect in
-            guard let self = self else { return }
-            guard let vc = SelectGroupViewController.storyboardInstance() else { return }
-            
-            if isNotSelect { // 사용자가 선택을 취소했을 때
-                picker.dismiss(animated: true, completion: nil)
-            }
-            // 사용자가 선택을 완료했을 때
-            vc.itemViewModel = self.itemViewModel
-            vc.items = items
-            picker.pushViewController(vc, animated: true)
-        }
-
-        present(picker, animated: true, completion: nil)
-    }
-    
     private func presentaddTextItem() {
         guard let vc = CreateTextItemViewController.storyboardInstance() else {
             return
@@ -116,34 +86,6 @@ class HomeDetailViewController: UIViewController {
         present(alert, animated: true)
     }
     
-    @objc private func presentAddActionSheet() {
-        let actionMenu = UIAlertController(title: nil, message: "아이템 종류", preferredStyle: .actionSheet)
-        
-        let imageAction = UIAlertAction(title: "이미지 추가하기", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            if self.itemViewModel.numberOfImages >= 15 {
-                self.presentImagelimitedAlert()
-            } else {
-                self.presentImagePikcer()
-            }
-        })
-        
-        let textAction = UIAlertAction(title: "텍스트 추가하기", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            self.presentaddTextItem()
-        })
-        
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
-            (alert: UIAlertAction!) -> Void in
-        })
-        
-        actionMenu.addAction(imageAction)
-        actionMenu.addAction(textAction)
-        actionMenu.addAction(cancelAction)
-        
-        present(actionMenu, animated: true)
-    }
-    
     // MARK:- @IBAction Methods
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
         sender.title = sender.title == "편집" ? "완료" : "편집"
@@ -156,9 +98,9 @@ class HomeDetailViewController: UIViewController {
         selectedCell = [:]
     }
     
-    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
-        presentAddActionSheet()
-    }
+//    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+//        presentAddActionSheet()
+//    }
     
     @IBAction func removeButtonTapped(_ sender: UIBarButtonItem) {
         selectedCell.forEach { indexPath, id in

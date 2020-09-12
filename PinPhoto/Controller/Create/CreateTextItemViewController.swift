@@ -14,7 +14,7 @@ class CreateTextItemViewController: UIViewController {
     @IBOutlet private weak var saveButton: UIButton!
     
     // MARK:- Propertises
-    var itemViewModel: ItemViewModel?
+    var itemViewModel = ItemViewModel()
     
     // MARk:- View Life Sycle
     override func viewDidLoad() {
@@ -52,10 +52,9 @@ class CreateTextItemViewController: UIViewController {
     
     // MARK:- @IBAction Methods
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        let id = itemViewModel?.idForAdd ?? 0
-        itemViewModel?.add(content: 1, image: nil, text: inputTextView.text, date: Date(), id: id)
-        itemViewModel?.loadItems()
-        
+        let id = itemViewModel.idForAdd
+        itemViewModel.add(content: 1, image: nil, text: inputTextView.text, date: Date(), id: id)
+        itemViewModel.loadItems()
         dismiss(animated: true, completion: nil)
     }
     
