@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k5h-JW-q22">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k5h-JW-q22">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -15,31 +15,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1t-2J-AdZ">
-                                <rect key="frame" x="324" y="64" width="70" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="저장하기">
-                                    <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <state key="disabled">
-                                    <color key="titleColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveButtonTapped:" destination="k5h-JW-q22" eventType="touchUpInside" id="r3C-q0-qow"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zR-TT-ntX">
-                                <rect key="frame" x="20" y="64" width="35" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="취소">
-                                    <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelButtonTapped:" destination="k5h-JW-q22" eventType="touchUpInside" id="lP7-a6-qLO"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rkT-a0-2ZJ">
-                                <rect key="frame" x="10" y="114" width="394" height="38"/>
+                                <rect key="frame" x="10" y="64" width="394" height="38"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="d2Z-dI-fML"/>
@@ -51,20 +28,14 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="rkT-a0-2ZJ" firstAttribute="top" secondItem="GK2-YH-7Oz" secondAttribute="top" constant="70" id="34f-fo-gXa"/>
-                            <constraint firstItem="H1t-2J-AdZ" firstAttribute="leading" relation="lessThanOrEqual" secondItem="1zR-TT-ntX" secondAttribute="trailing" constant="269" id="Oj2-T1-7kI"/>
+                            <constraint firstItem="rkT-a0-2ZJ" firstAttribute="top" secondItem="GK2-YH-7Oz" secondAttribute="top" constant="20" id="34f-fo-gXa"/>
                             <constraint firstItem="rkT-a0-2ZJ" firstAttribute="leading" secondItem="GK2-YH-7Oz" secondAttribute="leading" constant="10" id="Rab-IK-o4e"/>
-                            <constraint firstItem="GK2-YH-7Oz" firstAttribute="trailing" secondItem="H1t-2J-AdZ" secondAttribute="trailing" constant="20" id="X6s-Z4-K1C"/>
-                            <constraint firstItem="1zR-TT-ntX" firstAttribute="leading" secondItem="GK2-YH-7Oz" secondAttribute="leading" constant="20" id="gth-sb-waB"/>
-                            <constraint firstItem="1zR-TT-ntX" firstAttribute="top" secondItem="GK2-YH-7Oz" secondAttribute="top" constant="20" id="rDF-Dy-oMQ"/>
                             <constraint firstItem="GK2-YH-7Oz" firstAttribute="trailing" secondItem="rkT-a0-2ZJ" secondAttribute="trailing" constant="10" id="sxe-Pz-CDw"/>
-                            <constraint firstItem="H1t-2J-AdZ" firstAttribute="top" secondItem="GK2-YH-7Oz" secondAttribute="top" constant="20" id="xRH-WM-380"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GK2-YH-7Oz"/>
                     </view>
                     <connections>
                         <outlet property="inputTextView" destination="rkT-a0-2ZJ" id="MZ9-bX-lm5"/>
-                        <outlet property="saveButton" destination="H1t-2J-AdZ" id="DUE-eB-96i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t6f-YW-amv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

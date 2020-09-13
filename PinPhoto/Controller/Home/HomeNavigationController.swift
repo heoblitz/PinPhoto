@@ -89,9 +89,10 @@ class HomeNavigationController: UINavigationController {
             }
             // 사용자가 선택을 완료했을 때
             vc.items = items
+            vc.itemType = .image
             picker.pushViewController(vc, animated: true)
         }
-
+        
         present(picker, animated: true, completion: nil)
     }
     
@@ -108,8 +109,8 @@ class HomeNavigationController: UINavigationController {
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
             (alert: UIAlertAction!) -> Void in
         })
-
         actionMenu.addAction(cancelAction)
+        
         present(actionMenu, animated: true)
     }
     
@@ -117,8 +118,10 @@ class HomeNavigationController: UINavigationController {
         guard let vc = CreateTextItemViewController.storyboardInstance() else {
             return
         }
+        let navVc = UINavigationController(rootViewController: vc)
+        navVc.modalPresentationStyle = .fullScreen
         
-        present(vc, animated: true)
+        present(navVc, animated: true)
     }
     
     private func presentAddItemType(_ type: Int) {

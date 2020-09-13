@@ -34,4 +34,10 @@ extension UIColor {
             return UIColor(r: 248, g: 248, b: 248)
         }
     }// 18 19 18
+    
+    static var navigationBarTintColor: UIColor {
+        return UIColor { (traitCollection: UITraitCollection) -> UIColor in
+            return traitCollection.userInterfaceStyle == .dark ? .white : .black
+        }
+    }
 }

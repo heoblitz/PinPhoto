@@ -20,7 +20,10 @@ class SelectGroupViewController: UIViewController {
 
     private let itemViewModel: ItemViewModel = ItemViewModel()
     private let groupViewModel: GroupViewModel = GroupViewModel()
-    var items: [YPMediaItem]?
+    
+    var itemType: ItemType?
+    var items: [YPMediaItem]? // for image
+    var itemText: String? // for text
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,8 @@ class SelectGroupViewController: UIViewController {
         groupTableView.delegate = self
         groupViewModel.load()
         // itemViewModel.load()
+        navigationController?.navigationBar.topItem?.title = ""
+        navigationController?.navigationBar.tintColor = UIColor.navigationBarTintColor
         
         view.backgroundColor = .offWhiteOrBlack // YPImagePicker 색상과 같게 하기
         groupTableView.backgroundColor = .offWhiteOrBlack
@@ -46,6 +51,17 @@ class SelectGroupViewController: UIViewController {
     }
     
     @objc private func completeTapped(_ sender: UIBarButtonItem) {
+        guard let itemType = itemType else { return }
+        
+        switch itemType {
+        case .image:
+            addImageItem()
+        case .text:
+            addTextItem()
+        }
+    }
+    
+    private func addImageItem() {
         guard let items = items else { return }
         guard let selectedCell = selectedCell, let groupName = groupTableView.cellForRow(at: selectedCell)?.textLabel?.text else { return }
         
@@ -70,6 +86,16 @@ class SelectGroupViewController: UIViewController {
         }
         print("----> \(groupViewModel.groupDataManager.groups)")
         navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    private func addTextItem() {
+        guard let itemText = itemText else { return }
+        guard let selectedCell = selectedCell, let groupName = groupTableView.cellForRow(at: selectedCell)?.textLabel?.text else { return }
+        
+        let id: Int64 = itemViewModel.idForAdd
+        itemViewModel.add(content: 1, image: nil, text: itemText, date: Date(), id: id)
+        groupViewModel.insertId(at: groupName, ids: [Int(id)])
+        groupViewModel.load()
     }
 }
 

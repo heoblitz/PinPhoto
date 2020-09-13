@@ -11,10 +11,21 @@ import UIKit
 class CreateTextItemViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var inputTextView: UITextView!
-    @IBOutlet private weak var saveButton: UIButton!
+    // @IBOutlet private weak var saveButton: UIButton!
     
     // MARK:- Propertises
     var itemViewModel = ItemViewModel()
+    
+    let cancelBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonTapped))
+        barButtonItem.tintColor = .label
+        return barButtonItem
+    }()
+    
+    let nextBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(saveButtonTapped))
+        return barButtonItem
+    }()
     
     // MARk:- View Life Sycle
     override func viewDidLoad() {
@@ -22,8 +33,10 @@ class CreateTextItemViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         view.addGestureRecognizer(tapGesture)
         view.isUserInteractionEnabled = true
-
-        saveButton.isEnabled = false
+        
+        navigationItem.leftBarButtonItem = cancelBarButtonItem
+        navigationItem.rightBarButtonItem = nextBarButtonItem
+        nextBarButtonItem.isEnabled = false
         prepareInputTextView()
     }
     
@@ -51,14 +64,21 @@ class CreateTextItemViewController: UIViewController {
     }
     
     // MARK:- @IBAction Methods
-    @IBAction func saveButtonTapped(_ sender: UIButton) {
-        let id = itemViewModel.idForAdd
-        itemViewModel.add(content: 1, image: nil, text: inputTextView.text, date: Date(), id: id)
-        itemViewModel.load()
-        dismiss(animated: true, completion: nil)
+    @objc private func saveButtonTapped(_ sender: UIButton) {
+        guard let vc = SelectGroupViewController.storyboardInstance() else { return }
+        
+        vc.itemType = .text
+        vc.itemText = inputTextView.text
+        navigationController?.pushViewController(vc, animated: true)
+        
+//        let id = itemViewModel.idForAdd
+//        itemViewModel.add(content: 1, image: nil, text: inputTextView.text, date: Date(), id: id)
+//        itemViewModel.load()
+//
+//        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func cancelButtonTapped(_ sender: UIButton) {
+    @objc private func cancelButtonTapped(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
@@ -80,9 +100,9 @@ extension CreateTextItemViewController: UITextViewDelegate {
         }
         
         if !textView.text.isEmpty {
-            saveButton.isEnabled = true
+            nextBarButtonItem.isEnabled = true
         } else {
-            saveButton.isEnabled = false
+            nextBarButtonItem.isEnabled = false
         }
     }
 }
