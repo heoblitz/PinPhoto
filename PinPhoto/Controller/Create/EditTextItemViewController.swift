@@ -15,6 +15,7 @@ class EditTextItemViewController: UIViewController {
     
     // MARK:- Propertises
     var itemViewModel: ItemViewModel?
+    var groupViewModel: GroupViewModel?
     var item: Item?
     
     // MARK:- View Life Sycle
@@ -27,6 +28,18 @@ class EditTextItemViewController: UIViewController {
         navigationItem.title = itemViewModel?.creationData(date: item?.updateDate)
         prepareItemTextView()
         setTextViewSize()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let navVc = navigationController as? HomeNavigationController else { return }
+        navVc.dismissAddButtonView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let navVc = navigationController as? HomeNavigationController else { return }
+        navVc.presentAddButtonView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,7 +86,9 @@ class EditTextItemViewController: UIViewController {
             itemViewModel?.edit(content: item.contentType, image: nil, text: itemTextView.text, date: item.updateDate, id: item.id)
         }
         
-        navigationController?.popToRootViewController(animated: true)
+        //navigationController?.popToRootViewController(animated: true)
+        groupViewModel?.load()
+        navigationController?.popViewController(animated: true)
     }
 }
 

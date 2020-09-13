@@ -67,7 +67,7 @@ public class CoreDataManager {
         var models: [Item] = []
         
         let newids: [NSNumber] = ids.map { return NSNumber(value: $0) }
-        let idSort = NSSortDescriptor(key: "updateDate", ascending: false)
+        let idSort = NSSortDescriptor(key: "updateDate", ascending: true)
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: modelName)
         print("---> request 😀😀😀😀😀  \(newids)")
 
@@ -86,6 +86,28 @@ public class CoreDataManager {
         }
         
         return models
+    }
+    
+    func thumbnailItem(ids: [Int]) -> Item? {
+        let idSort = NSSortDescriptor(key: "updateDate", ascending: false)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: modelName)
+
+        fetchRequest.sortDescriptors = [idSort]
+        fetchRequest.predicate = NSPredicate(format: "id IN %@ AND contentType == 0", ids)
+        fetchRequest.fetchLimit = 1
+        
+        do {
+            if let fetchResult = try context.fetch(fetchRequest) as? [Item] {
+                return fetchResult.first
+                // print("---> fetch  😀😀😀😀😀 \(fetchResult)")
+            }
+        } catch let error as NSError {
+            print("---> getItem")
+            print("could not fetch \(error) \(error.userInfo)")
+            self.noticeError(error)
+        }
+        
+        return nil
     }
     
     func saveItem(contentType: Int64, contentImage: Data?,
@@ -127,7 +149,7 @@ public class CoreDataManager {
             self.noticeUpdate()
         }
     }
-    
+        
     func editItem(contentType: Int64, contentImage: Data?,
                   contentText: String?, updateDate: Date, id: Int64) {
         let fetchRequest = filteredRequest(id: id)

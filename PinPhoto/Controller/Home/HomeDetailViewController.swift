@@ -159,6 +159,7 @@ extension HomeDetailViewController: UICollectionViewDelegate {
                 }
                 vc.item = item
                 vc.itemViewModel = itemViewModel
+                vc.groupViewModel = groupViewModel
                 cell.unfreezeAnimations()
                 navigationController?.pushViewController(vc, animated: true)
             case "image":

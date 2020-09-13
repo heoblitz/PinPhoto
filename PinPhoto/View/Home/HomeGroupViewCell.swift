@@ -56,9 +56,11 @@ class HomeGroupViewCell: UICollectionViewCell {
         }
     }
     
-    func update(at group: Group?) {
-        guard let group = group else { return }
-        groupNameLabel.text = group.name
+    func update(at item: Item?, title: String) {
+        if let item = item {
+            groupImageView.image = item.contentImage?.image
+        }
+        groupNameLabel.text = title
     }
     
     private func reset() {

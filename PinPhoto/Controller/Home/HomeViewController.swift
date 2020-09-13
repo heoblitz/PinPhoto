@@ -59,7 +59,8 @@ extension HomeViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeHeaderViewCell", for: indexPath) as? HomeHeaderViewCell else {
                 return UICollectionViewCell()
             }
-            let item = itemViewModel.thumbnailItem
+            let group = groupViewModel.groups[0]
+            let item = itemViewModel.thumbnailItem(ids: group.ids)
             cell.update(at: item)
             return cell
         case 1:
@@ -67,7 +68,8 @@ extension HomeViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             let group = groupViewModel.groups[indexPath.item + 1]
-            cell.update(at: group)
+            let item = itemViewModel.thumbnailItem(ids: group.ids)
+            cell.update(at: item, title: group.name)
             return cell
         default:
             return UICollectionViewCell()

@@ -37,8 +37,12 @@ public class ItemViewModel {
         return items[index]
     }
     
-    var thumbnailItem: Item? {
-        return items.filter { $0.contentType == 0 }.randomElement()
+//    var thumbnailItem: Item? {
+//        return items.filter { $0.contentType == 0 }.randomElement()
+//    }
+    
+    func thumbnailItem(ids: [Int]) -> Item? {
+        return shared.thumbnailItem(ids: ids)
     }
 
     func remove(id: Int64) {
@@ -55,13 +59,12 @@ public class ItemViewModel {
     
     func load() {
         items = shared.getItem()
-        items.reverse()
+        //items.reverse()
     }
-    
     
     func loadFromIds(ids: [Int]) {
         items = shared.getItemFromIds(ids: ids)
-        items.reverse()
+        //items.reverse()
     }
     
     func printID() {
