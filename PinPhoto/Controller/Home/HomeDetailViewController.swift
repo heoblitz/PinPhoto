@@ -91,7 +91,7 @@ class HomeDetailViewController: UIViewController {
     
     // MARK:- @IBAction Methods
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
-        sender.title = sender.title == "편집" ? "완료" : "편집"
+        sender.title = sender.title == "선택" ? "완료" : "선택"
         
         tabBarController?.tabBar.isHidden.toggle()
         toolbar.isHidden.toggle()

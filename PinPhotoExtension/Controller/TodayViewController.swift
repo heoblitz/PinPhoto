@@ -25,7 +25,8 @@ class TodayViewController: UIViewController {
     // MARK:- Properties
     private let itemViewModel = ItemViewModel()
     private let widgetViewModel = WidgetViewModel()
-
+    private let groupViewModel = GroupViewModel()
+    
     private var shouldContentAppear: Bool = false {
         didSet {
             if shouldContentAppear {
@@ -54,14 +55,17 @@ class TodayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         extensionContext?.widgetLargestAvailableDisplayMode = NCWidgetDisplayMode.expanded
-        itemViewModel.load()
+        groupViewModel.load()
+        let ids = groupViewModel.groups[0].ids
+        print(ids)
+        itemViewModel.loadFromIds(ids: ids)
         pageControl.numberOfPages = itemViewModel.numberOfItems
         nextButtonImageView.layer.opacity = 0.5
         prevButtonImageView.layer.opacity = 0.5
         itemCollectionView.dataSource = self
         itemCollectionView.delegate = self
     }
-        
+    
     override func viewWillAppear(_ animated: Bool) {
         // 콜렉션 뷰 높이 지정
         let height = widgetViewModel.height

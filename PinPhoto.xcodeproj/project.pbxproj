@@ -76,6 +76,10 @@
 		3CF07B9824FE48B0006D48CE /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF07B9624FE48B0006D48CE /* Group.storyboard */; };
 		3CF07B9A24FE4B67006D48CE /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF07B9924FE4B67006D48CE /* GroupViewController.swift */; };
 		3CF52DF924BF0D6400E7B8D4 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF52DF824BF0D6400E7B8D4 /* ItemViewModel.swift */; };
+		3CF6C2FF250DDCBD00548737 /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB092500E4A4007B6283 /* GroupViewModel.swift */; };
+		3CF6C300250DDCC100548737 /* GroupDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB072500E17D007B6283 /* GroupDataManager.swift */; };
+		3CF6C301250DDCC400548737 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB042500E06C007B6283 /* Group.swift */; };
+		3CF6C302250DDCC600548737 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C76EEF0250C8E1E003B298D /* ItemType.swift */; };
 		3CF8B44B24A9CBA300D6C11C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */; };
 		3CF8B44D24A9CBA300D6C11C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8B44C24A9CBA300D6C11C /* SceneDelegate.swift */; };
 		3CF8B45224A9CBA300D6C11C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45024A9CBA300D6C11C /* Main.storyboard */; };
@@ -616,8 +620,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C42652324FD1BCE00FA4F03 /* ClassNameToString.swift in Sources */,
+				3CF6C301250DDCC400548737 /* Group.swift in Sources */,
+				3CF6C302250DDCC600548737 /* ItemType.swift in Sources */,
 				3C42652024FD1BA700FA4F03 /* Item+CoreDataProperties.swift in Sources */,
 				3CF07B9524FE387E006D48CE /* WidgetViewModel.swift in Sources */,
+				3CF6C300250DDCC100548737 /* GroupDataManager.swift in Sources */,
 				3CEB644C24CF01B5004D8C3C /* Item.xcdatamodeld in Sources */,
 				3C42652624FD1EC800FA4F03 /* ItemViewModel.swift in Sources */,
 				3C42652524FD1D4800FA4F03 /* URLextension.swift in Sources */,
@@ -629,6 +636,7 @@
 				3CEB643E24CEC742004D8C3C /* TodayViewController.swift in Sources */,
 				3C42652424FD1C4300FA4F03 /* AppDelegate.swift in Sources */,
 				3C42652124FD1BAA00FA4F03 /* Item+CoreDataClass.swift in Sources */,
+				3CF6C2FF250DDCBD00548737 /* GroupViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
