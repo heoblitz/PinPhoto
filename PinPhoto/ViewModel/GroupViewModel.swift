@@ -25,7 +25,7 @@ class GroupViewModel {
     }
     
     func load() {
-        groupDataManager.load(from: .documents)
+        groupDataManager.load()
         
         if groupDataManager.groups.count == 0 {
             initialize()
@@ -33,25 +33,25 @@ class GroupViewModel {
     }
     
     func save(at objects: [Group]) {
-        groupDataManager.save(objects, to: .documents)
+        groupDataManager.save(objects)
     }
     
     func add(name: String) {
         var addGroups = groupDataManager.groups
         addGroups.append(Group(sectionName: name, ids: []))
-        groupDataManager.save(addGroups, to: .documents)
+        groupDataManager.save(addGroups)
     }
     
     func remove(name: String) {
         var removeGroups = groupDataManager.groups
         removeGroups = removeGroups.filter { $0.name != name }
-        groupDataManager.save(removeGroups, to: .documents)
+        groupDataManager.save(removeGroups)
     }
     
     func swap(_ start: IndexPath, _ end: IndexPath) {
         var swapGroups = groupDataManager.groups
         swapGroups.swapAt(start.row, end.row)
-        groupDataManager.save(swapGroups, to: .documents)
+        groupDataManager.save(swapGroups)
     }
     
     func insertId(at name: String, ids add: [Int]) {
@@ -59,7 +59,7 @@ class GroupViewModel {
         if let index = insertGroup.firstIndex(where: { $0.name == name }) {
             let ids = insertGroup[index].ids
             insertGroup[index].ids = ids + add
-            groupDataManager.save(insertGroup, to: .documents)
+            groupDataManager.save(insertGroup)
         }
     }
     
@@ -68,7 +68,7 @@ class GroupViewModel {
         if let index = removeGroup.firstIndex(where: { $0.name == name }) {
             let removeIds = removeGroup[index].ids.filter { !remove.contains($0) }
             removeGroup[index].ids = removeIds
-            groupDataManager.save(removeGroup, to: .documents)
+            groupDataManager.save(removeGroup)
         }
     }
     
@@ -82,7 +82,7 @@ class GroupViewModel {
     }
     
     private func initialize() {
-        groupDataManager.save([Group(sectionName: "위젯에 표시될 항목", ids: [])], to: .documents)
-        groupDataManager.load(from: .documents)
+        groupDataManager.save([Group(sectionName: "위젯에 표시될 항목", ids: [])])
+        groupDataManager.load()
     }
 }

@@ -12,26 +12,33 @@ class GroupDataManager {
     static let shared = GroupDataManager()
     static let fileName: String = "group.json"
     private(set) var groups: [Group] = []
+    private let url: URL? = {
+        var url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.wonheo.PinPhoto")
+        url?.appendPathComponent(GroupDataManager.fileName, isDirectory: false)
+        return url
+    }()
+    
     var obserbers: [GroupObserver] = []
     
-    enum Directory {
-        case documents
-        case caches
-        
-        var url: URL? {
-            let path: FileManager.SearchPathDirectory
-            switch self {
-            case .documents:
-                path = .documentDirectory
-            case .caches:
-                path = .cachesDirectory
-            }
-            return FileManager.default.urls(for: path, in: .userDomainMask).first
-        }
-    }
+//    enum Directory {
+//        case documents
+//        case caches
+//
+//        var url: URL? {
+//            let path: FileManager.SearchPathDirectory
+//            switch self {
+//            case .documents:
+//                path = .documentDirectory
+//            case .caches:
+//                path = .cachesDirectory
+//            }
+//            return FileManager.default.urls(for: path, in: .userDomainMask).first
+//        }
+//    }
     
-    func save(_ obj: [Group], to directory: Directory) {
-        guard let url = directory.url?.appendingPathComponent(GroupDataManager.fileName, isDirectory: false) else { return }
+    func save(_ obj: [Group]) { // }, to directory: Directory) {
+//        guard let url = directory.url?.appendingPathComponent(GroupDataManager.fileName, isDirectory: false) else { return }
+        guard let url = url else { return }
         print("---> save to here: \(url)")
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
@@ -47,8 +54,9 @@ class GroupDataManager {
         }
     }
     
-    func load(from directory: Directory) {
-        guard let url = directory.url?.appendingPathComponent(GroupDataManager.fileName, isDirectory: false) else { return }
+    func load() { //from directory: Directory) {
+//        guard let url = directory.url?.appendingPathComponent(GroupDataManager.fileName, isDirectory: false) else { return }
+        guard let url = url else { return }
         guard FileManager.default.fileExists(atPath: url.path) else { return }
         guard let data = FileManager.default.contents(atPath: url.path) else { return }
         
@@ -63,8 +71,10 @@ class GroupDataManager {
     }
     
     func destructive() {
-        let directory: Directory = .documents
-        guard let url = directory.url?.appendingPathComponent(GroupDataManager.fileName, isDirectory: false) else { return }
+//        let directory: Directory = .documents
+//        guard let url = directory.url?.appendingPathComponent(GroupDataManager.fileName, isDirectory: false) else { return }
+        guard let url = url else { return }
+
         do {
             try FileManager.default.removeItem(at: url)
         } catch let error {
