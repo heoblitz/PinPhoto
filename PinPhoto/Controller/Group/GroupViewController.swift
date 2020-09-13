@@ -159,7 +159,7 @@ extension GroupViewController: GroupObserver {
     
     func updateGroup() {
         OperationQueue.main.addOperation {
-            self.groupTableView.reloadSections(IndexSet(1...1), with: .fade)
+            self.groupTableView.reloadData()
         }
     }
 }

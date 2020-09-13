@@ -12,11 +12,6 @@ public class ItemViewModel {
     // deinit 될 때 옵저버 제거해주기. memory leak 제거
     let shared: CoreDataManager = CoreDataManager.shared
     private var items: [Item] = []
-    private var type: CoreDataType
-    
-    init(_ type: CoreDataType) {
-        self.type = type
-    }
     
     var numberOfImages: Int {
         var count = 0
@@ -31,35 +26,41 @@ public class ItemViewModel {
     }
     
     var idForAdd: Int64 {
-        return Int64(items.count)
+        return Int64(shared.getItemCount())
     }
     
     var idForInitialize: [Int] {
         return items.map { Int($0.id) }
     }
     
-    var thumbnailItem: Item? {
-        return items.filter { $0.contentType == 0 }.randomElement()
-    }
-    
     func item(at index: Int) -> Item {
         return items[index]
     }
+    
+    var thumbnailItem: Item? {
+        return items.filter { $0.contentType == 0 }.randomElement()
+    }
 
     func remove(id: Int64) {
-        shared.removeItem(type: type, id: id)
+        shared.removeItem(id: id)
     }
 
     func add(content: Int64, image: Data?, text: String?, date: Date, id: Int64) {
-        shared.saveItem(type: type, contentType: content, contentImage: image, contentText: text, updateDate: date, id: id)
+        shared.saveItem(contentType: content, contentImage: image, contentText: text, updateDate: date, id: id)
     }
     
     func edit(content: Int64, image: Data?, text: String?, date: Date, id: Int64) {
-        shared.editItem(type: type, contentType: content, contentImage: image, contentText: text, updateDate: date, id: id)
+        shared.editItem(contentType: content, contentImage: image, contentText: text, updateDate: date, id: id)
     }
     
-    func loadItems() {
-        items = shared.getItem(type: type)
+    func load() {
+        items = shared.getItem()
+        items.reverse()
+    }
+    
+    
+    func loadFromIds(ids: [Int]) {
+        items = shared.getItemFromIds(ids: ids)
         items.reverse()
     }
     

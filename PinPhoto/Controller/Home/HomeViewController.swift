@@ -12,13 +12,13 @@ import YPImagePicker
 class HomeViewController: UIViewController {
     @IBOutlet private weak var homeCollectionView: UICollectionView!
     
-    private let itemViewModel = ItemViewModel(.widget)
     private let groupViewModel = GroupViewModel()
+    private let itemViewModel = ItemViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .always
-        itemViewModel.loadItems()
+        itemViewModel.load()
         groupViewModel.load()
         groupViewModel.attachObserver(self)
         prepareHomeCollectionView()
@@ -94,12 +94,16 @@ extension HomeViewController: UICollectionViewDelegate {
             switch indexPath.item {
             case 0:
                 guard let vc = HomeDetailViewController.storyboardInstance() else { return }
-                
+                vc.group = groupViewModel.groups[0]
                 navigationController?.pushViewController(vc, animated: true)
             default:
                 break
             }
-            
+        case 1:
+            guard let vc = HomeDetailViewController.storyboardInstance() else { return }
+            let group = groupViewModel.groups[indexPath.item + 1]
+            vc.group = group
+            navigationController?.pushViewController(vc, animated: true)
         default:
             break
         }
@@ -130,7 +134,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         default:
             return CGSize.init()
         }
-
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -143,12 +146,13 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+
 extension HomeViewController: GroupObserver {
     var groupIdentifier: String {
         return HomeViewController.observerName()
     }
-    
+
     func updateGroup() {
-        homeCollectionView.reloadSections(IndexSet(1...1))
+        homeCollectionView.reloadData()
     }
 }

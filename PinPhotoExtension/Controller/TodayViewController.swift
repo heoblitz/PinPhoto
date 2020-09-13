@@ -23,7 +23,7 @@ class TodayViewController: UIViewController {
     @IBOutlet private weak var prevButtonImageView: UIImageView!
     
     // MARK:- Properties
-    private let itemViewModel = ItemViewModel(.widget)
+    private let itemViewModel = ItemViewModel()
     private let widgetViewModel = WidgetViewModel()
 
     private var shouldContentAppear: Bool = false {
@@ -54,7 +54,7 @@ class TodayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         extensionContext?.widgetLargestAvailableDisplayMode = NCWidgetDisplayMode.expanded
-        itemViewModel.loadItems()
+        itemViewModel.load()
         pageControl.numberOfPages = itemViewModel.numberOfItems
         nextButtonImageView.layer.opacity = 0.5
         prevButtonImageView.layer.opacity = 0.5

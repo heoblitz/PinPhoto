@@ -13,7 +13,8 @@ class SettingViewController: UIViewController {
     @IBOutlet private weak var settingTableView: UITableView!
     
     // MARK:- Propertises
-    private let shared = CoreDataManager.shared
+    private let coreDataShared = CoreDataManager.shared
+    private let groupShared = GroupDataManager.shared
     private let settingTitleDatas: [String] = ["사진 콕", "설정", "기타"]
     private let settingCellDatas: [[String]] = [
         ["버전 정보","사용 방법"],
@@ -40,8 +41,9 @@ class SettingViewController: UIViewController {
     private func alertDestructiveAllItem() {
         let alert = UIAlertController(title: "데이터를 초기화 하시겠습니까?", message: "데이터는 다시 복구할 수 없습니다.", preferredStyle: .alert)
         
-        let removeAction = UIAlertAction(title: "삭제", style: .destructive, handler: { action in
-            self.shared.destructiveAllItem(type: .widget)
+        let removeAction = UIAlertAction(title: "삭제", style: .destructive, handler: { [weak self] action in
+            self?.coreDataShared.destructive()
+            self?.groupShared.destructive()
         })
         let cancleAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         

@@ -20,6 +20,10 @@ class GroupViewModel {
         return groupDataManager.groups
     }
     
+    func group(by name: String) -> Group? {
+        return groupDataManager.groups.filter { $0.name == name }.first
+    }
+    
     func load() {
         groupDataManager.load(from: .documents)
         
@@ -50,11 +54,21 @@ class GroupViewModel {
         groupDataManager.save(swapGroups, to: .documents)
     }
     
-    func insertId(at name: String, ids: [Int]) {
+    func insertId(at name: String, ids add: [Int]) {
         var insertGroup = groupDataManager.groups
         if let index = insertGroup.firstIndex(where: { $0.name == name }) {
-            insertGroup[index].ids.append(contentsOf: ids)
+            let ids = insertGroup[index].ids
+            insertGroup[index].ids = ids + add
             groupDataManager.save(insertGroup, to: .documents)
+        }
+    }
+    
+    func removeId(at name: String, ids remove: [Int]) {
+        var removeGroup = groupDataManager.groups
+        if let index = removeGroup.firstIndex(where: { $0.name == name }) {
+            let removeIds = removeGroup[index].ids.filter { !remove.contains($0) }
+            removeGroup[index].ids = removeIds
+            groupDataManager.save(removeGroup, to: .documents)
         }
     }
     

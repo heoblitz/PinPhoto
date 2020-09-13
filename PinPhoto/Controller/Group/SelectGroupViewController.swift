@@ -18,15 +18,16 @@ class SelectGroupViewController: UIViewController {
         }
     }
 
-    let groupViewModel = GroupViewModel()
+    private let itemViewModel: ItemViewModel = ItemViewModel()
+    private let groupViewModel: GroupViewModel = GroupViewModel()
     var items: [YPMediaItem]?
-    var itemViewModel: ItemViewModel = ItemViewModel(.widget)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         groupTableView.dataSource = self
         groupTableView.delegate = self
         groupViewModel.load()
+        // itemViewModel.load()
         
         view.backgroundColor = .offWhiteOrBlack // YPImagePicker 색상과 같게 하기
         groupTableView.backgroundColor = .offWhiteOrBlack
@@ -48,17 +49,18 @@ class SelectGroupViewController: UIViewController {
         guard let items = items else { return }
         guard let selectedCell = selectedCell, let groupName = groupTableView.cellForRow(at: selectedCell)?.textLabel?.text else { return }
         
-        var ids: [Int] = []
-        
+        //var ids: [Int] = []
+
         for item in items {
             switch item {
             case .photo(let photo):
                 if itemViewModel.numberOfImages < 15 {
-                    let id = itemViewModel.idForAdd
                     let imageData: Data? = photo.originalImage.data
- 
+                    let id: Int64 = itemViewModel.idForAdd
                     itemViewModel.add(content: 0, image: imageData, text: nil, date: Date(), id: id)
-                    ids.append(Int(id))
+                    groupViewModel.insertId(at: groupName, ids: [Int(id)])
+                    print("---> id \(id)")
+                    groupViewModel.load()
                 } else {
                     break
                 }
@@ -66,8 +68,7 @@ class SelectGroupViewController: UIViewController {
                 break
             }
         }
-        groupViewModel.insertId(at: groupName, ids: ids)
-        
+        print("----> \(groupViewModel.groupDataManager.groups)")
         navigationController?.dismiss(animated: true, completion: nil)
     }
 }

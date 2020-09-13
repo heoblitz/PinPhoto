@@ -62,6 +62,16 @@ class GroupDataManager {
         noticeObserbers()
     }
     
+    func destructive() {
+        let directory: Directory = .documents
+        guard let url = directory.url?.appendingPathComponent(GroupDataManager.fileName, isDirectory: false) else { return }
+        do {
+            try FileManager.default.removeItem(at: url)
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
     func noticeObserbers() {
         for obserber in obserbers {
             obserber.updateGroup()

@@ -17,9 +17,10 @@ class HomeDetailViewController: UIViewController {
     @IBOutlet private weak var deleteButton: UIBarButtonItem!
     
     // MARK:- Propertises
-    private let itemViewModel = ItemViewModel(.widget)
+    private let itemViewModel = ItemViewModel()
     private let groupViewModel = GroupViewModel()
     static var isEditMode: Bool = false
+    var group: Group?
     
     private var selectedCell: [IndexPath:Int64] = [:] {
         didSet {
@@ -34,8 +35,10 @@ class HomeDetailViewController: UIViewController {
     // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        itemViewModel.loadItems()
-        itemViewModel.registerObserver(self)
+        if let group = group {
+            itemViewModel.loadFromIds(ids: group.ids)
+            groupViewModel.attachObserver(self)
+        }
         
         let editBarbuttonItem = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(editButtonTapped(_:)))
         navigationItem.rightBarButtonItem = editBarbuttonItem
@@ -103,12 +106,15 @@ class HomeDetailViewController: UIViewController {
 //    }
     
     @IBAction func removeButtonTapped(_ sender: UIBarButtonItem) {
-        selectedCell.forEach { indexPath, id in
-            self.itemViewModel.remove(id: id)
+        guard let group = group else { return }
+        
+        selectedCell.forEach { [weak self] indexPath, id in
+            self?.itemViewModel.remove(id: id)
+            self?.groupViewModel.removeId(at: group.name, ids: [Int(id)])
         }
         selectedCell = [:]
         
-        itemViewModel.loadItems()
+        groupViewModel.load()
     }
 }
 
@@ -193,20 +199,16 @@ extension HomeDetailViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK:- ItemObserver Protocol
-extension HomeDetailViewController: ItemObserver {
-    func updateItem() {
-        guard let itemCollectionView = itemCollectionView else {
-            return
-        }
-        itemViewModel.loadItems()
-        itemCollectionView.reloadData()
+extension HomeDetailViewController: GroupObserver {
+    var groupIdentifier: String {
+        return HomeDetailViewController.observerName()
     }
     
-    func errorItem(_ error: Error) {
-        let alert = UIAlertController(title: "알림", message: error.localizedDescription, preferredStyle: .alert)
+    func updateGroup() {
+        guard let group = group, let newGroup = groupViewModel.group(by: group.name) else { return }
         
-        let action = UIAlertAction(title: "확인", style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true)
+        print("---> \(groupViewModel.groupDataManager.groups)")
+        itemViewModel.loadFromIds(ids: newGroup.ids)
+        itemCollectionView.reloadData()
     }
 }

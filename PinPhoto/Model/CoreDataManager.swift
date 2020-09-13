@@ -16,7 +16,7 @@ public class CoreDataManager {
     var itemObservers: [ItemObserver] = []
 
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
-    //let modelName: String = "Item"
+    let modelName: String = "Item"
     
     let persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Item")
@@ -42,11 +42,11 @@ public class CoreDataManager {
     }()
     
     // MARK:- Methods
-    func getItem(type: CoreDataType) -> [Item] {
+    func getItem() -> [Item] {
         var models: [Item] = []
         
         let idSort = NSSortDescriptor(key: "updateDate", ascending: false)
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: type.name)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: modelName)
         
         fetchRequest.sortDescriptors = [idSort]
         
@@ -63,9 +63,34 @@ public class CoreDataManager {
         return models
     }
     
-    func saveItem(type: CoreDataType, contentType: Int64, contentImage: Data?,
+    func getItemFromIds(ids: [Int]) -> [Item] {
+        var models: [Item] = []
+        
+        let newids: [NSNumber] = ids.map { return NSNumber(value: $0) }
+        let idSort = NSSortDescriptor(key: "updateDate", ascending: false)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: modelName)
+        print("---> request 😀😀😀😀😀  \(newids)")
+
+        fetchRequest.sortDescriptors = [idSort]
+        fetchRequest.predicate = NSPredicate(format: "id IN %@", newids)
+        
+        do {
+            if let fetchResult = try context.fetch(fetchRequest) as? [Item] {
+                models = fetchResult
+                print("---> fetch  😀😀😀😀😀 \(fetchResult)")
+            }
+        } catch let error as NSError {
+            print("---> getItem")
+            print("could not fetch \(error) \(error.userInfo)")
+            self.noticeError(error)
+        }
+        
+        return models
+    }
+    
+    func saveItem(contentType: Int64, contentImage: Data?,
                   contentText: String?, updateDate: Date, id: Int64) {
-        guard let entity = NSEntityDescription.entity(forEntityName: type.name, in: context) else {
+        guard let entity = NSEntityDescription.entity(forEntityName: modelName, in: context) else {
             return
         }
         
@@ -83,8 +108,8 @@ public class CoreDataManager {
         }
     }
     
-    func removeItem(type: CoreDataType, id: Int64) {
-        let fetchRequest = filteredRequest(type: type, id: id)
+    func removeItem(id: Int64) {
+        let fetchRequest = filteredRequest(id: id)
         
         do {
             if let results: [Item] = try context.fetch(fetchRequest) as? [Item] {
@@ -103,9 +128,9 @@ public class CoreDataManager {
         }
     }
     
-    func editItem(type: CoreDataType, contentType: Int64, contentImage: Data?,
+    func editItem(contentType: Int64, contentImage: Data?,
                   contentText: String?, updateDate: Date, id: Int64) {
-        let fetchRequest = filteredRequest(type: type, id: id)
+        let fetchRequest = filteredRequest(id: id)
         
         do {
             if let results: [Item] = try context.fetch(fetchRequest) as? [Item] {
@@ -127,8 +152,19 @@ public class CoreDataManager {
         }
     }
     
-    func destructiveAllItem(type: CoreDataType) {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: type.name)
+    func getItemCount() -> Int {
+         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: modelName)
+         do {
+             let count = try context.count(for: fetchRequest)
+             return count
+         } catch {
+             print(error.localizedDescription)
+            return 0
+         }
+     }
+    
+    func destructive() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: modelName)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
 
         do {
@@ -162,9 +198,9 @@ public class CoreDataManager {
 }
 
 extension CoreDataManager {
-    fileprivate func filteredRequest(type: CoreDataType, id: Int64) -> NSFetchRequest<NSFetchRequestResult> {
+    fileprivate func filteredRequest(id: Int64) -> NSFetchRequest<NSFetchRequestResult> {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>
-            = NSFetchRequest<NSFetchRequestResult>(entityName: type.name)
+            = NSFetchRequest<NSFetchRequestResult>(entityName: modelName)
         fetchRequest.predicate = NSPredicate(format: "id = %@", NSNumber(value: id))
         return fetchRequest
     }
