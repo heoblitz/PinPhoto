@@ -18,6 +18,7 @@ class HomeNavigationController: UINavigationController {
         config.targetImageSize = YPImageSize.cappedTo(size: view.frame.height)
         config.library.defaultMultipleSelection = false
         config.library.maxNumberOfItems = 15
+        config.hidesStatusBar = false
         return config
     }()
     
