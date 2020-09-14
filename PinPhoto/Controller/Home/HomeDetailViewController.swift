@@ -38,13 +38,13 @@ class HomeDetailViewController: UIViewController {
         if let group = group {
             itemViewModel.loadFromIds(ids: group.ids)
             groupViewModel.attachObserver(self)
+            navigationItem.title = group.name
         }
         
         let editBarbuttonItem = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(editButtonTapped(_:)))
         navigationItem.rightBarButtonItem = editBarbuttonItem
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.tintColor = .systemPink
-        title = "위젯에 표시될 항목"
         tabBarController?.tabBar.isHidden = false
         toolbar.isHidden = true
         
@@ -100,21 +100,16 @@ class HomeDetailViewController: UIViewController {
         deselectCells()
         selectedCell = [:]
     }
-    
-//    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
-//        presentAddActionSheet()
-//    }
-    
+
     @IBAction func removeButtonTapped(_ sender: UIBarButtonItem) {
         guard let group = group else { return }
         
         selectedCell.forEach { [weak self] indexPath, id in
             self?.itemViewModel.remove(id: id)
             self?.groupViewModel.removeId(at: group.name, ids: [Int(id)])
+            self?.groupViewModel.load()
         }
         selectedCell = [:]
-        
-        groupViewModel.load()
     }
 }
 

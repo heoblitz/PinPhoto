@@ -12,34 +12,25 @@ import CoreData
 public class CoreDataManager {
     // MARK:- Propertises
     static let shared: CoreDataManager = CoreDataManager()
-    lazy var context = persistentContainer.viewContext
-    var itemObservers: [ItemObserver] = []
 
-    let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
-    let modelName: String = "Item"
+    private lazy var context = persistentContainer.viewContext
+    private let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
+    private let modelName: String = "Item"
     
-    let persistentContainer: NSPersistentContainer = {
+    private let persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Item")
         let storeURL = URL.storeURL(for: "group.com.wonheo.PinPhoto", databaseName: "Pin")
         container.persistentStoreDescriptions = [NSPersistentStoreDescription(url: storeURL)]
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
-        
+        print(storeURL)
         return container
     }()
+    
+    var itemObservers: [ItemObserver] = []
     
     // MARK:- Methods
     func getItem() -> [Item] {
@@ -99,10 +90,8 @@ public class CoreDataManager {
         do {
             if let fetchResult = try context.fetch(fetchRequest) as? [Item] {
                 return fetchResult.first
-                // print("---> fetch  😀😀😀😀😀 \(fetchResult)")
             }
         } catch let error as NSError {
-            print("---> getItem")
             print("could not fetch \(error) \(error.userInfo)")
             self.noticeError(error)
         }
@@ -175,15 +164,23 @@ public class CoreDataManager {
     }
     
     func getItemCount() -> Int {
-         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: modelName)
-         do {
-             let count = try context.count(for: fetchRequest)
-             return count
-         } catch {
-             print(error.localizedDescription)
-            return 0
-         }
-     }
+        let idSort = NSSortDescriptor(key: "updateDate", ascending: false)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: modelName)
+        
+        fetchRequest.sortDescriptors = [idSort]
+        fetchRequest.fetchLimit = 1
+        
+        do {
+            if let fetchResult = try context.fetch(fetchRequest) as? [Item], let id = fetchResult.first?.id  {
+                return Int(id + 1)
+            }
+        } catch let error as NSError {
+            print("could not fetch \(error) \(error.userInfo)")
+            self.noticeError(error)
+        }
+        
+        return 0
+    }
     
     func destructive() {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: modelName)
@@ -205,7 +202,6 @@ public class CoreDataManager {
     }
     
     func noticeUpdate() {
-        print("update")
         for observer in itemObservers {
             print(observer)
             observer.updateItem()

@@ -15,6 +15,7 @@ class GroupViewController: UIViewController {
     @IBOutlet private weak var inputViewBottom: NSLayoutConstraint!
     
     let groupViewModel = GroupViewModel()
+    let itemViewModel = ItemViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,27 @@ class GroupViewController: UIViewController {
         dismissKeyboard()
         
         groupViewModel.add(name: text)
+        groupViewModel.load()
+    }
+    
+    private func presentRemoveAlert(at target: Group) {
+        let alert = UIAlertController(title: "삭제하시겠습니까?", message: "분류에 포함된 항목도 모두 삭제됩니다.", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let remove = UIAlertAction(title: "삭제", style: .destructive, handler: { [weak self]_ in
+            self?.removeGroup(at: target)
+        })
+        
+        alert.addAction(cancel)
+        alert.addAction(remove)
+        
+        present(alert, animated: true)
+    }
+    
+    private func removeGroup(at target: Group) {
+        for id in target.ids {
+            itemViewModel.remove(id: Int64(id))
+        }
+        groupViewModel.remove(name: target.name)
         groupViewModel.load()
     }
     
@@ -114,14 +136,22 @@ extension GroupViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+        switch editingStyle {
+        case .delete:
             guard let cell = tableView.cellForRow(at: indexPath) else { return }
-            guard let name = cell.textLabel?.text else { return }
-            groupViewModel.remove(name: name)
-            groupViewModel.load()
+            guard let name = cell.textLabel?.text, let group = groupViewModel.group(by: name) else { return }
+            
+            if group.ids.count >= 1 {
+                presentRemoveAlert(at: group)
+            } else {
+                removeGroup(at: group)
+            }
+             
+        default:
+            break
         }
     }
-    
+
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         if sourceIndexPath.section == destinationIndexPath.section {
             groupViewModel.swap(sourceIndexPath, destinationIndexPath)

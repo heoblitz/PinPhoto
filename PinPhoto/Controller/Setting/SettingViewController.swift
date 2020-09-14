@@ -21,7 +21,6 @@ class SettingViewController: UIViewController {
         ["위젯 크기"],
         ["데이터 초기화하기"]
     ]
-    // 여기 고쳐야 할듯
     
     // MARK:- View Life Sycle
     override func viewDidLoad() {

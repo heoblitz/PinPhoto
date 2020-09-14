@@ -30,7 +30,6 @@ class SelectGroupViewController: UIViewController {
         groupTableView.dataSource = self
         groupTableView.delegate = self
         groupViewModel.load()
-        // itemViewModel.load()
         navigationController?.navigationBar.topItem?.title = ""
         navigationController?.navigationBar.tintColor = UIColor.navigationBarTintColor
         
@@ -96,6 +95,7 @@ class SelectGroupViewController: UIViewController {
         itemViewModel.add(content: 1, image: nil, text: itemText, date: Date(), id: id)
         groupViewModel.insertId(at: groupName, ids: [Int(id)])
         groupViewModel.load()
+        navigationController?.dismiss(animated: true, completion: nil)
     }
 }
 

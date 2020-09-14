@@ -78,22 +78,25 @@ class HomeNavigationController: UINavigationController {
         ])
     }
     
-    @objc private func presentImagePikcer() {
-        let picker = YPImagePicker(configuration: config)
-
-        picker.didFinishPicking { [unowned picker] items, isNotSelect in
-            guard let vc = SelectGroupViewController.storyboardInstance() else { return }
-            
-            if isNotSelect { // 사용자가 선택을 취소했을 때
-                picker.dismiss(animated: true, completion: nil)
-            }
-            // 사용자가 선택을 완료했을 때
-            vc.items = items
-            vc.itemType = .image
-            picker.pushViewController(vc, animated: true)
+    private func presentAddItemType(_ type: Int) {
+        switch type {
+        case ItemType.image.value:
+            presentImagePikcer()
+        case ItemType.text.value:
+            presentaddTextItem()
+        default:
+            break
         }
+    }
+    
+    private func presentaddTextItem() {
+        guard let vc = CreateTextItemViewController.storyboardInstance() else {
+            return
+        }
+        let navVc = UINavigationController(rootViewController: vc)
+        navVc.modalPresentationStyle = .fullScreen
         
-        present(picker, animated: true, completion: nil)
+        present(navVc, animated: true)
     }
     
     @objc private func presentAddActionSheet() {
@@ -114,24 +117,21 @@ class HomeNavigationController: UINavigationController {
         present(actionMenu, animated: true)
     }
     
-    private func presentaddTextItem() {
-        guard let vc = CreateTextItemViewController.storyboardInstance() else {
-            return
+    @objc private func presentImagePikcer() {
+        let picker = YPImagePicker(configuration: config)
+
+        picker.didFinishPicking { [unowned picker] items, isNotSelect in
+            guard let vc = SelectGroupViewController.storyboardInstance() else { return }
+            
+            if isNotSelect { // 사용자가 선택을 취소했을 때
+                picker.dismiss(animated: true, completion: nil)
+            }
+            // 사용자가 선택을 완료했을 때
+            vc.items = items
+            vc.itemType = .image
+            picker.pushViewController(vc, animated: true)
         }
-        let navVc = UINavigationController(rootViewController: vc)
-        navVc.modalPresentationStyle = .fullScreen
         
-        present(navVc, animated: true)
-    }
-    
-    private func presentAddItemType(_ type: Int) {
-        switch type {
-        case ItemType.image.value:
-            presentImagePikcer()
-        case ItemType.text.value:
-            presentaddTextItem()
-        default:
-            break
-        }
+        present(picker, animated: true, completion: nil)
     }
 }

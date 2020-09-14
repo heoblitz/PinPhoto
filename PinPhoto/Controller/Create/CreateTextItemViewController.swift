@@ -70,12 +70,6 @@ class CreateTextItemViewController: UIViewController {
         vc.itemType = .text
         vc.itemText = inputTextView.text
         navigationController?.pushViewController(vc, animated: true)
-        
-//        let id = itemViewModel.idForAdd
-//        itemViewModel.add(content: 1, image: nil, text: inputTextView.text, date: Date(), id: id)
-//        itemViewModel.load()
-//
-//        dismiss(animated: true, completion: nil)
     }
     
     @objc private func cancelButtonTapped(_ sender: UIButton) {
