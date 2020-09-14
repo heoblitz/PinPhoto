@@ -21,9 +21,9 @@ class GroupViewController: UIViewController {
         super.viewDidLoad()
         // iOS 9 이상 부터 블록 기반의 옵저버를 제외하고, 자동으로 처리해줌.
         // deinit 에서 Observer 제거 필요 X
-        groupViewModel.attachObserver(self)
         groupViewModel.load()
-        
+        groupViewModel.attachObserver(self)
+
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardAction(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardAction(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         

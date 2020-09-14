@@ -60,7 +60,6 @@ public class CoreDataManager {
         let newids: [NSNumber] = ids.map { return NSNumber(value: $0) }
         let idSort = NSSortDescriptor(key: "updateDate", ascending: true)
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: modelName)
-        print("---> request 😀😀😀😀😀  \(newids)")
 
         fetchRequest.sortDescriptors = [idSort]
         fetchRequest.predicate = NSPredicate(format: "id IN %@", newids)
@@ -68,11 +67,9 @@ public class CoreDataManager {
         do {
             if let fetchResult = try context.fetch(fetchRequest) as? [Item] {
                 models = fetchResult
-                print("---> fetch  😀😀😀😀😀 \(fetchResult)")
             }
         } catch let error as NSError {
-            print("---> getItem")
-            print("could not fetch \(error) \(error.userInfo)")
+            print("---> could not getItem \(error)")
             self.noticeError(error)
         }
         
@@ -92,7 +89,7 @@ public class CoreDataManager {
                 return fetchResult.first
             }
         } catch let error as NSError {
-            print("could not fetch \(error) \(error.userInfo)")
+            print("---> could not fetch \(error)")
             self.noticeError(error)
         }
         
@@ -129,12 +126,12 @@ public class CoreDataManager {
                 }
             }
         } catch let error as NSError {
-            print("could not fetch \(error) \(error.userInfo)")
+            print("---> could not remove \(error) \(error.userInfo)")
             self.noticeError(error)
         }
         
         contextSave { success in
-            print("---> coreData remove \(success)")
+            print("---> CoreData remove \(success)")
             self.noticeUpdate()
         }
     }
@@ -228,7 +225,7 @@ extension CoreDataManager {
             try context.save()
             onSuccess(true)
         } catch let error as NSError {
-            print("Could not save🥶: \(error), \(error.userInfo)")
+            print("Could not save: \(error), \(error.userInfo)")
             onSuccess(false)
         }
     }

@@ -250,7 +250,7 @@
 				3CD4D52B25020617002F1B7C /* Create */,
 				3CD4D52D25020630002F1B7C /* Group */,
 				3CD4D52C25020627002F1B7C /* Setting */,
-				3CD4D52E2502064B002F1B7C /* SearchViewController.swift */,
+				3CA68901250F935900415C69 /* Search */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -308,6 +308,14 @@
 				3CF8B45524A9CBA700D6C11C /* LaunchScreen.storyboard */,
 			);
 			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		3CA68901250F935900415C69 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3CD4D52E2502064B002F1B7C /* SearchViewController.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		3CCA196A2508D84D00F9CCEB /* Home */ = {

@@ -14,10 +14,32 @@
                     <view key="view" contentMode="scaleToFill" id="Xjx-A3-2wh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pAv-7k-AvP">
+                                <rect key="frame" x="0.0" y="148.5" width="414" height="664.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BI5-GM-6jr">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pAv-7k-AvP" firstAttribute="leading" secondItem="hpp-tH-a7X" secondAttribute="leading" id="gGT-Cm-f65"/>
+                            <constraint firstItem="pAv-7k-AvP" firstAttribute="top" secondItem="hpp-tH-a7X" secondAttribute="top" id="gVM-As-sHY"/>
+                            <constraint firstItem="hpp-tH-a7X" firstAttribute="trailing" secondItem="pAv-7k-AvP" secondAttribute="trailing" id="gkM-ef-bH8"/>
+                            <constraint firstItem="hpp-tH-a7X" firstAttribute="bottom" secondItem="pAv-7k-AvP" secondAttribute="bottom" id="qax-X3-Sbc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hpp-tH-a7X"/>
                     </view>
                     <navigationItem key="navigationItem" title="검색" id="IbJ-RL-EGc"/>
+                    <connections>
+                        <outlet property="searchCollectionView" destination="pAv-7k-AvP" id="Gfu-es-0c0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I65-E2-hE1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,6 +11,7 @@ import Foundation
 class GroupViewModel {
     let groupDataManager = GroupDataManager.shared
     private weak var groupObserver: GroupObserver?
+    private(set) var filterGroup: [Group] = []
     
     deinit {
         self.removeOberserver()
@@ -43,9 +44,12 @@ class GroupViewModel {
     }
     
     func remove(name: String) {
-        var removeGroups = groupDataManager.groups
-        removeGroups = removeGroups.filter { $0.name != name }
-        groupDataManager.save(removeGroups)
+        let removeGroups = groupDataManager.groups
+        groupDataManager.save(removeGroups.filter { $0.name != name })
+    }
+    
+    func loadFilterGroup(name: String) {
+        filterGroup = groupDataManager.groups.filter { $0.name.lowercased().contains(name.lowercased()) }
     }
     
     func swap(_ start: IndexPath, _ end: IndexPath) {
