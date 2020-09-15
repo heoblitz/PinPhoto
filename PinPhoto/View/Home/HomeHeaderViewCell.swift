@@ -10,6 +10,8 @@ import UIKit
 
 class HomeHeaderViewCell: UICollectionViewCell {
     @IBOutlet private weak var headerImageView: UIImageView!
+    @IBOutlet private weak var noticeTextLabel: UILabel!
+
     var disabledHighlightedAnimation: Bool = false
 
     override func awakeFromNib() {
@@ -58,10 +60,12 @@ class HomeHeaderViewCell: UICollectionViewCell {
     func update(at item: Item?) {
         guard let item = item else { return }
         headerImageView.image = item.contentImage?.image?.greyScale
+        noticeTextLabel.isHidden = true
     }
     
     private func reset() {
         headerImageView.image = nil
+        noticeTextLabel.isHidden = false
     }
     
     func freezeAnimations() {

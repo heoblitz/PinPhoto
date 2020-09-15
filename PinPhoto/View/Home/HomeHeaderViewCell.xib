@@ -15,14 +15,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="327" height="279"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="widgetImage" translatesAutoresizingMaskIntoConstraints="NO" id="AMA-a0-VYv">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AMA-a0-VYv">
                         <rect key="frame" x="0.0" y="0.0" width="327" height="279"/>
-                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위젯에 표시될 항목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WP-OD-ajE">
                         <rect key="frame" x="15" y="228" width="220.5" height="36"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="항목을 추가해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCE-l8-TNZ">
+                        <rect key="frame" x="92.5" y="129" width="142" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -31,19 +37,19 @@
                 <constraint firstAttribute="leading" secondItem="AMA-a0-VYv" secondAttribute="leading" id="AcC-4p-OxL"/>
                 <constraint firstAttribute="bottom" secondItem="4WP-OD-ajE" secondAttribute="bottom" constant="15" id="I4s-QY-Bbm"/>
                 <constraint firstItem="4WP-OD-ajE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="Qqr-ye-bEd"/>
+                <constraint firstItem="fCE-l8-TNZ" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="RtT-8U-bYU"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4WP-OD-ajE" secondAttribute="trailing" constant="20" id="cZH-nG-23k"/>
                 <constraint firstAttribute="bottom" secondItem="AMA-a0-VYv" secondAttribute="bottom" id="iKs-fu-ibV"/>
                 <constraint firstAttribute="trailing" secondItem="AMA-a0-VYv" secondAttribute="trailing" id="oLN-vp-4fT"/>
                 <constraint firstItem="AMA-a0-VYv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ozG-DO-kiF"/>
+                <constraint firstItem="fCE-l8-TNZ" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="rL6-Rj-O2m"/>
             </constraints>
             <size key="customSize" width="327" height="279"/>
             <connections>
                 <outlet property="headerImageView" destination="AMA-a0-VYv" id="d1P-2H-Hve"/>
+                <outlet property="noticeTextLabel" destination="fCE-l8-TNZ" id="D7S-WZ-CoO"/>
             </connections>
             <point key="canvasLocation" x="194.92753623188406" y="25.111607142857142"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="widgetImage" width="349" height="358"/>
-    </resources>
 </document>

@@ -59,7 +59,7 @@ class HomeGroupViewCell: UICollectionViewCell {
     
     func update(at item: Item?, title: String) {
         if let item = item {
-            groupImageView.image = item.contentImage?.image
+            groupImageView.image = item.contentImage?.image?.greyScale
             noticeTextLabel.isHidden = true
         }
         groupNameLabel.text = title
