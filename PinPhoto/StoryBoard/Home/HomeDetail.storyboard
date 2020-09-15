@@ -83,14 +83,16 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gRB-sW-KKa">
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="FOs-7h-28l"/>
+                                    <barButtonItem title="Item" image="square.and.arrow.up.on.square" catalog="system" id="Pn9-yz-47t" userLabel="Send Button">
+                                        <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hO8-I2-Nyr"/>
                                     <barButtonItem systemItem="trash" id="08c-VF-p0d">
                                         <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="removeButtonTapped:" destination="Nqb-MI-x0Z" id="dop-og-jLH"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="VG1-XB-18X"/>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -111,6 +113,7 @@
                     <connections>
                         <outlet property="deleteButton" destination="08c-VF-p0d" id="nfw-if-otH"/>
                         <outlet property="itemCollectionView" destination="BIk-6N-Va6" id="4Zd-Q3-woH"/>
+                        <outlet property="sendButton" destination="Pn9-yz-47t" id="3Kk-ZI-32D"/>
                         <outlet property="toolbar" destination="gRB-sW-KKa" id="XC6-ey-L4K"/>
                     </connections>
                 </viewController>
@@ -121,5 +124,6 @@
     </scenes>
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="square.and.arrow.up.on.square" catalog="system" width="117" height="128"/>
     </resources>
 </document>

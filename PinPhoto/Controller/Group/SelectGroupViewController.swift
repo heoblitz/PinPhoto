@@ -67,15 +67,11 @@ class SelectGroupViewController: UIViewController {
         for item in items {
             switch item {
             case .photo(let photo):
-                if itemViewModel.numberOfImages < 15 {
-                    let imageData: Data? = photo.originalImage.data
-                    let id: Int64 = itemViewModel.idForAdd
-                    itemViewModel.add(content: 0, image: imageData, text: nil, date: Date(), id: id)
-                    groupViewModel.insertId(at: groupName, ids: [Int(id)])
-                    groupViewModel.load()
-                } else {
-                    break
-                }
+                let imageData: Data? = photo.originalImage.data
+                let id: Int64 = itemViewModel.idForAdd
+                itemViewModel.add(content: 0, image: imageData, text: nil, date: Date(), id: id)
+                groupViewModel.insertId(at: groupName, ids: [Int(id)])
+                groupViewModel.load()
             default:
                 break
             }

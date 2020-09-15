@@ -15,10 +15,7 @@ class HomeDetailViewController: UIViewController {
     @IBOutlet private weak var itemCollectionView: UICollectionView!
     @IBOutlet private weak var toolbar: UIToolbar!
     @IBOutlet private weak var deleteButton: UIBarButtonItem!
-    
-    deinit {
-        print("detail view deinit")
-    }
+    @IBOutlet private weak var sendButton: UIBarButtonItem!
     
     // MARK:- Propertises
     private let itemViewModel = ItemViewModel()
@@ -30,8 +27,10 @@ class HomeDetailViewController: UIViewController {
         didSet {
             if selectedCell.count > 0 {
                 self.deleteButton.isEnabled = true
+                self.sendButton.isEnabled = true
             } else {
                 self.deleteButton.isEnabled = false
+                self.sendButton.isEnabled = false
             }
         }
     }
@@ -55,9 +54,14 @@ class HomeDetailViewController: UIViewController {
         prepareItemCollectionView()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        groupViewModel.removeOberserver()
+        if isMovingFromParent {
+            groupViewModel.removeOberserver(self)
+        }
     }
     
     // MARK:- Methods

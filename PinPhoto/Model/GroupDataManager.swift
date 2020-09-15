@@ -18,7 +18,7 @@ class GroupDataManager {
         return url
     }()
     
-    var obserbers: [GroupObserver] = []
+    private(set) var obserbers: [GroupObserver] = []
     
     func save(_ obj: [Group]) {
         guard let url = url else { return }
@@ -60,6 +60,15 @@ class GroupDataManager {
         } catch let error {
             print(error.localizedDescription)
         }
+    }
+    
+    func addObserber(_ target: GroupObserver) {
+        obserbers.append(target)
+        print("?")
+    }
+    
+    func removeObserber(_ target: GroupObserver) {
+        obserbers = obserbers.filter { $0.groupIdentifier != target.groupIdentifier }
     }
     
     func noticeObserbers() {
