@@ -13,10 +13,6 @@ class GroupViewModel {
     private weak var groupObserver: GroupObserver?
     private(set) var filterGroup: [Group] = []
     
-    deinit {
-        self.removeOberserver()
-    }
-    
     var groups: [Group] {
         return groupDataManager.groups
     }

@@ -16,6 +16,10 @@ class HomeDetailViewController: UIViewController {
     @IBOutlet private weak var toolbar: UIToolbar!
     @IBOutlet private weak var deleteButton: UIBarButtonItem!
     
+    deinit {
+        print("detail view deinit")
+    }
+    
     // MARK:- Propertises
     private let itemViewModel = ItemViewModel()
     private let groupViewModel = GroupViewModel()
@@ -49,6 +53,11 @@ class HomeDetailViewController: UIViewController {
         toolbar.isHidden = true
         
         prepareItemCollectionView()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        groupViewModel.removeOberserver()
     }
     
     // MARK:- Methods
@@ -203,7 +212,6 @@ extension HomeDetailViewController: GroupObserver {
     func updateGroup() {
         guard let group = group, let newGroup = groupViewModel.group(by: group.name) else { return }
         
-        print("---> \(groupViewModel.groupDataManager.groups)")
         itemViewModel.loadFromIds(ids: newGroup.ids)
         itemCollectionView.reloadData()
     }

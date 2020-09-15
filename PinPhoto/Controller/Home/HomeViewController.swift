@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
     
     private let groupViewModel = GroupViewModel()
     private let itemViewModel = ItemViewModel()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .always
