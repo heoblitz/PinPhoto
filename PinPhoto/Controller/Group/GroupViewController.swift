@@ -28,27 +28,14 @@ class GroupViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardAction(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        //tapGesture.cancelsTouchesInView = false
         tapGesture.delegate = self
+        
         view.addGestureRecognizer(tapGesture)
         view.isUserInteractionEnabled = true
         groupTableView.dataSource = self
+        groupTableView.delegate = self
         
         inputTextView.backgroundColor = UIColor.tapBarColor
-    }
-    
-    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
-        groupTableView.isEditing = !groupTableView.isEditing
-        groupTableView.setEditing(groupTableView.isEditing, animated: true)
-    }
-    
-    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
-        guard let text = inputTextField.text, !text.isEmpty else { return }
-        inputTextField.text = ""
-        dismissKeyboard()
-        
-        groupViewModel.add(name: text)
-        groupViewModel.load()
     }
     
     private func presentRemoveAlert(at target: Group) {
@@ -70,6 +57,34 @@ class GroupViewController: UIViewController {
         }
         groupViewModel.remove(name: target.name)
         groupViewModel.load()
+    }
+    
+    private func alertSameGroupName() {
+        let alert = UIAlertController(title: "알림", message: "이미 같은 분류가 존재합니다!", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(confirm)
+        
+        present(alert, animated: true)
+    }
+
+    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
+        groupTableView.isEditing = !groupTableView.isEditing
+        groupTableView.setEditing(groupTableView.isEditing, animated: true)
+        sender.title = groupTableView.isEditing ? "완료" : "편집"
+    }
+    
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        guard let text = inputTextField.text, !text.isEmpty else { return }
+        
+        if !groupViewModel.groups.contains(where: { $0.name == text }) {
+            inputTextField.text = ""
+            dismissKeyboard()
+            
+            groupViewModel.add(name: text)
+            groupViewModel.load()
+        } else {
+            alertSameGroupName()
+        }
     }
     
     @objc private func keyboardAction(_ notification: Notification) {
@@ -159,10 +174,6 @@ extension GroupViewController: UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
-        return sourceIndexPath.section != proposedDestinationIndexPath.section ? sourceIndexPath : proposedDestinationIndexPath
-    }
-    
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return indexPath.section == 0 ? .none : .delete
     }
@@ -177,6 +188,12 @@ extension GroupViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return indexPath.section == 0 ? false : true
+    }
+}
+
+extension GroupViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        return sourceIndexPath.section == proposedDestinationIndexPath.section ? proposedDestinationIndexPath : sourceIndexPath
     }
 }
 

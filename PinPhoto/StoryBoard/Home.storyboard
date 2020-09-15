@@ -36,11 +36,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6j6-cw-PKL"/>
                     </view>
-                    <navigationItem key="navigationItem" title="항목" largeTitleDisplayMode="always" id="Ilx-D2-6Bb">
-                        <barButtonItem key="leftBarButtonItem" title="편집" id="oXD-W1-v3L">
-                            <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="항목" largeTitleDisplayMode="always" id="Ilx-D2-6Bb"/>
                     <connections>
                         <outlet property="homeCollectionView" destination="u9D-ZA-DFL" id="y6B-1s-NeQ"/>
                     </connections>
@@ -57,7 +53,7 @@
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qsf-V2-J6g">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

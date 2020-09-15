@@ -50,7 +50,7 @@ class GroupViewModel {
     
     func swap(_ start: IndexPath, _ end: IndexPath) {
         var swapGroups = groupDataManager.groups
-        swapGroups.swapAt(start.row, end.row)
+        swapGroups.swapAt(start.row + 1, end.row + 1)
         groupDataManager.save(swapGroups)
     }
     

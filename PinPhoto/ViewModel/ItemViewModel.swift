@@ -37,10 +37,6 @@ public class ItemViewModel {
         return items[index]
     }
     
-//    var thumbnailItem: Item? {
-//        return items.filter { $0.contentType == 0 }.randomElement()
-//    }
-    
     func thumbnailItem(ids: [Int]) -> Item? {
         return shared.thumbnailItem(ids: ids)
     }
@@ -59,21 +55,10 @@ public class ItemViewModel {
     
     func load() {
         items = shared.getItem()
-        //items.reverse()
     }
     
     func loadFromIds(ids: [Int]) {
         items = shared.getItemFromIds(ids: ids)
-        //items.reverse()
-    }
-    
-    func printID() {
-        print("\(items.count)")
-        for item in items {
-            print("----->\(item.id)")
-            print("----->\(item.contentType)")
-            print("----->\(item.contentText ?? "")")
-        }
     }
     
     func creationData(date: Date?) -> String? {
