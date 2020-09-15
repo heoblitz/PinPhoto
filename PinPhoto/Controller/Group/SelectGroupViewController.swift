@@ -11,12 +11,6 @@ import YPImagePicker
 
 class SelectGroupViewController: UIViewController {
     @IBOutlet private weak var groupTableView: UITableView!
-    
-    var selectedCell: IndexPath? {
-        didSet {
-            navigationItem.rightBarButtonItem?.isEnabled = true
-        }
-    }
 
     private let itemViewModel: ItemViewModel = ItemViewModel()
     private let groupViewModel: GroupViewModel = GroupViewModel()
@@ -24,6 +18,12 @@ class SelectGroupViewController: UIViewController {
     var itemType: ItemType?
     var items: [YPMediaItem]? // for image
     var itemText: String? // for text
+    
+    var selectedCell: IndexPath? {
+        didSet {
+            navigationItem.rightBarButtonItem?.isEnabled = true
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,8 +64,6 @@ class SelectGroupViewController: UIViewController {
         guard let items = items else { return }
         guard let selectedCell = selectedCell, let groupName = groupTableView.cellForRow(at: selectedCell)?.textLabel?.text else { return }
         
-        //var ids: [Int] = []
-
         for item in items {
             switch item {
             case .photo(let photo):
@@ -74,7 +72,6 @@ class SelectGroupViewController: UIViewController {
                     let id: Int64 = itemViewModel.idForAdd
                     itemViewModel.add(content: 0, image: imageData, text: nil, date: Date(), id: id)
                     groupViewModel.insertId(at: groupName, ids: [Int(id)])
-                    print("---> id \(id)")
                     groupViewModel.load()
                 } else {
                     break
@@ -83,7 +80,7 @@ class SelectGroupViewController: UIViewController {
                 break
             }
         }
-        print("----> \(groupViewModel.groupDataManager.groups)")
+        
         navigationController?.dismiss(animated: true, completion: nil)
     }
     

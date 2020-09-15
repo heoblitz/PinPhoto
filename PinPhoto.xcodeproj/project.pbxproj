@@ -259,10 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				3CCA196A2508D84D00F9CCEB /* Home */,
-				3CAA167D24BC211200635F6D /* ItemCustomCell.swift */,
-				3CCA560324D697EE00F32671 /* ManualCustomCell.swift */,
-				3CB8E0A224F1482600FEE93C /* SettingWidgetSwitchCell.swift */,
-				3CB8E0A024F1436D00FEE93C /* SettingWidgetSliderCell.swift */,
+				3C6133E2251064BD001A62C8 /* Setting */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,6 +285,16 @@
 				3C070AA224D419600077C3AE /* ItemObserver.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		3C6133E2251064BD001A62C8 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				3CCA560324D697EE00F32671 /* ManualCustomCell.swift */,
+				3CB8E0A224F1482600FEE93C /* SettingWidgetSwitchCell.swift */,
+				3CB8E0A024F1436D00FEE93C /* SettingWidgetSliderCell.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		3C8C6C5E24EA363200689329 /* StoryBoard */ = {
@@ -327,6 +334,7 @@
 				3CCA196C2508DBC300F9CCEB /* HomeGroupViewCell.xib */,
 				3CCA19622508981F00F9CCEB /* HomeHeaderViewCell.swift */,
 				3CCA19632508981F00F9CCEB /* HomeHeaderViewCell.xib */,
+				3CAA167D24BC211200635F6D /* ItemCustomCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";

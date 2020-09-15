@@ -57,7 +57,7 @@ class HomeHeaderViewCell: UICollectionViewCell {
     
     func update(at item: Item?) {
         guard let item = item else { return }
-        headerImageView.image = item.contentImage?.image
+        headerImageView.image = item.contentImage?.image?.greyScale
     }
     
     private func reset() {
