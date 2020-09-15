@@ -248,9 +248,9 @@
 			children = (
 				3CD4D52A2502060C002F1B7C /* Home */,
 				3CD4D52B25020617002F1B7C /* Create */,
+				3CA68901250F935900415C69 /* Search */,
 				3CD4D52D25020630002F1B7C /* Group */,
 				3CD4D52C25020627002F1B7C /* Setting */,
-				3CA68901250F935900415C69 /* Search */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -301,18 +301,12 @@
 			isa = PBXGroup;
 			children = (
 				3CF8B45024A9CBA300D6C11C /* Main.storyboard */,
-				3C8C6C5F24EA368400689329 /* Home.storyboard */,
-				3CA5C11E25091F6F009CB5C5 /* HomeDetail.storyboard */,
-				3C0C004B24EA4F4500BF137B /* CreateTextItem.storyboard */,
-				3C0C004D24EA4FED00BF137B /* EditImageItem.storyboard */,
-				3C0C004F24EA50D200BF137B /* EditTextItem.storyboard */,
-				3CD247B825023434006F8757 /* SelectGroup.storyboard */,
-				3CF07B9624FE48B0006D48CE /* Group.storyboard */,
-				3CD4D52725020520002F1B7C /* Search.storyboard */,
-				3C20173E24EA4E2400DD3BA0 /* Setting.storyboard */,
-				3C9D666124ECB51C00021E48 /* SettingWidget.storyboard */,
-				3C0C004924EA4F1A00BF137B /* Manual.storyboard */,
 				3CF8B45524A9CBA700D6C11C /* LaunchScreen.storyboard */,
+				3CC788612510B9EE00C5C42B /* Home */,
+				3CC788622510BA0300C5C42B /* Create */,
+				3CC788652510BA2C00C5C42B /* Search */,
+				3CC788632510BA1300C5C42B /* Group */,
+				3CC788642510BA2500C5C42B /* Setting */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -321,6 +315,52 @@
 			isa = PBXGroup;
 			children = (
 				3CD4D52E2502064B002F1B7C /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		3CC788612510B9EE00C5C42B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3C8C6C5F24EA368400689329 /* Home.storyboard */,
+				3CA5C11E25091F6F009CB5C5 /* HomeDetail.storyboard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3CC788622510BA0300C5C42B /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				3C0C004B24EA4F4500BF137B /* CreateTextItem.storyboard */,
+				3C0C004D24EA4FED00BF137B /* EditImageItem.storyboard */,
+				3C0C004F24EA50D200BF137B /* EditTextItem.storyboard */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		3CC788632510BA1300C5C42B /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				3CD247B825023434006F8757 /* SelectGroup.storyboard */,
+				3CF07B9624FE48B0006D48CE /* Group.storyboard */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		3CC788642510BA2500C5C42B /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				3C20173E24EA4E2400DD3BA0 /* Setting.storyboard */,
+				3C9D666124ECB51C00021E48 /* SettingWidget.storyboard */,
+				3C0C004924EA4F1A00BF137B /* Manual.storyboard */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		3CC788652510BA2C00C5C42B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3CD4D52725020520002F1B7C /* Search.storyboard */,
 			);
 			path = Search;
 			sourceTree = "<group>";
