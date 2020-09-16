@@ -24,6 +24,13 @@ class HomeViewController: UIViewController {
         prepareHomeCollectionView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+        guard let navVc = navigationController as? HomeNavigationController else { return }
+        navVc.presentAddButtonView()
+    }
+    
     private func prepareHomeCollectionView() {
         homeCollectionView.dataSource = self
         homeCollectionView.delegate = self

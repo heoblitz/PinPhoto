@@ -41,7 +41,7 @@ class HomeNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presentAddButtonView()
+        // presentAddButtonView()
     }
     
     override open var childForStatusBarHidden: UIViewController? { // for child vc status bar hidden
@@ -63,11 +63,13 @@ class HomeNavigationController: UINavigationController {
     }
     
     private func prepareConstraint() {
+        let tabBarHeight: CGFloat = tabBarController?.tabBar.frame.size.height ?? 0
+
         NSLayoutConstraint.activate([
             addButtonView.widthAnchor.constraint(equalToConstant: 50),
             addButtonView.heightAnchor.constraint(equalToConstant: 50),
             addButtonView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
-            addButtonView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -25)
+            addButtonView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(25 + tabBarHeight))
         ])
         
         NSLayoutConstraint.activate([
@@ -128,7 +130,7 @@ class HomeNavigationController: UINavigationController {
             }
             // 사용자가 선택을 완료했을 때
             vc.items = items
-            vc.itemType = .image
+            vc.selectionType = .addImage
             picker.pushViewController(vc, animated: true)
         }
         

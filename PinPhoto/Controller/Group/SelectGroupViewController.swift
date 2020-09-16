@@ -15,9 +15,18 @@ class SelectGroupViewController: UIViewController {
     private let itemViewModel: ItemViewModel = ItemViewModel()
     private let groupViewModel: GroupViewModel = GroupViewModel()
     
-    var itemType: ItemType?
+    lazy var cancelBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonTapped))
+        barButtonItem.tintColor = .label
+        return barButtonItem
+    }()
+    
+    var selectionType: SelectionType?
     var items: [YPMediaItem]? // for image
     var itemText: String? // for text
+    
+    var moveIds: [Int]? // for move
+    var moveGroupName: String? // for origin delete
     
     var selectedCell: IndexPath? {
         didSet {
@@ -26,6 +35,11 @@ class SelectGroupViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        if let type = selectionType, type == .move {
+            print("add")
+            navigationItem.leftBarButtonItem = cancelBarButtonItem
+        }
+        
         super.viewDidLoad()
         groupTableView.dataSource = self
         groupTableView.delegate = self
@@ -50,14 +64,20 @@ class SelectGroupViewController: UIViewController {
     }
     
     @objc private func completeTapped(_ sender: UIBarButtonItem) {
-        guard let itemType = itemType else { return }
+        guard let selectionType = selectionType else { return }
         
-        switch itemType {
-        case .image:
+        switch selectionType {
+        case .addImage:
             addImageItem()
-        case .text:
+        case .addText:
             addTextItem()
+        default:
+            break
         }
+    }
+    
+    @objc private func cancelButtonTapped() {
+        navigationController?.dismiss(animated: true, completion: nil)
     }
     
     private func addImageItem() {
@@ -88,7 +108,13 @@ class SelectGroupViewController: UIViewController {
         itemViewModel.add(content: 1, image: nil, text: itemText, date: Date(), id: id)
         groupViewModel.insertId(at: groupName, ids: [Int(id)])
         groupViewModel.load()
+        
         navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    private func moveItem() {
+        guard let moveIds = moveIds, let moveGroupName = moveGroupName else { return }
+        guard let selectedCell = selectedCell, let groupName = groupTableView.cellForRow(at: selectedCell)?.textLabel?.text else { return }
     }
 }
 
@@ -116,12 +142,16 @@ extension SelectGroupViewController: UITableViewDataSource {
             cell.textLabel?.text = group.name
             cell.detailTextLabel?.text = "\(group.numberOfItem)"
             cell.textLabel?.textColor = .systemPink
+            cell.isUserInteractionEnabled = group.name == moveGroupName ? false : true
+            
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "selectGroupCell") else { return UITableViewCell() }
             let group = groupViewModel.groups[indexPath.row + 1]
             cell.textLabel?.text = group.name
             cell.detailTextLabel?.text = "\(group.numberOfItem)"
+            cell.isUserInteractionEnabled = group.name == moveGroupName ? false : true
+            
             return cell
         default:
             break

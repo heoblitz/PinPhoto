@@ -64,7 +64,6 @@ class GroupDataManager {
     
     func addObserber(_ target: GroupObserver) {
         obserbers.append(target)
-        print("?")
     }
     
     func removeObserber(_ target: GroupObserver) {

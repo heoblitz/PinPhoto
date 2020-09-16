@@ -74,7 +74,7 @@ class GroupViewController: UIViewController {
     }
     
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
-        guard let text = inputTextField.text, !text.isEmpty else { return }
+        guard let text = inputTextField.text?.trimmingCharacters(in: .whitespaces), !text.isEmpty else { return }
         
         if !groupViewModel.groups.contains(where: { $0.name == text }) {
             inputTextField.text = ""

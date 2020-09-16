@@ -67,7 +67,7 @@ class CreateTextItemViewController: UIViewController {
     @objc private func saveButtonTapped(_ sender: UIButton) {
         guard let vc = SelectGroupViewController.storyboardInstance() else { return }
         
-        vc.itemType = .text
+        vc.selectionType = .addText
         vc.itemText = inputTextView.text
         navigationController?.pushViewController(vc, animated: true)
     }

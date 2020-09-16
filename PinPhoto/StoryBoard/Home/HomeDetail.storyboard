@@ -81,10 +81,13 @@
                                 </cells>
                             </collectionView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gRB-sW-KKa">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="816" width="414" height="49"/>
                                 <items>
                                     <barButtonItem title="Item" image="square.and.arrow.up.on.square" catalog="system" id="Pn9-yz-47t" userLabel="Send Button">
                                         <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="moveButtonTapped:" destination="Nqb-MI-x0Z" id="QQB-z9-Eev"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="hO8-I2-Nyr"/>
                                     <barButtonItem systemItem="trash" id="08c-VF-p0d">
@@ -98,10 +101,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="gRB-sW-KKa" firstAttribute="top" secondItem="64Q-Vk-xe8" secondAttribute="bottom" id="KhI-KJ-pzO"/>
                             <constraint firstItem="64Q-Vk-xe8" firstAttribute="trailing" secondItem="gRB-sW-KKa" secondAttribute="trailing" id="PW8-aN-ggn"/>
                             <constraint firstItem="gRB-sW-KKa" firstAttribute="leading" secondItem="64Q-Vk-xe8" secondAttribute="leading" id="Pj2-bv-BWT"/>
                             <constraint firstItem="64Q-Vk-xe8" firstAttribute="bottom" secondItem="BIk-6N-Va6" secondAttribute="bottom" id="S5w-4w-MvN"/>
+                            <constraint firstAttribute="bottom" secondItem="gRB-sW-KKa" secondAttribute="top" constant="80" id="W8j-RW-69Q"/>
                             <constraint firstItem="BIk-6N-Va6" firstAttribute="top" secondItem="64Q-Vk-xe8" secondAttribute="top" id="YIW-4a-8VZ"/>
                             <constraint firstItem="64Q-Vk-xe8" firstAttribute="trailing" secondItem="BIk-6N-Va6" secondAttribute="trailing" id="b1T-tJ-Cst"/>
                             <constraint firstItem="BIk-6N-Va6" firstAttribute="leading" secondItem="64Q-Vk-xe8" secondAttribute="leading" id="q1s-44-zGu"/>
@@ -114,7 +117,8 @@
                         <outlet property="deleteButton" destination="08c-VF-p0d" id="nfw-if-otH"/>
                         <outlet property="itemCollectionView" destination="BIk-6N-Va6" id="4Zd-Q3-woH"/>
                         <outlet property="sendButton" destination="Pn9-yz-47t" id="3Kk-ZI-32D"/>
-                        <outlet property="toolbar" destination="gRB-sW-KKa" id="XC6-ey-L4K"/>
+                        <outlet property="toolBar" destination="gRB-sW-KKa" id="XC6-ey-L4K"/>
+                        <outlet property="toolBarBottomSpacing" destination="W8j-RW-69Q" id="eMG-AD-LR3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kPG-hX-APh" sceneMemberID="firstResponder"/>

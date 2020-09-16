@@ -13,9 +13,12 @@ import YPImagePicker
 class HomeDetailViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var itemCollectionView: UICollectionView!
-    @IBOutlet private weak var toolbar: UIToolbar!
     @IBOutlet private weak var deleteButton: UIBarButtonItem!
     @IBOutlet private weak var sendButton: UIBarButtonItem!
+    @IBOutlet private weak var editButton: UIBarButtonItem!
+    
+    @IBOutlet private weak var toolBar: UIToolbar!
+    @IBOutlet private weak var toolBarBottomSpacing: NSLayoutConstraint!
     
     // MARK:- Propertises
     private let itemViewModel = ItemViewModel()
@@ -49,14 +52,24 @@ class HomeDetailViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.tintColor = .systemPink
         tabBarController?.tabBar.isHidden = false
-        toolbar.isHidden = true
         
+        HomeDetailViewController.isEditMode = false
+        toolBar.isHidden = true
+        toolBarBottomSpacing.constant = tabBarController?.tabBar.frame.size.height ?? 0
         prepareItemCollectionView()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        tabBarController?.tabBar.isHidden = false
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        if HomeDetailViewController.isEditMode {
+//            tabBarController?.tabBar.isHidden = true
+//            toolBar.isHidden = false
+//        }
+//    }
+//
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//    }
     
     override func viewDidDisappear(_ animated: Bool) {
         if isMovingFromParent {
@@ -107,11 +120,23 @@ class HomeDetailViewController: UIViewController {
         sender.title = sender.title == "선택" ? "완료" : "선택"
         
         tabBarController?.tabBar.isHidden.toggle()
-        toolbar.isHidden.toggle()
+        toolBar.isHidden.toggle()
         //addButton.isEnabled.toggle()
         HomeDetailViewController.isEditMode.toggle()
         deselectCells()
         selectedCell = [:]
+    }
+    
+    @IBAction func moveButtonTapped(_ sender: UIBarButtonItem) {
+        guard let group = group else { return }
+        guard let vc = SelectGroupViewController.storyboardInstance() else { return }
+        vc.moveGroupName = group.name
+        vc.selectionType = .move
+        
+        let navVc = UINavigationController(rootViewController: vc)
+        
+        navVc.modalPresentationStyle = .fullScreen
+        present(navVc, animated: true)
     }
 
     @IBAction func removeButtonTapped(_ sender: UIBarButtonItem) {
