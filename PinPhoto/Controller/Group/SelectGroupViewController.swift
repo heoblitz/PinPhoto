@@ -25,7 +25,7 @@ class SelectGroupViewController: UIViewController {
     var items: [YPMediaItem]? // for image
     var itemText: String? // for text
     
-    var moveIds: [Int]? // for move
+    var moveIds: [Int64]? // for move id
     var moveGroupName: String? // for origin delete
     
     var selectedCell: IndexPath? {
@@ -71,8 +71,8 @@ class SelectGroupViewController: UIViewController {
             addImageItem()
         case .addText:
             addTextItem()
-        default:
-            break
+        case .move:
+            moveItem()
         }
     }
     
@@ -115,6 +115,23 @@ class SelectGroupViewController: UIViewController {
     private func moveItem() {
         guard let moveIds = moveIds, let moveGroupName = moveGroupName else { return }
         guard let selectedCell = selectedCell, let groupName = groupTableView.cellForRow(at: selectedCell)?.textLabel?.text else { return }
+        
+        for move in moveIds {
+            guard let item = itemViewModel.itemFromId(at: Int(move)) else { return }
+            // add
+            let id = itemViewModel.idForAdd
+            groupViewModel.insertId(at: groupName, ids: [Int(id)])
+            itemViewModel.add(content: item.contentType, image: item.contentImage, text: item.contentText, date: item.updateDate, id: id)
+            groupViewModel.load()
+            
+            // remove
+            groupViewModel.removeId(at: moveGroupName, ids: [Int(move)])
+            itemViewModel.remove(id: move)
+            groupViewModel.load()
+        }
+        
+        print("move okay")
+        navigationController?.dismiss(animated: true, completion: nil)
     }
 }
 

@@ -36,7 +36,11 @@ public class ItemViewModel {
     func item(at index: Int) -> Item {
         return items[index]
     }
-    
+
+    func itemFromId(at id: Int) -> Item? {
+        return shared.getItemFromIds(ids: [id]).first
+    }
+ 
     func thumbnailItem(ids: [Int]) -> Item? {
         return shared.thumbnailItem(ids: ids)
     }

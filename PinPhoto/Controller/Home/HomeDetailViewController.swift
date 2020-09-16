@@ -26,7 +26,7 @@ class HomeDetailViewController: UIViewController {
     static var isEditMode: Bool = false
     var group: Group?
     
-    private var selectedCell: [IndexPath:Int64] = [:] {
+    private var selectedCell: [IndexPath:Int64] = [:] { // indexPath:id
         didSet {
             if selectedCell.count > 0 {
                 self.deleteButton.isEnabled = true
@@ -58,18 +58,6 @@ class HomeDetailViewController: UIViewController {
         toolBarBottomSpacing.constant = tabBarController?.tabBar.frame.size.height ?? 0
         prepareItemCollectionView()
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        if HomeDetailViewController.isEditMode {
-//            tabBarController?.tabBar.isHidden = true
-//            toolBar.isHidden = false
-//        }
-//    }
-//
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//    }
     
     override func viewDidDisappear(_ animated: Bool) {
         if isMovingFromParent {
@@ -131,6 +119,7 @@ class HomeDetailViewController: UIViewController {
         guard let group = group else { return }
         guard let vc = SelectGroupViewController.storyboardInstance() else { return }
         vc.moveGroupName = group.name
+        vc.moveIds = selectedCell.map { $0.value }
         vc.selectionType = .move
         
         let navVc = UINavigationController(rootViewController: vc)
