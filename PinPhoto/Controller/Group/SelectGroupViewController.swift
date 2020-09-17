@@ -14,6 +14,7 @@ class SelectGroupViewController: UIViewController {
 
     private let itemViewModel: ItemViewModel = ItemViewModel()
     private let groupViewModel: GroupViewModel = GroupViewModel()
+    private let widgetGroupName: String = "위젯에 표시될 항목"
     
     lazy var cancelBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonTapped))
@@ -85,6 +86,11 @@ class SelectGroupViewController: UIViewController {
         guard let selectedCell = selectedCell, let groupName = groupTableView.cellForRow(at: selectedCell)?.textLabel?.text else { return }
         var id: Int64 = itemViewModel.idForAdd
 
+        if ifWidgetMaxCount(itemCount: items.count) {
+            alertMaxCount()
+            return
+        }
+        
         for item in items {
             switch item {
             case .photo(let photo):
@@ -106,6 +112,11 @@ class SelectGroupViewController: UIViewController {
         guard let itemText = itemText else { return }
         guard let selectedCell = selectedCell, let groupName = groupTableView.cellForRow(at: selectedCell)?.textLabel?.text else { return }
         
+        if ifWidgetMaxCount(itemCount: 1) {
+            alertMaxCount()
+            return
+        }
+        
         let id: Int64 = itemViewModel.idForAdd
         itemViewModel.add(content: 1, image: nil, text: itemText, date: Date(), id: id)
         groupViewModel.insertId(at: groupName, ids: [Int(id)])
@@ -118,10 +129,14 @@ class SelectGroupViewController: UIViewController {
         guard let moveIds = moveIds?.sorted(by: { $0 > $1 }), let moveGroupName = moveGroupName else { return }
         guard let selectedCell = selectedCell, let groupName = groupTableView.cellForRow(at: selectedCell)?.textLabel?.text else { return }
         var id: Int64 = itemViewModel.idForAdd
-
+        
+        if ifWidgetMaxCount(itemCount: moveIds.count) {
+            alertMaxCount()
+            return
+        }
+        
         for move in moveIds {
             guard let item = itemViewModel.itemFromId(at: Int(move)) else { return }
-//            let copyItem = ItemCopy(id: item.id, updateDate: item.updateDate, contentType: item.contentType, contentImage: item.contentImage, contentText: item.contentText)
             let copyItem: ItemCopy = ItemCopy(item: item)
             // remove
             groupViewModel.removeId(at: moveGroupName, ids: [Int(move)])
@@ -138,6 +153,24 @@ class SelectGroupViewController: UIViewController {
         }
         
         navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    private func ifWidgetMaxCount(itemCount: Int) -> Bool {
+        guard let selectedCell = selectedCell, let groupName = groupTableView.cellForRow(at: selectedCell)?.textLabel?.text else { return false }
+        
+        if groupName == widgetGroupName, groupViewModel.groups[0].numberOfItem + itemCount > 20 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    private func alertMaxCount() {
+        let alert: UIAlertController = UIAlertController(title: "알림", message: "메모리 제한으로 위젯 항목은 \n 20개를 초과할 수 없습니다!", preferredStyle: .alert)
+        let accept: UIAlertAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        
+        alert.addAction(accept)
+        present(alert, animated: true)
     }
 }
 

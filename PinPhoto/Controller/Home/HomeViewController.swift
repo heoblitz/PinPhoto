@@ -37,6 +37,7 @@ class HomeViewController: UIViewController {
         homeCollectionView.contentInsetAdjustmentBehavior = .never
         homeCollectionView.alwaysBounceVertical = true
         let height: CGFloat = (view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0) + (navigationController?.navigationBar.frame.height ?? 0.0) + 50
+        
         homeCollectionView.contentInset = UIEdgeInsets(top: height, left: 15, bottom: 15, right: 15)
         homeCollectionView.register(UINib(nibName: "HomeSectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeSectionReusableView")
         homeCollectionView.register(UINib(nibName: "HomeHeaderViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeHeaderViewCell")

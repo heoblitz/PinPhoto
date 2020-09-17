@@ -65,6 +65,10 @@ class HomeDetailViewController: UIViewController {
         }
     }
     
+    override func viewSafeAreaInsetsDidChange() {
+        let height: CGFloat = view.safeAreaInsets.top
+        itemCollectionView.contentInset = UIEdgeInsets(top: height, left: 0, bottom: 0, right: 0)
+    }
     // MARK:- Methods
     static func storyboardInstance() -> HomeDetailViewController? {
         let storyboard = UIStoryboard(name: HomeDetailViewController.storyboardName(), bundle: nil)
@@ -77,6 +81,8 @@ class HomeDetailViewController: UIViewController {
         itemCollectionView.delegate = self
         itemCollectionView.allowsMultipleSelection = true
         itemCollectionView.delaysContentTouches = false
+        itemCollectionView.contentInsetAdjustmentBehavior = .never
+        itemCollectionView.automaticallyAdjustsScrollIndicatorInsets = false
     }
     
     private func deselectCells() {

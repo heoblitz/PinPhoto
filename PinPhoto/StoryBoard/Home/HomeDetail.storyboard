@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BIk-6N-Va6">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BIk-6N-Va6">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="CZI-7w-wFy">
                                     <size key="itemSize" width="128" height="128"/>
@@ -105,7 +105,7 @@
                             <constraint firstItem="gRB-sW-KKa" firstAttribute="leading" secondItem="64Q-Vk-xe8" secondAttribute="leading" id="Pj2-bv-BWT"/>
                             <constraint firstItem="64Q-Vk-xe8" firstAttribute="bottom" secondItem="BIk-6N-Va6" secondAttribute="bottom" id="S5w-4w-MvN"/>
                             <constraint firstAttribute="bottom" secondItem="gRB-sW-KKa" secondAttribute="top" constant="80" id="W8j-RW-69Q"/>
-                            <constraint firstItem="BIk-6N-Va6" firstAttribute="top" secondItem="64Q-Vk-xe8" secondAttribute="top" id="YIW-4a-8VZ"/>
+                            <constraint firstItem="BIk-6N-Va6" firstAttribute="top" secondItem="JLi-Jb-yuB" secondAttribute="top" id="YIW-4a-8VZ"/>
                             <constraint firstItem="64Q-Vk-xe8" firstAttribute="trailing" secondItem="BIk-6N-Va6" secondAttribute="trailing" id="b1T-tJ-Cst"/>
                             <constraint firstItem="BIk-6N-Va6" firstAttribute="leading" secondItem="64Q-Vk-xe8" secondAttribute="leading" id="q1s-44-zGu"/>
                         </constraints>
