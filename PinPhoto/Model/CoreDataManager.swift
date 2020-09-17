@@ -36,7 +36,7 @@ public class CoreDataManager {
     func getItem() -> [Item] {
         var models: [Item] = []
         
-        let idSort = NSSortDescriptor(key: "updateDate", ascending: false)
+        let idSort = NSSortDescriptor(key: "id", ascending: true)
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: modelName)
         
         fetchRequest.sortDescriptors = [idSort]
@@ -58,7 +58,7 @@ public class CoreDataManager {
         var models: [Item] = []
         
         let newids: [NSNumber] = ids.map { return NSNumber(value: $0) }
-        let idSort = NSSortDescriptor(key: "updateDate", ascending: true)
+        let idSort = NSSortDescriptor(key: "id", ascending: true)
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: modelName)
 
         fetchRequest.sortDescriptors = [idSort]
@@ -77,7 +77,7 @@ public class CoreDataManager {
     }
     
     func thumbnailItem(ids: [Int]) -> Item? {
-        let idSort = NSSortDescriptor(key: "updateDate", ascending: false)
+        let idSort = NSSortDescriptor(key: "id", ascending: false)
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: modelName)
 
         fetchRequest.sortDescriptors = [idSort]
@@ -161,7 +161,7 @@ public class CoreDataManager {
     }
     
     func getItemCount() -> Int {
-        let idSort = NSSortDescriptor(key: "updateDate", ascending: false)
+        let idSort = NSSortDescriptor(key: "id", ascending: false)
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: modelName)
         
         fetchRequest.sortDescriptors = [idSort]

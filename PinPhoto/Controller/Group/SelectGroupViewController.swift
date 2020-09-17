@@ -83,15 +83,17 @@ class SelectGroupViewController: UIViewController {
     private func addImageItem() {
         guard let items = items else { return }
         guard let selectedCell = selectedCell, let groupName = groupTableView.cellForRow(at: selectedCell)?.textLabel?.text else { return }
-        
+        var id: Int64 = itemViewModel.idForAdd
+
         for item in items {
             switch item {
             case .photo(let photo):
                 let imageData: Data? = photo.originalImage.data
-                let id: Int64 = itemViewModel.idForAdd
                 itemViewModel.add(content: 0, image: imageData, text: nil, date: Date(), id: id)
                 groupViewModel.insertId(at: groupName, ids: [Int(id)])
                 groupViewModel.load()
+                
+                id += 1
             default:
                 break
             }
@@ -113,24 +115,27 @@ class SelectGroupViewController: UIViewController {
     }
     
     private func moveItem() {
-        guard let moveIds = moveIds, let moveGroupName = moveGroupName else { return }
+        guard let moveIds = moveIds?.sorted(by: { $0 > $1 }), let moveGroupName = moveGroupName else { return }
         guard let selectedCell = selectedCell, let groupName = groupTableView.cellForRow(at: selectedCell)?.textLabel?.text else { return }
-        
+        var id: Int64 = itemViewModel.idForAdd
+
         for move in moveIds {
             guard let item = itemViewModel.itemFromId(at: Int(move)) else { return }
-            // add
-            let id = itemViewModel.idForAdd
-            groupViewModel.insertId(at: groupName, ids: [Int(id)])
-            itemViewModel.add(content: item.contentType, image: item.contentImage, text: item.contentText, date: item.updateDate, id: id)
-            groupViewModel.load()
-            
+            let copyItem = ItemCopy(id: item.id, updateDate: item.updateDate, contentType: item.contentType, contentImage: item.contentImage, contentText: item.contentText)
             // remove
             groupViewModel.removeId(at: moveGroupName, ids: [Int(move)])
             itemViewModel.remove(id: move)
             groupViewModel.load()
+            
+            // add
+            groupViewModel.insertId(at: groupName, ids: [Int(id)])
+            itemViewModel.add(content: copyItem.contentType, image: copyItem.contentImage, text: copyItem.contentText, date: copyItem.updateDate, id: id)
+            groupViewModel.load()
+            
+            // next id
+            id += 1
         }
         
-        print("move okay")
         navigationController?.dismiss(animated: true, completion: nil)
     }
 }
