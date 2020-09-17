@@ -25,7 +25,7 @@ class GroupViewModel {
         groupDataManager.load()
         
         if groupDataManager.groups.count == 0 {
-            initialize()
+            groupDataManager.initialize()
         }
     }
     
@@ -78,11 +78,6 @@ class GroupViewModel {
     
     func removeOberserver(_ observer: GroupObserver) {
         groupDataManager.removeObserber(observer)
-    }
-    
-    private func initialize() {
-        groupDataManager.save([Group(sectionName: "위젯에 표시될 항목", ids: [])])
-        groupDataManager.load()
     }
 }
 

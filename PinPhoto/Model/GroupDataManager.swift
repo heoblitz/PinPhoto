@@ -20,6 +20,8 @@ class GroupDataManager {
     
     private(set) var obserbers: [GroupObserver] = []
     
+    private init() {}
+    
     func save(_ obj: [Group]) {
         guard let url = url else { return }
         print("---> save to here: \(url)")
@@ -60,6 +62,13 @@ class GroupDataManager {
         } catch let error {
             print(error.localizedDescription)
         }
+        groups = []
+        initialize()
+    }
+
+    func initialize() {
+        save([Group(sectionName: "위젯에 표시될 항목", ids: [])])
+        load()
     }
     
     func addObserber(_ target: GroupObserver) {
