@@ -90,7 +90,7 @@ class HomeDetailViewController: UIViewController {
         guard let vc = CreateTextItemViewController.storyboardInstance() else {
             return
         }
-        vc.itemViewModel = itemViewModel
+        // vc.itemViewModel = itemViewModel
         
         present(vc, animated: true)
     }

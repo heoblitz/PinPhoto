@@ -15,30 +15,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rkT-a0-2ZJ">
-                                <rect key="frame" x="10" y="64" width="394" height="38"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Wv-SJ-Bzq">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rkT-a0-2ZJ">
+                                        <rect key="frame" x="10" y="30" width="394" height="38"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="zKS-S9-seh"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="d2Z-dI-fML"/>
+                                    <constraint firstAttribute="trailing" secondItem="rkT-a0-2ZJ" secondAttribute="trailing" constant="10" id="STn-pe-yCd"/>
+                                    <constraint firstItem="rkT-a0-2ZJ" firstAttribute="leading" secondItem="8Wv-SJ-Bzq" secondAttribute="leading" constant="10" id="SZb-2t-Kkq"/>
+                                    <constraint firstItem="rkT-a0-2ZJ" firstAttribute="top" secondItem="8Wv-SJ-Bzq" secondAttribute="top" constant="30" id="cdk-af-H0H"/>
                                 </constraints>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="rkT-a0-2ZJ" firstAttribute="top" secondItem="GK2-YH-7Oz" secondAttribute="top" constant="20" id="34f-fo-gXa"/>
-                            <constraint firstItem="rkT-a0-2ZJ" firstAttribute="leading" secondItem="GK2-YH-7Oz" secondAttribute="leading" constant="10" id="Rab-IK-o4e"/>
-                            <constraint firstItem="GK2-YH-7Oz" firstAttribute="trailing" secondItem="rkT-a0-2ZJ" secondAttribute="trailing" constant="10" id="sxe-Pz-CDw"/>
+                            <constraint firstItem="8Wv-SJ-Bzq" firstAttribute="leading" secondItem="GK2-YH-7Oz" secondAttribute="leading" id="6Q1-TQ-Tmv"/>
+                            <constraint firstItem="8Wv-SJ-Bzq" firstAttribute="top" secondItem="GK2-YH-7Oz" secondAttribute="top" id="TGh-Qa-rSa"/>
+                            <constraint firstItem="GK2-YH-7Oz" firstAttribute="bottom" secondItem="8Wv-SJ-Bzq" secondAttribute="bottom" id="dSV-OL-QrJ"/>
+                            <constraint firstItem="GK2-YH-7Oz" firstAttribute="trailing" secondItem="8Wv-SJ-Bzq" secondAttribute="trailing" id="jTb-hv-UiI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GK2-YH-7Oz"/>
                     </view>
                     <connections>
+                        <outlet property="contentView" destination="8Wv-SJ-Bzq" id="cG7-c1-3Pt"/>
                         <outlet property="inputTextView" destination="rkT-a0-2ZJ" id="MZ9-bX-lm5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t6f-YW-amv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="5fJ-PZ-PFr">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <viewLayoutGuide key="safeArea" id="0bI-i2-BGb"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="2884" y="866"/>
         </scene>

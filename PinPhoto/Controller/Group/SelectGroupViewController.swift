@@ -121,7 +121,8 @@ class SelectGroupViewController: UIViewController {
 
         for move in moveIds {
             guard let item = itemViewModel.itemFromId(at: Int(move)) else { return }
-            let copyItem = ItemCopy(id: item.id, updateDate: item.updateDate, contentType: item.contentType, contentImage: item.contentImage, contentText: item.contentText)
+//            let copyItem = ItemCopy(id: item.id, updateDate: item.updateDate, contentType: item.contentType, contentImage: item.contentImage, contentText: item.contentText)
+            let copyItem: ItemCopy = ItemCopy(item: item)
             // remove
             groupViewModel.removeId(at: moveGroupName, ids: [Int(move)])
             itemViewModel.remove(id: move)

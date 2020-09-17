@@ -11,11 +11,10 @@ import UIKit
 class CreateTextItemViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var inputTextView: UITextView!
+    @IBOutlet private weak var contentView: UIView!
     // @IBOutlet private weak var saveButton: UIButton!
     
-    // MARK:- Propertises
-    var itemViewModel = ItemViewModel()
-    
+    // MARK:- Propertises    
     let cancelBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonTapped))
         barButtonItem.tintColor = .label
@@ -24,6 +23,7 @@ class CreateTextItemViewController: UIViewController {
     
     let nextBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(saveButtonTapped))
+        barButtonItem.tintColor = .link
         return barButtonItem
     }()
     
@@ -31,8 +31,9 @@ class CreateTextItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
-        view.addGestureRecognizer(tapGesture)
-        view.isUserInteractionEnabled = true
+        tapGesture.cancelsTouchesInView = false
+        contentView.addGestureRecognizer(tapGesture)
+        contentView.isUserInteractionEnabled = true
         
         navigationItem.leftBarButtonItem = cancelBarButtonItem
         navigationItem.rightBarButtonItem = nextBarButtonItem
@@ -65,6 +66,7 @@ class CreateTextItemViewController: UIViewController {
     
     // MARK:- @IBAction Methods
     @objc private func saveButtonTapped(_ sender: UIButton) {
+        print("Tapped")
         guard let vc = SelectGroupViewController.storyboardInstance() else { return }
         
         vc.selectionType = .addText
@@ -75,9 +77,10 @@ class CreateTextItemViewController: UIViewController {
     @objc private func cancelButtonTapped(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
+
     @objc private func viewTapped() {
-        view.endEditing(true)
+        print("??")
+        inputTextView.resignFirstResponder()
     }
 }
 

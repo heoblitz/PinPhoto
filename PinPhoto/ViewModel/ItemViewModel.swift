@@ -11,7 +11,7 @@ import UIKit
 public class ItemViewModel {
     // deinit 될 때 옵저버 제거해주기. memory leak 제거
     let shared: CoreDataManager = CoreDataManager.shared
-    private var items: [Item] = []
+    private(set) var items: [Item] = []
     
     var numberOfImages: Int {
         var count = 0

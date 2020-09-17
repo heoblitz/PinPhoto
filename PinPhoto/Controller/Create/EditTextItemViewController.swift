@@ -22,6 +22,7 @@ class EditTextItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
         view.isUserInteractionEnabled = true
         
