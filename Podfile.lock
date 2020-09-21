@@ -1,24 +1,33 @@
 PODS:
-  - PryntTrimmerView (4.0.0)
+  - PryntTrimmerView (4.0.2)
   - SteviaLayout (4.7.3)
   - YPImagePicker (4.3.1):
     - PryntTrimmerView (~> 4.0.0)
     - SteviaLayout (~> 4.7.3)
 
 DEPENDENCIES:
-  - YPImagePicker
+  - YPImagePicker (from `https://github.com/Yummypets/YPImagePicker`, branch `master`)
 
 SPEC REPOS:
   trunk:
     - PryntTrimmerView
     - SteviaLayout
-    - YPImagePicker
+
+EXTERNAL SOURCES:
+  YPImagePicker:
+    :branch: master
+    :git: https://github.com/Yummypets/YPImagePicker
+
+CHECKOUT OPTIONS:
+  YPImagePicker:
+    :commit: 96bf9abe615cb24e39240f9d7305d7f3ed76f4ff
+    :git: https://github.com/Yummypets/YPImagePicker
 
 SPEC CHECKSUMS:
-  PryntTrimmerView: 67e67573ffd4c073f1308effa66aefd0cfa667a0
+  PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
   YPImagePicker: 08bbb809ed62bf4149fc015c97249eb4b9463ff9
 
-PODFILE CHECKSUM: 728ec82709b0d20aa2ebcb4de44c565009b89919
+PODFILE CHECKSUM: 7a28a8fb60449ca63b008cffb12e175a0f3dbb96
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0.rc.1

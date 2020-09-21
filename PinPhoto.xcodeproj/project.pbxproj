@@ -471,9 +471,9 @@
 		3CF8B44924A9CBA300D6C11C /* PinPhoto */ = {
 			isa = PBXGroup;
 			children = (
-				3CEB644A24CEC805004D8C3C /* PinPhoto.entitlements */,
 				3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */,
 				3CF8B44C24A9CBA300D6C11C /* SceneDelegate.swift */,
+				3CEB644A24CEC805004D8C3C /* PinPhoto.entitlements */,
 				3C8C6C5E24EA363200689329 /* StoryBoard */,
 				3C3ACC8D24BB533F00311F7A /* Model */,
 				3C38CB062500E124007B6283 /* ViewModel */,

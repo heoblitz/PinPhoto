@@ -3,7 +3,7 @@
 
 target 'PinPhoto' do
   # Comment the next line if you don't want to use dynamic frameworks
-  pod 'YPImagePicker'
+  pod 'YPImagePicker' , :git => 'https://github.com/Yummypets/YPImagePicker', :branch => 'master'
   use_frameworks!
 
   # Pods for PinPhoto

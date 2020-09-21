@@ -46,6 +46,14 @@ public protocol TrimmerViewDelegate: class {
         }
     }
 
+    /// The color used to mask unselected parts of the video
+    @IBInspectable public var maskColor: UIColor = UIColor.white {
+        didSet {
+            leftMaskView.backgroundColor = maskColor
+            rightMaskView.backgroundColor = maskColor
+        }
+    }
+
     // MARK: Interface
 
     public weak var delegate: TrimmerViewDelegate?
@@ -71,21 +79,15 @@ public protocol TrimmerViewDelegate: class {
 
     private let handleWidth: CGFloat = 15
 
-    /// The maximum duration allowed for the trimming. Change it before setting the asset, as the asset preview
-    public var maxDuration: Double = 15 {
-        didSet {
-            assetPreview.maxDuration = maxDuration
-        }
-    }
-
     /// The minimum duration allowed for the trimming. The handles won't pan further if the minimum duration is attained.
     public var minDuration: Double = 3
 
     // MARK: - View & constraints configurations
 
     override func setupSubviews() {
-
         super.setupSubviews()
+        layer.cornerRadius = 2
+        layer.masksToBounds = true
         backgroundColor = UIColor.clear
         layer.zPosition = 1
         setupTrimmerView()
@@ -105,7 +107,6 @@ public protocol TrimmerViewDelegate: class {
     }
 
     private func setupTrimmerView() {
-
         trimView.layer.borderWidth = 2.0
         trimView.layer.cornerRadius = 2.0
         trimView.translatesAutoresizingMaskIntoConstraints = false
