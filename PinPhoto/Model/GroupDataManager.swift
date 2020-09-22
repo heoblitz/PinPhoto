@@ -11,13 +11,13 @@ import Foundation
 class GroupDataManager {
     static let shared = GroupDataManager()
     static let fileName: String = "group.json"
-    private(set) var groups: [Group] = []
     private let url: URL? = {
         var url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.wonheo.PinPhoto")
         url?.appendPathComponent(GroupDataManager.fileName, isDirectory: false)
         return url
     }()
     
+    private(set) var groups: [Group] = []
     private(set) var obserbers: [GroupObserver] = []
     
     private init() {}

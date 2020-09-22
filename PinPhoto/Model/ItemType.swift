@@ -12,7 +12,7 @@ public enum ItemType: CaseIterable {
     case image
     case text
     
-    var value: Int {
+    var value: Int64 {
         switch self {
         case .image:
             return 0

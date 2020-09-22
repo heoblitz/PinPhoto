@@ -9,12 +9,16 @@
 import UIKit
 
 class HomeGroupViewCell: UICollectionViewCell {
+    // MARK:- @IBOutlet Properties
     @IBOutlet private weak var groupImageView: UIImageView!
     @IBOutlet private weak var groupNameLabel: UILabel!
     @IBOutlet private weak var noticeTextLabel: UILabel!
     
+    // MARK:- Properties
     var disabledHighlightedAnimation: Bool = false
-
+    static let cellIdentifier: String = "HomeGroupViewCell"
+    
+    // MARK:- Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -57,17 +61,17 @@ class HomeGroupViewCell: UICollectionViewCell {
         }
     }
     
+    private func reset() {
+        noticeTextLabel.isHidden = false
+        groupImageView.image = nil
+    }
+    
     func update(at item: Item?, title: String) {
         if let item = item {
             groupImageView.image = item.contentImage?.image?.greyScale
             noticeTextLabel.isHidden = true
         }
         groupNameLabel.text = title
-    }
-    
-    private func reset() {
-        noticeTextLabel.isHidden = false
-        groupImageView.image = nil
     }
     
     func freezeAnimations() {

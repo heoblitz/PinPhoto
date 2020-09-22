@@ -96,7 +96,6 @@ class HomeDetailViewController: UIViewController {
         guard let vc = CreateTextItemViewController.storyboardInstance() else {
             return
         }
-        // vc.itemViewModel = itemViewModel
         
         present(vc, animated: true)
     }
@@ -180,8 +179,9 @@ extension HomeDetailViewController: UICollectionViewDelegate {
         if !HomeDetailViewController.isEditMode { // Default Mode
             cell.freezeAnimations()
             collectionView.deselectItem(at: indexPath, animated: false)
-            switch cell.itemtype {
-            case "text":
+            
+            switch cell.itemType {
+            case .text:
                 guard let vc = EditTextItemViewController.storyboardInstance() else {
                     return
                 }
@@ -190,7 +190,7 @@ extension HomeDetailViewController: UICollectionViewDelegate {
                 vc.groupViewModel = groupViewModel
                 cell.unfreezeAnimations()
                 navigationController?.pushViewController(vc, animated: true)
-            case "image":
+            case .image:
                 guard let vc = EditImageItemViewController.storyboardInstance() else {
                     return
                 }
@@ -198,8 +198,6 @@ extension HomeDetailViewController: UICollectionViewDelegate {
                 vc.itemViewModel = itemViewModel
                 cell.unfreezeAnimations()
                 navigationController?.pushViewController(vc, animated: true)
-            default:
-                break
             }
         } else { // Edit Mode
             selectedCell[indexPath] = item.id

@@ -9,11 +9,15 @@
 import UIKit
 
 class HomeHeaderViewCell: UICollectionViewCell {
+    // MARK:- @IBOutlet Properties
     @IBOutlet private weak var headerImageView: UIImageView!
     @IBOutlet private weak var noticeTextLabel: UILabel!
 
+    // MARK:- Properties
+    static let cellIdentifier: String = "HomeHeaderViewCell"
     var disabledHighlightedAnimation: Bool = false
 
+    // MARK:- Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -57,15 +61,15 @@ class HomeHeaderViewCell: UICollectionViewCell {
         }
     }
     
+    private func reset() {
+        headerImageView.image = nil
+        noticeTextLabel.isHidden = false
+    }
+    
     func update(at item: Item?) {
         guard let item = item else { return }
         headerImageView.image = item.contentImage?.image?.greyScale
         noticeTextLabel.isHidden = true
-    }
-    
-    private func reset() {
-        headerImageView.image = nil
-        noticeTextLabel.isHidden = false
     }
     
     func freezeAnimations() {

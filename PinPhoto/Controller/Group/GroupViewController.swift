@@ -9,14 +9,17 @@
 import UIKit
 
 class GroupViewController: UIViewController {
+    // MARK:- @IBOutlet Properties
     @IBOutlet private weak var groupTableView: UITableView!
     @IBOutlet private weak var inputTextField: UITextField!
     @IBOutlet private weak var inputTextView: UIView!
     @IBOutlet private weak var inputViewBottom: NSLayoutConstraint!
     
+    // MARK:- Properties
     let groupViewModel = GroupViewModel()
     let itemViewModel = ItemViewModel()
     
+    // MARK:- View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // iOS 9 이상 부터 블록 기반의 옵저버를 제외하고, 자동으로 처리해줌.
@@ -38,6 +41,7 @@ class GroupViewController: UIViewController {
         inputTextView.backgroundColor = UIColor.tapBarColor
     }
     
+    // MARK:- Methods
     private func presentRemoveAlert(at target: Group) {
         let alert = UIAlertController(title: "삭제하시겠습니까?", message: "분류에 포함된 항목도 모두 삭제됩니다.", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
@@ -67,6 +71,7 @@ class GroupViewController: UIViewController {
         present(alert, animated: true)
     }
 
+    // MARK:- @IBAction Methods
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
         groupTableView.isEditing = !groupTableView.isEditing
         groupTableView.setEditing(groupTableView.isEditing, animated: true)
@@ -113,6 +118,7 @@ class GroupViewController: UIViewController {
     }
 }
 
+// MARK:- UITableView Data Source
 extension GroupViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
@@ -191,12 +197,14 @@ extension GroupViewController: UITableViewDataSource {
     }
 }
 
+// MARK:- UITableView Delegate
 extension GroupViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
         return sourceIndexPath.section == proposedDestinationIndexPath.section ? proposedDestinationIndexPath : sourceIndexPath
     }
 }
 
+// MARK:- GroupObserver
 extension GroupViewController: GroupObserver {
     var groupIdentifier: String {
         get {
@@ -211,6 +219,7 @@ extension GroupViewController: GroupObserver {
     }
 }
 
+// MARK:- UIGestureRecognizer Delegate
 extension GroupViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool { // tap gesture 가 table cell 탭 했을때 동작되는 문제 해결
         if touch.view?.isDescendant(of: groupTableView) == true {

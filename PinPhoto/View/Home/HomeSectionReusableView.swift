@@ -9,7 +9,10 @@
 import UIKit
 
 class HomeSectionReusableView: UICollectionReusableView {
-
+    // MARK:- Properties
+    static let reuseIdentifier: String = "HomeSectionReusableView"
+    
+    // MARK:- Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .red

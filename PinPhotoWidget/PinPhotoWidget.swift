@@ -45,8 +45,10 @@ struct PinPhotoWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        // Text(entry.date, style: .time)
         Image("widgetImage")
+            .resizable()
+            .aspectRatio(contentMode: .fill)
     }
 }
 
@@ -60,6 +62,7 @@ struct PinPhotoWidget: Widget {
         }
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
+        .supportedFamilies([.systemSmall, .systemLarge])
     }
 }
 

@@ -12,7 +12,6 @@ class CreateTextItemViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var inputTextView: UITextView!
     @IBOutlet private weak var contentView: UIView!
-    // @IBOutlet private weak var saveButton: UIButton!
     
     // MARK:- Propertises    
     let cancelBarButtonItem: UIBarButtonItem = {
@@ -66,7 +65,6 @@ class CreateTextItemViewController: UIViewController {
     
     // MARK:- @IBAction Methods
     @objc private func saveButtonTapped(_ sender: UIButton) {
-        print("Tapped")
         guard let vc = SelectGroupViewController.storyboardInstance() else { return }
         
         vc.selectionType = .addText
@@ -79,7 +77,6 @@ class CreateTextItemViewController: UIViewController {
     }
 
     @objc private func viewTapped() {
-        print("??")
         inputTextView.resignFirstResponder()
     }
 }

@@ -16,17 +16,15 @@ class ItemCustomCell: UICollectionViewCell {
     
     // MARK:- Propertises
     static let cellIdentifier: String = "itemCustomCell"
-    var disabledHighlightedAnimation: Bool = false
+    private var disabledHighlightedAnimation: Bool = false
     
-    var itemtype: String = "image" {
+    var itemType: ItemType = .image {
         didSet {
-            switch self.itemtype {
-            case "image":
+            switch itemType {
+            case .image:
                 itemTextLabel.isHidden = true
-            case "text":
+            case .text:
                 itemImageView.isHidden = true
-            default:
-                break
             }
         }
     }
@@ -94,10 +92,13 @@ class ItemCustomCell: UICollectionViewCell {
         itemImageView.image = item.contentImage?.image
         itemTextLabel.text = item.contentText
         
-        if item.contentType == 0 {
-            itemtype = "image"
-        } else {
-            itemtype = "text"
+        switch item.contentType {
+        case ItemType.image.value:
+            itemType = .image
+        case ItemType.text.value:
+            itemType = .text
+        default:
+            break
         }
     }
     

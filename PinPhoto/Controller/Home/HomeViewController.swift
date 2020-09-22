@@ -10,11 +10,14 @@ import UIKit
 import YPImagePicker
 
 class HomeViewController: UIViewController {
+    // MARK:- @IBOutlet Properties
     @IBOutlet private weak var homeCollectionView: UICollectionView!
     
+    // MARK:- Properties
     private let groupViewModel = GroupViewModel()
     private let itemViewModel = ItemViewModel()
 
+    // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .always
@@ -31,20 +34,23 @@ class HomeViewController: UIViewController {
         navVc.presentAddButtonView()
     }
     
+    // MARK:- Methods
     private func prepareHomeCollectionView() {
         homeCollectionView.dataSource = self
         homeCollectionView.delegate = self
         homeCollectionView.contentInsetAdjustmentBehavior = .never
         homeCollectionView.alwaysBounceVertical = true
-        let height: CGFloat = (view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0) + (navigationController?.navigationBar.frame.height ?? 0.0) + 50
         
+        let height: CGFloat = (view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0) + (navigationController?.navigationBar.frame.height ?? 0.0) + 50
         homeCollectionView.contentInset = UIEdgeInsets(top: height, left: 15, bottom: 15, right: 15)
-        homeCollectionView.register(UINib(nibName: "HomeSectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeSectionReusableView")
-        homeCollectionView.register(UINib(nibName: "HomeHeaderViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeHeaderViewCell")
-        homeCollectionView.register(UINib(nibName: "HomeGroupViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeGroupViewCell")
+        
+        homeCollectionView.register(UINib(nibName: HomeSectionReusableView.reuseIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier:  HomeSectionReusableView.reuseIdentifier)
+        homeCollectionView.register(UINib(nibName: HomeHeaderViewCell.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: HomeHeaderViewCell.cellIdentifier)
+        homeCollectionView.register(UINib(nibName: HomeGroupViewCell.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: HomeGroupViewCell.cellIdentifier)
     }
 }
 
+// MARK:- CollectionView Data Source
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
@@ -64,7 +70,7 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeHeaderViewCell", for: indexPath) as? HomeHeaderViewCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeHeaderViewCell.cellIdentifier, for: indexPath) as? HomeHeaderViewCell else {
                 return UICollectionViewCell()
             }
             let group = groupViewModel.groups[0]
@@ -72,7 +78,7 @@ extension HomeViewController: UICollectionViewDataSource {
             cell.update(at: item)
             return cell
         case 1:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeGroupViewCell", for: indexPath) as? HomeGroupViewCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGroupViewCell.cellIdentifier, for: indexPath) as? HomeGroupViewCell else {
                 return UICollectionViewCell()
             }
             let group = groupViewModel.groups[indexPath.item + 1]
@@ -87,7 +93,7 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HomeSectionReusableView", for: indexPath)
+            let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeSectionReusableView.reuseIdentifier, for: indexPath)
             return cell
         default:
             break
@@ -97,6 +103,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK:- CollectionView Data Delegate
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
@@ -120,6 +127,7 @@ extension HomeViewController: UICollectionViewDelegate {
     }
 }
 
+// MARK:- CollectionView Delegate Flow Layout
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 1 {
@@ -156,7 +164,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
+// MARK:- GroupObserver
 extension HomeViewController: GroupObserver {
     var groupIdentifier: String {
         return HomeViewController.observerName()

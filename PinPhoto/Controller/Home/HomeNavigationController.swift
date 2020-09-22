@@ -10,7 +10,7 @@ import UIKit
 import YPImagePicker
 
 class HomeNavigationController: UINavigationController {
-    
+    // MARK:- Properties
     private lazy var config: YPImagePickerConfiguration = {
         var config = YPImagePickerConfiguration()
         config.showsPhotoFilters = false
@@ -39,6 +39,7 @@ class HomeNavigationController: UINavigationController {
         return imageView
     }()
     
+    // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // presentAddButtonView()
@@ -48,6 +49,7 @@ class HomeNavigationController: UINavigationController {
         return topViewController
     }
     
+    // MARK:- Methods
     func presentAddButtonView() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentAddActionSheet))
         addButtonView.addGestureRecognizer(tapGesture)
@@ -80,7 +82,7 @@ class HomeNavigationController: UINavigationController {
         ])
     }
     
-    private func presentAddItemType(_ type: Int) {
+    private func presentAddItemType(_ type: Int64) {
         switch type {
         case ItemType.image.value:
             presentImagePikcer()

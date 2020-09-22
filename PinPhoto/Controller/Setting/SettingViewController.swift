@@ -12,7 +12,7 @@ class SettingViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var settingTableView: UITableView!
     
-    // MARK:- Propertises
+    // MARK:- Properties
     private let itemViewModel: ItemViewModel = ItemViewModel()
     private let groupViewModel: GroupViewModel = GroupViewModel()
     private let settingTitleDatas: [String] = ["사진 콕", "설정", "기타"]

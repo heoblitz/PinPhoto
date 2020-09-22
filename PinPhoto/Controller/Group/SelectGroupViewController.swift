@@ -10,8 +10,10 @@ import UIKit
 import YPImagePicker
 
 class SelectGroupViewController: UIViewController {
+    // MARK:- @IBOutlet Properties
     @IBOutlet private weak var groupTableView: UITableView!
 
+    // MARK:- Properties
     private let itemViewModel: ItemViewModel = ItemViewModel()
     private let groupViewModel: GroupViewModel = GroupViewModel()
     private let widgetGroupName: String = "위젯에 표시될 항목"
@@ -23,11 +25,14 @@ class SelectGroupViewController: UIViewController {
     }()
     
     var selectionType: SelectionType?
-    var items: [YPMediaItem]? // for image
-    var itemText: String? // for text
     
-    var moveIds: [Int64]? // for move id
-    var moveGroupName: String? // for origin delete
+    // Add Image
+    var items: [YPMediaItem]?
+    // Add Text
+    var itemText: String?
+    // Move Item
+    var moveIds: [Int64]?
+    var moveGroupName: String?
     
     var selectedCell: IndexPath? {
         didSet {
@@ -35,6 +40,7 @@ class SelectGroupViewController: UIViewController {
         }
     }
     
+    // MARK:- View Life Cycle
     override func viewDidLoad() {
         if let type = selectionType, type == .move {
             print("add")
@@ -95,7 +101,7 @@ class SelectGroupViewController: UIViewController {
             switch item {
             case .photo(let photo):
                 let imageData: Data? = photo.originalImage.data
-                itemViewModel.add(content: 0, image: imageData, text: nil, date: Date(), id: id)
+                itemViewModel.add(content: ItemType.image.value, image: imageData, text: nil, date: Date(), id: id)
                 groupViewModel.insertId(at: groupName, ids: [Int(id)])
                 groupViewModel.load()
                 
@@ -118,7 +124,7 @@ class SelectGroupViewController: UIViewController {
         }
         
         let id: Int64 = itemViewModel.idForAdd
-        itemViewModel.add(content: 1, image: nil, text: itemText, date: Date(), id: id)
+        itemViewModel.add(content: ItemType.text.value, image: nil, text: itemText, date: Date(), id: id)
         groupViewModel.insertId(at: groupName, ids: [Int(id)])
         groupViewModel.load()
         
@@ -174,6 +180,7 @@ class SelectGroupViewController: UIViewController {
     }
 }
 
+// MARK:- UITableView Data Source
 extension SelectGroupViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
@@ -220,6 +227,7 @@ extension SelectGroupViewController: UITableViewDataSource {
     }
 }
 
+// MARK:- UITableView Data Delegate
 extension SelectGroupViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedCell = indexPath

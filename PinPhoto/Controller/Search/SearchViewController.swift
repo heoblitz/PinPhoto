@@ -9,9 +9,10 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-
+    // MARK:- @IBOutlet Properties
     @IBOutlet private weak var searchCollectionView: UICollectionView!
     
+    // MARK:- Properties
     let searchController: UISearchController = {
         let search = UISearchController(searchResultsController: nil)
         search.searchBar.tintColor = .systemPink
@@ -23,6 +24,7 @@ class SearchViewController: UIViewController {
     let groupViewModel: GroupViewModel = GroupViewModel()
     let itemViewModel: ItemViewModel = ItemViewModel()
     
+    // MARK:- View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareSearchViewController()
@@ -42,17 +44,18 @@ class SearchViewController: UIViewController {
         searchCollectionView.delegate = self
         searchCollectionView.contentInsetAdjustmentBehavior = .never
         searchCollectionView.contentInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
-        searchCollectionView.register(UINib(nibName: "HomeGroupViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeGroupViewCell")
+        searchCollectionView.register(UINib(nibName: HomeGroupViewCell.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: HomeGroupViewCell.cellIdentifier)
     }
 }
 
+// MARK:- UIColletionView Data Source
 extension SearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return groupViewModel.filterGroup.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeGroupViewCell", for: indexPath) as? HomeGroupViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGroupViewCell.cellIdentifier, for: indexPath) as? HomeGroupViewCell else {
             return UICollectionViewCell()
         }
         
@@ -63,6 +66,7 @@ extension SearchViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK:- UIColletionView Delegate
 extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let vc = HomeDetailViewController.storyboardInstance() else { return }
@@ -72,6 +76,7 @@ extension SearchViewController: UICollectionViewDelegate {
     }
 }
 
+// MARK:- UIColletionView Delegate Flow Layout
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width: CGFloat = (collectionView.frame.width - 40) / 2
@@ -80,6 +85,7 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK:- UISearchResultsUpdating
 extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let input: String = searchController.searchBar.text, !input.isEmpty else { return }
@@ -88,6 +94,7 @@ extension SearchViewController: UISearchResultsUpdating {
     }
 }
 
+// MARK:- UISearchController Delegate
 extension SearchViewController: UISearchControllerDelegate {
     func willDismissSearchController(_ searchController: UISearchController) {
         groupViewModel.loadFilterGroup(name: "")
