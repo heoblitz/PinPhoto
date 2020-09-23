@@ -17,3 +17,11 @@ target 'PinPhotoExtension' do
   # Pods for PinPhotoExtension
 
 end
+
+target 'PinPhotoWidget' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for PinPhotoExtension
+
+end

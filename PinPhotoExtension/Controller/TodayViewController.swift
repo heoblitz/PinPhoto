@@ -56,9 +56,10 @@ class TodayViewController: UIViewController {
         super.viewDidLoad()
         extensionContext?.widgetLargestAvailableDisplayMode = NCWidgetDisplayMode.expanded
         groupViewModel.load()
-        let ids = groupViewModel.groups[0].ids
-        print(ids)
+        
+        guard let ids = groupViewModel.groups.first?.ids else { return }
         itemViewModel.loadFromIds(ids: ids)
+        
         pageControl.numberOfPages = itemViewModel.numberOfItems
         nextButtonImageView.layer.opacity = 0.5
         prevButtonImageView.layer.opacity = 0.5
@@ -74,35 +75,48 @@ class TodayViewController: UIViewController {
         itemCollectionView.layoutIfNeeded()
         
         // 콜렉션 뷰 위치 지정
-        if let index = widgetViewModel.currentIndex {
-            let indexRow = min(itemViewModel.numberOfItems, index)
-            pageControl.currentPage = indexRow
-            itemCollectionView.scrollToItem(at: IndexPath(item: indexRow, section: 0), at: .centeredHorizontally, animated: false)
+        if let current = widgetViewModel.currentIndex {
+            let index = min(itemViewModel.items.count - 1, current)
+            widgetViewModel.currentIndex = index
+            pageControl.currentPage = index
+            scrollItemCollectionView(to: index)
         } else {
-            let indexRow = 0
-            pageControl.currentPage = indexRow
-            itemCollectionView.scrollToItem(at: IndexPath(item: indexRow, section: 0), at: .centeredHorizontally, animated: false)
+            let index = 0
+            widgetViewModel.currentIndex = index
+            pageControl.currentPage = index
+            scrollItemCollectionView(to: index)
         }
     }
     
     // MARK:- Methods
-    @IBAction func nextButtonTapped(_ sender: UIButton) {
-        let nextIndex = min(pageControl.currentPage + 1, pageControl.numberOfPages - 1)
-        let indexPath = IndexPath(item: nextIndex, section: 0)
+    func scrollItemCollectionView(to index: Int) {
+        // let origin: CGFloat = itemCollectionView.bounds.origin.x
+        let spacing: CGFloat = itemCollectionView.bounds.width
         
-        pageControl.currentPage = nextIndex
-        widgetViewModel.currentIndex = nextIndex
-        itemCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        itemCollectionView.setContentOffset(CGPoint(x: spacing * CGFloat(index), y: 0), animated: true)
     }
     
     // MARK:- @IBAction Methods
-    @IBAction func prevButtonTapped(_ sender: UIButton) {
-        let prevIndex = max(pageControl.currentPage - 1, 0)
-        let indexPath = IndexPath(item: prevIndex, section: 0)
+    @IBAction func nextButtonTapped(_ sender: UIButton) {
+        guard let index: Int = widgetViewModel.currentIndex else { return }
+        let next: Int = index + 1
         
-        pageControl.currentPage = prevIndex
-        widgetViewModel.currentIndex = prevIndex
-        itemCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        if next < itemViewModel.items.count {
+            widgetViewModel.currentIndex = next
+            pageControl.currentPage = next
+            scrollItemCollectionView(to: next)
+        }
+    }
+    
+    @IBAction func prevButtonTapped(_ sender: UIButton) {
+        guard let index: Int = widgetViewModel.currentIndex else { return }
+        let next: Int = index - 1
+        
+        if next >= 0 {
+            widgetViewModel.currentIndex = next
+            pageControl.currentPage = next
+            scrollItemCollectionView(to: next)
+        }
     }
 }
 

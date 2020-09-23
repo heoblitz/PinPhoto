@@ -75,6 +75,7 @@
 		3CB8E0A324F1482600FEE93C /* SettingWidgetSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB8E0A224F1482600FEE93C /* SettingWidgetSwitchCell.swift */; };
 		3CC13F5024D0259100726E51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45324A9CBA700D6C11C /* Assets.xcassets */; };
 		3CC7888925110A7B00C5C42B /* SelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7888825110A7B00C5C42B /* SelectionType.swift */; };
+		3CC81261251B45B6009D8580 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CDBF2E125186DBF00F84F66 /* WidgetKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3CCA19642508981F00F9CCEB /* HomeHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA19622508981F00F9CCEB /* HomeHeaderViewCell.swift */; };
 		3CCA19652508981F00F9CCEB /* HomeHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CCA19632508981F00F9CCEB /* HomeHeaderViewCell.xib */; };
 		3CCA19682508BD9700F9CCEB /* HomeSectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA19662508BD9700F9CCEB /* HomeSectionReusableView.swift */; };
@@ -164,6 +165,7 @@
 		3C21CC0624BEDC10004BEAF0 /* CreateTextItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTextItemViewController.swift; sourceTree = "<group>"; };
 		3C23693125036ADF0064637A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3C25284D24EFD2C4002ADBDC /* HomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
+		3C3024B9251B3E6900C7E73B /* PinPhotoWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PinPhotoWidgetExtension.entitlements; sourceTree = "<group>"; };
 		3C38CB042500E06C007B6283 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		3C38CB072500E17D007B6283 /* GroupDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDataManager.swift; sourceTree = "<group>"; };
 		3C38CB092500E4A4007B6283 /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CC81261251B45B6009D8580 /* WidgetKit.framework in Frameworks */,
 				F9F2675AD681C9FFF36395E4 /* Pods_PinPhoto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,6 +516,7 @@
 		3CF8B43E24A9CBA300D6C11C = {
 			isa = PBXGroup;
 			children = (
+				3C3024B9251B3E6900C7E73B /* PinPhotoWidgetExtension.entitlements */,
 				3CF8B44924A9CBA300D6C11C /* PinPhoto */,
 				3CEB643C24CEC742004D8C3C /* PinPhotoExtension */,
 				3CDBF2E525186DBF00F84F66 /* PinPhotoWidget */,
@@ -924,6 +928,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PinPhotoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhotoWidget/Info.plist;
@@ -946,6 +951,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PinPhotoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhotoWidget/Info.plist;

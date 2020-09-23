@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import WidgetKit
 
 public class WidgetViewModel {
     private let defaults: UserDefaults? = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
@@ -20,6 +21,7 @@ public class WidgetViewModel {
         }
         set {
             defaults?.set(newValue, forKey: widgetHeightKey)
+            defaults?.synchronize()
         }
     }
     
@@ -29,6 +31,7 @@ public class WidgetViewModel {
         }
         set {
             defaults?.set(newValue, forKey: widgetImageFillKey)
+            defaults?.synchronize()
         }
     }
     
@@ -38,6 +41,16 @@ public class WidgetViewModel {
         }
         set {
             defaults?.set(newValue, forKey: currentIndexKey)
+            defaults?.synchronize()
+            
+            if #available(iOS 14, *) {
+                RefreshWidget()
+            }
         }
+    }
+    
+    @available(iOS 14, *)
+    func RefreshWidget() {
+        WidgetCenter.shared.reloadAllTimelines()
     }
 }
