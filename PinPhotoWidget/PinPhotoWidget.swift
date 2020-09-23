@@ -21,17 +21,12 @@ struct Provider: IntentTimelineProvider {
     }
 
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
+        let entries: [SimpleEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
-        }
+        // let currentDate = Date()
 
-        let timeline = Timeline(entries: entries, policy: .atEnd)
+        let timeline = Timeline(entries: entries, policy: .never)
         completion(timeline)
     }
 }
@@ -42,13 +37,27 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct PinPhotoWidgetEntryView : View {
-    var entry: Provider.Entry
-
+    // var entry: Provider.Entry
+    let itemViewModel: ItemViewModel = ItemViewModel()
+    let groupViewModel: GroupViewModel = GroupViewModel()
+    
     var body: some View {
         // Text(entry.date, style: .time)
-        Image("widgetImage")
-            .resizable()
-            .aspectRatio(contentMode: .fill)
+        let item = loadItem()
+        
+        if let image = item?.contentImage?.image {
+            Image(uiImage: image)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+        }
+    }
+    
+    func loadItem() -> Item? {
+        groupViewModel.load()
+        
+        guard let widgetGroup = groupViewModel.groups.first else { return nil }
+        
+        return itemViewModel.thumbnailItem(ids: widgetGroup.ids)
     }
 }
 
@@ -58,7 +67,8 @@ struct PinPhotoWidget: Widget {
 
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
-            PinPhotoWidgetEntryView(entry: entry)
+            // PinPhotoWidgetEntryView(entry: entry)
+            PinPhotoWidgetEntryView()
         }
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
@@ -66,9 +76,9 @@ struct PinPhotoWidget: Widget {
     }
 }
 
-struct PinPhotoWidget_Previews: PreviewProvider {
-    static var previews: some View {
-        PinPhotoWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
-    }
-}
+//struct PinPhotoWidget_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PinPhotoWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+//            .previewContext(WidgetPreviewContext(family: .systemSmall))
+//    }
+//}

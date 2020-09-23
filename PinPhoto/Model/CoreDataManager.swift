@@ -14,7 +14,7 @@ public class CoreDataManager {
     static let shared: CoreDataManager = CoreDataManager()
 
     private lazy var context = persistentContainer.viewContext
-    private let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
+    // private let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     private let modelName: String = "Item"
     
     private let persistentContainer: NSPersistentContainer = {
