@@ -57,8 +57,18 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.springboard">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "3CEB643824CEC742004D8C3C"
+            BuildableName = "PinPhotoExtension.appex"
+            BlueprintName = "PinPhotoExtension"
+            ReferencedContainer = "container:PinPhoto.xcodeproj">
+         </BuildableReference>
+      </RemoteRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3CF8B44624A9CBA300D6C11C"
@@ -66,7 +76,7 @@
             BlueprintName = "PinPhoto"
             ReferencedContainer = "container:PinPhoto.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

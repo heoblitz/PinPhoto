@@ -21,8 +21,10 @@ class HomeDetailViewController: UIViewController {
     @IBOutlet private weak var toolBarBottomSpacing: NSLayoutConstraint!
     
     // MARK:- Propertises
-    private let itemViewModel = ItemViewModel()
-    private let groupViewModel = GroupViewModel()
+    private let itemViewModel: ItemViewModel = ItemViewModel()
+    private let groupViewModel: GroupViewModel = GroupViewModel()
+    private let widgetViewModel: WidgetViewModel = WidgetViewModel()
+    
     static var isEditMode: Bool = false
     var group: Group?
     
@@ -39,6 +41,10 @@ class HomeDetailViewController: UIViewController {
     }
     
     // MARK:- View Life Sycle
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let group = group {
@@ -59,7 +65,22 @@ class HomeDetailViewController: UIViewController {
         prepareItemCollectionView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if navigationItem.title == "위젯에 표시될 항목" {
+            NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification,
+                                                   object: nil,
+                                                   queue: .main) {
+                [weak self] notification in
+                OperationQueue.main.addOperation {
+                    self?.itemCollectionView.reloadData()
+                }
+            }
+        }
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         if isMovingFromParent {
             groupViewModel.removeOberserver(self)
         }
@@ -69,6 +90,7 @@ class HomeDetailViewController: UIViewController {
         let height: CGFloat = view.safeAreaInsets.top
         itemCollectionView.contentInset = UIEdgeInsets(top: height, left: 0, bottom: 0, right: 0)
     }
+    
     // MARK:- Methods
     static func storyboardInstance() -> HomeDetailViewController? {
         let storyboard = UIStoryboard(name: HomeDetailViewController.storyboardName(), bundle: nil)
@@ -92,20 +114,11 @@ class HomeDetailViewController: UIViewController {
         }
     }
     
-    private func presentaddTextItem() {
-        guard let vc = CreateTextItemViewController.storyboardInstance() else {
-            return
-        }
+    @objc private func setDisplayCell() {
+        guard let index = widgetViewModel.currentIndex else { return }
+        guard let cell = itemCollectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? ItemCustomCell else { return }
         
-        present(vc, animated: true)
-    }
-    
-    private func presentImagelimitedAlert() {
-        let alert = UIAlertController(title: "알림", message: "위젯 메모리 제한으로 인해 \n 이미지는 15개를 초과할 수 없습니다!", preferredStyle: .alert)
-        let action = UIAlertAction(title: "확인", style: .default, handler: nil)
-        alert.addAction(action)
-        
-        present(alert, animated: true)
+        cell.isCellDisplayItem = true
     }
     
     // MARK:- @IBAction Methods
@@ -132,7 +145,7 @@ class HomeDetailViewController: UIViewController {
         navVc.modalPresentationStyle = .fullScreen
         present(navVc, animated: true)
     }
-
+    
     @IBAction func removeButtonTapped(_ sender: UIBarButtonItem) {
         guard let group = group else { return }
         
@@ -157,6 +170,14 @@ extension HomeDetailViewController: UICollectionViewDataSource {
         }
         let item = itemViewModel.item(at: indexPath.item)
         
+        if navigationItem.title == "위젯에 표시될 항목" { // 위젯에 표시되어 있는 셀인지 파악
+            if let index = widgetViewModel.currentIndex, index == indexPath.item {
+                cell.isCellDisplayItem = true
+            } else {
+                cell.isCellDisplayItem = false
+            }
+        }
+        
         if selectedCell.contains(where: { (selectedIndexPath, _) in return selectedIndexPath == indexPath }) {
             cell.isSelectedForRemove = true
         } else {
@@ -175,7 +196,7 @@ extension HomeDetailViewController: UICollectionViewDelegate {
             return
         }
         let item = itemViewModel.item(at: indexPath.item)
-
+        
         if !HomeDetailViewController.isEditMode { // Default Mode
             cell.freezeAnimations()
             collectionView.deselectItem(at: indexPath, animated: false)

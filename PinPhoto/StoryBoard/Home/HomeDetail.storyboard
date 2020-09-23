@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nqb-MI-x0Z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nqb-MI-x0Z">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,8 +38,8 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ufs-uq-KY4">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                    <color key="backgroundColor" systemColor="tertiarySystemFillColor" red="0.46274509800000002" green="0.46274509800000002" blue="0.50196078430000002" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -50,22 +53,32 @@
                                                         <constraint firstAttribute="width" constant="25" id="fWk-gG-hM0"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 표시중" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8i-S4-BMS">
+                                                    <rect key="frame" x="50" y="107" width="78" height="21"/>
+                                                    <color key="backgroundColor" name="AccentColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Ufs-uq-KY4" firstAttribute="leading" secondItem="5ow-Wd-DLV" secondAttribute="leading" id="0bK-Wz-YRc"/>
                                                 <constraint firstItem="nbl-KO-5ms" firstAttribute="leading" secondItem="5ow-Wd-DLV" secondAttribute="leading" id="3qa-Zc-bvc"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ufs-uq-KY4" secondAttribute="bottom" id="5Li-0c-7EO"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ufs-uq-KY4" secondAttribute="trailing" id="JBU-OF-bxa"/>
+                                                <constraint firstAttribute="bottom" secondItem="V8i-S4-BMS" secondAttribute="bottom" id="Lhg-tp-co3"/>
                                                 <constraint firstAttribute="bottom" secondItem="nbl-KO-5ms" secondAttribute="bottom" id="NzD-9t-55i"/>
                                                 <constraint firstItem="nbl-KO-5ms" firstAttribute="top" secondItem="5ow-Wd-DLV" secondAttribute="top" id="TL2-qu-pVk"/>
                                                 <constraint firstItem="Ufs-uq-KY4" firstAttribute="top" secondItem="5ow-Wd-DLV" secondAttribute="top" id="d6K-B9-5gj"/>
                                                 <constraint firstAttribute="bottom" secondItem="hoV-9p-zfF" secondAttribute="bottom" constant="5" id="lZL-tp-fYa"/>
                                                 <constraint firstAttribute="trailing" secondItem="hoV-9p-zfF" secondAttribute="trailing" constant="5" id="mdW-gR-Tq4"/>
+                                                <constraint firstAttribute="trailing" secondItem="V8i-S4-BMS" secondAttribute="trailing" id="pNh-Tc-SW2"/>
                                                 <constraint firstAttribute="trailing" secondItem="nbl-KO-5ms" secondAttribute="trailing" id="pi6-hY-kXl"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="checkImageView" destination="hoV-9p-zfF" id="z7Y-Y4-MIS"/>
+                                            <outlet property="displayLabel" destination="V8i-S4-BMS" id="UGG-Ve-ZrB"/>
                                             <outlet property="itemImageView" destination="nbl-KO-5ms" id="0xs-hC-6JC"/>
                                             <outlet property="itemTextLabel" destination="Ufs-uq-KY4" id="AA1-aZ-mVD"/>
                                         </connections>
@@ -84,14 +97,14 @@
                                 <rect key="frame" x="0.0" y="816" width="414" height="49"/>
                                 <items>
                                     <barButtonItem title="Item" image="square.and.arrow.up.on.square" catalog="system" id="Pn9-yz-47t" userLabel="Send Button">
-                                        <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" systemColor="systemPinkColor"/>
                                         <connections>
                                             <action selector="moveButtonTapped:" destination="Nqb-MI-x0Z" id="QQB-z9-Eev"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="hO8-I2-Nyr"/>
                                     <barButtonItem systemItem="trash" id="08c-VF-p0d">
-                                        <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" systemColor="systemRedColor"/>
                                         <connections>
                                             <action selector="removeButtonTapped:" destination="Nqb-MI-x0Z" id="dop-og-jLH"/>
                                         </connections>
@@ -99,7 +112,8 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="64Q-Vk-xe8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="64Q-Vk-xe8" firstAttribute="trailing" secondItem="gRB-sW-KKa" secondAttribute="trailing" id="PW8-aN-ggn"/>
                             <constraint firstItem="gRB-sW-KKa" firstAttribute="leading" secondItem="64Q-Vk-xe8" secondAttribute="leading" id="Pj2-bv-BWT"/>
@@ -109,7 +123,6 @@
                             <constraint firstItem="64Q-Vk-xe8" firstAttribute="trailing" secondItem="BIk-6N-Va6" secondAttribute="trailing" id="b1T-tJ-Cst"/>
                             <constraint firstItem="BIk-6N-Va6" firstAttribute="leading" secondItem="64Q-Vk-xe8" secondAttribute="leading" id="q1s-44-zGu"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="64Q-Vk-xe8"/>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -129,5 +142,20 @@
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="square.and.arrow.up.on.square" catalog="system" width="117" height="128"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemFillColor">
+            <color red="0.46274509803921571" green="0.46274509803921571" blue="0.50196078431372548" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

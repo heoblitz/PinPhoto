@@ -79,21 +79,21 @@ class TodayViewController: UIViewController {
             let index = min(itemViewModel.items.count - 1, current)
             widgetViewModel.currentIndex = index
             pageControl.currentPage = index
-            scrollItemCollectionView(to: index)
+            scrollItemCollectionView(to: index, animated: false)
         } else {
             let index = 0
             widgetViewModel.currentIndex = index
             pageControl.currentPage = index
-            scrollItemCollectionView(to: index)
+            scrollItemCollectionView(to: index, animated: false)
         }
     }
     
     // MARK:- Methods
-    func scrollItemCollectionView(to index: Int) {
+    func scrollItemCollectionView(to index: Int, animated: Bool) {
         // let origin: CGFloat = itemCollectionView.bounds.origin.x
         let spacing: CGFloat = itemCollectionView.bounds.width
         
-        itemCollectionView.setContentOffset(CGPoint(x: spacing * CGFloat(index), y: 0), animated: true)
+        itemCollectionView.setContentOffset(CGPoint(x: spacing * CGFloat(index), y: 0), animated: animated)
     }
     
     // MARK:- @IBAction Methods
@@ -104,7 +104,7 @@ class TodayViewController: UIViewController {
         if next < itemViewModel.items.count {
             widgetViewModel.currentIndex = next
             pageControl.currentPage = next
-            scrollItemCollectionView(to: next)
+            scrollItemCollectionView(to: next, animated: true)
         }
     }
     
@@ -115,7 +115,7 @@ class TodayViewController: UIViewController {
         if next >= 0 {
             widgetViewModel.currentIndex = next
             pageControl.currentPage = next
-            scrollItemCollectionView(to: next)
+            scrollItemCollectionView(to: next, animated: true)
         }
     }
 }

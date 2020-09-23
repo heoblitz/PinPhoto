@@ -13,6 +13,7 @@ class ItemCustomCell: UICollectionViewCell {
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemTextLabel: UILabel!
     @IBOutlet weak var checkImageView: UIImageView!
+    @IBOutlet weak var displayLabel: UILabel!
     
     // MARK:- Propertises
     static let cellIdentifier: String = "itemCustomCell"
@@ -39,6 +40,16 @@ class ItemCustomCell: UICollectionViewCell {
                 checkImageView.isHidden = true
                 itemTextLabel.alpha = 1
                 itemImageView.alpha = 1
+            }
+        }
+    }
+    
+    var isCellDisplayItem: Bool = false {
+        didSet {
+            if isCellDisplayItem {
+                displayLabel.isHidden = false
+            } else {
+                displayLabel.isHidden = true
             }
         }
     }
@@ -86,6 +97,7 @@ class ItemCustomCell: UICollectionViewCell {
     private func reset() {
         itemImageView.isHidden = false
         itemTextLabel.isHidden = false
+        isCellDisplayItem = false
     }
     
     func update(_ item: Item) {

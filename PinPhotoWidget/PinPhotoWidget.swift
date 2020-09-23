@@ -36,13 +36,12 @@ struct Provider: IntentTimelineProvider {
     
     func getItem() -> Item? {
         groupViewModel.load()
-        guard let widgetGroup = groupViewModel.groups.first else { return nil }
-        guard let current = widgetViewModel.currentIndex else { return nil }
-
-        itemViewModel.loadFromIds(ids: widgetGroup.ids)
-        let index: Int = min(current, itemViewModel.items.count)
+        guard let widgetGroup = groupViewModel.groups.first, let current = widgetViewModel.currentIndex else { return nil }
         
-        return itemViewModel.item(at: index)
+        let index: Int = min(current, widgetGroup.ids.count - 1)
+        
+        itemViewModel.loadFromIds(ids: [widgetGroup.ids[index]])
+        return itemViewModel.items.first
     }
 }
 
