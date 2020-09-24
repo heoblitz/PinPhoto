@@ -22,10 +22,15 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .always
-        itemViewModel.load()
+        // itemViewModel.load()
         groupViewModel.load()
         groupViewModel.attachObserver(self)
         prepareHomeCollectionView()
+        
+        if UserDefaults.standard.bool(forKey: "reviewed") == false, groupViewModel.groups.first?.ids.count ?? 0 >= 15 {
+            SKStoreReviewController.requestReview()
+            UserDefaults.standard.setValue(true, forKey: "reviewed")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

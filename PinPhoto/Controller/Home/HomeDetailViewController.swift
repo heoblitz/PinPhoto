@@ -45,7 +45,10 @@ class HomeDetailViewController: UIViewController {
             groupViewModel.attachObserver(self)
             navigationItem.title = group.name
             
-            if navigationItem.title != "위젯에 표시될 항목" {
+            if #available(iOS 14, *), navigationItem.title == "위젯에 표시될 항목" {
+                displayButton.isEnabled = false
+                displayButton.tintColor = .systemPink
+            } else {
                 displayButton.isEnabled = false
                 displayButton.tintColor = .clear
             }

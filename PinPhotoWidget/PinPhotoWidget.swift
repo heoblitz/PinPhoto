@@ -65,11 +65,11 @@ struct EntryView : View {
                 case ItemType.text.value:
                     Text(item.contentText ?? "")
                 default:
-                    Text("아이템을 추가해주세요.")
+                    Text("항목을 선택해주세요.")
                 }
 
             } else {
-                Text("아이템을 추가해주세요.")
+                Text("항목을 선택해주세요.")
             }
         }
     }
