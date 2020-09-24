@@ -14,6 +14,7 @@ public class WidgetViewModel {
     private let widgetHeightKey: String = "widgetHeight"
     private let widgetImageFillKey: String = "widgetImageFill"
     private let currentIndexKey: String = "widgetIndex"
+    private let isDisplayItemKey: String = "isDisplayItem"
     
     var height: Float {
         get {
@@ -42,6 +43,15 @@ public class WidgetViewModel {
         set {
             defaults?.set(newValue, forKey: currentIndexKey)
             defaults?.synchronize()
+        }
+    }
+    
+    var isDisplayItem: Int? {
+        get {
+            return defaults?.value(forKey: isDisplayItemKey) as? Int
+        }
+        set {
+            defaults?.set(newValue, forKey: isDisplayItemKey)
             
             if #available(iOS 14, *) {
                 RefreshWidget()

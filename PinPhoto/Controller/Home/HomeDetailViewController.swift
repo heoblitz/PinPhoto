@@ -15,7 +15,7 @@ class HomeDetailViewController: UIViewController {
     @IBOutlet private weak var itemCollectionView: UICollectionView!
     @IBOutlet private weak var deleteButton: UIBarButtonItem!
     @IBOutlet private weak var sendButton: UIBarButtonItem!
-    @IBOutlet private weak var editButton: UIBarButtonItem!
+    @IBOutlet private weak var displayButton: UIBarButtonItem!
     
     @IBOutlet private weak var toolBar: UIToolbar!
     @IBOutlet private weak var toolBarBottomSpacing: NSLayoutConstraint!
@@ -30,27 +30,25 @@ class HomeDetailViewController: UIViewController {
     
     private var selectedCell: [IndexPath:Int64] = [:] { // indexPath:id
         didSet {
-            if selectedCell.count > 0 {
-                self.deleteButton.isEnabled = true
-                self.sendButton.isEnabled = true
-            } else {
-                self.deleteButton.isEnabled = false
-                self.sendButton.isEnabled = false
-            }
+            let count: Int = selectedCell.count
+            self.deleteButton.isEnabled = (count >= 1) ? true : false
+            self.sendButton.isEnabled = (count >= 1) ? true : false
+            self.displayButton.isEnabled = (count == 1) ? true : false
         }
     }
     
     // MARK:- View Life Sycle
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: self)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let group = group {
             itemViewModel.loadFromIds(ids: group.ids)
             groupViewModel.attachObserver(self)
             navigationItem.title = group.name
+            
+            if navigationItem.title != "위젯에 표시될 항목" {
+                displayButton.isEnabled = false
+                displayButton.tintColor = .clear
+            }
         }
         
         let editBarbuttonItem = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(editButtonTapped(_:)))
@@ -63,20 +61,6 @@ class HomeDetailViewController: UIViewController {
         toolBar.isHidden = true
         toolBarBottomSpacing.constant = tabBarController?.tabBar.frame.size.height ?? 0
         prepareItemCollectionView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if navigationItem.title == "위젯에 표시될 항목" {
-            NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification,
-                                                   object: nil,
-                                                   queue: .main) {
-                [weak self] notification in
-                OperationQueue.main.addOperation {
-                    self?.itemCollectionView.reloadData()
-                }
-            }
-        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -121,18 +105,17 @@ class HomeDetailViewController: UIViewController {
         cell.isCellDisplayItem = true
     }
     
-    // MARK:- @IBAction Methods
-    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
+    @objc private func editButtonTapped(_ sender: UIBarButtonItem) {
         sender.title = sender.title == "선택" ? "완료" : "선택"
         
         tabBarController?.tabBar.isHidden.toggle()
         toolBar.isHidden.toggle()
-        //addButton.isEnabled.toggle()
         HomeDetailViewController.isEditMode.toggle()
         deselectCells()
         selectedCell = [:]
     }
     
+    // MARK:- @IBAction Methods
     @IBAction func moveButtonTapped(_ sender: UIBarButtonItem) {
         guard let group = group else { return }
         guard let vc = SelectGroupViewController.storyboardInstance() else { return }
@@ -141,7 +124,6 @@ class HomeDetailViewController: UIViewController {
         vc.selectionType = .move
         
         let navVc = UINavigationController(rootViewController: vc)
-        
         navVc.modalPresentationStyle = .fullScreen
         present(navVc, animated: true)
     }
@@ -154,6 +136,14 @@ class HomeDetailViewController: UIViewController {
             self?.groupViewModel.removeId(at: group.name, ids: [Int(id)])
             self?.groupViewModel.load()
         }
+    }
+    
+    @IBAction func displayButtonTapped(_ sender: UIBarButtonItem) {
+        guard let indexPath = selectedCell.first?.key else { return }
+        let displayItem: Int = indexPath.item
+        widgetViewModel.isDisplayItem = displayItem
+        
+        itemCollectionView.reloadData()
         selectedCell = [:]
     }
 }
@@ -171,10 +161,8 @@ extension HomeDetailViewController: UICollectionViewDataSource {
         let item = itemViewModel.item(at: indexPath.item)
         
         if navigationItem.title == "위젯에 표시될 항목" { // 위젯에 표시되어 있는 셀인지 파악
-            if let index = widgetViewModel.currentIndex, index == indexPath.item {
+            if widgetViewModel.isDisplayItem == indexPath.item {
                 cell.isCellDisplayItem = true
-            } else {
-                cell.isCellDisplayItem = false
             }
         }
         

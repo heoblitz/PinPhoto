@@ -103,6 +103,13 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="hO8-I2-Nyr"/>
+                                    <barButtonItem title="Item" image="rectangle.badge.checkmark" catalog="system" id="l0H-Z5-Qo2">
+                                        <color key="tintColor" systemColor="systemPinkColor"/>
+                                        <connections>
+                                            <action selector="displayButtonTapped:" destination="Nqb-MI-x0Z" id="QHf-g5-gjb"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ezg-T5-br6"/>
                                     <barButtonItem systemItem="trash" id="08c-VF-p0d">
                                         <color key="tintColor" systemColor="systemRedColor"/>
                                         <connections>
@@ -128,6 +135,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="deleteButton" destination="08c-VF-p0d" id="nfw-if-otH"/>
+                        <outlet property="displayButton" destination="l0H-Z5-Qo2" id="npC-af-qlA"/>
                         <outlet property="itemCollectionView" destination="BIk-6N-Va6" id="4Zd-Q3-woH"/>
                         <outlet property="sendButton" destination="Pn9-yz-47t" id="3Kk-ZI-32D"/>
                         <outlet property="toolBar" destination="gRB-sW-KKa" id="XC6-ey-L4K"/>
@@ -141,6 +149,7 @@
     </scenes>
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="rectangle.badge.checkmark" catalog="system" width="128" height="95"/>
         <image name="square.and.arrow.up.on.square" catalog="system" width="117" height="128"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
