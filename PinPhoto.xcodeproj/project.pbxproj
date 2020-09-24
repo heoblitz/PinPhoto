@@ -89,8 +89,8 @@
 		3CD4D52825020520002F1B7C /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD4D52725020520002F1B7C /* Search.storyboard */; };
 		3CD4D52F2502064B002F1B7C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD4D52E2502064B002F1B7C /* SearchViewController.swift */; };
 		3CD4D53325020AB8002F1B7C /* SelectGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD4D53225020AB8002F1B7C /* SelectGroupViewController.swift */; };
-		3CDBF2E225186DBF00F84F66 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CDBF2E125186DBF00F84F66 /* WidgetKit.framework */; };
-		3CDBF2E425186DBF00F84F66 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CDBF2E325186DBF00F84F66 /* SwiftUI.framework */; };
+		3CDBF2E225186DBF00F84F66 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CDBF2E125186DBF00F84F66 /* WidgetKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		3CDBF2E425186DBF00F84F66 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CDBF2E325186DBF00F84F66 /* SwiftUI.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3CDBF2E725186DBF00F84F66 /* PinPhotoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDBF2E625186DBF00F84F66 /* PinPhotoWidget.swift */; };
 		3CDBF2EA25186DC100F84F66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CDBF2E925186DC100F84F66 /* Assets.xcassets */; };
 		3CDBF2EC25186DC100F84F66 /* PinPhotoWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3CDBF2E825186DBF00F84F66 /* PinPhotoWidget.intentdefinition */; };
@@ -930,6 +930,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PinPhotoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhotoWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -938,11 +939,12 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -953,6 +955,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PinPhotoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhotoWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -961,11 +964,12 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -976,7 +980,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_ENTITLEMENTS = PinPhotoExtension/PinPhotoExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3;
+				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhotoExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -986,7 +990,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoExtension;
 				PRODUCT_NAME = PinPhotoExtension;
 				SKIP_INSTALL = YES;
@@ -1002,7 +1006,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_ENTITLEMENTS = PinPhotoExtension/PinPhotoExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3;
+				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhotoExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1012,7 +1016,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoExtension;
 				PRODUCT_NAME = PinPhotoExtension;
 				SKIP_INSTALL = YES;
@@ -1148,7 +1152,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PinPhoto/PinPhoto.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3;
+				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhoto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1156,7 +1160,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto;
 				PRODUCT_NAME = PinPhoto;
 				SWIFT_VERSION = 5.0;
@@ -1173,7 +1177,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PinPhoto/PinPhoto.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3;
+				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhoto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1181,7 +1185,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto;
 				PRODUCT_NAME = PinPhoto;
 				SWIFT_VERSION = 5.0;
