@@ -158,6 +158,7 @@ class SelectGroupViewController: UIViewController {
             id += 1
         }
         
+        deSelectItem()
         navigationController?.dismiss(animated: true, completion: nil)
     }
     
@@ -177,6 +178,18 @@ class SelectGroupViewController: UIViewController {
         
         alert.addAction(accept)
         present(alert, animated: true)
+    }
+    
+    private func deSelectItem() {
+        if let tabVc = presentingViewController as? UITabBarController {
+            if let navVc = tabVc.selectedViewController as? UINavigationController {
+                if let vc = navVc.topViewController as? HomeDetailViewController {
+                    vc.deselectCells()
+                    vc.selectedCell = [:]
+                }
+            }
+        }
+            
     }
 }
 

@@ -28,7 +28,7 @@ class HomeDetailViewController: UIViewController {
     static var isEditMode: Bool = false
     var group: Group?
     
-    private var selectedCell: [IndexPath:Int64] = [:] { // indexPath:id
+    var selectedCell: [IndexPath:Int64] = [:] { // indexPath:id
         didSet {
             let count: Int = selectedCell.count
             self.deleteButton.isEnabled = (count >= 1) ? true : false
@@ -91,7 +91,7 @@ class HomeDetailViewController: UIViewController {
         itemCollectionView.automaticallyAdjustsScrollIndicatorInsets = false
     }
     
-    private func deselectCells() {
+    func deselectCells() {
         selectedCell.forEach { indexPath, _ in
             let cell = self.itemCollectionView.cellForItem(at: indexPath) as? ItemCustomCell
             cell?.isSelectedForRemove = false
@@ -132,10 +132,17 @@ class HomeDetailViewController: UIViewController {
         guard let group = group else { return }
         
         selectedCell.forEach { [weak self] indexPath, id in
+            if widgetViewModel.isDisplayItem == indexPath.item {
+                widgetViewModel.isDisplayItem = nil
+            }
+            
             self?.itemViewModel.remove(id: id)
             self?.groupViewModel.removeId(at: group.name, ids: [Int(id)])
             self?.groupViewModel.load()
         }
+        
+        deselectCells()
+        selectedCell = [:]
     }
     
     @IBAction func displayButtonTapped(_ sender: UIBarButtonItem) {
