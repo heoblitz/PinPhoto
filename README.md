@@ -5,7 +5,7 @@
 ![pod](https://img.shields.io/badge/pod-1.9.3-blue)
 ![version](https://img.shields.io/badge/version-1.4.0-blue)
 
-![](temp/Header.jpg)
+![](temp/header.jpg)
 
 > 위젯에서 사진, 메모를 쉽게 확인
 
