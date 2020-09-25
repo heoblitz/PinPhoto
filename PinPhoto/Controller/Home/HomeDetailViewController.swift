@@ -135,8 +135,8 @@ class HomeDetailViewController: UIViewController {
         guard let group = group else { return }
         
         selectedCell.forEach { [weak self] indexPath, id in
-            if widgetViewModel.isDisplayItem == indexPath.item {
-                widgetViewModel.isDisplayItem = nil
+            if widgetViewModel.displayItemIndex == indexPath.item {
+                widgetViewModel.displayItemIndex = nil
             }
             
             self?.itemViewModel.remove(id: id)
@@ -151,7 +151,7 @@ class HomeDetailViewController: UIViewController {
     @IBAction func displayButtonTapped(_ sender: UIBarButtonItem) {
         guard let indexPath = selectedCell.first?.key else { return }
         let displayItem: Int = indexPath.item
-        widgetViewModel.isDisplayItem = displayItem
+        widgetViewModel.displayItemIndex = displayItem
         
         itemCollectionView.reloadData()
         selectedCell = [:]
@@ -171,7 +171,7 @@ extension HomeDetailViewController: UICollectionViewDataSource {
         let item = itemViewModel.item(at: indexPath.item)
         
         if navigationItem.title == "위젯에 표시될 항목" { // 위젯에 표시되어 있는 셀인지 파악
-            if widgetViewModel.isDisplayItem == indexPath.item {
+            if widgetViewModel.displayItemIndex == indexPath.item {
                 cell.isCellDisplayItem = true
             }
         }

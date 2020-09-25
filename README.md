@@ -5,7 +5,7 @@
 ![pod](https://img.shields.io/badge/pod-1.9.3-blue)
 ![version](https://img.shields.io/badge/version-1.4.0-blue)
 
-![](temp/header.jpg)
+![](temp/Header.jpg)
 
 > 위젯에서 사진, 메모를 쉽게 확인
 
@@ -46,8 +46,12 @@
 
 # 설계 <a id="structure"></a>
 
+## Model & ViewModel
+
+![](temp/Model.jpeg)
+
+## Controller & View
 ![](temp/homeViewController.jpeg)
-작성중
 
 # 문제 해결 <a id="troubleshooting"></a>
 
