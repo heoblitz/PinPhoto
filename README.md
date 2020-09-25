@@ -21,7 +21,6 @@
 - MVVM 패턴을 최대한 반영하고자 하였음
 
 <br>
-<br>
 
 # 목차
 - [기능](#feature)
@@ -43,10 +42,12 @@
 
 ## Setting
 <img src="temp/setting.gif" width="230" height="450" />  
+<br>
 
 # 설계 <a id="structure"></a>
 
-작성 중
+![](temp/homeViewController.jpeg)
+작성중
 
 # 문제 해결 <a id="troubleshooting"></a>
 
@@ -63,7 +64,6 @@
         fetchRequest.sortDescriptors = [idSort]
         fetchRequest.predicate = NSPredicate(format: "id IN %@", newIds)
     ```
-<br>
 <br>
 
 ## Today Extension Collection View Scroll Issue
@@ -83,7 +83,6 @@
         itemCollectionView.setContentOffset(CGPoint(x: spacing * CGFloat(index), y: 0), animated: animated)
     }
     ```
-<br>
 <br>
 
 ## Strong Retain Sycle
