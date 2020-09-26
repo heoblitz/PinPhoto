@@ -18,7 +18,7 @@
 - StoreKit
 
 ## 아키텍처 
-- MVVM 패턴을 최대한 반영하고자 하였음
+- MVVM 패턴을 최대한 반영하고자 했습니다.
 
 <br>
 
@@ -89,7 +89,7 @@
     ```
 <br>
 
-## Strong Retain Sycle
+## Strong Retain Cycle
 - 문제점
     - HomeDetailViewController 가 deinit 되지 않는 문제
     - Observer 를 등록하고 제거하지 않았고 Model 에서 계속 VC 를 참조하여 발생
