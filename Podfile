@@ -18,7 +18,7 @@ target 'PinPhotoExtension' do
 
 end
 
-target 'PinPhotoWidget' do
+target 'PinPhotoWidgetExtension' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 

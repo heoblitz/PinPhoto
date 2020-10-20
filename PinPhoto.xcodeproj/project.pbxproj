@@ -62,6 +62,7 @@
 		3C585BD024FD33A600203C18 /* ConvertImageToData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C585BCE24FD33A600203C18 /* ConvertImageToData.swift */; };
 		3C5BC0D6251257DB00A74F4E /* ItemCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5BC0D5251257DB00A74F4E /* ItemCopy.swift */; };
 		3C5BC0D72513743A00A74F4E /* ItemCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5BC0D5251257DB00A74F4E /* ItemCopy.swift */; };
+		3C5C91D6253D294600614198 /* textView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5C91CA253D292900614198 /* textView.swift */; };
 		3C76EEF1250C8E1E003B298D /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C76EEF0250C8E1E003B298D /* ItemType.swift */; };
 		3C76EEFB250C951E003B298D /* CoreDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C76EEFA250C951E003B298D /* CoreDataType.swift */; };
 		3C76EEFC250C964F003B298D /* CoreDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C76EEFA250C951E003B298D /* CoreDataType.swift */; };
@@ -115,6 +116,7 @@
 		3CF8B44D24A9CBA300D6C11C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8B44C24A9CBA300D6C11C /* SceneDelegate.swift */; };
 		3CF8B45224A9CBA300D6C11C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45024A9CBA300D6C11C /* Main.storyboard */; };
 		3CF8B45724A9CBA700D6C11C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45524A9CBA700D6C11C /* LaunchScreen.storyboard */; };
+		97EA7918B2D5D4E6C4A01BB1 /* Pods_PinPhotoWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A84883FF2DE19D2F1436A2 /* Pods_PinPhotoWidgetExtension.framework */; };
 		C90E01E01A8F6C43633BD7C6 /* Pods_PinPhotoExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90816F65DC997A4BDA8F0CA1 /* Pods_PinPhotoExtension.framework */; };
 		F9F2675AD681C9FFF36395E4 /* Pods_PinPhoto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E3DD72E2F55C8639AAB2B9 /* Pods_PinPhoto.framework */; };
 /* End PBXBuildFile section */
@@ -176,6 +178,7 @@
 		3C4D139F24AB716B009BDCDE /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
 		3C585BCE24FD33A600203C18 /* ConvertImageToData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertImageToData.swift; sourceTree = "<group>"; };
 		3C5BC0D5251257DB00A74F4E /* ItemCopy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCopy.swift; sourceTree = "<group>"; };
+		3C5C91CA253D292900614198 /* textView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textView.swift; sourceTree = "<group>"; };
 		3C76EEF0250C8E1E003B298D /* ItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
 		3C76EEFA250C951E003B298D /* CoreDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataType.swift; sourceTree = "<group>"; };
 		3C8AA00F24B05D32005EB75C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -226,12 +229,15 @@
 		3CF8B45324A9CBA700D6C11C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CF8B45624A9CBA700D6C11C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CF8B45824A9CBA700D6C11C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53D1D62CEDE3097467685511 /* Pods-PinPhotoWidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPhotoWidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-PinPhotoWidgetExtension/Pods-PinPhotoWidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		54A8157C6B59B1A1802A8964 /* Pods-PinPhotoExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPhotoExtension.release.xcconfig"; path = "Target Support Files/Pods-PinPhotoExtension/Pods-PinPhotoExtension.release.xcconfig"; sourceTree = "<group>"; };
+		54A84883FF2DE19D2F1436A2 /* Pods_PinPhotoWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPhotoWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80EE58D3FBED7D66C4295092 /* Pods-PinPhoto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPhoto.debug.xcconfig"; path = "Target Support Files/Pods-PinPhoto/Pods-PinPhoto.debug.xcconfig"; sourceTree = "<group>"; };
 		90816F65DC997A4BDA8F0CA1 /* Pods_PinPhotoExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPhotoExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1624057D1CAB01FABDD5A48 /* Pods-PinPhoto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPhoto.release.xcconfig"; path = "Target Support Files/Pods-PinPhoto/Pods-PinPhoto.release.xcconfig"; sourceTree = "<group>"; };
 		A6E3DD72E2F55C8639AAB2B9 /* Pods_PinPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D015C89250D6C3BF48144A61 /* Pods-PinPhotoExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPhotoExtension.debug.xcconfig"; path = "Target Support Files/Pods-PinPhotoExtension/Pods-PinPhotoExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		D50908D6AEFCF2463675C346 /* Pods-PinPhotoWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPhotoWidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-PinPhotoWidgetExtension/Pods-PinPhotoWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +247,7 @@
 			files = (
 				3CDBF2E425186DBF00F84F66 /* SwiftUI.framework in Frameworks */,
 				3CDBF2E225186DBF00F84F66 /* WidgetKit.framework in Frameworks */,
+				97EA7918B2D5D4E6C4A01BB1 /* Pods_PinPhotoWidgetExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +279,8 @@
 				A1624057D1CAB01FABDD5A48 /* Pods-PinPhoto.release.xcconfig */,
 				D015C89250D6C3BF48144A61 /* Pods-PinPhotoExtension.debug.xcconfig */,
 				54A8157C6B59B1A1802A8964 /* Pods-PinPhotoExtension.release.xcconfig */,
+				53D1D62CEDE3097467685511 /* Pods-PinPhotoWidgetExtension.debug.xcconfig */,
+				D50908D6AEFCF2463675C346 /* Pods-PinPhotoWidgetExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -486,6 +495,7 @@
 				3CDBF2E825186DBF00F84F66 /* PinPhotoWidget.intentdefinition */,
 				3CDBF2E925186DC100F84F66 /* Assets.xcassets */,
 				3CDBF2EB25186DC100F84F66 /* Info.plist */,
+				3C5C91CA253D292900614198 /* textView.swift */,
 			);
 			path = PinPhotoWidget;
 			sourceTree = "<group>";
@@ -563,6 +573,7 @@
 				90816F65DC997A4BDA8F0CA1 /* Pods_PinPhotoExtension.framework */,
 				3CDBF2E125186DBF00F84F66 /* WidgetKit.framework */,
 				3CDBF2E325186DBF00F84F66 /* SwiftUI.framework */,
+				54A84883FF2DE19D2F1436A2 /* Pods_PinPhotoWidgetExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -574,6 +585,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3CDBF2F325186DC100F84F66 /* Build configuration list for PBXNativeTarget "PinPhotoWidgetExtension" */;
 			buildPhases = (
+				92EECC3DD290FF6A24415647 /* [CP] Check Pods Manifest.lock */,
 				3CDBF2DC25186DBE00F84F66 /* Sources */,
 				3CDBF2DD25186DBE00F84F66 /* Frameworks */,
 				3CDBF2DE25186DBE00F84F66 /* Resources */,
@@ -759,6 +771,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		92EECC3DD290FF6A24415647 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PinPhotoWidgetExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F823E3E0DC86A41486B79F08 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -847,6 +881,7 @@
 				3C3ACC9024BB558B00311F7A /* Item.xcdatamodeld in Sources */,
 				3CF07B9A24FE4B67006D48CE /* GroupViewController.swift in Sources */,
 				3CAA167E24BC211200635F6D /* ItemCustomCell.swift in Sources */,
+				3C5C91D6253D294600614198 /* textView.swift in Sources */,
 				3C070AA324D419600077C3AE /* ItemObserver.swift in Sources */,
 				3C21CC0724BEDC10004BEAF0 /* CreateTextItemViewController.swift in Sources */,
 				3C38CB0A2500E4A4007B6283 /* GroupViewModel.swift in Sources */,
@@ -925,6 +960,7 @@
 /* Begin XCBuildConfiguration section */
 		3CDBF2F125186DC100F84F66 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53D1D62CEDE3097467685511 /* Pods-PinPhotoWidgetExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -950,6 +986,7 @@
 		};
 		3CDBF2F225186DC100F84F66 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D50908D6AEFCF2463675C346 /* Pods-PinPhotoWidgetExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
