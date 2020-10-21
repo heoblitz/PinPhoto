@@ -56,7 +56,6 @@ struct EntryView : View {
 
     var body: some View {
         ZStack {
-            textView()
             if let item = entry.item {
                 switch item.contentType {
                 case ItemType.image.value:
