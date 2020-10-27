@@ -104,7 +104,7 @@ class HomeNavigationController: UINavigationController {
     }
     
     @objc private func presentAddActionSheet() {
-        let actionMenu = UIAlertController(title: nil, message: "아이템 종류", preferredStyle: .actionSheet)
+        let actionMenu = UIAlertController(title: nil, message: "Item Type".localized, preferredStyle: .actionSheet)
         
         ItemType.allCases.forEach { type in
             let action = UIAlertAction(title: type.title, style: .default, handler: { [weak self] _ in
@@ -113,7 +113,7 @@ class HomeNavigationController: UINavigationController {
             actionMenu.addAction(action)
         }
         
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: {
             (alert: UIAlertAction!) -> Void in
         })
         actionMenu.addAction(cancelAction)

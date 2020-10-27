@@ -24,9 +24,9 @@ public enum ItemType: CaseIterable {
     var title: String {
         switch self {
         case .image:
-            return "이미지 추가하기"
+            return "Add Image".localized
         case .text:
-            return "텍스트 추가하기"
+            return "Add Text".localized
         }
     }
 }

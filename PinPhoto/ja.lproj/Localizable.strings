@@ -12,4 +12,7 @@
 "Please Add Items" = "アイテンを追加してください";
 "Edit" = "編集";
 "Cancel" = "キャンセル";
-"Group" = "分流";s
+"Group" = "分流";
+"Item Type" = "アイテム 種類";
+"Add Image" = "イトージェーンを追加";
+"Add Text" = "テキストを追加する";
