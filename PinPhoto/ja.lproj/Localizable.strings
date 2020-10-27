@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  PinPhoto
+
+  Created by won heo on 2020/10/26.
+  Copyright © 2020 won heo. All rights reserved.
+*/
+
+// Home
+"위젯에 표시될 항목" = "ウィジェット";
+"Item" = "アイテム";
+"Please Add Items" = "アイテンを追加してください";
+"Edit" = "編集";
+"Cancel" = "キャンセル";
+"Group" = "分流";s

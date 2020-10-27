@@ -72,6 +72,12 @@
 		3C9D666424ECD0B900021E48 /* SettingWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9D666324ECD0B900021E48 /* SettingWidgetViewController.swift */; };
 		3CA5C11F25091F6F009CB5C5 /* HomeDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CA5C11E25091F6F009CB5C5 /* HomeDetail.storyboard */; };
 		3CAA167E24BC211200635F6D /* ItemCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA167D24BC211200635F6D /* ItemCustomCell.swift */; };
+		3CAC4C3225468A8400ACE418 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC4C3625468A8400ACE418 /* Localizable.strings */; };
+		3CAC4C3325468A8400ACE418 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC4C3625468A8400ACE418 /* Localizable.strings */; };
+		3CAC4C3425468A8400ACE418 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC4C3625468A8400ACE418 /* Localizable.strings */; };
+		3CAC4C4025468E0900ACE418 /* LocalizedExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAC4C3F25468E0900ACE418 /* LocalizedExtension.swift */; };
+		3CAC4C4125468E0900ACE418 /* LocalizedExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAC4C3F25468E0900ACE418 /* LocalizedExtension.swift */; };
+		3CAC4C4225468E0900ACE418 /* LocalizedExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAC4C3F25468E0900ACE418 /* LocalizedExtension.swift */; };
 		3CB8E0A124F1436D00FEE93C /* SettingWidgetSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB8E0A024F1436D00FEE93C /* SettingWidgetSliderCell.swift */; };
 		3CB8E0A324F1482600FEE93C /* SettingWidgetSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB8E0A224F1482600FEE93C /* SettingWidgetSwitchCell.swift */; };
 		3CC13F5024D0259100726E51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45324A9CBA700D6C11C /* Assets.xcassets */; };
@@ -187,6 +193,10 @@
 		3C9D666324ECD0B900021E48 /* SettingWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWidgetViewController.swift; sourceTree = "<group>"; };
 		3CA5C11E25091F6F009CB5C5 /* HomeDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeDetail.storyboard; sourceTree = "<group>"; };
 		3CAA167D24BC211200635F6D /* ItemCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCustomCell.swift; sourceTree = "<group>"; };
+		3CAC4C3525468A8400ACE418 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3CAC4C3A25468AB400ACE418 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3CAC4C3B25468ABE00ACE418 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3CAC4C3F25468E0900ACE418 /* LocalizedExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocalizedExtension.swift; path = PinPhoto/LocalizedExtension.swift; sourceTree = SOURCE_ROOT; };
 		3CB8E0A024F1436D00FEE93C /* SettingWidgetSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWidgetSliderCell.swift; sourceTree = "<group>"; };
 		3CB8E0A224F1482600FEE93C /* SettingWidgetSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWidgetSwitchCell.swift; sourceTree = "<group>"; };
 		3CC7888825110A7B00C5C42B /* SelectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionType.swift; sourceTree = "<group>"; };
@@ -519,6 +529,7 @@
 				3CD247BA25023973006F8757 /* UIColorExtension.swift */,
 				3C585BCE24FD33A600203C18 /* ConvertImageToData.swift */,
 				3C0C005124EA581900BF137B /* ClassNameToString.swift */,
+				3CAC4C3F25468E0900ACE418 /* LocalizedExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -561,6 +572,7 @@
 				3C585BD124FD34A900203C18 /* Protocol */,
 				3CF8B45324A9CBA700D6C11C /* Assets.xcassets */,
 				3CF8B45824A9CBA700D6C11C /* Info.plist */,
+				3CAC4C3625468A8400ACE418 /* Localizable.strings */,
 			);
 			path = PinPhoto;
 			sourceTree = "<group>";
@@ -667,6 +679,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
+				ja,
 			);
 			mainGroup = 3CF8B43E24A9CBA300D6C11C;
 			productRefGroup = 3CF8B44824A9CBA300D6C11C /* Products */;
@@ -686,6 +700,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C4C579225186F7800B28A01 /* Assets.xcassets in Resources */,
+				3CAC4C3425468A8400ACE418 /* Localizable.strings in Resources */,
 				3CDBF2EA25186DC100F84F66 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -695,6 +710,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CC13F5024D0259100726E51 /* Assets.xcassets in Resources */,
+				3CAC4C3325468A8400ACE418 /* Localizable.strings in Resources */,
 				3CF07B9824FE48B0006D48CE /* Group.storyboard in Resources */,
 				3CEB644124CEC742004D8C3C /* MainInterface.storyboard in Resources */,
 			);
@@ -717,6 +733,7 @@
 				3C0C005024EA50D200BF137B /* EditTextItem.storyboard in Resources */,
 				3C9D666224ECB51C00021E48 /* SettingWidget.storyboard in Resources */,
 				3CF8B45724A9CBA700D6C11C /* LaunchScreen.storyboard in Resources */,
+				3CAC4C3225468A8400ACE418 /* Localizable.strings in Resources */,
 				3C0C004A24EA4F1A00BF137B /* Manual.storyboard in Resources */,
 				3C0C004E24EA4FED00BF137B /* EditImageItem.storyboard in Resources */,
 				3CD4D52825020520002F1B7C /* Search.storyboard in Resources */,
@@ -837,6 +854,7 @@
 				3C4C5798251ADB4200B28A01 /* CoreDataType.swift in Sources */,
 				3C4C57FA251ADE9600B28A01 /* CoreDataManager.swift in Sources */,
 				3CDBF2EC25186DC100F84F66 /* PinPhotoWidget.intentdefinition in Sources */,
+				3CAC4C4225468E0900ACE418 /* LocalizedExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -861,6 +879,7 @@
 				3C42651F24FD1BA000FA4F03 /* CoreDataManager.swift in Sources */,
 				3C585BD024FD33A600203C18 /* ConvertImageToData.swift in Sources */,
 				3CEB643E24CEC742004D8C3C /* TodayViewController.swift in Sources */,
+				3CAC4C4125468E0900ACE418 /* LocalizedExtension.swift in Sources */,
 				3C4C57D1251ADD9B00B28A01 /* UIColorExtension.swift in Sources */,
 				3C4C57E5251ADDFA00B28A01 /* AppDelegate.swift in Sources */,
 				3C42652124FD1BAA00FA4F03 /* Item+CoreDataClass.swift in Sources */,
@@ -883,6 +902,7 @@
 				3CAA167E24BC211200635F6D /* ItemCustomCell.swift in Sources */,
 				3C5C91D6253D294600614198 /* textView.swift in Sources */,
 				3C070AA324D419600077C3AE /* ItemObserver.swift in Sources */,
+				3CAC4C4025468E0900ACE418 /* LocalizedExtension.swift in Sources */,
 				3C21CC0724BEDC10004BEAF0 /* CreateTextItemViewController.swift in Sources */,
 				3C38CB0A2500E4A4007B6283 /* GroupViewModel.swift in Sources */,
 				3CCA560224D6853F00F32671 /* ManualViewController.swift in Sources */,
@@ -931,6 +951,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3CAC4C3625468A8400ACE418 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3CAC4C3525468A8400ACE418 /* en */,
+				3CAC4C3A25468AB400ACE418 /* ko */,
+				3CAC4C3B25468ABE00ACE418 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		3CEB643F24CEC742004D8C3C /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1067,6 +1097,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1129,6 +1160,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

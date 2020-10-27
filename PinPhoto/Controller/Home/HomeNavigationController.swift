@@ -42,7 +42,7 @@ class HomeNavigationController: UINavigationController {
     // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // presentAddButtonView()
+        tabBarItem?.title = "Item".localized
     }
     
     override open var childForStatusBarHidden: UIViewController? { // for child vc status bar hidden

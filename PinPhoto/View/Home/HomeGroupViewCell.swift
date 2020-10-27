@@ -24,6 +24,7 @@ class HomeGroupViewCell: UICollectionViewCell {
         // Initialization code
         contentView.layer.masksToBounds = true
         contentView.layer.cornerRadius = 10
+        noticeTextLabel.text = "Please Add Items".localized
     }
     
     override func prepareForReuse() {

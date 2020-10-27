@@ -9,13 +9,14 @@
 import UIKit
 
 class HomeSectionReusableView: UICollectionReusableView {
+    @IBOutlet private weak var textLabel: UILabel!
+
     // MARK:- Properties
     static let reuseIdentifier: String = "HomeSectionReusableView"
     
     // MARK:- Methods
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .red
+        textLabel.text = "Group".localized
     }
-    
 }

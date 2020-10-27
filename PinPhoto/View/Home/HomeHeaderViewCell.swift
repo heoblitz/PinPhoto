@@ -11,6 +11,7 @@ import UIKit
 class HomeHeaderViewCell: UICollectionViewCell {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var headerImageView: UIImageView!
+    @IBOutlet private weak var groupNameLabel: UILabel!
     @IBOutlet private weak var noticeTextLabel: UILabel!
 
     // MARK:- Properties
@@ -23,6 +24,8 @@ class HomeHeaderViewCell: UICollectionViewCell {
         // Initialization code
         contentView.layer.masksToBounds = true
         contentView.layer.cornerRadius = 10
+        groupNameLabel.text = "위젯에 표시될 항목".localized
+        noticeTextLabel.text = "Please Add Items".localized
         reset()
     }
     

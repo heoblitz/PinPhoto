@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  PinPhoto
+
+  Created by won heo on 2020/10/26.
+  Copyright © 2020 won heo. All rights reserved.
+*/
+
+// Home
+"위젯에 표시될 항목" = "위젯에 표시될 항목";
+"Item" = "항목";
+"Please Add Items" = "항목을 추가해주세요.";
+"Edit" = "편집";
+"Cancel" = "취소";
+"Group" = "분류";

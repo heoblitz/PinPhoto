@@ -48,13 +48,14 @@ class HomeDetailViewController: UIViewController {
             if #available(iOS 14, *), navigationItem.title == "위젯에 표시될 항목" {
                 displayButton.isEnabled = false
                 displayButton.tintColor = .systemPink
+                navigationItem.title = "위젯에 표시될 항목".localized
             } else {
                 displayButton.isEnabled = false
                 displayButton.tintColor = .clear
             }
         }
         
-        let editBarbuttonItem = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(editButtonTapped(_:)))
+        let editBarbuttonItem = UIBarButtonItem(title: "Edit".localized, style: .plain, target: self, action: #selector(editButtonTapped(_:)))
         navigationItem.rightBarButtonItem = editBarbuttonItem
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.tintColor = .systemPink
@@ -109,7 +110,7 @@ class HomeDetailViewController: UIViewController {
     }
     
     @objc private func editButtonTapped(_ sender: UIBarButtonItem) {
-        sender.title = sender.title == "선택" ? "완료" : "선택"
+        sender.title = sender.title == "Edit".localized ? "Cancel".localized : "Edit".localized
         
         tabBarController?.tabBar.isHidden.toggle()
         toolBar.isHidden.toggle()

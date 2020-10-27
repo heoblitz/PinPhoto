@@ -22,7 +22,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .always
-        // itemViewModel.load()
+        navigationItem.title = "Item".localized
+        
         groupViewModel.load()
         groupViewModel.attachObserver(self)
         prepareHomeCollectionView()
@@ -139,7 +140,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 1 {
             let width: CGFloat = collectionView.frame.width - 30
-            let height: CGFloat = 40
+            let height: CGFloat = 45
             return CGSize(width: width, height: height)
         }
         
