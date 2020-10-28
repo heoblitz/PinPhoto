@@ -25,6 +25,10 @@
 "Select group" = "저장할 그룹 선택";
 "Complete" = "완료";
 "Next" = "다음";
+"Notice" = "알림";
+"Item count cannot exceed 20" = "아이템 개수는 20개를 초과할 수 없습니다.";
+"Confirm" = "확인";
+"Already exists the same group name" = "같은 그룹 이름이 존재합니다";
 
 // Setting
 "PinPhoto" = "사진 콕";

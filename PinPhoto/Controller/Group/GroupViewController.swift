@@ -44,7 +44,7 @@ class GroupViewController: UIViewController {
     // MARK:- Methods
     private func presentRemoveAlert(at target: Group) {
         let alert = UIAlertController(title: "삭제하시겠습니까?", message: "분류에 포함된 항목도 모두 삭제됩니다.", preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
         let remove = UIAlertAction(title: "삭제", style: .destructive, handler: { [weak self]_ in
             self?.removeGroup(at: target)
         })
@@ -64,11 +64,13 @@ class GroupViewController: UIViewController {
     }
     
     private func alertSameGroupName() {
-        let alert = UIAlertController(title: "알림", message: "이미 같은 분류가 존재합니다!", preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "확인", style: .default, handler: nil)
+        let alert = UIAlertController(title: "Notice".localized, message: "Already exists the same group name".localized, preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "Confirm".localized, style: .default, handler: nil)
         alert.addAction(confirm)
         
-        present(alert, animated: true)
+        present(alert, animated: true) { [weak self] in
+            self?.groupTableView.contentOffset.y = 0
+        }
     }
 
     // MARK:- @IBAction Methods
@@ -109,7 +111,7 @@ class GroupViewController: UIViewController {
                 self.inputViewBottom.constant = 0
                 self.view.layoutIfNeeded()
             }
-            groupTableView.contentOffset.y -= 50
+            groupTableView.contentOffset.y = 0
         }
     }
     

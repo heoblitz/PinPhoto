@@ -25,6 +25,10 @@
 "Select group" = "分流選択";
 "Complete" = "完了";
 "Next" = "次へ";
+"Notice" = "お知らせ";
+"Item count cannot exceed 20" = "アイテム数は20を超えることはできません";
+"Confirm" = "確認";
+"Already exists the same group name" = "既に同一の分類名が存在します。";
 
 // Setting
 "PinPhoto" = "写真コック";

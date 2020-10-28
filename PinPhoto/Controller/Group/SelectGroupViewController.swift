@@ -186,8 +186,8 @@ class SelectGroupViewController: UIViewController {
     }
     
     private func alertMaxCount() {
-        let alert: UIAlertController = UIAlertController(title: "알림", message: "메모리 제한으로 위젯 항목은 \n 20개를 초과할 수 없습니다!", preferredStyle: .alert)
-        let accept: UIAlertAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        let alert: UIAlertController = UIAlertController(title: "Notice".localized, message: "Item count cannot exceed 20".localized, preferredStyle: .alert)
+        let accept: UIAlertAction = UIAlertAction(title: "Confirm".localized, style: .default, handler: nil)
         
         alert.addAction(accept)
         present(alert, animated: true)

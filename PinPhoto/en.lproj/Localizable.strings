@@ -25,6 +25,10 @@
 "Select group"= "Select group";
 "Complete" = "Complete";
 "Next" = "Next";
+"Notice" = "Notice";
+"Item count cannot exceed 20" = "Item count cannot exceed 20";
+"Confirm" = "Confirm";
+"Already exists the same group name" = "Already exists the same group name";
 
 // Setting
 "PinPhoto" = "PinPhoto";
