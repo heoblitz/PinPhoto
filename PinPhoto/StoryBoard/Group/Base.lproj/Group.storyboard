@@ -104,6 +104,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="s55-sa-IbH" id="e4u-Ul-0Kj"/>
                         <outlet property="groupTableView" destination="wrv-9A-YIn" id="iyF-uH-eqv"/>
                         <outlet property="inputTextField" destination="W6R-AI-9nb" id="9Hy-98-9HK"/>
                         <outlet property="inputTextView" destination="U7u-v6-7yf" id="Uhr-C4-q7Y"/>

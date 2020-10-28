@@ -27,8 +27,8 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="항목을 추가해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0Z-rw-Ont">
-                        <rect key="frame" x="27.5" y="72.5" width="133.5" height="19.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="항목을 추가해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="u0Z-rw-Ont">
+                        <rect key="frame" x="27" y="72.5" width="134" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -41,6 +41,8 @@
                 <constraint firstAttribute="leading" secondItem="rsO-qi-5wr" secondAttribute="leading" id="6aA-xY-CV0"/>
                 <constraint firstItem="u0Z-rw-Ont" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="6e3-qk-ND4"/>
                 <constraint firstItem="u0Z-rw-Ont" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="AcK-md-wob"/>
+                <constraint firstItem="u0Z-rw-Ont" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="WEq-sL-E0k"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="u0Z-rw-Ont" secondAttribute="trailing" constant="5" id="fby-cP-Rse"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NVl-w3-mNj" secondAttribute="trailing" constant="20" id="iSK-gx-67H"/>
                 <constraint firstItem="rsO-qi-5wr" firstAttribute="trailing" secondItem="gTV-IL-0wX" secondAttribute="trailing" id="kRp-GR-hZ9"/>
                 <constraint firstAttribute="top" secondItem="rsO-qi-5wr" secondAttribute="top" id="sLq-ab-IY4"/>

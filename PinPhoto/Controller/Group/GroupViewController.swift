@@ -14,6 +14,7 @@ class GroupViewController: UIViewController {
     @IBOutlet private weak var inputTextField: UITextField!
     @IBOutlet private weak var inputTextView: UIView!
     @IBOutlet private weak var inputViewBottom: NSLayoutConstraint!
+    @IBOutlet private weak var addButton: UIButton!
     
     // MARK:- Properties
     let groupViewModel = GroupViewModel()
@@ -77,7 +78,10 @@ class GroupViewController: UIViewController {
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
         groupTableView.isEditing = !groupTableView.isEditing
         groupTableView.setEditing(groupTableView.isEditing, animated: true)
+        
         sender.title = groupTableView.isEditing ? "Cancel".localized : "Edit".localized
+        inputTextField.isEnabled = groupTableView.isEditing ? false : true
+        addButton.isEnabled = groupTableView.isEditing ? false : true
     }
     
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
