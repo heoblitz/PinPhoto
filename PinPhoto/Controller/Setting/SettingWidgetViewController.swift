@@ -12,6 +12,7 @@ class SettingWidgetViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var widgetImageView: UIImageView!
     @IBOutlet private weak var widgetHeaderView: UIView!
+    @IBOutlet private weak var widgetHeaderTitleLabel: UILabel!
     @IBOutlet private weak var widgetSettingTableView: UITableView!
     @IBOutlet private weak var widgetImageHeight: NSLayoutConstraint!
     
@@ -46,6 +47,8 @@ class SettingWidgetViewController: UIViewController {
         widgetImageView.layer.cornerRadius = 10
         widgetImageView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         widgetImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        widgetHeaderTitleLabel.text = "PinPhoto".localized
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,6 +94,7 @@ extension SettingWidgetViewController: UITableViewDataSource {
             }
             cell.imageSwitch.addTarget(self, action: #selector(swtichTapped), for: .valueChanged)
             cell.imageSwitch.isOn = isImageFill
+            cell.imageInfoLabel.text = "Fill Widget Image".localized
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingWidgetSliderCell.cellIdentifier, for: indexPath) as? SettingWidgetSliderCell else {
@@ -98,6 +102,8 @@ extension SettingWidgetViewController: UITableViewDataSource {
             }
             cell.heightSilder.addTarget(self, action: #selector(sliderChanged), for: .valueChanged)
             cell.heightSilder.value = (widgetViewModel.height - 200) / 50
+            cell.heightBigLabel.text = "Big".localized
+            cell.heightSmallLabel.text = "Small".localized
             return cell
         default:
             return UITableViewCell()

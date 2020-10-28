@@ -185,7 +185,7 @@ extension GroupViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "Widget".localized : "Group".localized
+        return section == 0 ? "위젯에 표시될 항목".localized : "Group".localized
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

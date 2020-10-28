@@ -11,6 +11,7 @@ import UIKit
 class SettingWidgetSwitchCell: UITableViewCell {
     // MARK:- @IBOutlet Properties
     @IBOutlet weak var imageSwitch: UISwitch!
+    @IBOutlet weak var imageInfoLabel: UILabel!
     
     // MARK:- Propertises
     static let cellIdentifier: String = "settingWidgetSwitchCell"

@@ -21,7 +21,7 @@
 "Please insert group name" = "分類名を入力してください";
 
 // Setting
-"Pin Photo" = "写真コック";
+"PinPhoto" = "写真コック";
 "Setting" = "設定";
 "Exit" = "出口";
 
@@ -29,3 +29,19 @@
 "Manual" = "使用方法";
 "Widget Size" = "ウィジェットサイズ";
 "Reset Data" = "データ初期化";
+
+// Setting - Manual
+"1. Today Extension Widget \n Please add items" = "1.トゥデイ·ウィジェット方法 先にアイテムを追加してください。";
+"Left scroll from Home Screen \n and touch edit button" = "ホーム画面で左にスクロールして編集をクリックしてください。";
+"In iOS 14, touch Customize button \n and add Pin Photo widget" = "iOS 14 では使用話者をクリックしてウィジェットを追加してください。";
+"Please touch > button to use widget" = "> ボタンを押してご使用ください";
+"2. iOS 14 widget \n Left scroll from Home Screen" = "2. iOS 14ウィジェットの追加方法
+ホーム画面から左にスクロールしてください。";
+"Click Edit button and then touch + plus in the upper left corner " = "編集ボタンをクリックし、左上に加えるボタンを押してください。";
+"Add PinPhoto widget" = "該当画面でウィジェットを追加してください。";
+"Select item to display in home widget and click display button at the bottom" = "ホーム画面のウィジェットに表示される項目を選択し、下のディスプレイボタンをクリックしてください。";
+
+// Setting - Widget Size
+"Big" = "大きい";
+"Small" = "小さい";
+"Fill Widget Image" = "画像のサイズ変更";

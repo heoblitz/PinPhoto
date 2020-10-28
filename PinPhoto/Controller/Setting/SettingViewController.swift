@@ -15,7 +15,7 @@ class SettingViewController: UIViewController {
     // MARK:- Properties
     private let itemViewModel: ItemViewModel = ItemViewModel()
     private let groupViewModel: GroupViewModel = GroupViewModel()
-    private let settingTitleDatas: [String] = ["Pin Photo", "Setting", "Exit"].map { $0.localized }
+    private let settingTitleDatas: [String] = ["PinPhoto", "Setting", "Exit"].map { $0.localized }
     private let settingCellDatas: [[String]] = [
         ["Version", "Manual"],
         ["Widget Size"],
@@ -53,10 +53,7 @@ class SettingViewController: UIViewController {
     }
     
     private func presentManual() {
-        guard let vc = ManualViewController.storyboardInstance() else {
-            return
-            
-        }
+        guard let vc = ManualViewController.storyboardInstance() else { return }
         present(vc, animated: true)
     }
 }

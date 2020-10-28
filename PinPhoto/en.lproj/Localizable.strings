@@ -21,7 +21,7 @@
 "Please insert group name" = "Please insert group name";
 
 // Setting
-"Pin Photo" = "Pin Photo";
+"PinPhoto" = "PinPhoto";
 "Setting" = "Setting";
 "Exit" = "Exit";
 
@@ -29,3 +29,18 @@
 "Manual" = "Manual";
 "Widget Size" = "Widget Size";
 "Reset Data" = "Reset Data";
+
+// Setting - Manual
+"1. Today Extension Widget \n Please add items" = "1. Today Extension Widget \n Please add items";
+"Left scroll from Home Screen \n and touch edit button" = "Left scroll from Home Screen \n and touch edit button";
+"In iOS 14, touch Customize button \n and add Pin Photo widget" = "In iOS 14, touch Customize button \n and add Pin Photo widget" ;
+"Please touch > button to use widget" = "Please touch > button to use widget";
+"2. iOS 14 widget \n Left scroll from Home Screen" = "2. iOS 14 widget \n Left scroll from Home Screen";
+"Click Edit button and then touch + plus in the upper left corner" = "Click Edit button and then touch + plus in the upper left corner";
+"Add PinPhoto widget" = "Add PinPhoto widget";
+"Select item to display in home widget and click display button at the bottom" = "Select item to display in home widget and click display button at the bottom";
+
+// Setting - Widget Size
+"Big" = "Big";
+"Small" = "Small";
+"Fill Widget Image" = "Fill Widget Image";

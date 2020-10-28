@@ -19,15 +19,15 @@ class ManualViewController: UIViewController {
     ]
     
     private let manualTexts: [String] = [
-        "1. Today Extension 추가 방법 \n먼저 아이템을 추가해주세요",
-        "홈 화면에서 왼쪽으로 스크롤하고 \n편집을 클릭해주세요",
-        "iOS 14 에서는 사용자화를 클릭하고 \n사진 콕 위젯을 추가해주세요",
-        "> 버튼을 누르고 사용해주세요",
-        "2. iOS 14 위젯 추가 방법 \n홈 화면에서 왼쪽으로 스크롤 해주세요.",
-        "편집 버튼을 클릭하고 왼쪽 상단에 더하기 버튼을 눌러주세요.",
-        "해당 화면에서 위젯을 추가해주세요",
-        "홈 화면 위젯에 나타날 항목을 선택해주세요."
-    ]
+        "1. Today Extension Widget \n Please add items",
+        "Left scroll from Home Screen \n and touch edit button",
+        "In iOS 14, touch Customize button \n and add Pin Photo widget",
+        "Please touch > button to use widget",
+        "2. iOS 14 widget \n Left scroll from Home Screen",
+        "Click Edit button and then touch + plus in the upper left corner",
+        "Add PinPhoto widget",
+        "Select item to display in home widget and click display button at the bottom"
+    ].map { $0.localized }
     
     // MARK:- View Life Sycle
     override func viewDidLoad() {
