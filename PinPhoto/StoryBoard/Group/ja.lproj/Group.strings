@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "5Qa-Tr-H6H"; */
+"5Qa-Tr-H6H.text" = "Title";
+
+/* Class = "UITabBarItem"; title = "분류"; ObjectID = "HAJ-2S-xdF"; */
+"HAJ-2S-xdF.title" = "分流";
+
+/* Class = "UIBarButtonItem"; title = "편집"; ObjectID = "PYP-m4-otO"; */
+"PYP-m4-otO.title" = "편집";
+
+/* Class = "UITextField"; placeholder = "그룹 이름을 입력해주세요."; ObjectID = "W6R-AI-9nb"; */
+"W6R-AI-9nb.placeholder" = "그룹 이름을 입력해주세요.";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "fWO-2E-IbU"; */
+"fWO-2E-IbU.text" = "Subtitle";
+
+/* Class = "UIButton"; normalTitle = "추가하기"; ObjectID = "s55-sa-IbH"; */
+"s55-sa-IbH.normalTitle" = "추가하기";
+
+/* Class = "UINavigationItem"; title = "분류"; ObjectID = "xns-tl-6DS"; */
+"xns-tl-6DS.title" = "分流";
