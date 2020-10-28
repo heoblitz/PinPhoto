@@ -15,13 +15,13 @@ class CreateTextItemViewController: UIViewController {
     
     // MARK:- Propertises    
     let cancelBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonTapped))
+        let barButtonItem = UIBarButtonItem(title: "Cancel".localized, style: .plain, target: self, action: #selector(cancelButtonTapped))
         barButtonItem.tintColor = .label
         return barButtonItem
     }()
     
     let nextBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(saveButtonTapped))
+        let barButtonItem = UIBarButtonItem(title: "Next".localized, style: .done, target: self, action: #selector(saveButtonTapped))
         barButtonItem.tintColor = .link
         return barButtonItem
     }()

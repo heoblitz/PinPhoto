@@ -19,7 +19,7 @@ class SelectGroupViewController: UIViewController {
     private let widgetGroupName: String = "위젯에 표시될 항목"
     
     lazy var cancelBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonTapped))
+        let barButtonItem = UIBarButtonItem(title: "Cancel".localized, style: .plain, target: self, action: #selector(cancelButtonTapped))
         barButtonItem.tintColor = .label
         return barButtonItem
     }()
@@ -28,8 +28,10 @@ class SelectGroupViewController: UIViewController {
     
     // Add Image
     var items: [YPMediaItem]?
+    
     // Add Text
     var itemText: String?
+    
     // Move Item
     var moveIds: [Int64]?
     var moveGroupName: String?
@@ -43,7 +45,6 @@ class SelectGroupViewController: UIViewController {
     // MARK:- View Life Cycle
     override func viewDidLoad() {
         if let type = selectionType, type == .move {
-            print("add")
             navigationItem.leftBarButtonItem = cancelBarButtonItem
         }
         
@@ -57,11 +58,11 @@ class SelectGroupViewController: UIViewController {
         view.backgroundColor = .offWhiteOrBlack // YPImagePicker 색상과 같게 하기
         groupTableView.backgroundColor = .offWhiteOrBlack
         
-        let barButtonItem = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(completeTapped))
+        let barButtonItem = UIBarButtonItem(title: "Complete".localized, style: .done, target: self, action: #selector(completeTapped))
         barButtonItem.tintColor = .link
         navigationItem.rightBarButtonItem = barButtonItem
         navigationItem.rightBarButtonItem?.isEnabled = false
-        title = "저장할 그룹 선택"
+        title = "Select group".localized
     }
     
     static func storyboardInstance() -> SelectGroupViewController? {
@@ -87,9 +88,20 @@ class SelectGroupViewController: UIViewController {
         navigationController?.dismiss(animated: true, completion: nil)
     }
     
+    private func cellGroupName() -> String? {
+        guard let selectedCell = selectedCell else { return nil }
+        
+        if selectedCell.section == 0, selectedCell.item == 0 {
+            return "위젯에 표시될 항목"
+        } else {
+            return groupTableView.cellForRow(at: selectedCell)?.textLabel?.text
+        }
+    }
+    
     private func addImageItem() {
         guard let items = items else { return }
-        guard let selectedCell = selectedCell, let groupName = groupTableView.cellForRow(at: selectedCell)?.textLabel?.text else { return }
+        guard let groupName = cellGroupName() else { return }
+        
         var id: Int64 = itemViewModel.idForAdd
 
         if ifWidgetMaxCount(itemCount: items.count) {
@@ -116,7 +128,7 @@ class SelectGroupViewController: UIViewController {
     
     private func addTextItem() {
         guard let itemText = itemText else { return }
-        guard let selectedCell = selectedCell, let groupName = groupTableView.cellForRow(at: selectedCell)?.textLabel?.text else { return }
+        guard let groupName = cellGroupName() else { return }
         
         if ifWidgetMaxCount(itemCount: 1) {
             alertMaxCount()
@@ -133,7 +145,8 @@ class SelectGroupViewController: UIViewController {
     
     private func moveItem() {
         guard let moveIds = moveIds?.sorted(by: { $0 > $1 }), let moveGroupName = moveGroupName else { return }
-        guard let selectedCell = selectedCell, let groupName = groupTableView.cellForRow(at: selectedCell)?.textLabel?.text else { return }
+        guard let groupName = cellGroupName() else { return }
+        
         var id: Int64 = itemViewModel.idForAdd
         
         if ifWidgetMaxCount(itemCount: moveIds.count) {
@@ -215,7 +228,7 @@ extension SelectGroupViewController: UITableViewDataSource {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "selectGroupCell") else { return UITableViewCell() }
             let group = groupViewModel.groups[0]
-            cell.textLabel?.text = group.name
+            cell.textLabel?.text = group.name.localized
             cell.detailTextLabel?.text = "\(group.numberOfItem)"
             cell.textLabel?.textColor = .systemPink
             cell.isUserInteractionEnabled = group.name == moveGroupName ? false : true
@@ -236,7 +249,7 @@ extension SelectGroupViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "위젯" : "분류"
+        return section == 0 ? "Widget".localized : "Group".localized
     }
 }
 

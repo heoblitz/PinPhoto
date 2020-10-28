@@ -8,17 +8,23 @@
 
 // Home
 "위젯에 표시될 항목" = "ウィジェット";
+"Widget" = "ウィジェット";
 "Item" = "アイテム";
 "Please Add Items" = "アイテンを追加してください";
 "Edit" = "編集";
 "Cancel" = "キャンセル";
 "Group" = "分流";
 "Item Type" = "アイテム 種類";
-"Add Image" = "イトージェーンを追加";
+"Add Image" = "イトージェーンを追加する";
 "Add Text" = "テキストを追加する";
 
 // Search
 "Please insert group name" = "分類名を入力してください";
+
+// Group
+"Select group" = "分流選択";
+"Complete" = "完了";
+"Next" = "次へ";
 
 // Setting
 "PinPhoto" = "写真コック";

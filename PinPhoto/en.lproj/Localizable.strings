@@ -8,6 +8,7 @@
 
 // Home
 "위젯에 표시될 항목" = "Widget";
+"Widget" = "Widget";
 "Item" = "Item";
 "Please Add Items" = "Please Add Items";
 "Edit" = "Edit";
@@ -19,6 +20,11 @@
 
 // Search
 "Please insert group name" = "Please insert group name";
+
+// Group
+"Select group"= "Select group";
+"Complete" = "Complete";
+"Next" = "Next";
 
 // Setting
 "PinPhoto" = "PinPhoto";

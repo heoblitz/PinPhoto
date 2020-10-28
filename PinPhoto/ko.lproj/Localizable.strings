@@ -8,6 +8,7 @@
 
 // Home
 "위젯에 표시될 항목" = "위젯에 표시될 항목";
+"Widget" = "위젯";
 "Item" = "항목";
 "Please Add Items" = "항목을 추가해주세요.";
 "Edit" = "편집";
@@ -19,6 +20,11 @@
 
 // Search
 "Please insert group name" = "그룹 이름을 입력해주세요.";
+
+// Group
+"Select group" = "저장할 그룹 선택";
+"Complete" = "완료";
+"Next" = "다음";
 
 // Setting
 "PinPhoto" = "사진 콕";
