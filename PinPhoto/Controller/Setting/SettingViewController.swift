@@ -15,13 +15,13 @@ class SettingViewController: UIViewController {
     // MARK:- Properties
     private let itemViewModel: ItemViewModel = ItemViewModel()
     private let groupViewModel: GroupViewModel = GroupViewModel()
-    private let settingTitleDatas: [String] = ["사진 콕", "설정", "기타"]
+    private let settingTitleDatas: [String] = ["Pin Photo", "Setting", "Exit"].map { $0.localized }
     private let settingCellDatas: [[String]] = [
-        ["버전 정보","사용 방법"],
-        ["위젯 크기"],
-        ["데이터 초기화하기"]
-    ]
-    
+        ["Version", "Manual"],
+        ["Widget Size"],
+        ["Reset Data" ]
+    ].map { $0.map { $0.localized } }
+
     // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()

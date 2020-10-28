@@ -17,7 +17,7 @@ class SearchViewController: UIViewController {
         let search = UISearchController(searchResultsController: nil)
         search.searchBar.tintColor = .systemPink
         search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.placeholder = "분류명을 입력해주세요."
+        search.searchBar.placeholder = "Please insert group name".localized
         return search
     }()
     

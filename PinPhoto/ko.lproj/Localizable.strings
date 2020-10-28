@@ -16,3 +16,16 @@
 "Item Type" = "아이템 종류";
 "Add Image" = "이미지 추가하기";
 "Add Text" = "텍스트 추가하기";
+
+// Search
+"Please insert group name" = "그룹 이름을 입력해주세요.";
+
+// Setting
+"Pin Photo" = "사진 콕";
+"Setting" = "설정";
+"Exit" = "기타";
+
+"Version" = "버전 정본";
+"Manual" = "사용 방법";
+"Widget Size" = "위젯 크기";
+"Reset Data" = "데이터 초기화하기";

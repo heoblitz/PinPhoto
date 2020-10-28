@@ -16,3 +16,16 @@
 "Item Type" = "アイテム 種類";
 "Add Image" = "イトージェーンを追加";
 "Add Text" = "テキストを追加する";
+
+// Search
+"Please insert group name" = "分類名を入力してください";
+
+// Setting
+"Pin Photo" = "写真コック";
+"Setting" = "設定";
+"Exit" = "出口";
+
+"Version" = "バージョン";
+"Manual" = "使用方法";
+"Widget Size" = "ウィジェットサイズ";
+"Reset Data" = "データ初期化";

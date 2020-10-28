@@ -75,7 +75,7 @@ class GroupViewController: UIViewController {
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
         groupTableView.isEditing = !groupTableView.isEditing
         groupTableView.setEditing(groupTableView.isEditing, animated: true)
-        sender.title = groupTableView.isEditing ? "완료" : "편집"
+        sender.title = groupTableView.isEditing ? "Cancel".localized : "Edit".localized
     }
     
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
@@ -140,7 +140,7 @@ extension GroupViewController: UITableViewDataSource {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell") else { return UITableViewCell() }
             let group = groupViewModel.groups[0]
-            cell.textLabel?.text = group.name
+            cell.textLabel?.text = group.name.localized
             cell.detailTextLabel?.text = "\(group.numberOfItem)"
             cell.textLabel?.textColor = .systemPink
             return cell
@@ -185,7 +185,7 @@ extension GroupViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "위젯" : "분류"
+        return section == 0 ? "Widget".localized : "Group".localized
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
