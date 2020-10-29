@@ -40,6 +40,10 @@
 "Widget Size" = "Widget Size";
 "Reset Data" = "Reset Data";
 
+"Remove" = "Remove";
+"Do you want to initialize the data?" = "Do you want to initialize the data?";
+"Data cannot be recovered again" = "Data cannot be recovered again";
+
 // Setting - Manual
 "1. Today Extension Widget \n Please add items" = "1. Today Extension Widget \n Please add items";
 "Left scroll from Home Screen \n and touch edit button" = "Left scroll from Home Screen \n and touch edit button";

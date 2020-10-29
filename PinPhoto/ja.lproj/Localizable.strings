@@ -40,6 +40,10 @@
 "Widget Size" = "ウィジェットサイズ";
 "Reset Data" = "データ初期化";
 
+"Remove" = "削除";
+"Do you want to initialize the data?" = "データを初期化しますか？";
+"Data cannot be recovered again." = "データは再び復旧できません。";
+
 // Setting - Manual
 "1. Today Extension Widget \n Please add items" = "1.トゥデイ·ウィジェット方法 先にアイテムを追加してください。";
 "Left scroll from Home Screen \n and touch edit button" = "ホーム画面で左にスクロールして編集をクリックしてください。";

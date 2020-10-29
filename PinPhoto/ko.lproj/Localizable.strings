@@ -40,6 +40,10 @@
 "Widget Size" = "위젯 크기";
 "Reset Data" = "데이터 초기화하기";
 
+"Remove" = "삭제";
+"Do you want to initialize the data?" = "데이터를 초기화 하시겠습니까?";
+"Data cannot be recovered again." = "데이터는 다시 복구할 수 없습니다.";
+
 // Setting - Manual
 "1. Today Extension Widget \n Please add items" = "1. 투데이 위젯 추가 방법 \n먼저 아이템을 추가해주세요";
 "Left scroll from Home Screen \n and touch edit button" = "홈 화면에서 왼쪽으로 스크롤하고 \n편집을 클릭해주세요";
