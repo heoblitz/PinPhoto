@@ -21,6 +21,7 @@
 		3C23693225036ADF0064637A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23693125036ADF0064637A /* HomeViewController.swift */; };
 		3C25284E24EFD2C4002ADBDC /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C25284D24EFD2C4002ADBDC /* HomeNavigationController.swift */; };
 		3C33F24B2549AF3F009406CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C33F24D2549AF3F009406CF /* InfoPlist.strings */; };
+		3C33F290254A5C5B009406CF /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C33F28F254A5C5B009406CF /* DateExtension.swift */; };
 		3C38CB052500E06C007B6283 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB042500E06C007B6283 /* Group.swift */; };
 		3C38CB082500E17D007B6283 /* GroupDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB072500E17D007B6283 /* GroupDataManager.swift */; };
 		3C38CB0A2500E4A4007B6283 /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB092500E4A4007B6283 /* GroupViewModel.swift */; };
@@ -176,6 +177,7 @@
 		3C33F24C2549AF3F009406CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3C33F24E2549AF44009406CF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3C33F24F2549AF45009406CF /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3C33F28F254A5C5B009406CF /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		3C38CB042500E06C007B6283 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		3C38CB072500E17D007B6283 /* GroupDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDataManager.swift; sourceTree = "<group>"; };
 		3C38CB092500E4A4007B6283 /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
@@ -542,6 +544,7 @@
 				3C585BCE24FD33A600203C18 /* ConvertImageToData.swift */,
 				3C0C005124EA581900BF137B /* ClassNameToString.swift */,
 				3CAC4C3F25468E0900ACE418 /* LocalizedExtension.swift */,
+				3C33F28F254A5C5B009406CF /* DateExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -905,6 +908,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CF07B9424FE387E006D48CE /* WidgetViewModel.swift in Sources */,
+				3C33F290254A5C5B009406CF /* DateExtension.swift in Sources */,
 				3C585BCF24FD33A600203C18 /* ConvertImageToData.swift in Sources */,
 				3C76EEFB250C951E003B298D /* CoreDataType.swift in Sources */,
 				3CCA19682508BD9700F9CCEB /* HomeSectionReusableView.swift in Sources */,
