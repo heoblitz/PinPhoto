@@ -73,11 +73,11 @@ class GroupViewModel {
     }
     
     func attachObserver(_ observer: GroupObserver) {
-        groupDataManager.addObserber(observer)
+        groupDataManager.addObserver(observer)
     }
     
     func removeOberserver(_ observer: GroupObserver) {
-        groupDataManager.removeObserber(observer)
+        groupDataManager.removeObserver(observer)
     }
 }
 
