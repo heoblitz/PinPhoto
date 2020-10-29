@@ -17,7 +17,9 @@ class GroupViewController: UIViewController {
     @IBOutlet private weak var addButton: UIButton!
     
     // MARK:- Properties
-    private let widgetGroupName: String = "위젯에 표시될 항목"
+    private let widgetGroupNameKr: String = "위젯에 표시될 항목"
+    private let widgetGroupNameEn: String = "Widget"
+    private let widgetGroupNameJpn: String = "ウィジェット"
 
     let groupViewModel = GroupViewModel()
     let itemViewModel = ItemViewModel()
@@ -89,7 +91,11 @@ class GroupViewController: UIViewController {
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         guard let text = inputTextField.text?.trimmingCharacters(in: .whitespaces), !text.isEmpty else { return }
         
-        if !groupViewModel.groups.contains(where: { $0.name == text }), text != widgetGroupName {
+        if !groupViewModel.groups.contains(where: { $0.name == text }),
+           text != widgetGroupNameKr,
+           text != widgetGroupNameEn,
+           text != widgetGroupNameJpn {
+            
             inputTextField.text = ""
             dismissKeyboard()
             
