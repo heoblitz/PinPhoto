@@ -63,7 +63,6 @@
 		3C585BD024FD33A600203C18 /* ConvertImageToData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C585BCE24FD33A600203C18 /* ConvertImageToData.swift */; };
 		3C5BC0D6251257DB00A74F4E /* ItemCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5BC0D5251257DB00A74F4E /* ItemCopy.swift */; };
 		3C5BC0D72513743A00A74F4E /* ItemCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5BC0D5251257DB00A74F4E /* ItemCopy.swift */; };
-		3C5C91D6253D294600614198 /* textView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5C91CA253D292900614198 /* textView.swift */; };
 		3C76EEF1250C8E1E003B298D /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C76EEF0250C8E1E003B298D /* ItemType.swift */; };
 		3C76EEFB250C951E003B298D /* CoreDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C76EEFA250C951E003B298D /* CoreDataType.swift */; };
 		3C76EEFC250C964F003B298D /* CoreDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C76EEFA250C951E003B298D /* CoreDataType.swift */; };
@@ -188,7 +187,6 @@
 		3C4D139F24AB716B009BDCDE /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
 		3C585BCE24FD33A600203C18 /* ConvertImageToData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertImageToData.swift; sourceTree = "<group>"; };
 		3C5BC0D5251257DB00A74F4E /* ItemCopy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCopy.swift; sourceTree = "<group>"; };
-		3C5C91CA253D292900614198 /* textView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textView.swift; sourceTree = "<group>"; };
 		3C76EEF0250C8E1E003B298D /* ItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
 		3C76EEFA250C951E003B298D /* CoreDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataType.swift; sourceTree = "<group>"; };
 		3C8AA00F24B05D32005EB75C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -519,7 +517,6 @@
 				3CDBF2E825186DBF00F84F66 /* PinPhotoWidget.intentdefinition */,
 				3CDBF2E925186DC100F84F66 /* Assets.xcassets */,
 				3CDBF2EB25186DC100F84F66 /* Info.plist */,
-				3C5C91CA253D292900614198 /* textView.swift */,
 			);
 			path = PinPhotoWidget;
 			sourceTree = "<group>";
@@ -917,7 +914,6 @@
 				3C3ACC9024BB558B00311F7A /* Item.xcdatamodeld in Sources */,
 				3CF07B9A24FE4B67006D48CE /* GroupViewController.swift in Sources */,
 				3CAA167E24BC211200635F6D /* ItemCustomCell.swift in Sources */,
-				3C5C91D6253D294600614198 /* textView.swift in Sources */,
 				3C070AA324D419600077C3AE /* ItemObserver.swift in Sources */,
 				3CAC4C4025468E0900ACE418 /* LocalizedExtension.swift in Sources */,
 				3C21CC0724BEDC10004BEAF0 /* CreateTextItemViewController.swift in Sources */,
