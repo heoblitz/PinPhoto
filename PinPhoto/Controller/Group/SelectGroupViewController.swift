@@ -227,19 +227,31 @@ extension SelectGroupViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "selectGroupCell") else { return UITableViewCell() }
+            
             let group = groupViewModel.groups[0]
             cell.textLabel?.text = group.name.localized
             cell.detailTextLabel?.text = "\(group.numberOfItem)"
             cell.textLabel?.textColor = .systemPink
             cell.isUserInteractionEnabled = group.name == moveGroupName ? false : true
             
+            if let move = moveGroupName, move == group.name {
+                cell.contentView.isOpaque = false
+                cell.contentView.alpha = CGFloat(0.5)
+            }
+            
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "selectGroupCell") else { return UITableViewCell() }
+            
             let group = groupViewModel.groups[indexPath.row + 1]
             cell.textLabel?.text = group.name
             cell.detailTextLabel?.text = "\(group.numberOfItem)"
             cell.isUserInteractionEnabled = group.name == moveGroupName ? false : true
+            
+            if let move = moveGroupName, move == group.name {
+                cell.contentView.isOpaque = false
+                cell.contentView.alpha = CGFloat(0.5)
+            }
             
             return cell
         default:
