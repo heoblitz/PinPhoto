@@ -20,6 +20,7 @@
 		3C21CC0724BEDC10004BEAF0 /* CreateTextItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C21CC0624BEDC10004BEAF0 /* CreateTextItemViewController.swift */; };
 		3C23693225036ADF0064637A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23693125036ADF0064637A /* HomeViewController.swift */; };
 		3C25284E24EFD2C4002ADBDC /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C25284D24EFD2C4002ADBDC /* HomeNavigationController.swift */; };
+		3C33F24B2549AF3F009406CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C33F24D2549AF3F009406CF /* InfoPlist.strings */; };
 		3C38CB052500E06C007B6283 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB042500E06C007B6283 /* Group.swift */; };
 		3C38CB082500E17D007B6283 /* GroupDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB072500E17D007B6283 /* GroupDataManager.swift */; };
 		3C38CB0A2500E4A4007B6283 /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB092500E4A4007B6283 /* GroupViewModel.swift */; };
@@ -172,6 +173,9 @@
 		3C23693125036ADF0064637A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3C25284D24EFD2C4002ADBDC /* HomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
 		3C3024B9251B3E6900C7E73B /* PinPhotoWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PinPhotoWidgetExtension.entitlements; sourceTree = "<group>"; };
+		3C33F24C2549AF3F009406CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3C33F24E2549AF44009406CF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3C33F24F2549AF45009406CF /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3C38CB042500E06C007B6283 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		3C38CB072500E17D007B6283 /* GroupDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDataManager.swift; sourceTree = "<group>"; };
 		3C38CB092500E4A4007B6283 /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
@@ -580,6 +584,7 @@
 				3C585BD124FD34A900203C18 /* Protocol */,
 				3CF8B45324A9CBA700D6C11C /* Assets.xcassets */,
 				3CF8B45824A9CBA700D6C11C /* Info.plist */,
+				3C33F24D2549AF3F009406CF /* InfoPlist.strings */,
 				3CAC4C3625468A8400ACE418 /* Localizable.strings */,
 			);
 			path = PinPhoto;
@@ -742,6 +747,7 @@
 				3CF8B45724A9CBA700D6C11C /* LaunchScreen.storyboard in Resources */,
 				3CAC4C3225468A8400ACE418 /* Localizable.strings in Resources */,
 				3C0C004A24EA4F1A00BF137B /* Manual.storyboard in Resources */,
+				3C33F24B2549AF3F009406CF /* InfoPlist.strings in Resources */,
 				3C0C004E24EA4FED00BF137B /* EditImageItem.storyboard in Resources */,
 				3CAC4CA725486B6F00ACE418 /* Search.storyboard in Resources */,
 				3CF8B45224A9CBA300D6C11C /* Main.storyboard in Resources */,
@@ -958,6 +964,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3C33F24D2549AF3F009406CF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3C33F24C2549AF3F009406CF /* en */,
+				3C33F24E2549AF44009406CF /* ja */,
+				3C33F24F2549AF45009406CF /* ko */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		3CAC4C3625468A8400ACE418 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
