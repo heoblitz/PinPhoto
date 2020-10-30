@@ -29,6 +29,8 @@
 "Item count cannot exceed 20" = "아이템 개수는 20개를 초과할 수 없습니다.";
 "Confirm" = "확인";
 "Already exists the same group name" = "같은 그룹 이름이 존재합니다";
+"Are you sure you want to delete it?" = "삭제하시겠습니까?";
+"All items in the group will also be deleted" = "분류에 포함된 항목도 모두 삭제됩니다";
 
 // Setting
 "PinPhoto" = "사진 콕";

@@ -45,15 +45,15 @@ class GroupViewController: UIViewController {
         
         inputTextView.backgroundColor = UIColor.tapBarColor
     }
-    
+
     // MARK:- Methods
     private func presentRemoveAlert(at target: Group) {
-        let alert = UIAlertController(title: "삭제하시겠습니까?", message: "분류에 포함된 항목도 모두 삭제됩니다.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Are you sure you want to delete it?".localized, message: "All items in the group will also be deleted".localized, preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
-        let remove = UIAlertAction(title: "삭제", style: .destructive, handler: { [weak self]_ in
+        let remove = UIAlertAction(title: "Remove".localized, style: .destructive, handler: { [weak self]_ in
             self?.removeGroup(at: target)
         })
-        
+
         alert.addAction(cancel)
         alert.addAction(remove)
         

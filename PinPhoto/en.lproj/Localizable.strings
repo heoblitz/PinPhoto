@@ -29,6 +29,8 @@
 "Item count cannot exceed 20" = "Item count cannot exceed 20";
 "Confirm" = "Confirm";
 "Already exists the same group name" = "Already exists the same group name";
+"Are you sure you want to delete it?" = "Are you sure you want to delete it?";
+"All items in the group will also be deleted" = "All items in the group will also be deleted";
 
 // Setting
 "PinPhoto" = "PinPhoto";

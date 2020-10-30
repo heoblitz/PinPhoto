@@ -29,6 +29,8 @@
 "Item count cannot exceed 20" = "アイテム数は20を超えることはできません";
 "Confirm" = "確認";
 "Already exists the same group name" = "既に同一の分類名が存在します。";
+"Are you sure you want to delete it?" = "削除しますか？";
+"All items in the group will also be deleted" = "分類に含まれている項目も全て削除されます。";
 
 // Setting
 "PinPhoto" = "写真コック";
