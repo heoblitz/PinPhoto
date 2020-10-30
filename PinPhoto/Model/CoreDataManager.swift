@@ -81,8 +81,10 @@ public class CoreDataManager {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: modelName)
 
         fetchRequest.sortDescriptors = [idSort]
-        fetchRequest.predicate = NSPredicate(format: "id IN %@ AND contentType == 0", ids)
         fetchRequest.fetchLimit = 1
+        fetchRequest.predicate = NSPredicate(format: "id IN %@", ids)
+        // 이미지 데이터만 Fetch 하기
+        // fetchRequest.predicate = NSPredicate(format: "id IN %@ AND contentType == 0", ids)
         
         do {
             if let fetchResult = try context.fetch(fetchRequest) as? [Item] {

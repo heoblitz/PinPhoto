@@ -11,6 +11,7 @@ import UIKit
 class HomeGroupViewCell: UICollectionViewCell {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var groupImageView: UIImageView!
+    @IBOutlet private weak var groupTextLabel: UILabel!
     @IBOutlet private weak var groupNameLabel: UILabel!
     @IBOutlet private weak var noticeTextLabel: UILabel!
     
@@ -63,16 +64,30 @@ class HomeGroupViewCell: UICollectionViewCell {
     }
     
     private func reset() {
-        noticeTextLabel.isHidden = false
         groupImageView.image = nil
+        groupTextLabel.text = nil
+        groupImageView.isHidden = false
+        groupTextLabel.isHidden = false
+        noticeTextLabel.isHidden = false
     }
     
     func update(at item: Item?, title: String) {
-        if let item = item {
-            groupImageView.image = item.contentImage?.image?.greyScale
-            noticeTextLabel.isHidden = true
-        }
         groupNameLabel.text = title
+        
+        guard let item = item else { return }
+        
+        switch item.contentType {
+        case ItemType.image.value:
+            groupImageView.image = item.contentImage?.image?.greyScale
+            groupTextLabel.isHidden = true
+        case ItemType.text.value:
+            groupTextLabel.text = item.contentText
+            groupImageView.isHidden = true
+        default:
+            break
+        }
+        
+        noticeTextLabel.isHidden = true
     }
     
     func freezeAnimations() {

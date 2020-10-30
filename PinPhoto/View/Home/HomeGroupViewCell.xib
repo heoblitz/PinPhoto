@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,16 +21,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="188" height="164"/>
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysM-8T-Gev">
+                        <rect key="frame" x="0.0" y="0.0" width="188" height="164"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="항목을 추가해주세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="u0Z-rw-Ont">
+                        <rect key="frame" x="23.5" y="72" width="141.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="그룹 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="NVl-w3-mNj">
                         <rect key="frame" x="15" y="125" width="88.5" height="29"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="항목을 추가해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="u0Z-rw-Ont">
-                        <rect key="frame" x="27" y="72.5" width="134" height="19.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -40,7 +47,11 @@
                 <constraint firstAttribute="bottom" secondItem="NVl-w3-mNj" secondAttribute="bottom" constant="10" id="5oK-HV-yiI"/>
                 <constraint firstAttribute="leading" secondItem="rsO-qi-5wr" secondAttribute="leading" id="6aA-xY-CV0"/>
                 <constraint firstItem="u0Z-rw-Ont" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="6e3-qk-ND4"/>
+                <constraint firstItem="ysM-8T-Gev" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="6oB-FW-XWl"/>
                 <constraint firstItem="u0Z-rw-Ont" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="AcK-md-wob"/>
+                <constraint firstItem="ysM-8T-Gev" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="F3P-lt-S5N"/>
+                <constraint firstAttribute="bottom" secondItem="ysM-8T-Gev" secondAttribute="bottom" id="GwA-XA-xCM"/>
+                <constraint firstAttribute="trailing" secondItem="ysM-8T-Gev" secondAttribute="trailing" id="PDJ-Sz-oC1"/>
                 <constraint firstItem="u0Z-rw-Ont" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="WEq-sL-E0k"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="u0Z-rw-Ont" secondAttribute="trailing" constant="5" id="fby-cP-Rse"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NVl-w3-mNj" secondAttribute="trailing" constant="20" id="iSK-gx-67H"/>
@@ -52,6 +63,7 @@
             <connections>
                 <outlet property="groupImageView" destination="rsO-qi-5wr" id="b3U-sW-aIq"/>
                 <outlet property="groupNameLabel" destination="NVl-w3-mNj" id="DMY-PN-Bmh"/>
+                <outlet property="groupTextLabel" destination="ysM-8T-Gev" id="eMT-vt-kq2"/>
                 <outlet property="noticeTextLabel" destination="u0Z-rw-Ont" id="rHR-Gy-9wJ"/>
             </connections>
             <point key="canvasLocation" x="231.8840579710145" y="150"/>
@@ -60,6 +72,9 @@
     <resources>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
