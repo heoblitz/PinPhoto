@@ -8,8 +8,59 @@
 
 // Home
 "위젯에 표시될 항목" = "위젯에 표시될 항목";
+"Widget" = "위젯";
 "Item" = "항목";
 "Please Add Items" = "항목을 추가해주세요.";
 "Edit" = "편집";
 "Cancel" = "취소";
 "Group" = "분류";
+"Item Type" = "아이템 종류";
+"Add Image" = "이미지 추가하기";
+"Add Text" = "텍스트 추가하기";
+
+// Search
+"Please insert group name" = "그룹 이름을 입력해주세요.";
+
+// Group
+"Select group" = "저장할 그룹 선택";
+"Complete" = "완료";
+"Next" = "다음";
+"Notice" = "알림";
+"Item count cannot exceed 20" = "아이템 개수는 20개를 초과할 수 없습니다.";
+"Confirm" = "확인";
+"Already exists the same group name" = "같은 그룹 이름이 존재합니다";
+"Are you sure you want to delete it?" = "삭제하시겠습니까?";
+"All items in the group will also be deleted" = "분류에 포함된 항목도 모두 삭제됩니다";
+
+// Setting
+"PinPhoto" = "사진 콕";
+"Setting" = "설정";
+"Exit" = "기타";
+
+"Version" = "버전 정보";
+"Manual" = "사용 방법";
+"Widget Size" = "위젯 크기";
+"Reset Data" = "데이터 초기화하기";
+
+"Remove" = "삭제";
+"Do you want to initialize the data?" = "데이터를 초기화 하시겠습니까?";
+"Data cannot be recovered again." = "데이터는 다시 복구할 수 없습니다.";
+
+// Setting - Manual
+"1. Today Extension Widget \n Please add items" = "1. 투데이 위젯 추가 방법 \n먼저 아이템을 추가해주세요";
+"Left scroll from Home Screen \n and touch edit button" = "홈 화면에서 왼쪽으로 스크롤하고 \n편집을 클릭해주세요";
+"In iOS 14, touch Customize button \n and add Pin Photo widget" = "iOS 14 에서는 사용자화를 클릭하고 \n사진 콕 위젯을 추가해주세요";
+"Please touch > button to use widget" = "> 버튼을 누르고 사용해주세요";
+"2. iOS 14 widget \n Left scroll from Home Screen" = "2. iOS 14 위젯 추가 방법 \n홈 화면에서 왼쪽으로 스크롤 해주세요.";
+"Click Edit button and then touch + plus in the upper left corner " = "편집 버튼을 클릭하고 왼쪽 상단에 더하기 버튼을 눌러주세요.";
+"Add PinPhoto widget" = "해당 화면에서 위젯을 추가해주세요";
+"Select item to display in home widget and click display button at the bottom" = "홈 화면 위젯에 나타날 항목을 선택하고 \n 아래 디스플레이 버튼을 클릭해주세요.";
+
+// Setting - Widget Size
+"Big" = "크게";
+"Small" = "작게";
+"Fill Widget Image" = "이미지 위젯에 맞게 채우기";
+
+// iOS 14 widget
+"Please select an item" = "항목을 선택해주세요.";
+"A widget showing pictures and notes" = "사진과 메모를 보여주는 위젯입니다.";

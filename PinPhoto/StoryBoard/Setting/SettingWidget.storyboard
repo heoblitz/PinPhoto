@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gl9-zM-uM7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gl9-zM-uM7">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,21 +26,21 @@
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingWidgetSwitchCell" id="9uk-VV-IZM" customClass="SettingWidgetSwitchCell" customModule="PinPhoto" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="55.5" width="374" height="44.5"/>
+                                        <rect key="frame" x="20" y="55.5" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9uk-VV-IZM" id="EwJ-w6-kin">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SaJ-H9-xiw">
-                                                    <rect key="frame" x="305" y="7" width="51" height="31"/>
+                                                    <rect key="frame" x="305" y="6.5" width="51" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="31" id="UX9-m2-f3N"/>
                                                         <constraint firstAttribute="width" constant="49" id="WWc-4P-yQd"/>
                                                     </constraints>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이미지 위젯에 맞게 채우기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSA-BJ-Ess">
-                                                    <rect key="frame" x="20" y="11.5" width="175" height="21.5"/>
+                                                    <rect key="frame" x="20" y="11.5" width="175" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -54,11 +56,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="imageInfoLabel" destination="cSA-BJ-Ess" id="1km-ih-hKv"/>
                                             <outlet property="imageSwitch" destination="SaJ-H9-xiw" id="334-co-d4U"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="settingWidgetSliderCell" id="LvS-RJ-w5y" customClass="SettingWidgetSliderCell" customModule="PinPhoto" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="100" width="374" height="70.5"/>
+                                        <rect key="frame" x="20" y="99.5" width="374" height="70.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LvS-RJ-w5y" id="7QF-go-V6X">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="70.5"/>
@@ -78,7 +81,7 @@
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23m-ej-ccF">
                                                     <rect key="frame" x="15" y="38" width="3" height="15"/>
-                                                    <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="YlL-9M-Otx"/>
                                                         <constraint firstAttribute="width" constant="3" id="yVT-Tg-dDd"/>
@@ -86,7 +89,7 @@
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EP1-DI-BN4">
                                                     <rect key="frame" x="356" y="38" width="3" height="15"/>
-                                                    <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="3" id="TfI-qq-uIQ"/>
                                                         <constraint firstAttribute="height" constant="15" id="jqh-IZ-I1p"/>
@@ -94,7 +97,7 @@
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIb-57-Nz2">
                                                     <rect key="frame" x="185.5" y="38" width="3" height="15"/>
-                                                    <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="3" id="KQt-TK-iLe"/>
                                                         <constraint firstAttribute="height" constant="15" id="eC2-MF-h7V"/>
@@ -102,7 +105,7 @@
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V0r-BE-2GH">
                                                     <rect key="frame" x="101.5" y="38" width="3" height="15"/>
-                                                    <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="3" id="7di-lv-EGf"/>
                                                         <constraint firstAttribute="height" constant="15" id="jD2-TC-fU0"/>
@@ -110,7 +113,7 @@
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M09-qx-MC8">
                                                     <rect key="frame" x="269.5" y="38" width="3" height="15"/>
-                                                    <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="3" id="Dex-6U-bdu"/>
                                                         <constraint firstAttribute="height" constant="15" id="doe-mW-lW8"/>
@@ -118,8 +121,8 @@
                                                 </view>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="0.0" maxValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="sno-kf-Bjc">
                                                     <rect key="frame" x="13" y="30" width="348" height="31.5"/>
-                                                    <color key="tintColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <color key="maximumTrackTintColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" systemColor="systemGray4Color"/>
+                                                    <color key="maximumTrackTintColor" systemColor="systemGray4Color"/>
                                                 </slider>
                                             </subviews>
                                             <constraints>
@@ -144,7 +147,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="heightBigLabel" destination="FtS-P2-md3" id="6Un-WP-TFA"/>
                                             <outlet property="heightSilder" destination="sno-kf-Bjc" id="ywi-n8-IeV"/>
+                                            <outlet property="heightSmallLabel" destination="Kbx-ul-tCX" id="59Z-aJ-YxC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -169,7 +174,7 @@
                                                 </constraints>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                                         <constraints>
                                             <constraint firstItem="niv-fQ-eVR" firstAttribute="centerY" secondItem="b0U-F0-FW4" secondAttribute="centerY" id="DEg-Lp-WId"/>
                                             <constraint firstItem="niv-fQ-eVR" firstAttribute="leading" secondItem="b0U-F0-FW4" secondAttribute="leading" constant="15" id="U8B-rs-rmi"/>
@@ -180,7 +185,7 @@
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="widgetImage" translatesAutoresizingMaskIntoConstraints="NO" id="kQW-e5-KAP" userLabel="WidgetImage">
                                         <rect key="frame" x="15" y="45" width="384" height="300"/>
-                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="300" id="hWg-rZ-qJR"/>
                                         </constraints>
@@ -199,7 +204,8 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="hOy-QO-tqX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="eS5-Nb-I5z" firstAttribute="top" secondItem="Aoj-VV-rzy" secondAttribute="bottom" id="0Sn-FQ-RjO"/>
                             <constraint firstItem="hOy-QO-tqX" firstAttribute="bottom" secondItem="eS5-Nb-I5z" secondAttribute="bottom" id="3zK-cf-eH6"/>
@@ -209,9 +215,9 @@
                             <constraint firstItem="Aoj-VV-rzy" firstAttribute="top" secondItem="hOy-QO-tqX" secondAttribute="top" id="b6V-tO-Kgy"/>
                             <constraint firstItem="hOy-QO-tqX" firstAttribute="trailing" secondItem="eS5-Nb-I5z" secondAttribute="trailing" id="fzy-3b-ZKR"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="hOy-QO-tqX"/>
                     </view>
                     <connections>
+                        <outlet property="widgetHeaderTitleLabel" destination="lKY-pB-1YU" id="aYj-Xl-tFY"/>
                         <outlet property="widgetHeaderView" destination="b0U-F0-FW4" id="Y6p-uf-fft"/>
                         <outlet property="widgetImageHeight" destination="hWg-rZ-qJR" id="ecN-Bv-Ucx"/>
                         <outlet property="widgetImageView" destination="kQW-e5-KAP" id="iZo-eD-OFR"/>
@@ -226,5 +232,14 @@
     <resources>
         <image name="widgetIcon" width="341" height="341"/>
         <image name="widgetImage" width="349" height="358"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

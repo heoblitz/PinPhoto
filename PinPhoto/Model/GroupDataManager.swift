@@ -11,6 +11,7 @@ import Foundation
 class GroupDataManager {
     static let shared = GroupDataManager()
     static let fileName: String = "group.json"
+    
     private let url: URL? = {
         var url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.wonheo.PinPhoto")
         url?.appendPathComponent(GroupDataManager.fileName, isDirectory: false)
@@ -18,7 +19,7 @@ class GroupDataManager {
     }()
     
     private(set) var groups: [Group] = []
-    private(set) var obserbers: [GroupObserver] = []
+    private(set) var observers: [GroupObserver] = []
     
     private init() {}
     
@@ -51,7 +52,7 @@ class GroupDataManager {
         } catch let error {
             print("---> Failed to decode: \(error)")
         }
-        noticeObserbers()
+        noticeObservers()
     }
     
     func destructive() {
@@ -71,17 +72,17 @@ class GroupDataManager {
         load()
     }
     
-    func addObserber(_ target: GroupObserver) {
-        obserbers.append(target)
+    func addObserver(_ target: GroupObserver) {
+        observers.append(target)
     }
     
-    func removeObserber(_ target: GroupObserver) {
-        obserbers = obserbers.filter { $0.groupIdentifier != target.groupIdentifier }
+    func removeObserver(_ target: GroupObserver) {
+        observers = observers.filter { $0.groupIdentifier != target.groupIdentifier }
     }
     
-    func noticeObserbers() {
-        for obserber in obserbers {
-            obserber.updateGroup()
+    func noticeObservers() {
+        for observer in observers {
+            observer.updateGroup()
         }
     }
 }

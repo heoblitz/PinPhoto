@@ -83,7 +83,6 @@ extension HomeViewController: UICollectionViewDataSource {
             let group = groupViewModel.groups[0]
             let item = itemViewModel.thumbnailItem(ids: group.ids)
             cell.update(at: item)
-
             return cell
         case 1:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGroupViewCell.cellIdentifier, for: indexPath) as? HomeGroupViewCell else {
@@ -179,6 +178,6 @@ extension HomeViewController: GroupObserver {
     }
 
     func updateGroup() {
-        homeCollectionView.reloadData()
+        self.homeCollectionView.reloadData()
     }
 }

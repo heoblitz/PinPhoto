@@ -1,0 +1,11 @@
+/* 
+  infoPlist.strings
+  PinPhoto
+
+  Created by won heo on 2020/10/28.
+  Copyright © 2020 won heo. All rights reserved.
+*/
+
+CFBundleDisplayName = "PinPhoto";
+NSCameraUsageDescription = "We need access to the camera album to add pictures to the app and show them in the widget. This privilege is not used unless you add a picture";
+NSPhotoLibraryUsageDescription = "You need access to the album to add pictures to the app and show them in the widget. This privilege is not used unless you add a picture";

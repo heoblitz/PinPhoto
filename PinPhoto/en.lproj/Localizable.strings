@@ -8,8 +8,60 @@
 
 // Home
 "위젯에 표시될 항목" = "Widget";
+"Widget" = "Widget";
 "Item" = "Item";
 "Please Add Items" = "Please Add Items";
 "Edit" = "Edit";
 "Cancel" = "Cancel";
 "Group" = "Group";
+"Item Type" = "Item Type";
+"Add Image" = "Add Image";
+"Add Text" = "Add Text";
+
+// Search
+"Please insert group name" = "Please insert group name";
+
+// Group
+"Select group"= "Select group";
+"Complete" = "Complete";
+"Next" = "Next";
+"Notice" = "Notice";
+"Item count cannot exceed 20" = "Item count cannot exceed 20";
+"Confirm" = "Confirm";
+"Already exists the same group name" = "Already exists the same group name";
+"Are you sure you want to delete it?" = "Are you sure you want to delete it?";
+"All items in the group will also be deleted" = "All items in the group will also be deleted";
+
+// Setting
+"PinPhoto" = "PinPhoto";
+"Setting" = "Setting";
+"Exit" = "Exit";
+
+"Version" = "Version";
+"Manual" = "Manual";
+"Widget Size" = "Widget Size";
+"Reset Data" = "Reset Data";
+
+"Remove" = "Remove";
+"Do you want to initialize the data?" = "Do you want to initialize the data?";
+"Data cannot be recovered again" = "Data cannot be recovered again";
+
+// Setting - Manual
+"1. Today Extension Widget \n Please add items" = "1. Today Extension Widget \n Please add items";
+"Left scroll from Home Screen \n and touch edit button" = "Left scroll from Home Screen \n and touch edit button";
+"In iOS 14, touch Customize button \n and add Pin Photo widget" = "In iOS 14, touch Customize button \n and add Pin Photo widget" ;
+"Please touch > button to use widget" = "Please touch > button to use widget";
+"2. iOS 14 widget \n Left scroll from Home Screen" = "2. iOS 14 widget \n Left scroll from Home Screen";
+"Click Edit button and then touch + plus in the upper left corner" = "Click Edit button and then touch + plus in the upper left corner";
+"Add PinPhoto widget" = "Add PinPhoto widget";
+"Select item to display in home widget and click display button at the bottom" = "Select item to display in home widget and click display button at the bottom";
+
+// Setting - Widget Size
+"Big" = "Big";
+"Small" = "Small";
+"Fill Widget Image" = "Fill Widget Image";
+
+// iOS 14 widget
+"Please select an item" = "Please select an item";
+"A widget showing pictures and notes" = "A widget showing pictures and notes";
+

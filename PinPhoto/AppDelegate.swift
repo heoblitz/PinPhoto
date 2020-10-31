@@ -29,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
          print(urls[urls.count-1] as URL)
         
-        checkAppUpdated()
         return true
     }
 
@@ -45,49 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
-
-    func checkAppUpdated() {
-        let defaults = UserDefaults.standard
-        let currentAppVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-        let previousVersion = defaults.string(forKey: "appVersion")
-
-        if previousVersion == nil {
-            // first launch
-            defaults.set(currentAppVersion, forKey: "appVersion")
-            defaults.synchronize()
-
-            let itemViewModel = ItemViewModel()
-            let groupViewModel = GroupViewModel()
-
-            itemViewModel.load()
-            groupViewModel.load()
-
-            let items: [Item] = itemViewModel.items
-            var id: Int64 = 0
-            var copyItems: [ItemCopy] = []
-
-            for item in items {
-                let copy = ItemCopy(item: item)
-                copyItems.append(copy)
-            }
-            
-            itemViewModel.shared.destructive() // 모든 데이터 삭제
-            
-            for copy in copyItems { // id 다시 지정한 뒤 저장
-                itemViewModel.add(content: copy.contentType, image: copy.contentImage, text: copy.contentText, date: copy.updateDate, id: id)
-                groupViewModel.insertId(at: "위젯에 표시될 항목", ids: [Int(id)])
-                groupViewModel.load()
-
-                id += 1
-            }
-        } else if previousVersion == currentAppVersion {
-            // same version
-        } else {
-            // other version
-            defaults.set(currentAppVersion, forKey: "appVersion")
-            defaults.synchronize()
-        }
     }
 }
 

@@ -15,13 +15,13 @@ class SettingViewController: UIViewController {
     // MARK:- Properties
     private let itemViewModel: ItemViewModel = ItemViewModel()
     private let groupViewModel: GroupViewModel = GroupViewModel()
-    private let settingTitleDatas: [String] = ["사진 콕", "설정", "기타"]
+    private let settingTitleDatas: [String] = ["PinPhoto", "Setting", "Exit"].map { $0.localized }
     private let settingCellDatas: [[String]] = [
-        ["버전 정보","사용 방법"],
-        ["위젯 크기"],
-        ["데이터 초기화하기"]
-    ]
-    
+        ["Version", "Manual"],
+        ["Widget Size"],
+        ["Reset Data" ]
+    ].map { $0.map { $0.localized } }
+
     // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,13 +38,13 @@ class SettingViewController: UIViewController {
 
     // MARK:- Methods
     private func alertDestructiveAllItem() {
-        let alert = UIAlertController(title: "데이터를 초기화 하시겠습니까?", message: "데이터는 다시 복구할 수 없습니다.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Do you want to initialize the data?".localized, message: "Do you want to initialize the data?".localized, preferredStyle: .alert)
         
-        let removeAction = UIAlertAction(title: "삭제", style: .destructive, handler: { [weak self] action in
+        let removeAction = UIAlertAction(title: "Remove".localized, style: .destructive, handler: { [weak self] action in
             self?.itemViewModel.shared.destructive()
             self?.groupViewModel.groupDataManager.destructive()
         })
-        let cancleAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let cancleAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
         
         alert.addAction(removeAction)
         alert.addAction(cancleAction)
@@ -53,10 +53,7 @@ class SettingViewController: UIViewController {
     }
     
     private func presentManual() {
-        guard let vc = ManualViewController.storyboardInstance() else {
-            return
-            
-        }
+        guard let vc = ManualViewController.storyboardInstance() else { return }
         present(vc, animated: true)
     }
 }

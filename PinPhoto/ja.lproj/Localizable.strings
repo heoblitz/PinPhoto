@@ -8,8 +8,60 @@
 
 // Home
 "위젯에 표시될 항목" = "ウィジェット";
+"Widget" = "ウィジェット";
 "Item" = "アイテム";
 "Please Add Items" = "アイテンを追加してください";
 "Edit" = "編集";
 "Cancel" = "キャンセル";
-"Group" = "分流";s
+"Group" = "分流";
+"Item Type" = "アイテム 種類";
+"Add Image" = "イトージェーンを追加する";
+"Add Text" = "テキストを追加する";
+
+// Search
+"Please insert group name" = "分類名を入力してください";
+
+// Group
+"Select group" = "分流選択";
+"Complete" = "完了";
+"Next" = "次へ";
+"Notice" = "お知らせ";
+"Item count cannot exceed 20" = "アイテム数は20を超えることはできません";
+"Confirm" = "確認";
+"Already exists the same group name" = "既に同一の分類名が存在します。";
+"Are you sure you want to delete it?" = "削除しますか？";
+"All items in the group will also be deleted" = "分類に含まれている項目も全て削除されます。";
+
+// Setting
+"PinPhoto" = "写真コック";
+"Setting" = "設定";
+"Exit" = "出口";
+
+"Version" = "バージョン";
+"Manual" = "使用方法";
+"Widget Size" = "ウィジェットサイズ";
+"Reset Data" = "データ初期化";
+
+"Remove" = "削除";
+"Do you want to initialize the data?" = "データを初期化しますか？";
+"Data cannot be recovered again." = "データは再び復旧できません。";
+
+// Setting - Manual
+"1. Today Extension Widget \n Please add items" = "1.トゥデイ·ウィジェット方法 先にアイテムを追加してください。";
+"Left scroll from Home Screen \n and touch edit button" = "ホーム画面で左にスクロールして編集をクリックしてください。";
+"In iOS 14, touch Customize button \n and add Pin Photo widget" = "iOS 14 では使用話者をクリックしてウィジェットを追加してください。";
+"Please touch > button to use widget" = "> ボタンを押してご使用ください";
+"2. iOS 14 widget \n Left scroll from Home Screen" = "2. iOS 14ウィジェットの追加方法
+ホーム画面から左にスクロールしてください。";
+"Click Edit button and then touch + plus in the upper left corner " = "編集ボタンをクリックし、左上に加えるボタンを押してください。";
+"Add PinPhoto widget" = "該当画面でウィジェットを追加してください。";
+"Select item to display in home widget and click display button at the bottom" = "ホーム画面のウィジェットに表示される項目を選択し、下のディスプレイボタンをクリックしてください。";
+
+// Setting - Widget Size
+"Big" = "大きい";
+"Small" = "小さい";
+"Fill Widget Image" = "画像のサイズ変更";
+
+// iOS 14 widget
+"Please select an item" = "項目を選択してください。";
+"A widget showing pictures and notes" = "写真とメモを見せてくれるウィジェットです。";

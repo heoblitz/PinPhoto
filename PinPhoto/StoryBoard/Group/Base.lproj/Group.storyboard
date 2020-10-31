@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3UH-3N-dki">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3UH-3N-dki">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,7 +19,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="wrv-9A-YIn">
                                 <rect key="frame" x="0.0" y="88" width="414" height="665"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="groupCell" textLabel="5Qa-Tr-H6H" detailTextLabel="fWO-2E-IbU" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="eSR-VI-bbB">
                                         <rect key="frame" x="20" y="55.5" width="374" height="44"/>
@@ -27,7 +29,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Qa-Tr-H6H">
-                                                    <rect key="frame" x="20" y="5" width="33.5" height="20.5"/>
+                                                    <rect key="frame" x="20" y="5" width="33" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -42,7 +44,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -50,37 +52,39 @@
                                 <rect key="frame" x="0.0" y="753" width="414" height="60"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="그룹 이름을 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W6R-AI-9nb">
-                                        <rect key="frame" x="15" y="13" width="315" height="34"/>
+                                        <rect key="frame" x="15" y="13" width="346" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s55-sa-IbH">
-                                        <rect key="frame" x="340" y="13.5" width="59" height="33"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s55-sa-IbH">
+                                        <rect key="frame" x="371" y="17" width="30" height="26"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="33" id="AiF-J4-T2v"/>
-                                            <constraint firstAttribute="width" constant="59" id="kc5-Y6-PAw"/>
+                                            <constraint firstAttribute="height" constant="30" id="AiF-J4-T2v"/>
+                                            <constraint firstAttribute="width" constant="30" id="kc5-Y6-PAw"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <state key="normal" title="추가하기">
-                                            <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" systemColor="systemPinkColor"/>
+                                        <state key="normal" backgroundImage="plus" catalog="system">
+                                            <color key="titleColor" systemColor="systemPinkColor"/>
                                         </state>
                                         <connections>
                                             <action selector="addButtonTapped:" destination="ysn-FP-fjh" eventType="touchUpInside" id="ug5-a8-WHC"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="W6R-AI-9nb" firstAttribute="centerY" secondItem="U7u-v6-7yf" secondAttribute="centerY" id="KJm-YK-DLq"/>
                                     <constraint firstItem="s55-sa-IbH" firstAttribute="leading" secondItem="W6R-AI-9nb" secondAttribute="trailing" constant="10" id="Rfl-Fb-Egw"/>
                                     <constraint firstItem="s55-sa-IbH" firstAttribute="centerY" secondItem="U7u-v6-7yf" secondAttribute="centerY" id="T3m-4Y-wfe"/>
-                                    <constraint firstAttribute="trailing" secondItem="s55-sa-IbH" secondAttribute="trailing" constant="15" id="V2U-Hp-n50"/>
+                                    <constraint firstAttribute="trailing" secondItem="s55-sa-IbH" secondAttribute="trailing" constant="13" id="V2U-Hp-n50"/>
                                     <constraint firstItem="W6R-AI-9nb" firstAttribute="leading" secondItem="U7u-v6-7yf" secondAttribute="leading" constant="15" id="XvD-hg-zCx"/>
                                     <constraint firstAttribute="height" constant="60" id="mFP-el-Me8"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Mkv-DK-ZoK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Mkv-DK-ZoK" firstAttribute="trailing" secondItem="U7u-v6-7yf" secondAttribute="trailing" id="1f4-S3-EPd"/>
                             <constraint firstItem="Mkv-DK-ZoK" firstAttribute="bottom" secondItem="wrv-9A-YIn" secondAttribute="bottom" constant="60" id="6Rk-aw-q4k"/>
@@ -90,17 +94,17 @@
                             <constraint firstItem="Mkv-DK-ZoK" firstAttribute="bottom" secondItem="U7u-v6-7yf" secondAttribute="bottom" id="tAb-ON-k3v"/>
                             <constraint firstItem="wrv-9A-YIn" firstAttribute="top" secondItem="Mkv-DK-ZoK" secondAttribute="top" id="yzh-KQ-YYA"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Mkv-DK-ZoK"/>
                     </view>
                     <navigationItem key="navigationItem" title="분류" id="xns-tl-6DS">
                         <barButtonItem key="leftBarButtonItem" title="편집" id="PYP-m4-otO">
-                            <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" systemColor="systemPinkColor"/>
                             <connections>
                                 <action selector="editButtonTapped:" destination="ysn-FP-fjh" id="ukl-cp-cHd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="s55-sa-IbH" id="e4u-Ul-0Kj"/>
                         <outlet property="groupTableView" destination="wrv-9A-YIn" id="iyF-uH-eqv"/>
                         <outlet property="inputTextField" destination="W6R-AI-9nb" id="9Hy-98-9HK"/>
                         <outlet property="inputTextView" destination="U7u-v6-7yf" id="Uhr-C4-q7Y"/>
@@ -133,6 +137,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="folder.badge.plus" catalog="system" width="128" height="86"/>
+        <image name="folder.badge.plus" catalog="system" width="128" height="91"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

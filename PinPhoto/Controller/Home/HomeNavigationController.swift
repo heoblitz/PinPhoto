@@ -11,27 +11,23 @@ import YPImagePicker
 
 class HomeNavigationController: UINavigationController {
     // MARK:- Properties
-    private lazy var config: YPImagePickerConfiguration = {
-        var config = YPImagePickerConfiguration()
-        config.showsPhotoFilters = false
-        config.screens = [.library]
-        config.targetImageSize = YPImageSize.cappedTo(size: view.frame.height)
-        config.library.defaultMultipleSelection = false
-        config.library.maxNumberOfItems = 15
-        config.hidesStatusBar = false
-        return config
-    }()
+    private let widgetGroupName: String = "위젯에 표시될 항목"
+    private let itemViewModel = ItemViewModel()
+    private let groupViewModel = GroupViewModel()
     
-    let addButtonView: UIView = {
+    private let addButtonView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemPink
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.masksToBounds = false
         view.layer.cornerRadius = 25
+        view.layer.shadowOffset = CGSize(width: 0, height: 3)
+        view.layer.shadowRadius = 5
+        view.layer.shadowOpacity = 0.3
         return view
     }()
     
-    let plusImageView: UIImageView = {
+    private let plusImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "plus")
         imageView.tintColor = .white
@@ -81,7 +77,7 @@ class HomeNavigationController: UINavigationController {
             plusImageView.centerYAnchor.constraint(equalTo: addButtonView.centerYAnchor)
         ])
     }
-    
+     
     private func presentAddItemType(_ type: Int64) {
         switch type {
         case ItemType.image.value:
@@ -93,18 +89,122 @@ class HomeNavigationController: UINavigationController {
         }
     }
     
+    private func presentImagePikcer() {
+        let picker = YPImagePicker(configuration: settingImagePickerConfig())
+
+        picker.didFinishPicking { [unowned picker] items, isNotSelect in
+            guard let vc = SelectGroupViewController.storyboardInstance() else { return }
+            
+            if isNotSelect { // 사용자가 선택을 취소했을 때
+                picker.dismiss(animated: true, completion: nil)
+            }
+            
+            if self.isNotNeedGroupSelect() {
+                self.saveImageItems(items: items)
+                picker.dismiss(animated: true, completion: nil)
+            }
+            
+            // 사용자가 선택을 완료했을 때
+            vc.items = items
+            vc.selectionType = .addImage
+            
+            picker.pushViewController(vc, animated: true)
+        }
+        
+        present(picker, animated: true, completion: nil)
+    }
+    
     private func presentaddTextItem() {
         guard let vc = CreateTextItemViewController.storyboardInstance() else {
             return
         }
+        
+        if isNotNeedGroupSelect() {
+            vc.selectedGroup = getDetailVcGroup()
+        }
+        
         let navVc = UINavigationController(rootViewController: vc)
         navVc.modalPresentationStyle = .fullScreen
         
         present(navVc, animated: true)
     }
     
+    private func isNotNeedGroupSelect() -> Bool {
+        guard let topVc = topViewController as? HomeDetailViewController, let _ = topVc.group else {
+            return false
+        }
+        return true
+    }
+    
+    private func getDetailVcGroup() -> Group? {
+        guard let topVc = topViewController as? HomeDetailViewController, let group = topVc.group else {
+            return nil
+        }
+        return group
+    }
+    
+    private func settingImagePickerConfig() -> YPImagePickerConfiguration {
+        var config = YPImagePickerConfiguration()
+        config.showsPhotoFilters = false
+        config.screens = [.library]
+        config.targetImageSize = YPImageSize.cappedTo(size: view.frame.height)
+        config.library.defaultMultipleSelection = false
+        config.library.maxNumberOfItems = 15
+        config.hidesStatusBar = false
+        config.library.skipSelectionsGallery = true
+        
+        if isNotNeedGroupSelect() {
+            config.wordings.next = "Complete".localized
+        }
+        
+        return config
+    }
+    
+    private func saveImageItems(items: [YPMediaItem]) {
+        guard let groupName = getDetailVcGroup()?.name else { return }
+
+        var id: Int64 = itemViewModel.idForAdd
+
+        if ifWidgetMaxCount(itemCount: items.count) {
+            alertMaxCount()
+            return
+        }
+        
+        for item in items {
+            switch item {
+            case .photo(let photo):
+                let imageData: Data? = photo.originalImage.data
+                itemViewModel.add(content: ItemType.image.value, image: imageData, text: nil, date: Date(), id: id)
+                groupViewModel.insertId(at: groupName, ids: [Int(id)])
+                groupViewModel.load()
+                
+                id += 1
+            default:
+                break
+            }
+        }
+    }
+    
+    private func ifWidgetMaxCount(itemCount: Int) -> Bool {
+        guard let groupName = getDetailVcGroup()?.name else { return false }
+        
+        if groupName == widgetGroupName, groupViewModel.groups[0].numberOfItem + itemCount > 20 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    private func alertMaxCount() {
+        let alert: UIAlertController = UIAlertController(title: "Notice".localized, message: "Item count cannot exceed 20".localized, preferredStyle: .alert)
+        let accept: UIAlertAction = UIAlertAction(title: "Confirm".localized, style: .default, handler: nil)
+        
+        alert.addAction(accept)
+        present(alert, animated: true)
+    }
+    
     @objc private func presentAddActionSheet() {
-        let actionMenu = UIAlertController(title: nil, message: "아이템 종류", preferredStyle: .actionSheet)
+        let actionMenu = UIAlertController(title: nil, message: "Item Type".localized, preferredStyle: .actionSheet)
         
         ItemType.allCases.forEach { type in
             let action = UIAlertAction(title: type.title, style: .default, handler: { [weak self] _ in
@@ -113,29 +213,11 @@ class HomeNavigationController: UINavigationController {
             actionMenu.addAction(action)
         }
         
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: {
             (alert: UIAlertAction!) -> Void in
         })
         actionMenu.addAction(cancelAction)
         
         present(actionMenu, animated: true)
-    }
-    
-    @objc private func presentImagePikcer() {
-        let picker = YPImagePicker(configuration: config)
-
-        picker.didFinishPicking { [unowned picker] items, isNotSelect in
-            guard let vc = SelectGroupViewController.storyboardInstance() else { return }
-            
-            if isNotSelect { // 사용자가 선택을 취소했을 때
-                picker.dismiss(animated: true, completion: nil)
-            }
-            // 사용자가 선택을 완료했을 때
-            vc.items = items
-            vc.selectionType = .addImage
-            picker.pushViewController(vc, animated: true)
-        }
-        
-        present(picker, animated: true, completion: nil)
     }
 }

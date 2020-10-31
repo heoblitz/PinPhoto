@@ -46,7 +46,7 @@ class EditImageItemViewController: UIViewController {
     // MARk:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = itemViewModel?.creationData(date: item?.updateDate)
+        navigationItem.title = item?.updateDate.title
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
         itemImageView.addGestureRecognizer(tapGesture)

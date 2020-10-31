@@ -14,8 +14,13 @@ class GroupViewController: UIViewController {
     @IBOutlet private weak var inputTextField: UITextField!
     @IBOutlet private weak var inputTextView: UIView!
     @IBOutlet private weak var inputViewBottom: NSLayoutConstraint!
+    @IBOutlet private weak var addButton: UIButton!
     
     // MARK:- Properties
+    private let widgetGroupNameKr: String = "위젯에 표시될 항목"
+    private let widgetGroupNameEn: String = "Widget"
+    private let widgetGroupNameJpn: String = "ウィジェット"
+
     let groupViewModel = GroupViewModel()
     let itemViewModel = ItemViewModel()
     
@@ -40,15 +45,15 @@ class GroupViewController: UIViewController {
         
         inputTextView.backgroundColor = UIColor.tapBarColor
     }
-    
+
     // MARK:- Methods
     private func presentRemoveAlert(at target: Group) {
-        let alert = UIAlertController(title: "삭제하시겠습니까?", message: "분류에 포함된 항목도 모두 삭제됩니다.", preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        let remove = UIAlertAction(title: "삭제", style: .destructive, handler: { [weak self]_ in
+        let alert = UIAlertController(title: "Are you sure you want to delete it?".localized, message: "All items in the group will also be deleted".localized, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
+        let remove = UIAlertAction(title: "Remove".localized, style: .destructive, handler: { [weak self]_ in
             self?.removeGroup(at: target)
         })
-        
+
         alert.addAction(cancel)
         alert.addAction(remove)
         
@@ -64,24 +69,33 @@ class GroupViewController: UIViewController {
     }
     
     private func alertSameGroupName() {
-        let alert = UIAlertController(title: "알림", message: "이미 같은 분류가 존재합니다!", preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "확인", style: .default, handler: nil)
+        let alert = UIAlertController(title: "Notice".localized, message: "Already exists the same group name".localized, preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "Confirm".localized, style: .default, handler: nil)
         alert.addAction(confirm)
         
-        present(alert, animated: true)
+        present(alert, animated: true) { [weak self] in
+            self?.groupTableView.contentOffset.y = 0
+        }
     }
 
     // MARK:- @IBAction Methods
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
         groupTableView.isEditing = !groupTableView.isEditing
         groupTableView.setEditing(groupTableView.isEditing, animated: true)
-        sender.title = groupTableView.isEditing ? "완료" : "편집"
+        
+        sender.title = groupTableView.isEditing ? "Cancel".localized : "Edit".localized
+        inputTextField.isEnabled = groupTableView.isEditing ? false : true
+        addButton.isEnabled = groupTableView.isEditing ? false : true
     }
     
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         guard let text = inputTextField.text?.trimmingCharacters(in: .whitespaces), !text.isEmpty else { return }
         
-        if !groupViewModel.groups.contains(where: { $0.name == text }) {
+        if !groupViewModel.groups.contains(where: { $0.name == text }),
+           text != widgetGroupNameKr,
+           text != widgetGroupNameEn,
+           text != widgetGroupNameJpn {
+            
             inputTextField.text = ""
             dismissKeyboard()
             
@@ -109,7 +123,7 @@ class GroupViewController: UIViewController {
                 self.inputViewBottom.constant = 0
                 self.view.layoutIfNeeded()
             }
-            groupTableView.contentOffset.y -= 50
+            groupTableView.contentOffset.y = 0
         }
     }
     
@@ -140,7 +154,7 @@ extension GroupViewController: UITableViewDataSource {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell") else { return UITableViewCell() }
             let group = groupViewModel.groups[0]
-            cell.textLabel?.text = group.name
+            cell.textLabel?.text = group.name.localized
             cell.detailTextLabel?.text = "\(group.numberOfItem)"
             cell.textLabel?.textColor = .systemPink
             return cell
@@ -185,7 +199,7 @@ extension GroupViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "위젯" : "분류"
+        return section == 0 ? "위젯에 표시될 항목".localized : "Group".localized
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "HFC-Xa-9lq"; */
+"HFC-Xa-9lq.text" = "Detail";
+
+/* Class = "UINavigationItem"; title = "설정"; ObjectID = "U5t-YN-jQR"; */
+"U5t-YN-jQR.title" = "Setting";
+
+/* Class = "UILabel"; text = "만든 이"; ObjectID = "cgn-AQ-3aZ"; */
+"cgn-AQ-3aZ.text" = "만든 이";
+
+/* Class = "UITabBarItem"; title = "설정"; ObjectID = "lGi-6H-ytc"; */
+"lGi-6H-ytc.title" = "Setting";

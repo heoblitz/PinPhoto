@@ -11,6 +11,7 @@ import UIKit
 class HomeHeaderViewCell: UICollectionViewCell {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var headerImageView: UIImageView!
+    @IBOutlet private weak var headerTextLabel: UILabel!
     @IBOutlet private weak var groupNameLabel: UILabel!
     @IBOutlet private weak var noticeTextLabel: UILabel!
 
@@ -66,12 +67,25 @@ class HomeHeaderViewCell: UICollectionViewCell {
     
     private func reset() {
         headerImageView.image = nil
+        headerTextLabel.text = nil
         noticeTextLabel.isHidden = false
+        headerImageView.isHidden = false
+        headerTextLabel.isHidden = false
     }
     
     func update(at item: Item?) {
         guard let item = item else { return }
-        headerImageView.image = item.contentImage?.image?.greyScale
+        
+        switch item.contentType {
+        case ItemType.image.value:
+            headerImageView.image = item.contentImage?.image?.greyScale
+            headerTextLabel.isHidden = true
+        case ItemType.text.value:
+            headerTextLabel.text = item.contentText
+            headerImageView.isHidden = true
+        default:
+            break
+        }
         noticeTextLabel.isHidden = true
     }
     

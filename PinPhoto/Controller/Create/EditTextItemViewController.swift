@@ -26,7 +26,7 @@ class EditTextItemViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
         view.isUserInteractionEnabled = true
         
-        navigationItem.title = itemViewModel?.creationData(date: item?.updateDate)
+        navigationItem.title = item?.updateDate.title
         prepareItemTextView()
         setTextViewSize()
     }
