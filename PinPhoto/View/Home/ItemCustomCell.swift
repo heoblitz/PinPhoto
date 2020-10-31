@@ -36,10 +36,12 @@ class ItemCustomCell: UICollectionViewCell {
                 checkImageView.isHidden = false
                 itemImageView.alpha = 0.5
                 itemTextLabel.alpha = 0.5
+                displayLabel.alpha = 0.5
             } else {
                 checkImageView.isHidden = true
                 itemTextLabel.alpha = 1
                 itemImageView.alpha = 1
+                displayLabel.alpha = 1
             }
         }
     }

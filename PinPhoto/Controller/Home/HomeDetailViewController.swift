@@ -24,7 +24,8 @@ class HomeDetailViewController: UIViewController {
     private let itemViewModel: ItemViewModel = ItemViewModel()
     private let groupViewModel: GroupViewModel = GroupViewModel()
     private let widgetViewModel: WidgetViewModel = WidgetViewModel()
-    
+    private let widgetGroupNameKr: String = "위젯에 표시될 항목"
+
     static var isEditMode: Bool = false
     var group: Group?
     
@@ -45,14 +46,14 @@ class HomeDetailViewController: UIViewController {
             groupViewModel.attachObserver(self)
             navigationItem.title = group.name
             
-            if #available(iOS 14, *), navigationItem.title == "위젯에 표시될 항목" {
-                displayButton.isEnabled = false
+            if #available(iOS 14, *), group.name == widgetGroupNameKr {
                 displayButton.tintColor = .systemPink
-                navigationItem.title = "위젯에 표시될 항목".localized
+                navigationItem.title = widgetGroupNameKr.localized
             } else {
-                displayButton.isEnabled = false
                 displayButton.tintColor = .clear
             }
+            
+            displayButton.isEnabled = false
         }
         
         let editBarbuttonItem = UIBarButtonItem(title: "Edit".localized, style: .plain, target: self, action: #selector(editButtonTapped(_:)))
@@ -151,6 +152,7 @@ class HomeDetailViewController: UIViewController {
     
     @IBAction func displayButtonTapped(_ sender: UIBarButtonItem) {
         guard let indexPath = selectedCell.first?.key else { return }
+        guard let group = group, group.name != widgetGroupNameKr else { return }
         let displayItem: Int = indexPath.item
         widgetViewModel.displayItemIndex = displayItem
         
@@ -171,7 +173,7 @@ extension HomeDetailViewController: UICollectionViewDataSource {
         }
         let item = itemViewModel.item(at: indexPath.item)
         
-        if navigationItem.title == "위젯에 표시될 항목" { // 위젯에 표시되어 있는 셀인지 파악
+        if navigationItem.title == "Widget".localized { // 위젯에 표시되어 있는 셀인지 파악
             if widgetViewModel.displayItemIndex == indexPath.item {
                 cell.isCellDisplayItem = true
             }
@@ -253,6 +255,9 @@ extension HomeDetailViewController: GroupObserver {
     
     func updateGroup() {
         guard let group = group, let newGroup = groupViewModel.group(by: group.name) else { return }
+        if group.name == widgetGroupNameKr, newGroup.ids.count == 1 {
+            widgetViewModel.displayItemIndex = 0
+        }
         
         itemViewModel.loadFromIds(ids: newGroup.ids)
         itemCollectionView.reloadData()

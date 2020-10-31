@@ -179,6 +179,5 @@ extension HomeViewController: GroupObserver {
 
     func updateGroup() {
         self.homeCollectionView.reloadData()
-        print("load")
     }
 }
