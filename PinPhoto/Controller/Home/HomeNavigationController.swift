@@ -19,10 +19,11 @@ class HomeNavigationController: UINavigationController {
         config.library.defaultMultipleSelection = false
         config.library.maxNumberOfItems = 15
         config.hidesStatusBar = false
+        config.library.skipSelectionsGallery = true
         return config
     }()
     
-    let addButtonView: UIView = {
+    private let addButtonView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemPink
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -31,7 +32,7 @@ class HomeNavigationController: UINavigationController {
         return view
     }()
     
-    let plusImageView: UIImageView = {
+    private let plusImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "plus")
         imageView.tintColor = .white
@@ -93,14 +94,51 @@ class HomeNavigationController: UINavigationController {
         }
     }
     
+    private func presentImagePikcer() {
+        let picker = YPImagePicker(configuration: config)
+
+        picker.didFinishPicking { [unowned picker] items, isNotSelect in
+            guard let vc = SelectGroupViewController.storyboardInstance() else { return }
+            
+            if isNotSelect { // 사용자가 선택을 취소했을 때
+                picker.dismiss(animated: true, completion: nil)
+            }
+            // 사용자가 선택을 완료했을 때
+            vc.items = items
+            vc.selectionType = .addImage
+            picker.pushViewController(vc, animated: true)
+        }
+        
+        present(picker, animated: true, completion: nil)
+    }
+    
     private func presentaddTextItem() {
         guard let vc = CreateTextItemViewController.storyboardInstance() else {
             return
         }
+        
+        if isNotNeedGroupSelect() {
+            vc.selectedGroup = getDetailVcGroup()
+        }
+        
         let navVc = UINavigationController(rootViewController: vc)
         navVc.modalPresentationStyle = .fullScreen
         
         present(navVc, animated: true)
+    }
+    
+    private func isNotNeedGroupSelect() -> Bool {
+        guard let topVc = topViewController as? HomeDetailViewController, let _ = topVc.group else {
+            return false
+        }
+        return true
+    }
+    
+    private func getDetailVcGroup() -> Group? {
+        guard let topVc = topViewController as? HomeDetailViewController, let group = topVc.group else {
+            return nil
+        }
+        return group
     }
     
     @objc private func presentAddActionSheet() {
@@ -119,23 +157,5 @@ class HomeNavigationController: UINavigationController {
         actionMenu.addAction(cancelAction)
         
         present(actionMenu, animated: true)
-    }
-    
-    @objc private func presentImagePikcer() {
-        let picker = YPImagePicker(configuration: config)
-
-        picker.didFinishPicking { [unowned picker] items, isNotSelect in
-            guard let vc = SelectGroupViewController.storyboardInstance() else { return }
-            
-            if isNotSelect { // 사용자가 선택을 취소했을 때
-                picker.dismiss(animated: true, completion: nil)
-            }
-            // 사용자가 선택을 완료했을 때
-            vc.items = items
-            vc.selectionType = .addImage
-            picker.pushViewController(vc, animated: true)
-        }
-        
-        present(picker, animated: true, completion: nil)
     }
 }
