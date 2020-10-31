@@ -61,3 +61,7 @@
 "Big" = "大きい";
 "Small" = "小さい";
 "Fill Widget Image" = "画像のサイズ変更";
+
+// iOS 14 widget
+"Please select an item" = "項目を選択してください。";
+"A widget showing pictures and notes" = "写真とメモを見せてくれるウィジェットです。";

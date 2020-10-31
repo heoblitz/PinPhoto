@@ -65,11 +65,10 @@ struct EntryView : View {
                 case ItemType.text.value:
                     Text(item.contentText ?? "")
                 default:
-                    Text("항목을 선택해주세요.")
+                    Text("Please select an item".localized)
                 }
-
             } else {
-                Text("항목을 선택해주세요.")
+                Text("Please select an item".localized)
             }
         }
     }
@@ -83,8 +82,8 @@ struct main: Widget {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             EntryView(entry: entry)
         }
-        .configurationDisplayName("사진 콕")
-        .description("사진을 보여주는 위젯입니다.")
+        .configurationDisplayName("PinPhoto".localized)
+        .description("A widget showing pictures and notes".localized)
     }
 }
 

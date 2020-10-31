@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  PinPhoto
+
+  Created by heo on 2020/10/31.
+  Copyright © 2020 won heo. All rights reserved.
+*/
+
+CFBundleDisplayName = "PinPhoto";
+

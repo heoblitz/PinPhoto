@@ -123,6 +123,7 @@
 		3CF8B45224A9CBA300D6C11C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45024A9CBA300D6C11C /* Main.storyboard */; };
 		3CF8B45724A9CBA700D6C11C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45524A9CBA700D6C11C /* LaunchScreen.storyboard */; };
 		97EA7918B2D5D4E6C4A01BB1 /* Pods_PinPhotoWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A84883FF2DE19D2F1436A2 /* Pods_PinPhotoWidgetExtension.framework */; };
+		BFC7521B254D7A4B00C34E63 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFC7521D254D7A4B00C34E63 /* InfoPlist.strings */; };
 		C90E01E01A8F6C43633BD7C6 /* Pods_PinPhotoExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90816F65DC997A4BDA8F0CA1 /* Pods_PinPhotoExtension.framework */; };
 		F9F2675AD681C9FFF36395E4 /* Pods_PinPhoto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E3DD72E2F55C8639AAB2B9 /* Pods_PinPhoto.framework */; };
 /* End PBXBuildFile section */
@@ -258,6 +259,12 @@
 		90816F65DC997A4BDA8F0CA1 /* Pods_PinPhotoExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPhotoExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1624057D1CAB01FABDD5A48 /* Pods-PinPhoto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPhoto.release.xcconfig"; path = "Target Support Files/Pods-PinPhoto/Pods-PinPhoto.release.xcconfig"; sourceTree = "<group>"; };
 		A6E3DD72E2F55C8639AAB2B9 /* Pods_PinPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFC7521C254D7A4B00C34E63 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BFC75221254D7A5500C34E63 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BFC75222254D7A5700C34E63 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BFC75227254D7B0F00C34E63 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		BFC75229254D7B1200C34E63 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		BFC7522B254D7B1600C34E63 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		D015C89250D6C3BF48144A61 /* Pods-PinPhotoExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPhotoExtension.debug.xcconfig"; path = "Target Support Files/Pods-PinPhotoExtension/Pods-PinPhotoExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		D50908D6AEFCF2463675C346 /* Pods-PinPhotoWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPhotoWidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-PinPhotoWidgetExtension/Pods-PinPhotoWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -527,6 +534,7 @@
 				3CEB644B24CEC80E004D8C3C /* PinPhotoExtension.entitlements */,
 				3CEB643F24CEC742004D8C3C /* MainInterface.storyboard */,
 				3CEB644224CEC742004D8C3C /* Info.plist */,
+				BFC7521D254D7A4B00C34E63 /* InfoPlist.strings */,
 				3C070A9A24D3FD2C0077C3AE /* View */,
 				3C070A9924D3FD0C0077C3AE /* Controller */,
 			);
@@ -723,6 +731,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CC13F5024D0259100726E51 /* Assets.xcassets in Resources */,
+				BFC7521B254D7A4B00C34E63 /* InfoPlist.strings in Resources */,
 				3CAC4C3325468A8400ACE418 /* Localizable.strings in Resources */,
 				3CEB644124CEC742004D8C3C /* MainInterface.storyboard in Resources */,
 			);
@@ -1021,6 +1030,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				3CEB644024CEC742004D8C3C /* Base */,
+				BFC75227254D7B0F00C34E63 /* en */,
+				BFC75229254D7B1200C34E63 /* ja */,
+				BFC7522B254D7B1600C34E63 /* ko */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -1039,6 +1051,16 @@
 				3CF8B45624A9CBA700D6C11C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BFC7521D254D7A4B00C34E63 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFC7521C254D7A4B00C34E63 /* en */,
+				BFC75221254D7A5500C34E63 /* ja */,
+				BFC75222254D7A5700C34E63 /* ko */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

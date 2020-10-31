@@ -60,3 +60,8 @@
 "Big" = "Big";
 "Small" = "Small";
 "Fill Widget Image" = "Fill Widget Image";
+
+// iOS 14 widget
+"Please select an item" = "Please select an item";
+"A widget showing pictures and notes" = "A widget showing pictures and notes";
+
