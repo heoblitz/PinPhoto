@@ -152,7 +152,7 @@ class HomeDetailViewController: UIViewController {
     
     @IBAction func displayButtonTapped(_ sender: UIBarButtonItem) {
         guard let indexPath = selectedCell.first?.key else { return }
-        guard let group = group, group.name != widgetGroupNameKr else { return }
+        guard let group = group, group.name == widgetGroupNameKr else { return }
         let displayItem: Int = indexPath.item
         widgetViewModel.displayItemIndex = displayItem
         
