@@ -13,12 +13,6 @@ class CreateTextItemViewController: UIViewController {
     @IBOutlet private weak var inputTextView: UITextView!
     @IBOutlet private weak var contentView: UIView!
     
-    private let widgetGroupName: String = "위젯에 표시될 항목"
-    private let itemViewModel = ItemViewModel()
-    private let groupViewModel = GroupViewModel()
-    
-    var selectedGroup: Group?
-    
     // MARK:- Propertises    
     private let cancelBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: "Cancel".localized, style: .plain, target: self, action: #selector(cancelButtonTapped))
@@ -37,6 +31,12 @@ class CreateTextItemViewController: UIViewController {
         barButtonItem.tintColor = .link
         return barButtonItem
     }()
+    
+    private let widgetGroupName: String = "위젯에 표시될 항목"
+    private let itemViewModel = ItemViewModel()
+    private let groupViewModel = GroupViewModel()
+    
+    var selectedGroup: Group?
     
     // MARk:- View Life Sycle
     override func viewDidLoad() {

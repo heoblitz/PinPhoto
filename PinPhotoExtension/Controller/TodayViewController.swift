@@ -89,7 +89,7 @@ class TodayViewController: UIViewController {
     }
     
     // MARK:- Methods
-    func scrollItemCollectionView(to index: Int, animated: Bool) {
+    private func scrollItemCollectionView(to index: Int, animated: Bool) {
         // let origin: CGFloat = itemCollectionView.bounds.origin.x
         let spacing: CGFloat = itemCollectionView.bounds.width
         

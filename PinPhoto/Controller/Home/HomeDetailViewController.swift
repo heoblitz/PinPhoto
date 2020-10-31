@@ -25,9 +25,6 @@ class HomeDetailViewController: UIViewController {
     private let groupViewModel: GroupViewModel = GroupViewModel()
     private let widgetViewModel: WidgetViewModel = WidgetViewModel()
     private let widgetGroupNameKr: String = "위젯에 표시될 항목"
-
-    static var isEditMode: Bool = false
-    var group: Group?
     
     var selectedCell: [IndexPath:Int64] = [:] { // indexPath:id
         didSet {
@@ -37,6 +34,9 @@ class HomeDetailViewController: UIViewController {
             self.displayButton.isEnabled = (count == 1) ? true : false
         }
     }
+    
+    static var isEditMode: Bool = false
+    var group: Group?
     
     // MARK:- View Life Sycle
     override func viewDidLoad() {
