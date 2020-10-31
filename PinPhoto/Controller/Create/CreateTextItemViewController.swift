@@ -14,25 +14,25 @@ class CreateTextItemViewController: UIViewController {
     @IBOutlet private weak var contentView: UIView!
     
     private let widgetGroupName: String = "위젯에 표시될 항목"
-    let itemViewModel = ItemViewModel()
-    let groupViewModel = GroupViewModel()
+    private let itemViewModel = ItemViewModel()
+    private let groupViewModel = GroupViewModel()
     
     var selectedGroup: Group?
     
     // MARK:- Propertises    
-    let cancelBarButtonItem: UIBarButtonItem = {
+    private let cancelBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: "Cancel".localized, style: .plain, target: self, action: #selector(cancelButtonTapped))
         barButtonItem.tintColor = .label
         return barButtonItem
     }()
     
-    let nextBarButtonItem: UIBarButtonItem = {
+    private let nextBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: "Next".localized, style: .done, target: self, action: #selector(saveButtonTapped))
         barButtonItem.tintColor = .link
         return barButtonItem
     }()
     
-    let completeBarButtonItem: UIBarButtonItem = {
+    private let completeBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: "Complete".localized, style: .done, target: self, action: #selector(completeButtonTapped))
         barButtonItem.tintColor = .link
         return barButtonItem

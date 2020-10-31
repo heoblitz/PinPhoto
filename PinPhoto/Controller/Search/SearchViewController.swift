@@ -13,7 +13,7 @@ class SearchViewController: UIViewController {
     @IBOutlet private weak var searchCollectionView: UICollectionView!
     
     // MARK:- Properties
-    let searchController: UISearchController = {
+    private let searchController: UISearchController = {
         let search = UISearchController(searchResultsController: nil)
         search.searchBar.tintColor = .systemPink
         search.obscuresBackgroundDuringPresentation = false
@@ -21,8 +21,8 @@ class SearchViewController: UIViewController {
         return search
     }()
     
-    let groupViewModel: GroupViewModel = GroupViewModel()
-    let itemViewModel: ItemViewModel = ItemViewModel()
+    private let groupViewModel: GroupViewModel = GroupViewModel()
+    private let itemViewModel: ItemViewModel = ItemViewModel()
     
     // MARK:- View Life Cycle
     override func viewDidLoad() {
