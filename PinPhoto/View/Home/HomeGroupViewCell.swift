@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeGroupViewCell: UICollectionViewCell {
+final class HomeGroupViewCell: UICollectionViewCell {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var groupImageView: UIImageView!
     @IBOutlet private weak var groupTextLabel: UILabel!

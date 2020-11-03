@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeHeaderViewCell: UICollectionViewCell {
+final class HomeHeaderViewCell: UICollectionViewCell {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var headerImageView: UIImageView!
     @IBOutlet private weak var headerTextLabel: UILabel!

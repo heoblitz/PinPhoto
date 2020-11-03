@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingWidgetSwitchCell: UITableViewCell {
+final class SettingWidgetSwitchCell: UITableViewCell {
     // MARK:- @IBOutlet Properties
     @IBOutlet weak var imageSwitch: UISwitch!
     @IBOutlet weak var imageInfoLabel: UILabel!

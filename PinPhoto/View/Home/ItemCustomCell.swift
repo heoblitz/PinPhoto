@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemCustomCell: UICollectionViewCell {
+final class ItemCustomCell: UICollectionViewCell {
     // MARK:- @IBOutlet Properties
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemTextLabel: UILabel!

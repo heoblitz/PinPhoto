@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeSectionReusableView: UICollectionReusableView {
+final class HomeSectionReusableView: UICollectionReusableView {
     @IBOutlet private weak var textLabel: UILabel!
 
     // MARK:- Properties
