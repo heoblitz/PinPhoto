@@ -10,9 +10,19 @@ import SwiftUI
 import Intents
 
 struct Provider: IntentTimelineProvider {
-    let itemViewModel: ItemViewModel = ItemViewModel()
-    let groupViewModel: GroupViewModel = GroupViewModel()
-    let widgetViewModel: WidgetViewModel = WidgetViewModel()
+    private let itemViewModel: ItemViewModel = ItemViewModel()
+    private let groupViewModel: GroupViewModel = GroupViewModel()
+    private let widgetViewModel: WidgetViewModel = WidgetViewModel()
+    
+    private func getItem() -> Item? {
+        groupViewModel.load()
+        guard let widgetGroup = groupViewModel.groups.first, let current = widgetViewModel.displayItemIndex else { return nil }
+        
+        let index: Int = min(current, widgetGroup.ids.count - 1)
+        
+        itemViewModel.loadFromIds(ids: [widgetGroup.ids[index]])
+        return itemViewModel.items.first
+    }
     
     func placeholder(in context: Context) -> TimeEntry {
         TimeEntry(date: Date(),
@@ -32,16 +42,6 @@ struct Provider: IntentTimelineProvider {
 
         let timeline = Timeline(entries: [entry], policy: .never)
         completion(timeline)
-    }
-    
-    func getItem() -> Item? {
-        groupViewModel.load()
-        guard let widgetGroup = groupViewModel.groups.first, let current = widgetViewModel.displayItemIndex else { return nil }
-        
-        let index: Int = min(current, widgetGroup.ids.count - 1)
-        
-        itemViewModel.loadFromIds(ids: [widgetGroup.ids[index]])
-        return itemViewModel.items.first
     }
 }
 

@@ -18,7 +18,7 @@ class SelectGroupViewController: UIViewController {
     private let groupViewModel: GroupViewModel = GroupViewModel()
     private let widgetGroupName: String = "위젯에 표시될 항목"
     
-    lazy var cancelBarButtonItem: UIBarButtonItem = {
+    private lazy var cancelBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: "Cancel".localized, style: .plain, target: self, action: #selector(cancelButtonTapped))
         barButtonItem.tintColor = .label
         return barButtonItem

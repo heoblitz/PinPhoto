@@ -14,9 +14,6 @@ class EditImageItemViewController: UIViewController {
     @IBOutlet private weak var itemImageView: UIImageView!
     
     // MARK:- Propertises
-    var itemViewModel: ItemViewModel?
-    var item: Item?
-    
     private var shouldBackgroundViewDark: Bool = false {
         didSet {
             if shouldBackgroundViewDark {
@@ -34,6 +31,9 @@ class EditImageItemViewController: UIViewController {
             setNeedsStatusBarAppearanceUpdate()
         }
     }
+    
+    var itemViewModel: ItemViewModel?
+    var item: Item?
     
     override var prefersStatusBarHidden: Bool {
         return isStatusBarHidden

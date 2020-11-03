@@ -21,6 +21,8 @@ class HomeDetailViewController: UIViewController {
     @IBOutlet private weak var toolBarBottomSpacing: NSLayoutConstraint!
     
     // MARK:- Propertises
+    static var isEditMode: Bool = false
+
     private let itemViewModel: ItemViewModel = ItemViewModel()
     private let groupViewModel: GroupViewModel = GroupViewModel()
     private let widgetViewModel: WidgetViewModel = WidgetViewModel()
@@ -35,7 +37,6 @@ class HomeDetailViewController: UIViewController {
         }
     }
     
-    static var isEditMode: Bool = false
     var group: Group?
     
     // MARK:- View Life Sycle
