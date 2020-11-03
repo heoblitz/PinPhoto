@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditTextItemViewController: UIViewController {
+final class EditTextItemViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var itemTextView: UITextView!
     @IBOutlet private weak var saveButton: UIBarButtonItem!

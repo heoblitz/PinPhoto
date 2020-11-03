@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateTextItemViewController: UIViewController {
+final class CreateTextItemViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var inputTextView: UITextView!
     @IBOutlet private weak var contentView: UIView!

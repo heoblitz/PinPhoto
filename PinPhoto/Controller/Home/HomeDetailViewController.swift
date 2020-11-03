@@ -10,7 +10,7 @@ import UIKit
 import Photos
 import YPImagePicker
 
-class HomeDetailViewController: UIViewController {
+final class HomeDetailViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var itemCollectionView: UICollectionView!
     @IBOutlet private weak var deleteButton: UIBarButtonItem!

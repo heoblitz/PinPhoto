@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditImageItemViewController: UIViewController {
+final class EditImageItemViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var itemScrollView: UIScrollView!
     @IBOutlet private weak var itemImageView: UIImageView!

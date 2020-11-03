@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GroupViewController: UIViewController {
+final class GroupViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var groupTableView: UITableView!
     @IBOutlet private weak var inputTextField: UITextField!

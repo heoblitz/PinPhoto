@@ -9,7 +9,7 @@
 import UIKit
 import NotificationCenter
 
-class TodayViewController: UIViewController {
+final class TodayViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var itemCollectionView: UICollectionView!
     @IBOutlet private weak var itemCollectionViewHeight: NSLayoutConstraint!

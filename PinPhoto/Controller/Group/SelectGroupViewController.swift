@@ -9,7 +9,7 @@
 import UIKit
 import YPImagePicker
 
-class SelectGroupViewController: UIViewController {
+final class SelectGroupViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var groupTableView: UITableView!
 

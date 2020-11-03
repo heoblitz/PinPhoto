@@ -9,7 +9,7 @@
 import UIKit
 import YPImagePicker
 
-class HomeNavigationController: UINavigationController {
+final class HomeNavigationController: UINavigationController {
     // MARK:- Properties
     private let widgetGroupName: String = "위젯에 표시될 항목"
     private let itemViewModel = ItemViewModel()
@@ -41,7 +41,7 @@ class HomeNavigationController: UINavigationController {
         tabBarItem?.title = "Item".localized
     }
     
-    override open var childForStatusBarHidden: UIViewController? { // for child vc status bar hidden
+    override var childForStatusBarHidden: UIViewController? { // for child vc status bar hidden
         return topViewController
     }
     
