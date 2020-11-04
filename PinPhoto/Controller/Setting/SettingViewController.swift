@@ -40,9 +40,10 @@ final class SettingViewController: UIViewController {
     private func alertDestructiveAllItem() {
         let alert = UIAlertController(title: "Do you want to initialize the data?".localized, message: "Do you want to initialize the data?".localized, preferredStyle: .alert)
         
-        let removeAction = UIAlertAction(title: "Remove".localized, style: .destructive, handler: { [weak self] action in
-            self?.itemViewModel.shared.destructive()
-            self?.groupViewModel.groupDataManager.destructive()
+        let removeAction = UIAlertAction(title: "Remove".localized, style: .destructive, handler: { [unowned self] action in
+            self.itemViewModel.shared.destructive()
+            self.groupViewModel.groupDataManager.destructive()
+            self.groupViewModel.noticeObservers()
         })
         let cancleAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
         

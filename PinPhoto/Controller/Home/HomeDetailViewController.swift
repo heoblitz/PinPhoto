@@ -147,6 +147,7 @@ final class HomeDetailViewController: UIViewController {
             self?.groupViewModel.load()
         }
         
+        groupViewModel.noticeObservers()
         deselectCells()
         selectedCell = [:]
     }

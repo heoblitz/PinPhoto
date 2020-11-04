@@ -40,9 +40,9 @@ final class GroupViewController: UIViewController {
         
         view.addGestureRecognizer(tapGesture)
         view.isUserInteractionEnabled = true
+        
         groupTableView.dataSource = self
         groupTableView.delegate = self
-        
         inputTextView.backgroundColor = UIColor.tapBarColor
     }
 
@@ -66,6 +66,7 @@ final class GroupViewController: UIViewController {
         }
         groupViewModel.remove(name: target.name)
         groupViewModel.load()
+        groupViewModel.noticeObservers()
     }
     
     private func alertSameGroupName() {
@@ -101,6 +102,7 @@ final class GroupViewController: UIViewController {
             
             groupViewModel.add(name: text)
             groupViewModel.load()
+            groupViewModel.noticeObservers()
         } else {
             alertSameGroupName()
         }
@@ -191,6 +193,7 @@ extension GroupViewController: UITableViewDataSource {
         if sourceIndexPath.section == destinationIndexPath.section {
             groupViewModel.swap(sourceIndexPath, destinationIndexPath)
             groupViewModel.load()
+            groupViewModel.noticeObservers()
         }
     }
     

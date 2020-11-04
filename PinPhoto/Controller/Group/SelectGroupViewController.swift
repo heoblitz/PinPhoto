@@ -122,7 +122,7 @@ final class SelectGroupViewController: UIViewController {
                 break
             }
         }
-        
+        groupViewModel.noticeObservers()
         navigationController?.dismiss(animated: true, completion: nil)
     }
     
@@ -139,7 +139,8 @@ final class SelectGroupViewController: UIViewController {
         itemViewModel.add(content: ItemType.text.value, image: nil, text: itemText, date: Date(), id: id)
         groupViewModel.insertId(at: groupName, ids: [Int(id)])
         groupViewModel.load()
-        
+        groupViewModel.noticeObservers()
+
         navigationController?.dismiss(animated: true, completion: nil)
     }
     
@@ -171,6 +172,7 @@ final class SelectGroupViewController: UIViewController {
             id += 1
         }
         
+        groupViewModel.noticeObservers()
         deSelectItem()
         navigationController?.dismiss(animated: true, completion: nil)
     }

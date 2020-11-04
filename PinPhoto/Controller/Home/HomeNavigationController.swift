@@ -183,6 +183,8 @@ final class HomeNavigationController: UINavigationController {
                 break
             }
         }
+        
+        groupViewModel.noticeObservers()
     }
     
     private func ifWidgetMaxCount(itemCount: Int) -> Bool {

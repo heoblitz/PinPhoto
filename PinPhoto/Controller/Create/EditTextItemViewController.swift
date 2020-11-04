@@ -89,6 +89,7 @@ final class EditTextItemViewController: UIViewController {
         
         //navigationController?.popToRootViewController(animated: true)
         groupViewModel?.load()
+        groupViewModel?.noticeObservers()
         navigationController?.popViewController(animated: true)
     }
 }

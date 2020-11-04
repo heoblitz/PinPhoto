@@ -123,7 +123,8 @@ final class CreateTextItemViewController: UIViewController {
         itemViewModel.add(content: ItemType.text.value, image: nil, text: inputTextView.text, date: Date(), id: id)
         groupViewModel.insertId(at: group.name, ids: [Int(id)])
         groupViewModel.load()
-        
+        groupViewModel.noticeObservers()
+
         dismiss(animated: true, completion: nil)
     }
 
