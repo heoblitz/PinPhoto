@@ -9,7 +9,7 @@
 import UIKit
 import NotificationCenter
 
-class TodayViewController: UIViewController {
+final class TodayViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var itemCollectionView: UICollectionView!
     @IBOutlet private weak var itemCollectionViewHeight: NSLayoutConstraint!
@@ -89,8 +89,7 @@ class TodayViewController: UIViewController {
     }
     
     // MARK:- Methods
-    func scrollItemCollectionView(to index: Int, animated: Bool) {
-        // let origin: CGFloat = itemCollectionView.bounds.origin.x
+    private func scrollItemCollectionView(to index: Int, animated: Bool) {
         let spacing: CGFloat = itemCollectionView.bounds.width
         
         itemCollectionView.setContentOffset(CGPoint(x: spacing * CGFloat(index), y: 0), animated: animated)
@@ -123,12 +122,6 @@ class TodayViewController: UIViewController {
 // MARK:- NCWidgetProviding
 extension TodayViewController: NCWidgetProviding {
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-        
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-        
         completionHandler(NCUpdateResult.newData)
     }
     

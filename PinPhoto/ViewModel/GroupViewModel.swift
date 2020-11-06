@@ -72,6 +72,10 @@ class GroupViewModel {
         }
     }
     
+    func noticeObservers() {
+        groupDataManager.noticeObservers()
+    }
+    
     func attachObserver(_ observer: GroupObserver) {
         groupDataManager.addObserver(observer)
     }

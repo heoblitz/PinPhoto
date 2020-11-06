@@ -9,7 +9,7 @@
 import UIKit
 import YPImagePicker
 
-class SelectGroupViewController: UIViewController {
+final class SelectGroupViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var groupTableView: UITableView!
 
@@ -18,7 +18,7 @@ class SelectGroupViewController: UIViewController {
     private let groupViewModel: GroupViewModel = GroupViewModel()
     private let widgetGroupName: String = "위젯에 표시될 항목"
     
-    lazy var cancelBarButtonItem: UIBarButtonItem = {
+    private lazy var cancelBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: "Cancel".localized, style: .plain, target: self, action: #selector(cancelButtonTapped))
         barButtonItem.tintColor = .label
         return barButtonItem
@@ -122,7 +122,7 @@ class SelectGroupViewController: UIViewController {
                 break
             }
         }
-        
+        groupViewModel.noticeObservers()
         navigationController?.dismiss(animated: true, completion: nil)
     }
     
@@ -139,7 +139,8 @@ class SelectGroupViewController: UIViewController {
         itemViewModel.add(content: ItemType.text.value, image: nil, text: itemText, date: Date(), id: id)
         groupViewModel.insertId(at: groupName, ids: [Int(id)])
         groupViewModel.load()
-        
+        groupViewModel.noticeObservers()
+
         navigationController?.dismiss(animated: true, completion: nil)
     }
     
@@ -171,6 +172,7 @@ class SelectGroupViewController: UIViewController {
             id += 1
         }
         
+        groupViewModel.noticeObservers()
         deSelectItem()
         navigationController?.dismiss(animated: true, completion: nil)
     }

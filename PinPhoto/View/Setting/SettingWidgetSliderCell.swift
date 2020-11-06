@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingWidgetSliderCell: UITableViewCell {
+final class SettingWidgetSliderCell: UITableViewCell {
     // MARK:- @IBOutlet Properties
     @IBOutlet weak var heightSilder: UISlider!
     @IBOutlet weak var heightBigLabel: UILabel!

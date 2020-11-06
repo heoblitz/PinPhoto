@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ManualViewController: UIViewController {
+final class ManualViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var manualCollectionView: UICollectionView!
     @IBOutlet private weak var manualPageControl: UIPageControl!

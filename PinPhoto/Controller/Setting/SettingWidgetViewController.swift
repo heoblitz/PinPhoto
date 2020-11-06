@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingWidgetViewController: UIViewController {
+final class SettingWidgetViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var widgetImageView: UIImageView!
     @IBOutlet private weak var widgetHeaderView: UIView!

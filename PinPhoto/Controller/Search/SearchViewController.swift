@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+final class SearchViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var searchCollectionView: UICollectionView!
     

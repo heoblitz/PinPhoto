@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExtensionItemCell: UICollectionViewCell {
+final class ExtensionItemCell: UICollectionViewCell {
     // MARK:- @IBOutlet Properties
     @IBOutlet weak var contentImageView: UIImageView!
     @IBOutlet weak var contentTextLabel: UILabel!

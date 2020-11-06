@@ -10,7 +10,7 @@ import UIKit
 import Photos
 import YPImagePicker
 
-class HomeDetailViewController: UIViewController {
+final class HomeDetailViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var itemCollectionView: UICollectionView!
     @IBOutlet private weak var deleteButton: UIBarButtonItem!
@@ -21,13 +21,12 @@ class HomeDetailViewController: UIViewController {
     @IBOutlet private weak var toolBarBottomSpacing: NSLayoutConstraint!
     
     // MARK:- Propertises
+    static var isEditMode: Bool = false
+
     private let itemViewModel: ItemViewModel = ItemViewModel()
     private let groupViewModel: GroupViewModel = GroupViewModel()
     private let widgetViewModel: WidgetViewModel = WidgetViewModel()
     private let widgetGroupNameKr: String = "위젯에 표시될 항목"
-
-    static var isEditMode: Bool = false
-    var group: Group?
     
     var selectedCell: [IndexPath:Int64] = [:] { // indexPath:id
         didSet {
@@ -37,6 +36,8 @@ class HomeDetailViewController: UIViewController {
             self.displayButton.isEnabled = (count == 1) ? true : false
         }
     }
+    
+    var group: Group?
     
     // MARK:- View Life Sycle
     override func viewDidLoad() {
@@ -146,13 +147,14 @@ class HomeDetailViewController: UIViewController {
             self?.groupViewModel.load()
         }
         
+        groupViewModel.noticeObservers()
         deselectCells()
         selectedCell = [:]
     }
     
     @IBAction func displayButtonTapped(_ sender: UIBarButtonItem) {
         guard let indexPath = selectedCell.first?.key else { return }
-        guard let group = group, group.name != widgetGroupNameKr else { return }
+        guard let group = group, group.name == widgetGroupNameKr else { return }
         let displayItem: Int = indexPath.item
         widgetViewModel.displayItemIndex = displayItem
         
@@ -173,7 +175,7 @@ extension HomeDetailViewController: UICollectionViewDataSource {
         }
         let item = itemViewModel.item(at: indexPath.item)
         
-        if navigationItem.title == "Widget".localized { // 위젯에 표시되어 있는 셀인지 파악
+        if let group = group, group.name == widgetGroupNameKr { // 위젯에 표시되어 있는 셀인지 파악
             if widgetViewModel.displayItemIndex == indexPath.item {
                 cell.isCellDisplayItem = true
             }

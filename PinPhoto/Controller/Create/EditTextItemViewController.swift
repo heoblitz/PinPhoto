@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditTextItemViewController: UIViewController {
+final class EditTextItemViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var itemTextView: UITextView!
     @IBOutlet private weak var saveButton: UIBarButtonItem!
@@ -89,6 +89,7 @@ class EditTextItemViewController: UIViewController {
         
         //navigationController?.popToRootViewController(animated: true)
         groupViewModel?.load()
+        groupViewModel?.noticeObservers()
         navigationController?.popViewController(animated: true)
     }
 }

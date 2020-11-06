@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GroupViewController: UIViewController {
+final class GroupViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var groupTableView: UITableView!
     @IBOutlet private weak var inputTextField: UITextField!
@@ -21,8 +21,8 @@ class GroupViewController: UIViewController {
     private let widgetGroupNameEn: String = "Widget"
     private let widgetGroupNameJpn: String = "ウィジェット"
 
-    let groupViewModel = GroupViewModel()
-    let itemViewModel = ItemViewModel()
+    private let groupViewModel = GroupViewModel()
+    private let itemViewModel = ItemViewModel()
     
     // MARK:- View Life Cycle
     override func viewDidLoad() {
@@ -40,9 +40,9 @@ class GroupViewController: UIViewController {
         
         view.addGestureRecognizer(tapGesture)
         view.isUserInteractionEnabled = true
+        
         groupTableView.dataSource = self
         groupTableView.delegate = self
-        
         inputTextView.backgroundColor = UIColor.tapBarColor
     }
 
@@ -66,6 +66,7 @@ class GroupViewController: UIViewController {
         }
         groupViewModel.remove(name: target.name)
         groupViewModel.load()
+        groupViewModel.noticeObservers()
     }
     
     private func alertSameGroupName() {
@@ -101,6 +102,7 @@ class GroupViewController: UIViewController {
             
             groupViewModel.add(name: text)
             groupViewModel.load()
+            groupViewModel.noticeObservers()
         } else {
             alertSameGroupName()
         }
@@ -191,6 +193,7 @@ extension GroupViewController: UITableViewDataSource {
         if sourceIndexPath.section == destinationIndexPath.section {
             groupViewModel.swap(sourceIndexPath, destinationIndexPath)
             groupViewModel.load()
+            groupViewModel.noticeObservers()
         }
     }
     

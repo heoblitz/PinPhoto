@@ -52,7 +52,7 @@ class GroupDataManager {
         } catch let error {
             print("---> Failed to decode: \(error)")
         }
-        noticeObservers()
+        // noticeObservers()
     }
     
     func destructive() {

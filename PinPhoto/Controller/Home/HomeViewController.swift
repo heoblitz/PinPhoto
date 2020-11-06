@@ -10,7 +10,7 @@ import UIKit
 import StoreKit
 import YPImagePicker
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var homeCollectionView: UICollectionView!
     

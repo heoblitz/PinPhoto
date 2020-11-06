@@ -8,16 +8,10 @@
 
 import UIKit
 
-class CreateTextItemViewController: UIViewController {
+final class CreateTextItemViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var inputTextView: UITextView!
     @IBOutlet private weak var contentView: UIView!
-    
-    private let widgetGroupName: String = "위젯에 표시될 항목"
-    private let itemViewModel = ItemViewModel()
-    private let groupViewModel = GroupViewModel()
-    
-    var selectedGroup: Group?
     
     // MARK:- Propertises    
     private let cancelBarButtonItem: UIBarButtonItem = {
@@ -37,6 +31,12 @@ class CreateTextItemViewController: UIViewController {
         barButtonItem.tintColor = .link
         return barButtonItem
     }()
+    
+    private let widgetGroupName: String = "위젯에 표시될 항목"
+    private let itemViewModel = ItemViewModel()
+    private let groupViewModel = GroupViewModel()
+    
+    var selectedGroup: Group?
     
     // MARk:- View Life Sycle
     override func viewDidLoad() {
@@ -123,7 +123,8 @@ class CreateTextItemViewController: UIViewController {
         itemViewModel.add(content: ItemType.text.value, image: nil, text: inputTextView.text, date: Date(), id: id)
         groupViewModel.insertId(at: group.name, ids: [Int(id)])
         groupViewModel.load()
-        
+        groupViewModel.noticeObservers()
+
         dismiss(animated: true, completion: nil)
     }
 

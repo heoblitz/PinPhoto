@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeGroupViewCell: UICollectionViewCell {
+final class HomeGroupViewCell: UICollectionViewCell {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var groupImageView: UIImageView!
     @IBOutlet private weak var groupTextLabel: UILabel!
@@ -16,8 +16,8 @@ class HomeGroupViewCell: UICollectionViewCell {
     @IBOutlet private weak var noticeTextLabel: UILabel!
     
     // MARK:- Properties
-    var disabledHighlightedAnimation: Bool = false
     static let cellIdentifier: String = "HomeGroupViewCell"
+    var disabledHighlightedAnimation: Bool = false
     
     // MARK:- Methods
     override func awakeFromNib() {
