@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol GroupObserver {
+public protocol GroupObserver: class {
     var groupIdentifier: String { get }
     func updateGroup()
 }
