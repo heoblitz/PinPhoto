@@ -122,6 +122,7 @@
 		3CF8B45224A9CBA300D6C11C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45024A9CBA300D6C11C /* Main.storyboard */; };
 		3CF8B45724A9CBA700D6C11C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45524A9CBA700D6C11C /* LaunchScreen.storyboard */; };
 		97EA7918B2D5D4E6C4A01BB1 /* Pods_PinPhotoWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A84883FF2DE19D2F1436A2 /* Pods_PinPhotoWidgetExtension.framework */; };
+		BF01EBC1255ADA370036E8EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF01EBC0255ADA370036E8EC /* GoogleService-Info.plist */; };
 		BF3FCA612550E882002B5AB5 /* HomeDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3FCA632550E882002B5AB5 /* HomeDetail.storyboard */; };
 		BF3FCA7425536550002B5AB5 /* GroupObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3FCA7325536550002B5AB5 /* GroupObserver.swift */; };
 		BF3FCA7825536574002B5AB5 /* GroupObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3FCA7325536550002B5AB5 /* GroupObserver.swift */; };
@@ -261,6 +262,7 @@
 		90816F65DC997A4BDA8F0CA1 /* Pods_PinPhotoExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPhotoExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1624057D1CAB01FABDD5A48 /* Pods-PinPhoto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPhoto.release.xcconfig"; path = "Target Support Files/Pods-PinPhoto/Pods-PinPhoto.release.xcconfig"; sourceTree = "<group>"; };
 		A6E3DD72E2F55C8639AAB2B9 /* Pods_PinPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF01EBC0255ADA370036E8EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF3FCA622550E882002B5AB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HomeDetail.storyboard; sourceTree = "<group>"; };
 		BF3FCA682550E886002B5AB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HomeDetail.strings; sourceTree = "<group>"; };
 		BF3FCA6A2550E8BA002B5AB5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/HomeDetail.strings; sourceTree = "<group>"; };
@@ -600,6 +602,7 @@
 				3C585BD124FD34A900203C18 /* Protocol */,
 				3CF8B45324A9CBA700D6C11C /* Assets.xcassets */,
 				3CF8B45824A9CBA700D6C11C /* Info.plist */,
+				BF01EBC0255ADA370036E8EC /* GoogleService-Info.plist */,
 				3C33F24D2549AF3F009406CF /* InfoPlist.strings */,
 				3CAC4C3625468A8400ACE418 /* Localizable.strings */,
 			);
@@ -766,6 +769,7 @@
 				3C0C004A24EA4F1A00BF137B /* Manual.storyboard in Resources */,
 				3C33F24B2549AF3F009406CF /* InfoPlist.strings in Resources */,
 				3C0C004E24EA4FED00BF137B /* EditImageItem.storyboard in Resources */,
+				BF01EBC1255ADA370036E8EC /* GoogleService-Info.plist in Resources */,
 				3CAC4CA725486B6F00ACE418 /* Search.storyboard in Resources */,
 				3CF8B45224A9CBA300D6C11C /* Main.storyboard in Resources */,
 			);
