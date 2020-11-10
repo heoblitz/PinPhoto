@@ -230,7 +230,6 @@
 		66526EBDBE93EB2CF815E5AD15E8FAAC /* Pods-PinPhotoWidgetExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C2F9A05A455646BF8AAED0C6A6A4D037 /* Pods-PinPhotoWidgetExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67235A339870E7894E6E11B6E9E26490 /* GDTCORRegistrar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0068987075B0EC3146D7F0AB413954FA /* GDTCORRegistrar.m */; };
 		672980E5B932EDF8A366B7C00A41CAA5 /* GULNetworkLoggerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BDC5F4B954307C56851409DBB7BA108 /* GULNetworkLoggerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67927E43C4C0AC176663FF712F959987 /* Pods-PinPhotoExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 005C758D8A0E80111A347A055974C8A4 /* Pods-PinPhotoExtension-dummy.m */; };
 		67D0E3CB6C116747D65EEA1E1B58FDB9 /* YPFiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201419AAB04D2F93C1BBCC83DED4D301 /* YPFiltersView.swift */; };
 		68AEF2107B5E545472C07906A198958F /* FIRHeartbeatInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 5222226432A849551B7C6E5F5AEA7B6C /* FIRHeartbeatInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		68FD4F5105D5A0B44C7699FC2D525B47 /* GDTCORFlatFileStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 524066E6D42815840B1C71FF2D239BB2 /* GDTCORFlatFileStorage.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -269,10 +268,10 @@
 		7AB83A6E65EE0E0B97AB9408D95D88DF /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E70E4B2BCA04570737A8BC03378D18E /* GoogleUtilities.framework */; };
 		7AB85A4117A6AA05C106A976A8E5DE99 /* FBLPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C963AEC21049D5C7230E9EC4C56DF0E /* FBLPromise.h */; };
 		7B39CB939C103331D42CCF70A8969D67 /* FIRInstallationsErrorUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = EA558DE4DAAFF1C2617D228D32DD0506 /* FIRInstallationsErrorUtil.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		7B842C71A50F62221F4D359D98AD254F /* Pods-PinPhotoExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 795A2382BE589471A0A3351E61F52855 /* Pods-PinPhotoExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CBA5B6245DF381A5ABB27CAB2C39912 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E18F83CA3E489C8185630B0BE475E77 /* Foundation.framework */; };
 		7CD1555642D01032183D80DDC7053007 /* FBLPromise+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = E19ADAA6085FADA3C90192DBF552FE9C /* FBLPromise+Testing.h */; };
 		7CDABE5FEFFE80D3A91B1995CB859288 /* GDTCORTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C00CEC2A8266342E2D02CEFAE3779E /* GDTCORTransformer.m */; };
+		7D5FD828AE86EB0587B57F31E8D44499 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E18F83CA3E489C8185630B0BE475E77 /* Foundation.framework */; };
 		7D8D04B2549CCBD4E8A5CE93B6B62F38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E18F83CA3E489C8185630B0BE475E77 /* Foundation.framework */; };
 		7D9FCAEE3F6FE514F4D9B962F4AC34EA /* Pods-PinPhoto-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D3FA0E8109D4444FBBA932B71B1ECF /* Pods-PinPhoto-dummy.m */; };
 		7DBD332AF544383E937C880CC3B13056 /* YPFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988FD9B127AA4BB92D9E744BCA644C02 /* YPFonts.swift */; };
@@ -329,7 +328,6 @@
 		96E9675A59CF6506C99AB823828A0241 /* GDTCOREvent+GDTCCTSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B07B58EC68D1DDA9543F0BFC2AE8636 /* GDTCOREvent+GDTCCTSupport.m */; };
 		970C074A81EB82A67FC585BA50CC4151 /* GoogleDataTransport-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 338708EE88B6653C6A2E70B114E7B8E8 /* GoogleDataTransport-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9781A6B61FBB417729F91FCC3D78FE50 /* GDTCORConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6851186C07B6C2A4CFCADA853677D716 /* GDTCORConsoleLogger.m */; };
-		979F5B6E0904FBEC01FEBB8A8965818C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E18F83CA3E489C8185630B0BE475E77 /* Foundation.framework */; };
 		9887C1DB6E5FAE9A81019C175189A0D0 /* YPDragDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E55D031847CFA4508897E42A172979 /* YPDragDirection.swift */; };
 		9A21116E3EA8EF50452111A5AF50D654 /* FBLPromise+Always.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AA3968B1E4EEEB9F64A7311A586B00D /* FBLPromise+Always.h */; };
 		9A553A6E40E54B120CF51B64159E8234 /* GULNetworkInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 9841B96F7E1987127222A3BC1C6183F9 /* GULNetworkInternal.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -343,6 +341,7 @@
 		9E51B4812A1FE0B894B0896E19419951 /* FBLPromise+Then.h in Headers */ = {isa = PBXBuildFile; fileRef = 12A2F37D4B95077DF3216A5A77EBC009 /* FBLPromise+Then.h */; };
 		9E56FA4D557CFB6FC71F4261B5FE6F45 /* FBLPromise+Timeout.h in Copy . Public Headers */ = {isa = PBXBuildFile; fileRef = F27D1403BAEC9EFFB92A9E1541CA0D0F /* FBLPromise+Timeout.h */; };
 		9E62FED33DD55BDC085BCE1715A80BDF /* YPMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087A551CAEFD779BD6000FAA8B887C51 /* YPMediaItem.swift */; };
+		9ECC7D0C14BED3161B368212BC8A2916 /* Pods-PinPhotoExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 795A2382BE589471A0A3351E61F52855 /* Pods-PinPhotoExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9EEFD7B0D43A1B4E4EFC96F86318B128 /* FBLPromise+Validate.h in Copy . Public Headers */ = {isa = PBXBuildFile; fileRef = 08C831B90901816A95437CFFBC664D31 /* FBLPromise+Validate.h */; };
 		9F892953CDBCA0290AE6E9E930A2FBA8 /* AVCaptureSession+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC53742E109AEE61B68D7401D9815B30 /* AVCaptureSession+Extensions.swift */; };
 		9FC61BD9C7545A4600AF280A21F208C8 /* YPLibraryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F697E102F54BD0A34FF37E7B49E642 /* YPLibraryVC.swift */; };
@@ -500,6 +499,7 @@
 		FA0EBE3B18936DF6668F5413227F0820 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 5BC58CD482ECB3C490B1143A2D336191 /* en.lproj */; };
 		FBD77E2F6C67B827043AD8A7DE1900C5 /* pb.h in Headers */ = {isa = PBXBuildFile; fileRef = CE63EBEA82BFC8E136465ED57DE638F0 /* pb.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FBFF93F158B84F168B7A8F1826BF7AD9 /* AVPlayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92330BC8039B8A4B3641E87CDE8FC198 /* AVPlayer+Extensions.swift */; };
+		FCCB1F6CC2FAE66F05511B4742B1219C /* Pods-PinPhotoExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 005C758D8A0E80111A347A055974C8A4 /* Pods-PinPhotoExtension-dummy.m */; };
 		FD2854AD97BCD738BB59EFD2FAF8EDF8 /* FIRFirebaseUserAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = 72532721E9A97EA35AB3B77D33798E24 /* FIRFirebaseUserAgent.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		FD73692B4F73F4A5B1B034BBC643DEE0 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A517352A107535D39EFD505D39DEB4 /* URL+Extensions.swift */; };
 		FDBFAC66C427F81F455258E3F57A073C /* FBLPromiseError.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4DBF2F446AF5F96F134F6A5AB49622 /* FBLPromiseError.m */; };
@@ -514,6 +514,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 620E05868772C10B4920DC7E324F2C87;
 			remoteInfo = FirebaseCoreDiagnostics;
+		};
+		01D8B487455BF14F782BCAE8474C191A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 87803597EB3F20FC46472B85392EC4FD;
+			remoteInfo = FirebaseInstallations;
 		};
 		1BD7B8F79815D27F1C5B09DC3C2D6A5F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -543,6 +550,13 @@
 			remoteGlobalIDString = B53D977A951AFC38B21751B706C1DF83;
 			remoteInfo = GoogleAppMeasurement;
 		};
+		1FF44D8E0A9B29D30001F4A15DBE681E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4402AFF83DBDC4DD07E198685FDC2DF2;
+			remoteInfo = FirebaseCore;
+		};
 		225AC8BE05791773A9904C3F5C318B08 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -563,6 +577,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = CF263AB023E40C4315ED4A97C6D7829F;
 			remoteInfo = SteviaLayout;
+		};
+		2991F6C6C6154013E30DE56A7C9098BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 072CEA044D2EF26F03496D5996BBF59F;
+			remoteInfo = Firebase;
 		};
 		31574F69DD28CEE1412F92BD8B86DE4F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -592,12 +613,33 @@
 			remoteGlobalIDString = 492A3F539D36426FFCED62F4F58F688B;
 			remoteInfo = PryntTrimmerView;
 		};
+		3FDF0A4E30569C4131A516CF73C29BFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2B5E7DCCBBFB32341D857D01211A1A3;
+			remoteInfo = nanopb;
+		};
+		41ED613DC47116B1A383B6BF8557208F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B53D977A951AFC38B21751B706C1DF83;
+			remoteInfo = GoogleAppMeasurement;
+		};
 		4AEF0FC8E91A1E610EBDE681DCD50538 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4402AFF83DBDC4DD07E198685FDC2DF2;
 			remoteInfo = FirebaseCore;
+		};
+		4ECCB33E7FEFD7951E2508E5E596FE3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C49E7A4D59E5C8BE8DE9FB1EFB150185;
+			remoteInfo = FirebaseAnalytics;
 		};
 		5048D024B6C61BDC81A7DCAF83EAEE3F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -669,6 +711,13 @@
 			remoteGlobalIDString = D2B5E7DCCBBFB32341D857D01211A1A3;
 			remoteInfo = nanopb;
 		};
+		9C035307DA3168E4CD05BA29E83C3CB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 620E05868772C10B4920DC7E324F2C87;
+			remoteInfo = FirebaseCoreDiagnostics;
+		};
 		9CE57A7809A5AF03EA9250D398B49C1E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -697,6 +746,13 @@
 			remoteGlobalIDString = 620E05868772C10B4920DC7E324F2C87;
 			remoteInfo = FirebaseCoreDiagnostics;
 		};
+		C2B15BAAAD30DEB3543FC75E450CFA8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D7F5D5DD528D21A72DC87ADA5B12E2D;
+			remoteInfo = GoogleUtilities;
+		};
 		C8A4E086B8552A73FAC26C29C31C129E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -710,6 +766,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = C49E7A4D59E5C8BE8DE9FB1EFB150185;
 			remoteInfo = FirebaseAnalytics;
+		};
+		CC315DDDAFDBF9E65B099F490817E93E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BBF7206D7FAC92C82A042A99C4A98F8;
+			remoteInfo = PromisesObjC;
 		};
 		CDEC45FF69BFA268A1C7489A9748D9C3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -731,6 +794,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = D2B5E7DCCBBFB32341D857D01211A1A3;
 			remoteInfo = nanopb;
+		};
+		F4D41CB67F024266BD6C29765924D2E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C0371EE948D0357B8EE0E34ABB44BF0;
+			remoteInfo = GoogleDataTransport;
 		};
 		F508963B48FE7315C0C71A1AF25DCE35 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1303,6 +1373,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		01A4C887BEEFBED394DEE811373812A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D5FD828AE86EB0587B57F31E8D44499 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		225DDFC163232A673AB69968016206A6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1337,14 +1415,6 @@
 				9B7DAB5BCB931E8AEE67C840E1DDBA6D /* Foundation.framework in Frameworks */,
 				1137D18AF5CEF1D463724FEBAC2691D3 /* PryntTrimmerView.framework in Frameworks */,
 				144FF9283C3A01E35527876AEE0FBE49 /* Stevia.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		68E79C6A822B913AC6B75CF13A3D6B3A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				979F5B6E0904FBEC01FEBB8A8965818C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2492,14 +2562,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6AEBBE5680E6A54FEFC5BB513F19E6BF /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7B842C71A50F62221F4D359D98AD254F /* Pods-PinPhotoExtension-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6F4668217FD4985AC20D47BAFDA2FEA2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -2556,6 +2618,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3128FA0C6EF67C366889FD25B20C26B7 /* PryntTrimmerView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0F14FF20836E148DE43FF45AB072E12 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9ECC7D0C14BED3161B368212BC8A2916 /* Pods-PinPhotoExtension-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2700,16 +2770,26 @@
 		};
 		4CAB97DEBA26F63E0AAC9742EE298E8D /* Pods-PinPhotoExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C03347E28BEE46DFA5333EB0950F40F4 /* Build configuration list for PBXNativeTarget "Pods-PinPhotoExtension" */;
+			buildConfigurationList = A38483C0516AB45736A2B1A55E59AC42 /* Build configuration list for PBXNativeTarget "Pods-PinPhotoExtension" */;
 			buildPhases = (
-				6AEBBE5680E6A54FEFC5BB513F19E6BF /* Headers */,
-				16E1917B2CFB96F9E4F3442B11B5CD40 /* Sources */,
-				68E79C6A822B913AC6B75CF13A3D6B3A /* Frameworks */,
-				B6900165CF1D58EB94F18CAA2117109D /* Resources */,
+				B0F14FF20836E148DE43FF45AB072E12 /* Headers */,
+				9A36B2D0B80AE134AA9EB71C2D94DF4A /* Sources */,
+				01A4C887BEEFBED394DEE811373812A9 /* Frameworks */,
+				4C1ACE0F5CEE7B1345B6585B5CA62307 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C98EBB634B4559C22FD0DB8091CCB06D /* PBXTargetDependency */,
+				1DAC4B263073F02C17CB05886A296478 /* PBXTargetDependency */,
+				170C7E157D2642DDF6764ECFDA220A65 /* PBXTargetDependency */,
+				28DBC7C9918516FE0C8D4C570D91A6DC /* PBXTargetDependency */,
+				7A918B31C10843CBD630509BEE716E4D /* PBXTargetDependency */,
+				7111DE30063DF063179F5D22065EE07B /* PBXTargetDependency */,
+				2A54C66CDADF20F4A058A6AD8E6B6CE5 /* PBXTargetDependency */,
+				5F52E016C41B9A1CCB487FA1CB3AE543 /* PBXTargetDependency */,
+				310F9DD7C3F570C2A2C071C14E77B136 /* PBXTargetDependency */,
+				2C66B1D83CF8720C224077097272BB16 /* PBXTargetDependency */,
 			);
 			name = "Pods-PinPhotoExtension";
 			productName = "Pods-PinPhotoExtension";
@@ -2931,6 +3011,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4C1ACE0F5CEE7B1345B6585B5CA62307 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		66484A5D13027EDB3E625256075ACCD3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3010,13 +3097,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B6900165CF1D58EB94F18CAA2117109D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		EA8147F4D3178BEF82CA8A57031EF84A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3041,14 +3121,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		16E1917B2CFB96F9E4F3442B11B5CD40 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				67927E43C4C0AC176663FF712F959987 /* Pods-PinPhotoExtension-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		29AFF14336C5C60CF4D7ECE4FCF71B99 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3172,6 +3244,14 @@
 				B7D2E968A4CC80FD0993A3C79E291B8D /* FIRInstallationsStore.m in Sources */,
 				4F38A59B406F2CA7F72FC1502129BF22 /* FIRInstallationsStoredAuthToken.m in Sources */,
 				E3010AE02D2BC3E1CEC1F457D611F803 /* FIRInstallationsStoredItem.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A36B2D0B80AE134AA9EB71C2D94DF4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCCB1F6CC2FAE66F05511B4742B1219C /* Pods-PinPhotoExtension-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3362,6 +3442,18 @@
 			target = D2B5E7DCCBBFB32341D857D01211A1A3 /* nanopb */;
 			targetProxy = B2F8440BA725F7F7314079A66CC7DFC6 /* PBXContainerItemProxy */;
 		};
+		170C7E157D2642DDF6764ECFDA220A65 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FirebaseCore;
+			target = 4402AFF83DBDC4DD07E198685FDC2DF2 /* FirebaseCore */;
+			targetProxy = 1FF44D8E0A9B29D30001F4A15DBE681E /* PBXContainerItemProxy */;
+		};
+		1DAC4B263073F02C17CB05886A296478 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FirebaseAnalytics;
+			target = C49E7A4D59E5C8BE8DE9FB1EFB150185 /* FirebaseAnalytics */;
+			targetProxy = 4ECCB33E7FEFD7951E2508E5E596FE3F /* PBXContainerItemProxy */;
+		};
 		1F1BB4B9B37CC12051D991A10EDE147A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Firebase;
@@ -3374,11 +3466,35 @@
 			target = 492A3F539D36426FFCED62F4F58F688B /* PryntTrimmerView */;
 			targetProxy = 3DC0C906EFC06D3B155F34BCDD37F1D1 /* PBXContainerItemProxy */;
 		};
+		28DBC7C9918516FE0C8D4C570D91A6DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FirebaseCoreDiagnostics;
+			target = 620E05868772C10B4920DC7E324F2C87 /* FirebaseCoreDiagnostics */;
+			targetProxy = 9C035307DA3168E4CD05BA29E83C3CB8 /* PBXContainerItemProxy */;
+		};
+		2A54C66CDADF20F4A058A6AD8E6B6CE5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleDataTransport;
+			target = 5C0371EE948D0357B8EE0E34ABB44BF0 /* GoogleDataTransport */;
+			targetProxy = F4D41CB67F024266BD6C29765924D2E0 /* PBXContainerItemProxy */;
+		};
+		2C66B1D83CF8720C224077097272BB16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = nanopb;
+			target = D2B5E7DCCBBFB32341D857D01211A1A3 /* nanopb */;
+			targetProxy = 3FDF0A4E30569C4131A516CF73C29BFC /* PBXContainerItemProxy */;
+		};
 		2F83052416772C51DC91A8E170A2BD07 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = PryntTrimmerView;
 			target = 492A3F539D36426FFCED62F4F58F688B /* PryntTrimmerView */;
 			targetProxy = 8F160B09806F9C10D5282B521CEE5A14 /* PBXContainerItemProxy */;
+		};
+		310F9DD7C3F570C2A2C071C14E77B136 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PromisesObjC;
+			target = 2BBF7206D7FAC92C82A042A99C4A98F8 /* PromisesObjC */;
+			targetProxy = CC315DDDAFDBF9E65B099F490817E93E /* PBXContainerItemProxy */;
 		};
 		3294D3A34ECB599019266C146D26C9D9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3410,11 +3526,23 @@
 			target = 4402AFF83DBDC4DD07E198685FDC2DF2 /* FirebaseCore */;
 			targetProxy = C8A4E086B8552A73FAC26C29C31C129E /* PBXContainerItemProxy */;
 		};
+		5F52E016C41B9A1CCB487FA1CB3AE543 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleUtilities;
+			target = 8D7F5D5DD528D21A72DC87ADA5B12E2D /* GoogleUtilities */;
+			targetProxy = C2B15BAAAD30DEB3543FC75E450CFA8F /* PBXContainerItemProxy */;
+		};
 		644336E6BBBA4E48E568D39F17F4F5DD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GoogleUtilities;
 			target = 8D7F5D5DD528D21A72DC87ADA5B12E2D /* GoogleUtilities */;
 			targetProxy = 8190D331E974F6EBCA27966DD98C42B3 /* PBXContainerItemProxy */;
+		};
+		7111DE30063DF063179F5D22065EE07B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleAppMeasurement;
+			target = B53D977A951AFC38B21751B706C1DF83 /* GoogleAppMeasurement */;
+			targetProxy = 41ED613DC47116B1A383B6BF8557208F /* PBXContainerItemProxy */;
 		};
 		744E702202D00FC8CFF16F0F797278B9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3427,6 +3555,12 @@
 			name = FirebaseCoreDiagnostics;
 			target = 620E05868772C10B4920DC7E324F2C87 /* FirebaseCoreDiagnostics */;
 			targetProxy = 00DEBEDA523FD1A6D3D621B1675BC63A /* PBXContainerItemProxy */;
+		};
+		7A918B31C10843CBD630509BEE716E4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FirebaseInstallations;
+			target = 87803597EB3F20FC46472B85392EC4FD /* FirebaseInstallations */;
+			targetProxy = 01D8B487455BF14F782BCAE8474C191A /* PBXContainerItemProxy */;
 		};
 		7BD28BE76DB0EA4517C6E413C8E47BD1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3493,6 +3627,12 @@
 			name = FirebaseCore;
 			target = 4402AFF83DBDC4DD07E198685FDC2DF2 /* FirebaseCore */;
 			targetProxy = 4AEF0FC8E91A1E610EBDE681DCD50538 /* PBXContainerItemProxy */;
+		};
+		C98EBB634B4559C22FD0DB8091CCB06D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Firebase;
+			target = 072CEA044D2EF26F03496D5996BBF59F /* Firebase */;
+			targetProxy = 2991F6C6C6154013E30DE56A7C9098BD /* PBXContainerItemProxy */;
 		};
 		CD9045192AFE624CA885A6D61B7BDEF3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3688,6 +3828,43 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2C0C55C1ED12DB1AD02CC834C37A5C04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCDEAF5775CD57EAD5ACA2829D736288 /* Pods-PinPhotoExtension.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PinPhotoExtension/Pods-PinPhotoExtension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PinPhotoExtension/Pods-PinPhotoExtension.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -3907,44 +4084,6 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		80A52DB23C176BFD5455A181A7E3A867 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 932AED32FE740BF32A3DC0CE75CC2D69 /* Pods-PinPhotoExtension.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-PinPhotoExtension/Pods-PinPhotoExtension-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-PinPhotoExtension/Pods-PinPhotoExtension.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -4413,9 +4552,9 @@
 			};
 			name = Debug;
 		};
-		D0ECD9B219CB0FAAFF69B4A647ED9D47 /* Debug */ = {
+		C488B59E5B01F39720529D575B7A5F36 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DCDEAF5775CD57EAD5ACA2829D736288 /* Pods-PinPhotoExtension.debug.xcconfig */;
+			baseConfigurationReference = 932AED32FE740BF32A3DC0CE75CC2D69 /* Pods-PinPhotoExtension.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -4445,10 +4584,11 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		D6B459DC693CEFDD6C8AF62836C0A861 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -4771,20 +4911,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		A38483C0516AB45736A2B1A55E59AC42 /* Build configuration list for PBXNativeTarget "Pods-PinPhotoExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C0C55C1ED12DB1AD02CC834C37A5C04 /* Debug */,
+				C488B59E5B01F39720529D575B7A5F36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BEB9918333D20E5FD6401CCD25C69FDD /* Build configuration list for PBXNativeTarget "FirebaseInstallations" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A530C4B897F193C184FBD304DC3B4B9 /* Debug */,
 				E2E14D1F928F0AB3AD78D3C354C189BB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C03347E28BEE46DFA5333EB0950F40F4 /* Build configuration list for PBXNativeTarget "Pods-PinPhotoExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D0ECD9B219CB0FAAFF69B4A647ED9D47 /* Debug */,
-				80A52DB23C176BFD5455A181A7E3A867 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
