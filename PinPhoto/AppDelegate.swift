@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // core data url
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
          print(urls[urls.count-1] as URL)
+        
+        // Firebase configure
+        FirebaseApp.configure()
         
         return true
     }
