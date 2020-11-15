@@ -124,6 +124,7 @@
 		97EA7918B2D5D4E6C4A01BB1 /* Pods_PinPhotoWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A84883FF2DE19D2F1436A2 /* Pods_PinPhotoWidgetExtension.framework */; };
 		BF01EBC1255ADA370036E8EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF01EBC0255ADA370036E8EC /* GoogleService-Info.plist */; };
 		BF13206525614642006FB5B7 /* SettingHomeWidget.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF13206425614642006FB5B7 /* SettingHomeWidget.storyboard */; };
+		BF13206D256148C9006FB5B7 /* SettingHomeWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13206C256148C9006FB5B7 /* SettingHomeWidgetViewController.swift */; };
 		BF3FCA612550E882002B5AB5 /* HomeDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3FCA632550E882002B5AB5 /* HomeDetail.storyboard */; };
 		BF3FCA7425536550002B5AB5 /* GroupObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3FCA7325536550002B5AB5 /* GroupObserver.swift */; };
 		BF3FCA7825536574002B5AB5 /* GroupObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3FCA7325536550002B5AB5 /* GroupObserver.swift */; };
@@ -265,6 +266,7 @@
 		A6E3DD72E2F55C8639AAB2B9 /* Pods_PinPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF01EBC0255ADA370036E8EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF13206425614642006FB5B7 /* SettingHomeWidget.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingHomeWidget.storyboard; sourceTree = "<group>"; };
+		BF13206C256148C9006FB5B7 /* SettingHomeWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHomeWidgetViewController.swift; sourceTree = "<group>"; };
 		BF3FCA622550E882002B5AB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HomeDetail.storyboard; sourceTree = "<group>"; };
 		BF3FCA682550E886002B5AB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HomeDetail.strings; sourceTree = "<group>"; };
 		BF3FCA6A2550E8BA002B5AB5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/HomeDetail.strings; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 			children = (
 				3C8AA00F24B05D32005EB75C /* SettingViewController.swift */,
 				3C9D666324ECD0B900021E48 /* SettingWidgetViewController.swift */,
+				BF13206C256148C9006FB5B7 /* SettingHomeWidgetViewController.swift */,
 				3CCA560124D6853F00F32671 /* ManualViewController.swift */,
 			);
 			path = Setting;
@@ -965,6 +968,7 @@
 				3CB8E0A324F1482600FEE93C /* SettingWidgetSwitchCell.swift in Sources */,
 				3CF8B44D24A9CBA300D6C11C /* SceneDelegate.swift in Sources */,
 				3C4D13A024AB716B009BDCDE /* HomeDetailViewController.swift in Sources */,
+				BF13206D256148C9006FB5B7 /* SettingHomeWidgetViewController.swift in Sources */,
 				3C5BC0D6251257DB00A74F4E /* ItemCopy.swift in Sources */,
 				3C76EEF1250C8E1E003B298D /* ItemType.swift in Sources */,
 				3CCA560424D697EE00F32671 /* ManualCustomCell.swift in Sources */,
