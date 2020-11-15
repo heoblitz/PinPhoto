@@ -15,10 +15,11 @@ final class SettingViewController: UIViewController {
     // MARK:- Properties
     private let itemViewModel: ItemViewModel = ItemViewModel()
     private let groupViewModel: GroupViewModel = GroupViewModel()
-    private let settingTitleDatas: [String] = ["PinPhoto", "Setting", "Exit"].map { $0.localized }
+    private let settingTitleDatas: [String] = ["PinPhoto", "Today Widget", "Home Widget", "Exit"].map { $0.localized }
     private let settingCellDatas: [[String]] = [
         ["Version", "Manual"],
-        ["Widget Size"],
+        ["Size"],
+        ["Item"],
         ["Reset Data" ]
     ].map { $0.map { $0.localized } }
 
@@ -89,7 +90,7 @@ extension SettingViewController: UITableViewDataSource {
         default:
             cell.textLabel?.text = settingCellDatas[indexPath.section][indexPath.row]
             cell.detailTextLabel?.text = nil
-            cell.textLabel?.textColor = (indexPath.section == 2) ? .red : .label
+            cell.textLabel?.textColor = (indexPath.section == 3) ? .red : .label
         }
     
         return cell
@@ -114,6 +115,11 @@ extension SettingViewController: UITableViewDelegate {
                 navigationController?.pushViewController(vc, animated: true)
             }
         case 2:
+            if indexPath.item == 0 {
+                guard let vc = SettingHomeWidgetViewController.storyboardInstance() else { return }
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        case 3:
             if indexPath.item == 0 {
                  alertDestructiveAllItem()
             }

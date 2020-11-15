@@ -48,6 +48,7 @@ final class SettingWidgetViewController: UIViewController {
         widgetImageView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         widgetImageView.translatesAutoresizingMaskIntoConstraints = false
         
+        navigationItem.title = "Size"
         widgetHeaderTitleLabel.text = "PinPhoto".localized
     }
     

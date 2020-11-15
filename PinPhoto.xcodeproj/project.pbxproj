@@ -125,6 +125,8 @@
 		BF01EBC1255ADA370036E8EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF01EBC0255ADA370036E8EC /* GoogleService-Info.plist */; };
 		BF13206525614642006FB5B7 /* SettingHomeWidget.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF13206425614642006FB5B7 /* SettingHomeWidget.storyboard */; };
 		BF13206D256148C9006FB5B7 /* SettingHomeWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13206C256148C9006FB5B7 /* SettingHomeWidgetViewController.swift */; };
+		BF13207525614AAF006FB5B7 /* SettingHomeWidgetSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13207425614AAF006FB5B7 /* SettingHomeWidgetSwitchCell.swift */; };
+		BF13207A25614B6E006FB5B7 /* SettingHomeWidgetPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13207925614B6E006FB5B7 /* SettingHomeWidgetPickerCell.swift */; };
 		BF3FCA612550E882002B5AB5 /* HomeDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3FCA632550E882002B5AB5 /* HomeDetail.storyboard */; };
 		BF3FCA7425536550002B5AB5 /* GroupObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3FCA7325536550002B5AB5 /* GroupObserver.swift */; };
 		BF3FCA7825536574002B5AB5 /* GroupObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3FCA7325536550002B5AB5 /* GroupObserver.swift */; };
@@ -267,6 +269,8 @@
 		BF01EBC0255ADA370036E8EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF13206425614642006FB5B7 /* SettingHomeWidget.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingHomeWidget.storyboard; sourceTree = "<group>"; };
 		BF13206C256148C9006FB5B7 /* SettingHomeWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHomeWidgetViewController.swift; sourceTree = "<group>"; };
+		BF13207425614AAF006FB5B7 /* SettingHomeWidgetSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHomeWidgetSwitchCell.swift; sourceTree = "<group>"; };
+		BF13207925614B6E006FB5B7 /* SettingHomeWidgetPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHomeWidgetPickerCell.swift; sourceTree = "<group>"; };
 		BF3FCA622550E882002B5AB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HomeDetail.storyboard; sourceTree = "<group>"; };
 		BF3FCA682550E886002B5AB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HomeDetail.strings; sourceTree = "<group>"; };
 		BF3FCA6A2550E8BA002B5AB5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/HomeDetail.strings; sourceTree = "<group>"; };
@@ -406,6 +410,8 @@
 				3CCA560324D697EE00F32671 /* ManualCustomCell.swift */,
 				3CB8E0A224F1482600FEE93C /* SettingWidgetSwitchCell.swift */,
 				3CB8E0A024F1436D00FEE93C /* SettingWidgetSliderCell.swift */,
+				BF13207425614AAF006FB5B7 /* SettingHomeWidgetSwitchCell.swift */,
+				BF13207925614B6E006FB5B7 /* SettingHomeWidgetPickerCell.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -941,6 +947,7 @@
 				3CCA19682508BD9700F9CCEB /* HomeSectionReusableView.swift in Sources */,
 				3CF52DF924BF0D6400E7B8D4 /* ItemViewModel.swift in Sources */,
 				3CCA196D2508DBC300F9CCEB /* HomeGroupViewCell.swift in Sources */,
+				BF13207525614AAF006FB5B7 /* SettingHomeWidgetSwitchCell.swift in Sources */,
 				3C3ACC9024BB558B00311F7A /* Item.xcdatamodeld in Sources */,
 				3CF07B9A24FE4B67006D48CE /* GroupViewController.swift in Sources */,
 				3CAA167E24BC211200635F6D /* ItemCustomCell.swift in Sources */,
@@ -957,6 +964,7 @@
 				3C3ACC9A24BB5C2100311F7A /* Item+CoreDataProperties.swift in Sources */,
 				3C0C005224EA581900BF137B /* ClassNameToString.swift in Sources */,
 				3C25284E24EFD2C4002ADBDC /* HomeNavigationController.swift in Sources */,
+				BF13207A25614B6E006FB5B7 /* SettingHomeWidgetPickerCell.swift in Sources */,
 				3C070A9524D3A4CA0077C3AE /* EditTextItemViewController.swift in Sources */,
 				3CEB644E24CF109A004D8C3C /* URLextension.swift in Sources */,
 				3C070A9724D3BAB30077C3AE /* EditImageItemViewController.swift in Sources */,
