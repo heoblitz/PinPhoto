@@ -32,7 +32,6 @@ final class EditImageItemViewController: UIViewController {
         }
     }
     
-    var itemViewModel: ItemViewModel?
     var item: Item?
     
     override var prefersStatusBarHidden: Bool {

@@ -11,10 +11,6 @@ import YPImagePicker
 
 final class HomeNavigationController: UINavigationController {
     // MARK:- Properties
-    private let widgetGroupName: String = "위젯에 표시될 항목"
-    private let itemViewModel = ItemViewModel()
-    private let groupViewModel = GroupViewModel()
-    
     private let addButtonView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemPink
@@ -34,6 +30,10 @@ final class HomeNavigationController: UINavigationController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    
+    private let widgetGroupName: String = "위젯에 표시될 항목"
+    private let itemViewModel = ItemViewModel()
+    private let groupViewModel = GroupViewModel()
     
     // MARK:- View Life Sycle
     override func viewDidLoad() {
