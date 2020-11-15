@@ -210,8 +210,6 @@ extension HomeDetailViewController: UICollectionViewDelegate {
                     return
                 }
                 vc.item = item
-                vc.itemViewModel = itemViewModel
-                vc.groupViewModel = groupViewModel
                 cell.unfreezeAnimations()
                 navigationController?.pushViewController(vc, animated: true)
             case .image:
@@ -219,7 +217,6 @@ extension HomeDetailViewController: UICollectionViewDelegate {
                     return
                 }
                 vc.item = item
-                vc.itemViewModel = itemViewModel
                 cell.unfreezeAnimations()
                 navigationController?.pushViewController(vc, animated: true)
             }
@@ -256,7 +253,10 @@ extension HomeDetailViewController: GroupObserver {
     }
     
     func updateGroup() {
-        guard let group = group, let newGroup = groupViewModel.group(by: group.name) else { return }
+        guard let group = group, let newGroup = groupViewModel.group(by: group.name) else {
+            navigationController?.popToRootViewController(animated: true)
+            return
+        }
         if group.name == widgetGroupNameKr, newGroup.ids.count == 1 {
             widgetViewModel.displayItemIndex = 0
         }
