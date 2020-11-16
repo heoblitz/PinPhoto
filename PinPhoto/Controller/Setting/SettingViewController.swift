@@ -115,14 +115,10 @@ extension SettingViewController: UITableViewDelegate {
                 navigationController?.pushViewController(vc, animated: true)
             }
         case 2:
-            if indexPath.item == 0 {
-                guard let vc = SettingHomeWidgetViewController.storyboardInstance() else { return }
+            guard let vc = SettingHomeWidgetViewController.storyboardInstance() else { return }
                 navigationController?.pushViewController(vc, animated: true)
-            }
         case 3:
-            if indexPath.item == 0 {
-                 alertDestructiveAllItem()
-            }
+            alertDestructiveAllItem()
         default:
             break
         }
