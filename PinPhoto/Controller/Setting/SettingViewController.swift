@@ -19,7 +19,7 @@ final class SettingViewController: UIViewController {
     private let settingCellDatas: [[String]] = [
         ["Version", "Manual"],
         ["Size"],
-        ["Item"],
+        ["Time"],
         ["Reset Data" ]
     ].map { $0.map { $0.localized } }
 

@@ -23,33 +23,23 @@
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingHomeWidgetSwitchCell" id="5MP-4N-ULX" customClass="SettingHomeWidgetSwitchCell" customModule="PinPhoto" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="55.5" width="374" height="44.5"/>
+                                        <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5MP-4N-ULX" id="w20-LT-2uf">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iZi-ih-YIC">
-                                                    <rect key="frame" x="305" y="7" width="51" height="31"/>
+                                                    <rect key="frame" x="305" y="6.5" width="51" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="49" id="Cvi-2X-Zum"/>
                                                         <constraint firstAttribute="height" constant="31" id="cSD-74-KXw"/>
                                                     </constraints>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위젯 이미지 모두 표시하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nR-hp-7Aw">
-                                                    <rect key="frame" x="20" y="11.5" width="175" height="21.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="8nR-hp-7Aw" firstAttribute="top" secondItem="w20-LT-2uf" secondAttribute="top" constant="11.5" id="3Oy-5G-8GT"/>
-                                                <constraint firstAttribute="bottom" secondItem="8nR-hp-7Aw" secondAttribute="bottom" constant="11.5" id="T0G-nq-bB7"/>
                                                 <constraint firstItem="iZi-ih-YIC" firstAttribute="centerY" secondItem="w20-LT-2uf" secondAttribute="centerY" id="d7N-d8-t8O"/>
-                                                <constraint firstItem="8nR-hp-7Aw" firstAttribute="centerY" secondItem="w20-LT-2uf" secondAttribute="centerY" id="fbp-pb-iBD"/>
                                                 <constraint firstAttribute="trailing" secondItem="iZi-ih-YIC" secondAttribute="trailing" constant="20" id="vOv-0b-zgY"/>
-                                                <constraint firstItem="8nR-hp-7Aw" firstAttribute="leading" secondItem="w20-LT-2uf" secondAttribute="leading" constant="20" id="vZf-Xa-hx7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -57,7 +47,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingHomeWidgetPickerCell" rowHeight="199" id="Koy-2g-dzV" customClass="SettingHomeWidgetPickerCell" customModule="PinPhoto" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="100" width="374" height="199"/>
+                                        <rect key="frame" x="20" y="99" width="374" height="199"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Koy-2g-dzV" id="wzC-qU-NLW">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="199"/>

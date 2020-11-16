@@ -53,6 +53,7 @@ extension SettingHomeWidgetViewController: UITableViewDataSource {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  SettingHomeWidgetSwitchCell.cellIdentifier) as? SettingHomeWidgetSwitchCell else { return UITableViewCell() }
             cell.settingItemSwitch.addTarget(self, action: #selector(itemSwitchTapped), for: .valueChanged)
+            cell.textLabel?.text = "Show all items in group".localized
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingHomeWidgetPickerCell.cellIdentifier) as? SettingHomeWidgetPickerCell else { return UITableViewCell() }
@@ -68,11 +69,11 @@ extension SettingHomeWidgetViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return section == 1 ? "위젯에 표시될 항목에 있는 모든 아이템이 시간에 따라 변경됩니다." : nil
+        return section == 1 ? "All items in the group that will be displayed on the widget will change over time".localized : nil
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 1 ? "변경될 시간 설정" : "아이템 표시 설정"
+        return section == 1 ? "Time".localized : "Item".localized
     }
 }
 

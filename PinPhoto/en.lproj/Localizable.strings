@@ -56,10 +56,15 @@
 "Add PinPhoto widget" = "Add PinPhoto widget";
 "Select item to display in home widget and click display button at the bottom" = "Select item to display in home widget and click display button at the bottom";
 
-// Setting - Widget Size
+// Setting - Extension Widget
 "Big" = "Big";
 "Small" = "Small";
 "Fill Widget Image" = "Fill Widget Image";
+
+// Setting - Home Widget
+"Time" = "Time";
+"Set up item display" = "Set up item display";
+"All items in the group that will be displayed on the widget will change over time" = "All items in the group that will be displayed on the widget will change over time";
 
 // iOS 14 widget
 "Please select an item" = "Please select an item";

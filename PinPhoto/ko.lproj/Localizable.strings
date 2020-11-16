@@ -56,10 +56,15 @@
 "Add PinPhoto widget" = "해당 화면에서 위젯을 추가해주세요";
 "Select item to display in home widget and click display button at the bottom" = "홈 화면 위젯에 나타날 항목을 선택하고 \n 아래 디스플레이 버튼을 클릭해주세요.";
 
-// Setting - Widget Size
+// Setting - Extension Widget
 "Big" = "크게";
 "Small" = "작게";
 "Fill Widget Image" = "이미지 위젯에 맞게 채우기";
+
+// Setting - Home Widget
+"Time" = "시간";
+"Set up item display" = "아이템 표시 설정";
+"All items in the group that will be displayed on the widget will change over time" = "위젯에 표시될 항목에 있는 모든 아이템이 시간에 따라 변경됩니다";
 
 // iOS 14 widget
 "Please select an item" = "항목을 선택해주세요.";
