@@ -39,7 +39,7 @@
 
 "Version" = "Version";
 "Manual" = "Manual";
-"Widget Size" = "Widget Size";
+"Size" = "Size";
 "Reset Data" = "Reset Data";
 
 "Remove" = "Remove";
@@ -63,7 +63,7 @@
 
 // Setting - Home Widget
 "Time" = "Time";
-"Set up item display" = "Set up item display";
+"Show all items in group" = "Show all items in group";
 "All items in the group that will be displayed on the widget will change over time" = "All items in the group that will be displayed on the widget will change over time";
 
 // iOS 14 widget

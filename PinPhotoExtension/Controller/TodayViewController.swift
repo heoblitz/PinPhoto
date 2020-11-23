@@ -153,7 +153,7 @@ extension TodayViewController: UICollectionViewDataSource {
         let item = itemViewModel.item(at: indexPath.item)
         
         cell.update(item: item)
-        cell.contentImageView.contentMode = widgetViewModel.shouldImageFill ? .scaleToFill : .scaleAspectFit
+        cell.contentImageView.contentMode = widgetViewModel.isImageFill ? .scaleToFill : .scaleAspectFit
         
         return cell
     }

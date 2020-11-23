@@ -175,7 +175,7 @@ extension HomeDetailViewController: UICollectionViewDataSource {
         }
         let item = itemViewModel.item(at: indexPath.item)
         
-        if let group = group, group.name == widgetGroupNameKr { // 위젯에 표시되어 있는 셀인지 파악
+        if let group = group, group.name == widgetGroupNameKr, !widgetViewModel.isShowAllItems { // 위젯에 표시되어 있는 셀인지 파악
             if widgetViewModel.displayItemIndex == indexPath.item {
                 cell.isCellDisplayItem = true
             }

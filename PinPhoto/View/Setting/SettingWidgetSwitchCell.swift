@@ -15,4 +15,10 @@ final class SettingWidgetSwitchCell: UITableViewCell {
     
     // MARK:- Propertises
     static let cellIdentifier: String = "settingWidgetSwitchCell"
+    
+    // MARK:- Methods
+    override func awakeFromNib() {
+        imageInfoLabel.text = "Show all items in group".localized
+    }
 }
+

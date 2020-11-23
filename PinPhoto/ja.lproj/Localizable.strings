@@ -39,7 +39,7 @@
 
 "Version" = "バージョン";
 "Manual" = "使用方法";
-"Widget Size" = "ウィジェットサイズ";
+"Size" = "サイズ";
 "Reset Data" = "データ初期化";
 
 "Remove" = "削除";
@@ -64,7 +64,7 @@
 
 // Setting - Home Widget
 "Time" = "時間";
-"Set up item display" = "アイテム表示設定";
+"Show all items in group" = "グループ内のすべてのアイテムを表示";
 "All items in the group that will be displayed on the widget will change over time" = "ウィジェットに表示される項目にあるすべてのアイテムは時間と共に変更されます";
 
 // iOS 14 widget
