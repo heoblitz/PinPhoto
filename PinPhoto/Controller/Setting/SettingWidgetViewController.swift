@@ -34,7 +34,7 @@ final class SettingWidgetViewController: UIViewController {
         super.viewDidLoad()
         let height: Float = widgetViewModel.height
         widgetImageHeight.constant = CGFloat(height)
-        isImageFill = widgetViewModel.shouldImageFill
+        isImageFill = widgetViewModel.isImageFill
         selectionGenerator = UISelectionFeedbackGenerator()
         selectionGenerator?.prepare()
         widgetSettingTableView.dataSource = self
@@ -48,6 +48,7 @@ final class SettingWidgetViewController: UIViewController {
         widgetImageView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         widgetImageView.translatesAutoresizingMaskIntoConstraints = false
         
+        navigationItem.title = "Size".localized
         widgetHeaderTitleLabel.text = "PinPhoto".localized
     }
     
@@ -75,7 +76,7 @@ final class SettingWidgetViewController: UIViewController {
     }
     
     @objc private func swtichTapped(_ sender: UISwitch) {
-        widgetViewModel.shouldImageFill = sender.isOn
+        widgetViewModel.isImageFill = sender.isOn
         isImageFill = sender.isOn
     }
 }

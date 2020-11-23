@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DzM-xK-yb9">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Setting Home Widget View Controller-->
+        <scene sceneID="7Y6-x5-E2o">
+            <objects>
+                <viewController id="DzM-xK-yb9" customClass="SettingHomeWidgetViewController" customModule="PinPhoto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7bi-gX-1Me">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" bouncesZoom="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wA-RM-s2r">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="15"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingHomeWidgetSwitchCell" id="5MP-4N-ULX" customClass="SettingHomeWidgetSwitchCell" customModule="PinPhoto" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5MP-4N-ULX" id="w20-LT-2uf">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iZi-ih-YIC">
+                                                    <rect key="frame" x="305" y="6.5" width="51" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="49" id="Cvi-2X-Zum"/>
+                                                        <constraint firstAttribute="height" constant="31" id="cSD-74-KXw"/>
+                                                    </constraints>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iZi-ih-YIC" firstAttribute="centerY" secondItem="w20-LT-2uf" secondAttribute="centerY" id="d7N-d8-t8O"/>
+                                                <constraint firstAttribute="trailing" secondItem="iZi-ih-YIC" secondAttribute="trailing" constant="20" id="vOv-0b-zgY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="settingItemSwitch" destination="iZi-ih-YIC" id="IAI-V8-LXH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingHomeWidgetPickerCell" rowHeight="199" id="Koy-2g-dzV" customClass="SettingHomeWidgetPickerCell" customModule="PinPhoto" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="99" width="374" height="199"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Koy-2g-dzV" id="wzC-qU-NLW">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="199"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" countDownDuration="60" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6R-io-cUG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="199"/>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="i6R-io-cUG" secondAttribute="bottom" id="NXa-3I-B6K"/>
+                                                <constraint firstItem="i6R-io-cUG" firstAttribute="top" secondItem="wzC-qU-NLW" secondAttribute="top" id="PvH-FE-0vT"/>
+                                                <constraint firstItem="i6R-io-cUG" firstAttribute="leading" secondItem="wzC-qU-NLW" secondAttribute="leading" id="oGq-Nw-UaK"/>
+                                                <constraint firstAttribute="trailing" secondItem="i6R-io-cUG" secondAttribute="trailing" id="ztA-4L-EsU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="timeDatePicker" destination="i6R-io-cUG" id="7jZ-XZ-uFC"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nul-RP-iLR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7wA-RM-s2r" firstAttribute="leading" secondItem="nul-RP-iLR" secondAttribute="leading" id="PSR-co-m6K"/>
+                            <constraint firstItem="nul-RP-iLR" firstAttribute="bottom" secondItem="7wA-RM-s2r" secondAttribute="bottom" id="QHc-Td-dPP"/>
+                            <constraint firstItem="nul-RP-iLR" firstAttribute="trailing" secondItem="7wA-RM-s2r" secondAttribute="trailing" id="V7t-15-UjL"/>
+                            <constraint firstItem="nul-RP-iLR" firstAttribute="top" secondItem="7wA-RM-s2r" secondAttribute="top" id="kGr-qv-Hne"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="homeWidgetSettingTableView" destination="7wA-RM-s2r" id="WqG-dN-aFK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HOw-TR-6Uc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="621.73913043478262" y="-263.16964285714283"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

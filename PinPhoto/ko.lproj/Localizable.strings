@@ -39,7 +39,7 @@
 
 "Version" = "버전 정보";
 "Manual" = "사용 방법";
-"Widget Size" = "위젯 크기";
+"Size" = "크기";
 "Reset Data" = "데이터 초기화하기";
 
 "Remove" = "삭제";
@@ -56,10 +56,15 @@
 "Add PinPhoto widget" = "해당 화면에서 위젯을 추가해주세요";
 "Select item to display in home widget and click display button at the bottom" = "홈 화면 위젯에 나타날 항목을 선택하고 \n 아래 디스플레이 버튼을 클릭해주세요.";
 
-// Setting - Widget Size
+// Setting - Extension Widget
 "Big" = "크게";
 "Small" = "작게";
 "Fill Widget Image" = "이미지 위젯에 맞게 채우기";
+
+// Setting - Home Widget
+"Time" = "시간";
+"Show all items in group" = "위젯에 모든 항목들을 표시합니다";
+"All items in the group that will be displayed on the widget will change over time" = "위젯에 표시될 항목에 있는 모든 아이템이 시간에 따라 변경됩니다";
 
 // iOS 14 widget
 "Please select an item" = "항목을 선택해주세요.";

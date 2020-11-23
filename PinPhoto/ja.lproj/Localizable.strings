@@ -39,7 +39,7 @@
 
 "Version" = "バージョン";
 "Manual" = "使用方法";
-"Widget Size" = "ウィジェットサイズ";
+"Size" = "サイズ";
 "Reset Data" = "データ初期化";
 
 "Remove" = "削除";
@@ -57,10 +57,15 @@
 "Add PinPhoto widget" = "該当画面でウィジェットを追加してください。";
 "Select item to display in home widget and click display button at the bottom" = "ホーム画面のウィジェットに表示される項目を選択し、下のディスプレイボタンをクリックしてください。";
 
-// Setting - Widget Size
+// Setting - Extension Widget
 "Big" = "大きい";
 "Small" = "小さい";
 "Fill Widget Image" = "画像のサイズ変更";
+
+// Setting - Home Widget
+"Time" = "時間";
+"Show all items in group" = "グループ内のすべてのアイテムを表示";
+"All items in the group that will be displayed on the widget will change over time" = "ウィジェットに表示される項目にあるすべてのアイテムは時間と共に変更されます";
 
 // iOS 14 widget
 "Please select an item" = "項目を選択してください。";
