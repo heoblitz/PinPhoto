@@ -123,6 +123,10 @@
 		3CF8B45724A9CBA700D6C11C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45524A9CBA700D6C11C /* LaunchScreen.storyboard */; };
 		97EA7918B2D5D4E6C4A01BB1 /* Pods_PinPhotoWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A84883FF2DE19D2F1436A2 /* Pods_PinPhotoWidgetExtension.framework */; };
 		BF01EBC1255ADA370036E8EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF01EBC0255ADA370036E8EC /* GoogleService-Info.plist */; };
+		BF13206525614642006FB5B7 /* SettingHomeWidget.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF13206425614642006FB5B7 /* SettingHomeWidget.storyboard */; };
+		BF13206D256148C9006FB5B7 /* SettingHomeWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13206C256148C9006FB5B7 /* SettingHomeWidgetViewController.swift */; };
+		BF13207525614AAF006FB5B7 /* SettingHomeWidgetSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13207425614AAF006FB5B7 /* SettingHomeWidgetSwitchCell.swift */; };
+		BF13207A25614B6E006FB5B7 /* SettingHomeWidgetPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13207925614B6E006FB5B7 /* SettingHomeWidgetPickerCell.swift */; };
 		BF3FCA612550E882002B5AB5 /* HomeDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3FCA632550E882002B5AB5 /* HomeDetail.storyboard */; };
 		BF3FCA7425536550002B5AB5 /* GroupObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3FCA7325536550002B5AB5 /* GroupObserver.swift */; };
 		BF3FCA7825536574002B5AB5 /* GroupObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3FCA7325536550002B5AB5 /* GroupObserver.swift */; };
@@ -263,6 +267,10 @@
 		A1624057D1CAB01FABDD5A48 /* Pods-PinPhoto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPhoto.release.xcconfig"; path = "Target Support Files/Pods-PinPhoto/Pods-PinPhoto.release.xcconfig"; sourceTree = "<group>"; };
 		A6E3DD72E2F55C8639AAB2B9 /* Pods_PinPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF01EBC0255ADA370036E8EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BF13206425614642006FB5B7 /* SettingHomeWidget.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingHomeWidget.storyboard; sourceTree = "<group>"; };
+		BF13206C256148C9006FB5B7 /* SettingHomeWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHomeWidgetViewController.swift; sourceTree = "<group>"; };
+		BF13207425614AAF006FB5B7 /* SettingHomeWidgetSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHomeWidgetSwitchCell.swift; sourceTree = "<group>"; };
+		BF13207925614B6E006FB5B7 /* SettingHomeWidgetPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHomeWidgetPickerCell.swift; sourceTree = "<group>"; };
 		BF3FCA622550E882002B5AB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HomeDetail.storyboard; sourceTree = "<group>"; };
 		BF3FCA682550E886002B5AB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HomeDetail.strings; sourceTree = "<group>"; };
 		BF3FCA6A2550E8BA002B5AB5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/HomeDetail.strings; sourceTree = "<group>"; };
@@ -402,6 +410,8 @@
 				3CCA560324D697EE00F32671 /* ManualCustomCell.swift */,
 				3CB8E0A224F1482600FEE93C /* SettingWidgetSwitchCell.swift */,
 				3CB8E0A024F1436D00FEE93C /* SettingWidgetSliderCell.swift */,
+				BF13207425614AAF006FB5B7 /* SettingHomeWidgetSwitchCell.swift */,
+				BF13207925614B6E006FB5B7 /* SettingHomeWidgetPickerCell.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -461,6 +471,7 @@
 			children = (
 				3CAC4CCA25486E6E00ACE418 /* Setting.storyboard */,
 				3C9D666124ECB51C00021E48 /* SettingWidget.storyboard */,
+				BF13206425614642006FB5B7 /* SettingHomeWidget.storyboard */,
 				3C0C004924EA4F1A00BF137B /* Manual.storyboard */,
 			);
 			path = Setting;
@@ -513,6 +524,7 @@
 			children = (
 				3C8AA00F24B05D32005EB75C /* SettingViewController.swift */,
 				3C9D666324ECD0B900021E48 /* SettingWidgetViewController.swift */,
+				BF13206C256148C9006FB5B7 /* SettingHomeWidgetViewController.swift */,
 				3CCA560124D6853F00F32671 /* ManualViewController.swift */,
 			);
 			path = Setting;
@@ -769,6 +781,7 @@
 				3C0C004A24EA4F1A00BF137B /* Manual.storyboard in Resources */,
 				3C33F24B2549AF3F009406CF /* InfoPlist.strings in Resources */,
 				3C0C004E24EA4FED00BF137B /* EditImageItem.storyboard in Resources */,
+				BF13206525614642006FB5B7 /* SettingHomeWidget.storyboard in Resources */,
 				BF01EBC1255ADA370036E8EC /* GoogleService-Info.plist in Resources */,
 				3CAC4CA725486B6F00ACE418 /* Search.storyboard in Resources */,
 				3CF8B45224A9CBA300D6C11C /* Main.storyboard in Resources */,
@@ -934,6 +947,7 @@
 				3CCA19682508BD9700F9CCEB /* HomeSectionReusableView.swift in Sources */,
 				3CF52DF924BF0D6400E7B8D4 /* ItemViewModel.swift in Sources */,
 				3CCA196D2508DBC300F9CCEB /* HomeGroupViewCell.swift in Sources */,
+				BF13207525614AAF006FB5B7 /* SettingHomeWidgetSwitchCell.swift in Sources */,
 				3C3ACC9024BB558B00311F7A /* Item.xcdatamodeld in Sources */,
 				3CF07B9A24FE4B67006D48CE /* GroupViewController.swift in Sources */,
 				3CAA167E24BC211200635F6D /* ItemCustomCell.swift in Sources */,
@@ -950,6 +964,7 @@
 				3C3ACC9A24BB5C2100311F7A /* Item+CoreDataProperties.swift in Sources */,
 				3C0C005224EA581900BF137B /* ClassNameToString.swift in Sources */,
 				3C25284E24EFD2C4002ADBDC /* HomeNavigationController.swift in Sources */,
+				BF13207A25614B6E006FB5B7 /* SettingHomeWidgetPickerCell.swift in Sources */,
 				3C070A9524D3A4CA0077C3AE /* EditTextItemViewController.swift in Sources */,
 				3CEB644E24CF109A004D8C3C /* URLextension.swift in Sources */,
 				3C070A9724D3BAB30077C3AE /* EditImageItemViewController.swift in Sources */,
@@ -961,6 +976,7 @@
 				3CB8E0A324F1482600FEE93C /* SettingWidgetSwitchCell.swift in Sources */,
 				3CF8B44D24A9CBA300D6C11C /* SceneDelegate.swift in Sources */,
 				3C4D13A024AB716B009BDCDE /* HomeDetailViewController.swift in Sources */,
+				BF13206D256148C9006FB5B7 /* SettingHomeWidgetViewController.swift in Sources */,
 				3C5BC0D6251257DB00A74F4E /* ItemCopy.swift in Sources */,
 				3C76EEF1250C8E1E003B298D /* ItemType.swift in Sources */,
 				3CCA560424D697EE00F32671 /* ManualCustomCell.swift in Sources */,
@@ -1100,7 +1116,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PinPhotoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4.4;
+				CURRENT_PROJECT_VERSION = 1.5;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhotoWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1109,7 +1125,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1126,7 +1142,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PinPhotoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4.4;
+				CURRENT_PROJECT_VERSION = 1.5;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhotoWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1135,7 +1151,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1151,7 +1167,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_ENTITLEMENTS = PinPhotoExtension/PinPhotoExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4.4;
+				CURRENT_PROJECT_VERSION = 1.5;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhotoExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1161,7 +1177,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoExtension;
 				PRODUCT_NAME = PinPhotoExtension;
 				SKIP_INSTALL = YES;
@@ -1177,7 +1193,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_ENTITLEMENTS = PinPhotoExtension/PinPhotoExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4.4;
+				CURRENT_PROJECT_VERSION = 1.5;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhotoExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1187,7 +1203,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoExtension;
 				PRODUCT_NAME = PinPhotoExtension;
 				SKIP_INSTALL = YES;
@@ -1327,7 +1343,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PinPhoto/PinPhoto.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4.4;
+				CURRENT_PROJECT_VERSION = 1.5;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhoto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1335,7 +1351,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto;
 				PRODUCT_NAME = PinPhoto;
 				SWIFT_VERSION = 5.0;
@@ -1352,7 +1368,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PinPhoto/PinPhoto.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4.4;
+				CURRENT_PROJECT_VERSION = 1.5;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				INFOPLIST_FILE = PinPhoto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1360,7 +1376,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto;
 				PRODUCT_NAME = PinPhoto;
 				SWIFT_VERSION = 5.0;

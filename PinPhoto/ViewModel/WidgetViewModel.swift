@@ -15,6 +15,8 @@ public class WidgetViewModel {
     private let widgetImageFillKey: String = "widgetImageFill"
     private let currentIndexKey: String = "widgetIndex"
     private let displayItemIndexKey: String = "displayItemIndex"
+    private let showAllItemsKey: String = "showAllItemsKey"
+    private let changeItemTimeKey: String = "changeItemTime"
     
     var height: Float {
         get {
@@ -26,7 +28,7 @@ public class WidgetViewModel {
         }
     }
     
-    var shouldImageFill: Bool {
+    var isImageFill: Bool {
         get {
             return defaults?.value(forKey: widgetImageFillKey) as? Bool ?? false
         }
@@ -52,10 +54,56 @@ public class WidgetViewModel {
         }
         set {
             defaults?.set(newValue, forKey: displayItemIndexKey)
+            defaults?.synchronize()
+
+            if #available(iOS 14, *) {
+                RefreshWidget()
+            }
+        }
+    }
+    
+    var isShowAllItems: Bool {
+        get {
+            return defaults?.value(forKey: showAllItemsKey) as? Bool ?? false
+        }
+        set {
+            defaults?.set(newValue, forKey: showAllItemsKey)
+            defaults?.synchronize()
             
             if #available(iOS 14, *) {
                 RefreshWidget()
             }
+        }
+    }
+    
+    var changeItemTime: Date? {
+        get {
+            if let date = defaults?.object(forKey: changeItemTimeKey) as? Date {
+                return date
+            } else {
+                return nil
+            }
+        }
+        set {
+            defaults?.set(newValue, forKey: changeItemTimeKey)
+            defaults?.synchronize()
+
+            if #available(iOS 14, *) {
+                RefreshWidget()
+            }
+        }
+    }
+    
+    var changeTimeSecond: TimeInterval {
+        get {
+            guard let date = defaults?.object(forKey: changeItemTimeKey) as? Date else {
+                return 60
+            }
+            
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.hour, .minute], from: date)
+            
+            return TimeInterval(((components.hour ?? 0) * 3600 + ((components.minute ?? 0) * 60)))
         }
     }
     

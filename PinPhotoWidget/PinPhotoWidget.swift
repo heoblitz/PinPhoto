@@ -13,34 +13,66 @@ struct Provider: IntentTimelineProvider {
     private let itemViewModel: ItemViewModel = ItemViewModel()
     private let groupViewModel: GroupViewModel = GroupViewModel()
     private let widgetViewModel: WidgetViewModel = WidgetViewModel()
-    
-    private func getItem() -> Item? {
+
+    private func loadItems() {
+        groupViewModel.load()
+        guard let widgetGroup = groupViewModel.groups.first else { return }
+        itemViewModel.loadFromIds(ids: widgetGroup.ids)
+    }
+        
+    private func placeItem() -> Item? {
         groupViewModel.load()
         guard let widgetGroup = groupViewModel.groups.first, let current = widgetViewModel.displayItemIndex else { return nil }
-        
+
         let index: Int = min(current, widgetGroup.ids.count - 1)
-        
+
         itemViewModel.loadFromIds(ids: [widgetGroup.ids[index]])
         return itemViewModel.items.first
     }
-    
+        
     func placeholder(in context: Context) -> TimeEntry {
         TimeEntry(date: Date(),
-                    item: getItem(),
+                    item: placeItem(),
                     configuration: ConfigurationIntent())
     }
     
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (TimeEntry) -> ()) {
         let entry = TimeEntry(date: Date(),
-                                item: getItem(),
+                                item: placeItem(),
                                 configuration: configuration)
         completion(entry)
     }
     
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        let entry: TimeEntry = TimeEntry(date: Date(), item: getItem(), configuration: configuration)
+        var entries: [Entry] = []
+        var policy: TimelineReloadPolicy
+        let currentDate = Date()
+        
+        loadItems()
+        
+        if widgetViewModel.isShowAllItems {
+            policy = .atEnd
+            
+            let second = widgetViewModel.changeTimeSecond
+            var count: TimeInterval = 0
+            
+            itemViewModel.items.forEach {
+                let sec = second * count
+                let date = Calendar.current.date(byAdding: .second, value: Int(sec), to: currentDate)!
+                let entry = TimeEntry(date: date, item: $0, configuration: configuration)
+                entries.append(entry)
+                count += 1
+            }
+        } else {
+            policy = .never
+            
+            if let index = widgetViewModel.displayItemIndex {
+                let entry: TimeEntry = TimeEntry(date: Date(), item: itemViewModel.items[index], configuration: configuration)
+                entries.append(entry)
+            }
+        }
 
-        let timeline = Timeline(entries: [entry], policy: .never)
+        let timeline = Timeline(entries: entries, policy: policy)
         completion(timeline)
     }
 }
