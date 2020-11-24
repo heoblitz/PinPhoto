@@ -65,7 +65,7 @@ extension SettingHomeWidgetViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier:  SettingHomeWidgetSwitchCell.cellIdentifier) as? SettingHomeWidgetSwitchCell else { return UITableViewCell() }
             cell.settingItemSwitch.addTarget(self, action: #selector(itemSwitchTapped), for: .valueChanged)
             cell.settingItemSwitch.isOn = widgetViewModel.isShowAllItems
-            cell.textLabel?.text = "Show all items in group".localized
+            cell.settingInfoLabel.text = "Show all items in group".localized
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingHomeWidgetPickerCell.cellIdentifier) as? SettingHomeWidgetPickerCell else { return UITableViewCell() }
