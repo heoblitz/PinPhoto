@@ -50,11 +50,14 @@ final class CreateTextItemViewController: UIViewController {
         prepareInputTextView()
         
         if let _ = selectedGroup {
-            navigationItem.rightBarButtonItem = completeBarButtonItem
+            completeBarButtonItem.target = self
+            navigationItem.setRightBarButton(completeBarButtonItem, animated: false)
         } else {
-            navigationItem.rightBarButtonItem = nextBarButtonItem
+            nextBarButtonItem.target = self
+            navigationItem.setRightBarButton(nextBarButtonItem, animated: false)
         }
-        navigationItem.leftBarButtonItem = cancelBarButtonItem
+        cancelBarButtonItem.target = self
+        navigationItem.setLeftBarButton(cancelBarButtonItem, animated: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
