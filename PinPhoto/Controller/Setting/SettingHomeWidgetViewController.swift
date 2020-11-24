@@ -12,6 +12,7 @@ final class SettingHomeWidgetViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var homeWidgetSettingTableView: UITableView!
 
+    let notificationName = Notification.Name.init("timeSettingChanged")
     let widgetViewModel = WidgetViewModel()
     
     // MARK:- View Life Sycle
@@ -35,6 +36,7 @@ final class SettingHomeWidgetViewController: UIViewController {
     
     @objc private func itemSwitchTapped() {
         widgetViewModel.isShowAllItems = !widgetViewModel.isShowAllItems
+        NotificationCenter.default.post(name: notificationName, object: nil)
         
         UIView.transition(with: homeWidgetSettingTableView, duration: 0.5, options: .transitionCrossDissolve, animations: { [unowned self] in
             self.homeWidgetSettingTableView.reloadData()

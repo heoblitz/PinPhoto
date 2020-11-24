@@ -27,7 +27,8 @@ final class HomeDetailViewController: UIViewController {
     private let groupViewModel: GroupViewModel = GroupViewModel()
     private let widgetViewModel: WidgetViewModel = WidgetViewModel()
     private let widgetGroupNameKr: String = "위젯에 표시될 항목"
-    
+    private let notificationName = Notification.Name.init("timeSettingChanged")
+
     var selectedCell: [IndexPath:Int64] = [:] { // indexPath:id
         didSet {
             let count: Int = selectedCell.count
@@ -63,6 +64,8 @@ final class HomeDetailViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .systemPink
         tabBarController?.tabBar.isHidden = false
         
+        NotificationCenter.default.addObserver(self, selector: #selector(timeSettingChanged), name: notificationName, object: nil)
+        
         HomeDetailViewController.isEditMode = false
         toolBar.isHidden = true
         toolBarBottomSpacing.constant = tabBarController?.tabBar.frame.size.height ?? 0
@@ -79,6 +82,10 @@ final class HomeDetailViewController: UIViewController {
     override func viewSafeAreaInsetsDidChange() {
         let height: CGFloat = view.safeAreaInsets.top
         itemCollectionView.contentInset = UIEdgeInsets(top: height, left: 0, bottom: 0, right: 0)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: notificationName, object: nil)
     }
     
     // MARK:- Methods
@@ -160,6 +167,10 @@ final class HomeDetailViewController: UIViewController {
         
         itemCollectionView.reloadData()
         selectedCell = [:]
+    }
+    
+    @objc func timeSettingChanged() {
+        itemCollectionView.reloadData()
     }
 }
 
