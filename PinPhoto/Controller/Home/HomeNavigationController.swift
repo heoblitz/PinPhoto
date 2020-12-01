@@ -36,21 +36,22 @@ final class HomeNavigationController: UINavigationController {
     private let itemViewModel = ItemViewModel()
     private let groupViewModel = GroupViewModel()
     
-    var bannerView: GADBannerView! {
-        didSet {
-            // bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-            bannerView.adUnitID = "ca-app-pub-8841719234465294/5699511091"
-            bannerView.rootViewController = self
-            bannerView.load(GADRequest())
-            bannerView.translatesAutoresizingMaskIntoConstraints = false
-        }
-    }
+    lazy var bannerView: GADBannerView = {
+        let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        // bannerView.adUnitID = "ca-app-pub-8841719234465294/5699511091"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return bannerView
+    }()
 
     // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarItem?.title = "Item".localized
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        // bannerView = GADBannerView(adSize: kGADAdSizeBanner)
     }
     
     override var childForStatusBarHidden: UIViewController? { // for child vc status bar hidden
