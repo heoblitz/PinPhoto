@@ -13,7 +13,7 @@
         <!--Suggest-->
         <scene sceneID="ZJQ-qG-Gcv">
             <objects>
-                <viewController id="LTw-qx-jeP" sceneMemberID="viewController">
+                <viewController id="LTw-qx-jeP" customClass="SuggestViewController" customModule="PinPhoto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O9Q-tS-pYV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,6 +49,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Suggest" id="CgG-69-McE"/>
+                    <connections>
+                        <outlet property="suggestCollectionView" destination="Hbr-eW-y08" id="Ts3-s5-hUA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yaa-My-log" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

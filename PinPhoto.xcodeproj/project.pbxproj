@@ -133,6 +133,11 @@
 		BF3D6E5825903AE7000477BF /* Unsplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D6E5725903AE7000477BF /* Unsplash.swift */; };
 		BF3D6E5D25903B2C000477BF /* UnsplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D6E5C25903B2C000477BF /* UnsplashViewModel.swift */; };
 		BF3D6E6225903B81000477BF /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D6E6125903B81000477BF /* Observable.swift */; };
+		BF3D6E6B2590411C000477BF /* SuggestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D6E692590411C000477BF /* SuggestCell.swift */; };
+		BF3D6E6C2590411C000477BF /* SuggestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF3D6E6A2590411C000477BF /* SuggestCell.xib */; };
+		BF3D6E752590415D000477BF /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D6E742590415D000477BF /* PinterestLayout.swift */; };
+		BF3D6E7B2590439F000477BF /* SuggestHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D6E792590439F000477BF /* SuggestHeaderView.swift */; };
+		BF3D6E7C2590439F000477BF /* SuggestHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF3D6E7A2590439F000477BF /* SuggestHeaderView.xib */; };
 		BF3FCA612550E882002B5AB5 /* HomeDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3FCA632550E882002B5AB5 /* HomeDetail.storyboard */; };
 		BF3FCA7425536550002B5AB5 /* GroupObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3FCA7325536550002B5AB5 /* GroupObserver.swift */; };
 		BF3FCA7825536574002B5AB5 /* GroupObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3FCA7325536550002B5AB5 /* GroupObserver.swift */; };
@@ -286,6 +291,11 @@
 		BF3D6E5725903AE7000477BF /* Unsplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unsplash.swift; sourceTree = "<group>"; };
 		BF3D6E5C25903B2C000477BF /* UnsplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashViewModel.swift; sourceTree = "<group>"; };
 		BF3D6E6125903B81000477BF /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		BF3D6E692590411C000477BF /* SuggestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestCell.swift; sourceTree = "<group>"; };
+		BF3D6E6A2590411C000477BF /* SuggestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestCell.xib; sourceTree = "<group>"; };
+		BF3D6E742590415D000477BF /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
+		BF3D6E792590439F000477BF /* SuggestHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestHeaderView.swift; sourceTree = "<group>"; };
+		BF3D6E7A2590439F000477BF /* SuggestHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestHeaderView.xib; sourceTree = "<group>"; };
 		BF3FCA622550E882002B5AB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HomeDetail.storyboard; sourceTree = "<group>"; };
 		BF3FCA682550E886002B5AB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HomeDetail.strings; sourceTree = "<group>"; };
 		BF3FCA6A2550E8BA002B5AB5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/HomeDetail.strings; sourceTree = "<group>"; };
@@ -390,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				3CCA196A2508D84D00F9CCEB /* Home */,
+				BF3D6E7025904126000477BF /* Suggest */,
 				3C6133E2251064BD001A62C8 /* Setting */,
 			);
 			path = View;
@@ -668,6 +679,18 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		BF3D6E7025904126000477BF /* Suggest */ = {
+			isa = PBXGroup;
+			children = (
+				BF3D6E692590411C000477BF /* SuggestCell.swift */,
+				BF3D6E6A2590411C000477BF /* SuggestCell.xib */,
+				BF3D6E742590415D000477BF /* PinterestLayout.swift */,
+				BF3D6E792590439F000477BF /* SuggestHeaderView.swift */,
+				BF3D6E7A2590439F000477BF /* SuggestHeaderView.xib */,
+			);
+			path = Suggest;
+			sourceTree = "<group>";
+		};
 		FF87DE9F94AF38898587A269 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -817,6 +840,7 @@
 				3C8C6C6024EA368400689329 /* Home.storyboard in Resources */,
 				3CAC4CB925486C3200ACE418 /* Group.storyboard in Resources */,
 				BF3D6E2C25903694000477BF /* Suggest.storyboard in Resources */,
+				BF3D6E7C2590439F000477BF /* SuggestHeaderView.xib in Resources */,
 				3C070A9824D3E3E90077C3AE /* Assets.xcassets in Resources */,
 				3CCA19692508BD9700F9CCEB /* HomeSectionReusableView.xib in Resources */,
 				3C0C004C24EA4F4500BF137B /* CreateTextItem.storyboard in Resources */,
@@ -832,6 +856,7 @@
 				3C33F24B2549AF3F009406CF /* InfoPlist.strings in Resources */,
 				3C0C004E24EA4FED00BF137B /* EditImageItem.storyboard in Resources */,
 				BF13206525614642006FB5B7 /* SettingHomeWidget.storyboard in Resources */,
+				BF3D6E6C2590411C000477BF /* SuggestCell.xib in Resources */,
 				3CAC4CA725486B6F00ACE418 /* Search.storyboard in Resources */,
 				3CF8B45224A9CBA300D6C11C /* Main.storyboard in Resources */,
 				BF661A732580D63100794A04 /* GoogleService-Info.plist in Resources */,
@@ -997,6 +1022,7 @@
 				3CCA19682508BD9700F9CCEB /* HomeSectionReusableView.swift in Sources */,
 				3CF52DF924BF0D6400E7B8D4 /* ItemViewModel.swift in Sources */,
 				3CCA196D2508DBC300F9CCEB /* HomeGroupViewCell.swift in Sources */,
+				BF3D6E752590415D000477BF /* PinterestLayout.swift in Sources */,
 				BF13207525614AAF006FB5B7 /* SettingHomeWidgetSwitchCell.swift in Sources */,
 				3C3ACC9024BB558B00311F7A /* Item.xcdatamodeld in Sources */,
 				3CF07B9A24FE4B67006D48CE /* GroupViewController.swift in Sources */,
@@ -1024,6 +1050,8 @@
 				3CF8B44B24A9CBA300D6C11C /* AppDelegate.swift in Sources */,
 				3CB8E0A124F1436D00FEE93C /* SettingWidgetSliderCell.swift in Sources */,
 				3CC7888925110A7B00C5C42B /* SelectionType.swift in Sources */,
+				BF3D6E6B2590411C000477BF /* SuggestCell.swift in Sources */,
+				BF3D6E7B2590439F000477BF /* SuggestHeaderView.swift in Sources */,
 				3C38CB052500E06C007B6283 /* Group.swift in Sources */,
 				3CB8E0A324F1482600FEE93C /* SettingWidgetSwitchCell.swift in Sources */,
 				3CF8B44D24A9CBA300D6C11C /* SceneDelegate.swift in Sources */,
