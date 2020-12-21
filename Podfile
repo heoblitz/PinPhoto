@@ -6,6 +6,7 @@ target 'PinPhoto' do
   pod 'YPImagePicker'
   pod 'Firebase/Analytics'
   pod 'Google-Mobile-Ads-SDK'
+  pod 'Kingfisher', '~> 5.0'
   use_frameworks!
 
   # Pods for PinPhoto
