@@ -10,6 +10,8 @@ import UIKit
 
 class SuggestViewController: UIViewController {
 
+    // @IBOutlet private weak var suggestCollectionView: UICollectionView!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 

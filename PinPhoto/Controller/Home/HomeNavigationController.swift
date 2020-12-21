@@ -32,15 +32,15 @@ final class HomeNavigationController: UINavigationController {
         return imageView
     }()
     
-    lazy var bannerView: GADBannerView = {
-        let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        // bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        bannerView.adUnitID = "ca-app-pub-8841719234465294/5699511091"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        return bannerView
-    }()
+//    lazy var bannerView: GADBannerView = {
+//        let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+//        // bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+//        bannerView.adUnitID = "ca-app-pub-8841719234465294/5699511091"
+//        bannerView.rootViewController = self
+//        bannerView.load(GADRequest())
+//        bannerView.translatesAutoresizingMaskIntoConstraints = false
+//        return bannerView
+//    }()
     
     private let widgetGroupName: String = "위젯에 표시될 항목"
     private let itemViewModel = ItemViewModel()
