@@ -45,6 +45,16 @@ final class HomeNavigationController: UINavigationController {
     private let widgetGroupName: String = "위젯에 표시될 항목"
     private let itemViewModel = ItemViewModel()
     private let groupViewModel = GroupViewModel()
+    
+    var bannerView: GADBannerView! {
+        didSet {
+            // bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+            bannerView.adUnitID = "ca-app-pub-8841719234465294/5699511091"
+            bannerView.rootViewController = self
+            bannerView.load(GADRequest())
+            bannerView.translatesAutoresizingMaskIntoConstraints = false
+        }
+    }
 
     // MARK:- View Life Sycle
     override func viewDidLoad() {
