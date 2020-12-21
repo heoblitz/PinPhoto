@@ -44,7 +44,9 @@ class PinterestLayout: UICollectionViewFlowLayout {
     }
     
     // 5
-    
+    private var xOffset: [CGFloat] = []
+    private var yOffset: [CGFloat] = .init(repeating: 210, count: 2)
+
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }
@@ -65,13 +67,11 @@ class PinterestLayout: UICollectionViewFlowLayout {
         
         // 2
         let columnWidth = contentWidth / CGFloat(numberOfColumns)
-        var xOffset: [CGFloat] = []
         for column in 0..<numberOfColumns {
             xOffset.append(CGFloat(column) * columnWidth)
         }
         
         var column = 0
-        var yOffset: [CGFloat] = .init(repeating: 140, count: numberOfColumns)
         
         // 3
         for item in cache.count..<collectionView.numberOfItems(inSection: 0) {

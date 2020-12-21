@@ -10,6 +10,8 @@ import UIKit
 
 class SuggestCell: UICollectionViewCell {
 
+    @IBOutlet weak var image: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

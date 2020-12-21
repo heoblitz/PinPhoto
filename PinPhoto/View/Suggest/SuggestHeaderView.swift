@@ -10,6 +10,8 @@ import UIKit
 
 class SuggestHeaderView: UICollectionReusableView {
 
+    @IBOutlet weak var image: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

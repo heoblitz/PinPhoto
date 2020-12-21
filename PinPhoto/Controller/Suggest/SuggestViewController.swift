@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SuggestViewController: UIViewController {
     
@@ -22,11 +23,10 @@ class SuggestViewController: UIViewController {
         
         suggestCollectionView.collectionViewLayout = PinterestLayout()
         
-        if let layout = suggestCollectionView?.collectionViewLayout as? PinterestLayout {
-            layout.delegate = self
-            layout.headerReferenceSize = CGSize(width: 50, height: 130)
-            print("a")
-        }
+        let pinterestLayout = PinterestLayout()
+        pinterestLayout.delegate = self
+        pinterestLayout.headerReferenceSize = CGSize(width: view.bounds.width, height: 200)
+        suggestCollectionView.collectionViewLayout = pinterestLayout
         
         let searchVc = UISearchController(searchResultsController: nil)
         // searchVc.searchBar.tintColor = .white
@@ -37,28 +37,22 @@ class SuggestViewController: UIViewController {
         
         suggestCollectionView.dataSource = self
         suggestCollectionView.delegate = self
-        // suggestCollectionView.register(UINib(nibName: "HeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
+        suggestCollectionView.register(UINib(nibName: "SuggestCell", bundle: nil), forCellWithReuseIdentifier: "SuggestCell")
+        suggestCollectionView.register(UINib(nibName: "SuggestHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
         
         //
         self.extendedLayoutIncludesOpaqueBars = true
         bind()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 300.0)
-    }
-    
     private func bind() {
         unsplashViewModel.unsplash.bind { [weak self] unsplashes in
-            // self?.indicatorView.stopAnimating()
             self?.unsplashes += unsplashes
             self?.suggestCollectionView.reloadData()
         }
     }
     
     private func request() {
-        // indicatorView.startAnimating()
         unsplashViewModel.requestItems()
     }
 }
@@ -69,10 +63,10 @@ extension SuggestViewController: UICollectionViewDataSource, UICollectionViewDel
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? SuggestCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SuggestCell", for: indexPath) as? SuggestCell else { return UICollectionViewCell() }
         let unsplash = unsplashes[indexPath.item]
         
-        // cell.itemImage.kf.setImage(with: URL(string: unsplash.thumnail.small))
+        cell.image.kf.setImage(with: URL(string: unsplash.thumnail.small))
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
         return cell
@@ -92,12 +86,12 @@ extension SuggestViewController: UICollectionViewDataSource, UICollectionViewDel
         
         return UICollectionReusableView()
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-            let width: CGFloat = collectionView.frame.width
-            let height: CGFloat = 500
-            return CGSize(width: width, height: height)
-    }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+//            let width: CGFloat = collectionView.frame.width
+//            let height: CGFloat = 500
+//            return CGSize(width: width, height: height)
+//    }
 }
 
 extension SuggestViewController: PinterestLayoutDelegate {
@@ -115,8 +109,10 @@ extension SuggestViewController: UICollectionViewDelegate {
         let yOffset = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         
+        print(yOffset)
+        
         if scrollView.contentOffset.y > 0  { //20
-            navigationItem.title = ""
+            // navigationItem.title = ""
         } else {
             // navigationItem.title = "changed"
         }
