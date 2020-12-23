@@ -10,7 +10,8 @@ import UIKit
 
 class SuggestCell: UICollectionViewCell {
 
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var suggestImageView: UIImageView!
+    @IBOutlet weak var suggestNameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

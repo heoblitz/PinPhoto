@@ -25,7 +25,8 @@ class SuggestViewController: UIViewController {
         
         let pinterestLayout = PinterestLayout()
         pinterestLayout.delegate = self
-        pinterestLayout.headerReferenceSize = CGSize(width: view.bounds.width, height: 20)
+        pinterestLayout.headerReferenceSize = CGSize(width: view.bounds.width, height: 35)
+        suggestCollectionView.contentInset = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
         suggestCollectionView.collectionViewLayout = pinterestLayout
         
         let searchVc = UISearchController(searchResultsController: nil)
@@ -51,6 +52,7 @@ class SuggestViewController: UIViewController {
         unsplashViewModel.unsplash.bind { [weak self] unsplashes in
             self?.unsplashes += unsplashes
             self?.suggestCollectionView.reloadData()
+            print(unsplashes)
         }
     }
     
@@ -68,9 +70,11 @@ extension SuggestViewController: UICollectionViewDataSource, UICollectionViewDel
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SuggestCell", for: indexPath) as? SuggestCell else { return UICollectionViewCell() }
         let unsplash = unsplashes[indexPath.item]
         
-        cell.image.kf.setImage(with: URL(string: unsplash.thumnail.small))
-        cell.layer.cornerRadius = 10
+        cell.suggestNameLabel.text = unsplash.name
+        cell.suggestImageView.kf.setImage(with: URL(string: unsplash.thumnail.small))
+        cell.layer.cornerRadius = 12
         cell.layer.masksToBounds = true
+
         return cell
     }
     
@@ -98,7 +102,7 @@ extension SuggestViewController: UICollectionViewDataSource, UICollectionViewDel
 
 extension SuggestViewController: PinterestLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-        return CGFloat(unsplashes[indexPath.item].imageRatio) * (view.bounds.width - 4) / 2
+        return CGFloat(unsplashes[indexPath.item].imageRatio) * (view.bounds.width - 6) / 2
     }
     
     func itemCount() -> Int {

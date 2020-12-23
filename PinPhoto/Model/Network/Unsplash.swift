@@ -14,9 +14,14 @@ struct Unsplash: Codable {
     let link: Link
     let width: Int
     let height: Int
+    let user: User
     
     var imageRatio: Double {
         return Double(height) / Double(width)
+    }
+    
+    var name: String {
+        return user.name
     }
     
     enum CodingKeys: String, CodingKey {
@@ -25,6 +30,7 @@ struct Unsplash: Codable {
         case link = "links"
         case width
         case height
+        case user
     }
 }
 
@@ -34,4 +40,8 @@ struct Thumnail: Codable {
 
 struct Link: Codable {
     let html: String
+}
+
+struct User: Codable {
+    let name: String
 }

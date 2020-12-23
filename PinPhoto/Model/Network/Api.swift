@@ -29,7 +29,9 @@ class Api {
         request.setValue(ApiKey.auth, forHTTPHeaderField: "Authorization")
                         
         URLSession.shared.dataTask(with: request) { (data: Data?, reponse: URLResponse?, error: Error?) in
-            guard error == nil else { return }
+            guard error == nil else {
+                return
+            }
             
             if let data = data {
                 do {

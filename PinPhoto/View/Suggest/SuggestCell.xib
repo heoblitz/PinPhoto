@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,17 +19,27 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hNw-qx-wiN">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="178"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="David Kim" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="PDd-Iq-SCY">
+                        <rect key="frame" x="5" y="157" width="65" height="16"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstAttribute="leading" secondItem="hNw-qx-wiN" secondAttribute="leading" id="28d-MC-K0V"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PDd-Iq-SCY" secondAttribute="trailing" constant="5" id="QoJ-bS-wr9"/>
                 <constraint firstAttribute="bottom" secondItem="hNw-qx-wiN" secondAttribute="bottom" id="QpY-Kf-AVs"/>
                 <constraint firstAttribute="top" secondItem="hNw-qx-wiN" secondAttribute="top" id="SRo-az-4sD"/>
+                <constraint firstItem="PDd-Iq-SCY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="Ueg-Z8-AYa"/>
                 <constraint firstAttribute="trailing" secondItem="hNw-qx-wiN" secondAttribute="trailing" id="nMC-V9-Dhy"/>
+                <constraint firstAttribute="bottom" secondItem="PDd-Iq-SCY" secondAttribute="bottom" constant="5" id="xFk-pN-FpM"/>
             </constraints>
             <size key="customSize" width="240" height="178"/>
             <connections>
-                <outlet property="image" destination="hNw-qx-wiN" id="BQT-L2-xhL"/>
+                <outlet property="suggestImageView" destination="hNw-qx-wiN" id="ZYv-ZF-894"/>
+                <outlet property="suggestNameLabel" destination="PDd-Iq-SCY" id="H4y-oB-ujC"/>
             </connections>
             <point key="canvasLocation" x="-519" y="126"/>
         </collectionViewCell>

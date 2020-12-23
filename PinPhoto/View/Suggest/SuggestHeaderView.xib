@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,8 +17,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="465" height="272"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이런 사진들은 어떠세요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ng0-PP-VHk">
-                    <rect key="frame" x="78.5" y="80" width="308" height="39"/>
+                    <rect key="frame" x="78.5" y="133" width="308" height="39"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo by Devon Divine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggh-aY-Se6">
+                    <rect key="frame" x="144.5" y="246.5" width="176" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -26,10 +32,12 @@
             <constraints>
                 <constraint firstItem="Ns4-XK-BXc" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="0gT-UP-iGr"/>
                 <constraint firstAttribute="trailing" secondItem="Ns4-XK-BXc" secondAttribute="trailing" id="3ZK-vD-wRV"/>
+                <constraint firstAttribute="bottom" secondItem="ng0-PP-VHk" secondAttribute="bottom" constant="100" id="5O6-ZN-ZHU"/>
+                <constraint firstAttribute="bottom" secondItem="Ggh-aY-Se6" secondAttribute="bottom" constant="5" id="CW2-5q-dxR"/>
                 <constraint firstItem="Ns4-XK-BXc" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="bUj-ne-g1h"/>
                 <constraint firstItem="ng0-PP-VHk" firstAttribute="centerX" secondItem="U6b-Vx-4bR" secondAttribute="centerX" id="g7h-M4-eu6"/>
-                <constraint firstItem="ng0-PP-VHk" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="80" id="huw-Hn-ysB"/>
                 <constraint firstAttribute="bottom" secondItem="Ns4-XK-BXc" secondAttribute="bottom" id="iAZ-cw-kQm"/>
+                <constraint firstItem="Ggh-aY-Se6" firstAttribute="centerX" secondItem="U6b-Vx-4bR" secondAttribute="centerX" id="lcz-do-eyW"/>
             </constraints>
             <connections>
                 <outlet property="image" destination="Ns4-XK-BXc" id="xUU-cS-fab"/>
