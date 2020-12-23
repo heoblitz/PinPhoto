@@ -45,7 +45,7 @@ class PinterestLayout: UICollectionViewFlowLayout {
     
     // 5
     private var xOffset: [CGFloat] = []
-    private var yOffset: [CGFloat] = .init(repeating: 210, count: 2)
+    private var yOffset: [CGFloat] = .init(repeating: 22, count: 2)
 
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true

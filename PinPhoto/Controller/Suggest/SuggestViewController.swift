@@ -25,7 +25,7 @@ class SuggestViewController: UIViewController {
         
         let pinterestLayout = PinterestLayout()
         pinterestLayout.delegate = self
-        pinterestLayout.headerReferenceSize = CGSize(width: view.bounds.width, height: 200)
+        pinterestLayout.headerReferenceSize = CGSize(width: view.bounds.width, height: 20)
         suggestCollectionView.collectionViewLayout = pinterestLayout
         
         let searchVc = UISearchController(searchResultsController: nil)
