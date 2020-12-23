@@ -31,9 +31,11 @@ class SuggestViewController: UIViewController {
         let searchVc = UISearchController(searchResultsController: nil)
         // searchVc.searchBar.tintColor = .white
         searchVc.delegate = self
+        searchVc.searchBar.searchBarStyle = .minimal
+        searchVc.searchBar.searchTextField.backgroundColor = .lightGray
+        searchVc.searchBar.searchTextField.alpha = 0.7
+        searchVc.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Please provide the Project title", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         navigationItem.searchController = searchVc
-        // navigationItem.hidesSearchBarWhenScrolling = false
-        // indicatorView.startAnimating()
         
         suggestCollectionView.dataSource = self
         suggestCollectionView.delegate = self
