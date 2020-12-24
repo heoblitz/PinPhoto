@@ -10,7 +10,8 @@ import UIKit
 
 class SuggestHeaderView: UICollectionReusableView {
 
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var headerImage: UIImageView!
+    @IBOutlet weak var headerNameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

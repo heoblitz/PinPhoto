@@ -12,39 +12,15 @@ import Kingfisher
 class SuggestViewController: UIViewController {
     
     @IBOutlet weak var suggestCollectionView: UICollectionView!
-    // @IBOutlet weak var indicatorView: UIActivityIndicatorView!
-    
-    var unsplashes: [Unsplash] = []
     
     private let unsplashViewModel: UnsplashViewModel = UnsplashViewModel()
-    
+    private var unsplashes: [Unsplash] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        suggestCollectionView.collectionViewLayout = PinterestLayout()
-        
-        let pinterestLayout = PinterestLayout()
-        pinterestLayout.delegate = self
-        pinterestLayout.headerReferenceSize = CGSize(width: view.bounds.width, height: 35)
-        suggestCollectionView.contentInset = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
-        suggestCollectionView.collectionViewLayout = pinterestLayout
-        
-        let searchVc = UISearchController(searchResultsController: nil)
-        // searchVc.searchBar.tintColor = .white
-        searchVc.delegate = self
-        searchVc.searchBar.searchBarStyle = .minimal
-        searchVc.searchBar.searchTextField.backgroundColor = .lightGray
-        searchVc.searchBar.searchTextField.alpha = 0.7
-        searchVc.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Please provide the Project title", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        navigationItem.searchController = searchVc
-        
-        suggestCollectionView.dataSource = self
-        suggestCollectionView.delegate = self
-        suggestCollectionView.register(UINib(nibName: "SuggestCell", bundle: nil), forCellWithReuseIdentifier: "SuggestCell")
-        suggestCollectionView.register(UINib(nibName: "SuggestHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
-        
-        //
-        self.extendedLayoutIncludesOpaqueBars = true
+        // self.extendedLayoutIncludesOpaqueBars = true
+        prepareCollectionView()
+        prepareSearchBar()
         bind()
     }
     
@@ -52,23 +28,44 @@ class SuggestViewController: UIViewController {
         unsplashViewModel.unsplash.bind { [weak self] unsplashes in
             self?.unsplashes += unsplashes
             self?.suggestCollectionView.reloadData()
-            print(unsplashes)
         }
     }
     
     private func request() {
         unsplashViewModel.requestItems()
     }
+    
+    private func prepareSearchBar() {
+        let searchVc = UISearchController(searchResultsController: nil)
+        searchVc.delegate = self
+        searchVc.searchBar.searchBarStyle = .minimal
+        searchVc.searchBar.searchTextField.backgroundColor = .lightGray
+        searchVc.searchBar.searchTextField.alpha = 0.7
+        searchVc.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Search", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        navigationItem.searchController = searchVc
+    }
+    
+    private func prepareCollectionView() {
+        let pinterestLayout = PinterestLayout()
+        pinterestLayout.delegate = self
+        pinterestLayout.headerReferenceSize = CGSize(width: view.bounds.width, height: 35)
+        
+        suggestCollectionView.collectionViewLayout = pinterestLayout
+        suggestCollectionView.dataSource = self
+        suggestCollectionView.delegate = self
+        suggestCollectionView.register(UINib(nibName: "SuggestCell", bundle: nil), forCellWithReuseIdentifier: "SuggestCell")
+        suggestCollectionView.register(UINib(nibName: "SuggestHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
+    }
 }
 
 extension SuggestViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return unsplashes.count
+        return unsplashes.dropFirst().count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SuggestCell", for: indexPath) as? SuggestCell else { return UICollectionViewCell() }
-        let unsplash = unsplashes[indexPath.item]
+        let unsplash = Array(unsplashes.dropFirst())[indexPath.item]
         
         cell.suggestNameLabel.text = unsplash.name
         cell.suggestImageView.kf.setImage(with: URL(string: unsplash.thumnail.small))
@@ -83,30 +80,28 @@ extension SuggestViewController: UICollectionViewDataSource, UICollectionViewDel
         case UICollectionView.elementKindSectionHeader:
             guard let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) as? SuggestHeaderView else {
                 return UICollectionReusableView() }
-            print("header")
+            
+            if let headerItem = unsplashes.first {
+                cell.headerImage.kf.setImage(with: URL(string: headerItem.thumnail.small))
+                cell.headerNameLabel.text = "Photo by " + headerItem.name
+            }
+            
             return cell
         default:
-            print("wrong")
             break
         }
         
         return UICollectionReusableView()
     }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//            let width: CGFloat = collectionView.frame.width
-//            let height: CGFloat = 500
-//            return CGSize(width: width, height: height)
-//    }
 }
 
 extension SuggestViewController: PinterestLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-        return CGFloat(unsplashes[indexPath.item].imageRatio) * (view.bounds.width - 6) / 2
+        return CGFloat(Array(unsplashes.dropFirst())[indexPath.item].imageRatio) * (view.bounds.width - 6) / 2
     }
     
     func itemCount() -> Int {
-        return unsplashes.count
+        return unsplashes.dropFirst().count
     }
 }
 
