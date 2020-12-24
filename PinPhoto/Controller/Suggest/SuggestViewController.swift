@@ -38,8 +38,9 @@ class SuggestViewController: UIViewController {
     private func prepareSearchBar() {
         let searchVc = UISearchController(searchResultsController: nil)
         searchVc.delegate = self
+        searchVc.searchBar.tintColor = .white
         searchVc.searchBar.searchBarStyle = .minimal
-        searchVc.searchBar.searchTextField.backgroundColor = .lightGray
+        searchVc.searchBar.searchTextField.backgroundColor = UIColor(r: 58, g: 58, b: 60)
         searchVc.searchBar.searchTextField.alpha = 0.7
         searchVc.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Search", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         navigationItem.searchController = searchVc
