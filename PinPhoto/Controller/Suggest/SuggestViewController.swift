@@ -9,21 +9,22 @@
 import UIKit
 import Kingfisher
 
-class SuggestViewController: UIViewController {
+final class SuggestViewController: UIViewController {
     
     @IBOutlet weak var suggestCollectionView: UICollectionView!
     
     private let unsplashViewModel: UnsplashViewModel = UnsplashViewModel()
     private var unsplashes: [Unsplash] = []
+    
+    var initialYoffset: CGFloat = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // self.extendedLayoutIncludesOpaqueBars = true
         prepareCollectionView()
         prepareSearchBar()
         bind()
     }
-    
+ 
     private func bind() {
         unsplashViewModel.unsplash.bind { [weak self] unsplashes in
             self?.unsplashes += unsplashes
@@ -96,22 +97,24 @@ extension SuggestViewController: UICollectionViewDataSource, UICollectionViewDel
     }
 }
 
-extension SuggestViewController: PinterestLayoutDelegate {
-    func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-        return CGFloat(Array(unsplashes.dropFirst())[indexPath.item].imageRatio) * (view.bounds.width - 6) / 2
+extension SuggestViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let suggestWebVc = SuggestWebViewController.storyboardInstance() else { return }
+        
+        let item = Array(unsplashes.dropFirst())[indexPath.item]
+        
+        suggestWebVc.suggestLink = item.link.html
+        
+        self.present(suggestWebVc, animated: true)
     }
     
-    func itemCount() -> Int {
-        return unsplashes.dropFirst().count
-    }
-}
-
-extension SuggestViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let yOffset = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         
-        print(yOffset)
+        if initialYoffset == 0 {
+            initialYoffset = yOffset
+        }
         
         if scrollView.contentOffset.y > 0  { //20
             // navigationItem.title = ""
@@ -125,10 +128,18 @@ extension SuggestViewController: UICollectionViewDelegate {
     }
 }
 
+extension SuggestViewController: PinterestLayoutDelegate {
+    func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
+        return CGFloat(Array(unsplashes.dropFirst())[indexPath.item].imageRatio) * (view.bounds.width - 6) / 2
+    }
+    
+    func itemCount() -> Int {
+        return unsplashes.dropFirst().count
+    }
+}
+
 extension SuggestViewController: UISearchControllerDelegate {
-    func willPresentSearchController(_ searchController: UISearchController) {
-        UIView.animate(withDuration: 0.5) {
-            self.suggestCollectionView.contentOffset.y += 30
-        }
+    func willDismissSearchController(_ searchController: UISearchController) {
+        suggestCollectionView.setContentOffset(CGPoint(x: 0, y: initialYoffset), animated: true)
     }
 }
