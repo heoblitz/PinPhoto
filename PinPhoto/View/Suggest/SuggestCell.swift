@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import Kingfisher
 
-class SuggestCell: UICollectionViewCell {
-
+final class SuggestCell: UICollectionViewCell {
+    // MARK:- @IBOutlet Properties
     @IBOutlet weak var suggestImageView: UIImageView!
     @IBOutlet weak var suggestNameLabel: UILabel!
     
+    // MARK:- Propertises
+    static let cellIdentifier: String = "SuggestCell"
+    
+    // MARK:- Methods
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        layer.cornerRadius = 12
+        layer.masksToBounds = true
     }
-
+    
+    func update(by unsplash: Unsplash) {
+        suggestNameLabel.text = unsplash.name
+        suggestImageView.kf.setImage(with: URL(string: unsplash.thumnail.small))
+    }
 }

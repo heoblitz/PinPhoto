@@ -8,18 +8,8 @@
 
 import UIKit
 
-
-import UIKit
-
-protocol PinterestLayoutDelegate: AnyObject {
-    func collectionView(
-        _ collectionView: UICollectionView,
-        heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat
-    
-    func itemCount() -> Int
-}
-
-class PinterestLayout: UICollectionViewFlowLayout {
+final class PinterestLayout: UICollectionViewFlowLayout {
+    // MARK:- Propertises
     weak var delegate: PinterestLayoutDelegate?
     
     private let numberOfColumns = 2
@@ -40,6 +30,7 @@ class PinterestLayout: UICollectionViewFlowLayout {
     private var xOffset: [CGFloat] = []
     private var yOffset: [CGFloat] = .init(repeating: 35, count: 2)
 
+    // MARK:- Methods
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }

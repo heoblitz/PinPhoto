@@ -7,15 +7,23 @@
 //
 
 import UIKit
+import Kingfisher
 
-class SuggestHeaderView: UICollectionReusableView {
-
+final class SuggestHeaderView: UICollectionReusableView {
+    // MARK:- @IBOutlet Properties
     @IBOutlet weak var headerImage: UIImageView!
     @IBOutlet weak var headerNameLabel: UILabel!
     
+    // MARK:- Properties
+    static let reuseIdentifier: String = "SuggestHeaderView"
+    
+    // MARK:- Methods
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
+    func update(by unsplash: Unsplash) {
+        headerImage.kf.setImage(with: URL(string: unsplash.thumnail.small))
+        headerNameLabel.text = "Photo by " + unsplash.name
+    }
 }

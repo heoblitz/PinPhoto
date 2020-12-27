@@ -10,11 +10,13 @@ import UIKit
 import WebKit
 
 final class SuggestWebViewController: UIViewController {
-
+    // MARK:- @IBOutlet Properties
     @IBOutlet weak var webView: WKWebView!
     
+    // MARK:- Propertises
     var suggestLink: String?
     
+    // MARK:- View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,12 +26,14 @@ final class SuggestWebViewController: UIViewController {
         }
     }
     
+    // MARK:- Methods
     static func storyboardInstance() -> SuggestWebViewController? {
         let storyboard = UIStoryboard(name: SuggestWebViewController.storyboardName(), bundle: nil)
         
         return storyboard.instantiateInitialViewController()
     }
     
+    // MARK:- @IBAction Methods
     @IBAction func dissmissBarButtonTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }

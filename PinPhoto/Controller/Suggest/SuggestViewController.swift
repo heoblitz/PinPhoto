@@ -10,14 +10,17 @@ import UIKit
 import Kingfisher
 
 final class SuggestViewController: UIViewController {
-    
+    // MARK:- @IBOutlet Properties
     @IBOutlet weak var suggestCollectionView: UICollectionView!
     
+    // MARK:- Propertises
     private let unsplashViewModel: UnsplashViewModel = UnsplashViewModel()
+    private var headerUnsplash: Unsplash?
     private var unsplashes: [Unsplash] = []
     
-    var initialYoffset: CGFloat = 0
+    private var initialYoffset: CGFloat = 0
 
+    // MARK:- View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareCollectionView()
@@ -25,8 +28,14 @@ final class SuggestViewController: UIViewController {
         bind()
     }
  
+    // MARK:- Methods
     private func bind() {
         unsplashViewModel.unsplash.bind { [weak self] unsplashes in
+            if self?.unsplashes.isEmpty ?? true {
+                self?.headerUnsplash = unsplashes.first
+                self?.unsplashes = Array(unsplashes.dropFirst())
+                return
+            }
             self?.unsplashes += unsplashes
             self?.suggestCollectionView.reloadData()
         }
@@ -55,24 +64,22 @@ final class SuggestViewController: UIViewController {
         suggestCollectionView.collectionViewLayout = pinterestLayout
         suggestCollectionView.dataSource = self
         suggestCollectionView.delegate = self
-        suggestCollectionView.register(UINib(nibName: "SuggestCell", bundle: nil), forCellWithReuseIdentifier: "SuggestCell")
-        suggestCollectionView.register(UINib(nibName: "SuggestHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
+        suggestCollectionView.register(UINib(nibName: SuggestCell.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: SuggestCell.cellIdentifier)
+        suggestCollectionView.register(UINib(nibName: SuggestHeaderView.reuseIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SuggestHeaderView.reuseIdentifier)
     }
 }
 
-extension SuggestViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+// MARK:- UICollectionView Data Source
+extension SuggestViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return unsplashes.dropFirst().count
+        return unsplashes.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SuggestCell", for: indexPath) as? SuggestCell else { return UICollectionViewCell() }
-        let unsplash = Array(unsplashes.dropFirst())[indexPath.item]
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SuggestCell.cellIdentifier, for: indexPath) as? SuggestCell else { return UICollectionViewCell() }
         
-        cell.suggestNameLabel.text = unsplash.name
-        cell.suggestImageView.kf.setImage(with: URL(string: unsplash.thumnail.small))
-        cell.layer.cornerRadius = 12
-        cell.layer.masksToBounds = true
+        let unsplash = unsplashes[indexPath.item]
+        cell.update(by: unsplash)
 
         return cell
     }
@@ -80,15 +87,14 @@ extension SuggestViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            guard let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) as? SuggestHeaderView else {
+            guard let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SuggestHeaderView.reuseIdentifier, for: indexPath) as? SuggestHeaderView else {
                 return UICollectionReusableView() }
             
-            if let headerItem = unsplashes.first {
-                cell.headerImage.kf.setImage(with: URL(string: headerItem.thumnail.small))
-                cell.headerNameLabel.text = "Photo by " + headerItem.name
+            if let unsplash = headerUnsplash {
+                reusableView.update(by: unsplash)
             }
             
-            return cell
+            return reusableView
         default:
             break
         }
@@ -97,13 +103,13 @@ extension SuggestViewController: UICollectionViewDataSource, UICollectionViewDel
     }
 }
 
+// MARK:- UICollectionView Delegate
 extension SuggestViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let suggestWebVc = SuggestWebViewController.storyboardInstance() else { return }
         
-        let item = Array(unsplashes.dropFirst())[indexPath.item]
-        
-        suggestWebVc.suggestLink = item.link.html
+        let unsplash = unsplashes[indexPath.item]
+        suggestWebVc.suggestLink = unsplash.link.html
         
         self.present(suggestWebVc, animated: true)
     }
@@ -112,32 +118,31 @@ extension SuggestViewController: UICollectionViewDelegate {
         let yOffset = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         
-        if initialYoffset == 0 {
+        if initialYoffset == CGFloat.zero {
             initialYoffset = yOffset
         }
         
-        if scrollView.contentOffset.y > 0  { //20
-            // navigationItem.title = ""
-        } else {
-            // navigationItem.title = "changed"
-        }
-        
-        if yOffset > (contentHeight + 100 - scrollView.frame.height) { //, !indicatorView.isAnimating {
+        if yOffset > (contentHeight + 100 - scrollView.frame.height) {
             request()
         }
     }
 }
 
+// MARK:- PinterestLayout Delegate
 extension SuggestViewController: PinterestLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-        return CGFloat(Array(unsplashes.dropFirst())[indexPath.item].imageRatio) * (view.bounds.width - 6) / 2
+        let unsplash = unsplashes[indexPath.item]
+        let ratio = CGFloat(unsplash.imageRatio)
+        
+        return ratio * (view.bounds.width - 6) / 2
     }
     
     func itemCount() -> Int {
-        return unsplashes.dropFirst().count
+        return unsplashes.count
     }
 }
 
+// MARK:- UISearchController Delegate
 extension SuggestViewController: UISearchControllerDelegate {
     func willDismissSearchController(_ searchController: UISearchController) {
         suggestCollectionView.setContentOffset(CGPoint(x: 0, y: initialYoffset), animated: true)
