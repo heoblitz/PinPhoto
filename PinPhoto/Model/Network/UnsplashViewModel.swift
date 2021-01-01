@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Kingfisher
 
 final class UnsplashViewModel {
     let unsplash: Observable<[Unsplash]> = Observable([])
@@ -21,5 +22,32 @@ final class UnsplashViewModel {
                 self.unsplash.value = unsplashes
             }
         }
+    }
+    
+    func downloadInitialImages(completeHandler: @escaping () -> Void) {
+        let dispatchGroup = DispatchGroup()
+        let globalQueue = DispatchQueue.global()
+        let downloader = ImageDownloader.default
+        
+        globalQueue.async(group: dispatchGroup, execute: {
+            self.unsplash.value.forEach { unsplash in
+                let urlString = unsplash.thumnail.small
+                guard let url = URL(string: urlString) else { return }
+                downloader.downloadImage(with: url, completionHandler: { result in
+                    switch result {
+                    case .success(let value):
+                        print(value, urlString)
+                        ImageCache.default.store(value.image, forKey: urlString)
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                })
+            }
+        })
+        
+        dispatchGroup.notify(queue: globalQueue, execute: {
+            print("downloaded")
+            completeHandler()
+        })
     }
 }
