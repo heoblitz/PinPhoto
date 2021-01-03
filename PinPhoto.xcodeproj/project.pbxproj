@@ -388,6 +388,7 @@
 				3CF52DF824BF0D6400E7B8D4 /* ItemViewModel.swift */,
 				3C38CB092500E4A4007B6283 /* GroupViewModel.swift */,
 				3CF07B9324FE387E006D48CE /* WidgetViewModel.swift */,
+				BF3D6E5C25903B2C000477BF /* UnsplashViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -684,7 +685,6 @@
 				BF3D6E4625903927000477BF /* Api.swift */,
 				BF3D6E522590398D000477BF /* ApiKey.swift */,
 				BF3D6E5725903AE7000477BF /* Unsplash.swift */,
-				BF3D6E5C25903B2C000477BF /* UnsplashViewModel.swift */,
 				BF3D6E6125903B81000477BF /* Observable.swift */,
 			);
 			path = Network;

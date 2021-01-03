@@ -25,7 +25,10 @@ final class SuggestViewController: UIViewController {
         super.viewDidLoad()
         prepareCollectionView()
         prepareSearchBar()
-        bind()
+        
+        unsplashViewModel.downloadInitialImages {
+            self.bind()
+        }
     }
  
     // MARK:- Methods
@@ -34,9 +37,9 @@ final class SuggestViewController: UIViewController {
             if self?.unsplashes.isEmpty ?? true {
                 self?.headerUnsplash = unsplashes.first
                 self?.unsplashes = Array(unsplashes.dropFirst())
-                return
+            } else {
+                self?.unsplashes += unsplashes
             }
-            self?.unsplashes += unsplashes
             self?.suggestCollectionView.reloadData()
         }
     }
