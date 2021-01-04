@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import Lottie
 
 final class SuggestViewController: UIViewController {
     // MARK:- @IBOutlet Properties
@@ -19,15 +20,29 @@ final class SuggestViewController: UIViewController {
     private var unsplashes: [Unsplash] = []
     
     private var initialYoffset: CGFloat = 0
+    
+    private var animationView: AnimationView = {
+        let animation = Animation.named("loading")
+        let animationView = AnimationView(animation: animation)
+        animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        animationView.backgroundColor = UIColor(r: 44, g: 44, b: 46)
+        animationView.loopMode = .loop
+        return animationView
+    }()
 
     // MARK:- View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.isNavigationBarHidden = true
         prepareCollectionView()
         prepareSearchBar()
+        prepareAnimationView()
         
         unsplashViewModel.downloadInitialImages {
             self.bind()
+            self.completeIntialImages()
         }
     }
  
@@ -69,6 +84,35 @@ final class SuggestViewController: UIViewController {
         suggestCollectionView.delegate = self
         suggestCollectionView.register(UINib(nibName: SuggestCell.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: SuggestCell.cellIdentifier)
         suggestCollectionView.register(UINib(nibName: SuggestHeaderView.reuseIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SuggestHeaderView.reuseIdentifier)
+    }
+    
+    private func prepareAnimationView() {
+        let safeArea: UILayoutGuide = view.safeAreaLayoutGuide
+        view.addSubview(animationView)
+        
+        NSLayoutConstraint.activate([
+            animationView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            animationView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            animationView.topAnchor.constraint(equalTo: view.topAnchor),
+            animationView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+        ])
+        
+        animationView.play()
+    }
+    
+    private func completeIntialImages() {
+        navigationController?.isNavigationBarHidden = false
+        
+        UIView.animate(withDuration: 1, animations: {
+            self.animationView.alpha = 0
+        }, completion: { _ in
+            self.removeAnimationView()
+        })
+    }
+    
+    private func removeAnimationView() {
+        animationView.stop()
+        animationView.removeFromSuperview()
     }
 }
 
@@ -147,7 +191,7 @@ extension SuggestViewController: PinterestLayoutDelegate {
 
 // MARK:- UISearchController Delegate
 extension SuggestViewController: UISearchControllerDelegate {
-    func willDismissSearchController(_ searchController: UISearchController) {
-        suggestCollectionView.setContentOffset(CGPoint(x: 0, y: initialYoffset), animated: true)
-    }
+//    func willDismissSearchController(_ searchController: UISearchController) {
+//        suggestCollectionView.setContentOffset(CGPoint(x: 0, y: initialYoffset), animated: true)
+//    }
 }

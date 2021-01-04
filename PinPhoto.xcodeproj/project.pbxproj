@@ -71,6 +71,7 @@
 		3C8C6C6024EA368400689329 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C8C6C5F24EA368400689329 /* Home.storyboard */; };
 		3C9D666224ECB51C00021E48 /* SettingWidget.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C9D666124ECB51C00021E48 /* SettingWidget.storyboard */; };
 		3C9D666424ECD0B900021E48 /* SettingWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9D666324ECD0B900021E48 /* SettingWidgetViewController.swift */; };
+		3CA2A72C25A2BDC40005D9BA /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 3CA2A72B25A2BDC40005D9BA /* loading.json */; };
 		3CAA167E24BC211200635F6D /* ItemCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA167D24BC211200635F6D /* ItemCustomCell.swift */; };
 		3CAC4C3225468A8400ACE418 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC4C3625468A8400ACE418 /* Localizable.strings */; };
 		3CAC4C3325468A8400ACE418 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC4C3625468A8400ACE418 /* Localizable.strings */; };
@@ -221,6 +222,7 @@
 		3C8C6C5F24EA368400689329 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		3C9D666124ECB51C00021E48 /* SettingWidget.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingWidget.storyboard; sourceTree = "<group>"; };
 		3C9D666324ECD0B900021E48 /* SettingWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWidgetViewController.swift; sourceTree = "<group>"; };
+		3CA2A72B25A2BDC40005D9BA /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loading.json; path = ../../../../../Downloads/loading.json; sourceTree = "<group>"; };
 		3CAA167D24BC211200635F6D /* ItemCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCustomCell.swift; sourceTree = "<group>"; };
 		3CAC4C3525468A8400ACE418 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3CAC4C3A25468AB400ACE418 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -470,6 +472,14 @@
 			path = StoryBoard;
 			sourceTree = "<group>";
 		};
+		3CA2A72A25A2BDA90005D9BA /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				3CA2A72B25A2BDC40005D9BA /* loading.json */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		3CA68901250F935900415C69 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -653,6 +663,7 @@
 				3C3ACC8924BB52A300311F7A /* Controller */,
 				3CEB644F24CF10A3004D8C3C /* Extension */,
 				3C585BD124FD34A900203C18 /* Protocol */,
+				3CA2A72A25A2BDA90005D9BA /* Support */,
 				3CF8B45324A9CBA700D6C11C /* Assets.xcassets */,
 				3CF8B45824A9CBA700D6C11C /* Info.plist */,
 				3C33F24D2549AF3F009406CF /* InfoPlist.strings */,
@@ -855,6 +866,7 @@
 				3CBC31A125947EDE00606A7A /* SuggestWeb.storyboard in Resources */,
 				BF3D6E2C25903694000477BF /* Suggest.storyboard in Resources */,
 				BF3D6E7C2590439F000477BF /* SuggestHeaderView.xib in Resources */,
+				3CA2A72C25A2BDC40005D9BA /* loading.json in Resources */,
 				3C070A9824D3E3E90077C3AE /* Assets.xcassets in Resources */,
 				3CCA19692508BD9700F9CCEB /* HomeSectionReusableView.xib in Resources */,
 				3C0C004C24EA4F4500BF137B /* CreateTextItem.storyboard in Resources */,

@@ -7,6 +7,7 @@ target 'PinPhoto' do
   pod 'Firebase/Analytics'
   pod 'Google-Mobile-Ads-SDK'
   pod 'Kingfisher', '~> 5.0'
+  pod 'lottie-ios'
   use_frameworks!
 
   # Pods for PinPhoto

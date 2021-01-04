@@ -63,6 +63,7 @@ PODS:
   - Kingfisher (5.15.7):
     - Kingfisher/Core (= 5.15.7)
   - Kingfisher/Core (5.15.7)
+  - lottie-ios (3.1.9)
   - nanopb (2.30906.0):
     - nanopb/decode (= 2.30906.0)
     - nanopb/encode (= 2.30906.0)
@@ -79,6 +80,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Google-Mobile-Ads-SDK
   - Kingfisher (~> 5.0)
+  - lottie-ios
   - YPImagePicker
 
 SPEC REPOS:
@@ -94,6 +96,7 @@ SPEC REPOS:
     - GoogleUserMessagingPlatform
     - GoogleUtilities
     - Kingfisher
+    - lottie-ios
     - nanopb
     - PromisesObjC
     - PryntTrimmerView
@@ -112,12 +115,13 @@ SPEC CHECKSUMS:
   GoogleUserMessagingPlatform: b168e8c46cd8f92aa3e34b584c4ca78a411ce367
   GoogleUtilities: ffb2f4159f2c897c6e8992bd7fbcdef8a300589c
   Kingfisher: 6e1a13523fcb1c86924ce53affe4ac957e544d59
+  lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
   YPImagePicker: 15aed8bcaa4dad976e11b6114126d731a2f9f3c9
 
-PODFILE CHECKSUM: ebd6f042a956cf0c6c90863f8bd1a27f4f6b6da5
+PODFILE CHECKSUM: 014c5800264ffa014a3b63e2e899406ac8a61d9c
 
 COCOAPODS: 1.10.0
