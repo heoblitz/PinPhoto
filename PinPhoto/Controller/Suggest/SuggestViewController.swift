@@ -18,9 +18,7 @@ final class SuggestViewController: UIViewController {
     private let unsplashViewModel: UnsplashViewModel = UnsplashViewModel()
     private var headerUnsplash: Unsplash?
     private var unsplashes: [Unsplash] = []
-    
-    private var initialYoffset: CGFloat = 0
-    
+        
     private var animationView: AnimationView = {
         let animation = Animation.named("loading")
         let animationView = AnimationView(animation: animation)
@@ -165,10 +163,6 @@ extension SuggestViewController: UICollectionViewDelegate {
         let yOffset = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         
-        if initialYoffset == CGFloat.zero {
-            initialYoffset = yOffset
-        }
-        
         if yOffset > (contentHeight + 100 - scrollView.frame.height) {
             request()
         }
@@ -191,7 +185,4 @@ extension SuggestViewController: PinterestLayoutDelegate {
 
 // MARK:- UISearchController Delegate
 extension SuggestViewController: UISearchControllerDelegate {
-//    func willDismissSearchController(_ searchController: UISearchController) {
-//        suggestCollectionView.setContentOffset(CGPoint(x: 0, y: initialYoffset), animated: true)
-//    }
 }
