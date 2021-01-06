@@ -17,6 +17,8 @@
 		3C0C004E24EA4FED00BF137B /* EditImageItem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C0C004D24EA4FED00BF137B /* EditImageItem.storyboard */; };
 		3C0C005024EA50D200BF137B /* EditTextItem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C0C004F24EA50D200BF137B /* EditTextItem.storyboard */; };
 		3C0C005224EA581900BF137B /* ClassNameToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C005124EA581900BF137B /* ClassNameToString.swift */; };
+		3C0CADC825A553F100B2006D /* CoreMLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0CADC725A553F100B2006D /* CoreMLManager.swift */; };
+		3C13F8CE25A57FB90067DAEA /* UnsplashClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3C13F8CD25A57FB90067DAEA /* UnsplashClassifier.mlmodel */; };
 		3C21CC0724BEDC10004BEAF0 /* CreateTextItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C21CC0624BEDC10004BEAF0 /* CreateTextItemViewController.swift */; };
 		3C23693225036ADF0064637A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23693125036ADF0064637A /* HomeViewController.swift */; };
 		3C25284E24EFD2C4002ADBDC /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C25284D24EFD2C4002ADBDC /* HomeNavigationController.swift */; };
@@ -197,6 +199,8 @@
 		3C0C004D24EA4FED00BF137B /* EditImageItem.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditImageItem.storyboard; sourceTree = "<group>"; };
 		3C0C004F24EA50D200BF137B /* EditTextItem.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditTextItem.storyboard; sourceTree = "<group>"; };
 		3C0C005124EA581900BF137B /* ClassNameToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassNameToString.swift; sourceTree = "<group>"; };
+		3C0CADC725A553F100B2006D /* CoreMLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLManager.swift; sourceTree = "<group>"; };
+		3C13F8CD25A57FB90067DAEA /* UnsplashClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = UnsplashClassifier.mlmodel; path = ../../UnsplashClassifier.mlmodel; sourceTree = "<group>"; };
 		3C21CC0624BEDC10004BEAF0 /* CreateTextItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTextItemViewController.swift; sourceTree = "<group>"; };
 		3C23693125036ADF0064637A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3C25284D24EFD2C4002ADBDC /* HomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
@@ -430,6 +434,7 @@
 				3C76EEFA250C951E003B298D /* CoreDataType.swift */,
 				3C38CB042500E06C007B6283 /* Group.swift */,
 				3C38CB072500E17D007B6283 /* GroupDataManager.swift */,
+				3C0CADC725A553F100B2006D /* CoreMLManager.swift */,
 				3C3ACC8E24BB558B00311F7A /* Item.xcdatamodeld */,
 				BF3D6E4B2590392C000477BF /* Network */,
 			);
@@ -666,6 +671,7 @@
 				3CA2A72A25A2BDA90005D9BA /* Support */,
 				3CF8B45324A9CBA700D6C11C /* Assets.xcassets */,
 				3CF8B45824A9CBA700D6C11C /* Info.plist */,
+				3C13F8CD25A57FB90067DAEA /* UnsplashClassifier.mlmodel */,
 				3C33F24D2549AF3F009406CF /* InfoPlist.strings */,
 				3CAC4C3625468A8400ACE418 /* Localizable.strings */,
 			);
@@ -1041,6 +1047,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C0CADC825A553F100B2006D /* CoreMLManager.swift in Sources */,
 				3CF07B9424FE387E006D48CE /* WidgetViewModel.swift in Sources */,
 				3C33F290254A5C5B009406CF /* DateExtension.swift in Sources */,
 				3C585BCF24FD33A600203C18 /* ConvertImageToData.swift in Sources */,
@@ -1085,6 +1092,7 @@
 				3C4D13A024AB716B009BDCDE /* HomeDetailViewController.swift in Sources */,
 				BF13206D256148C9006FB5B7 /* SettingHomeWidgetViewController.swift in Sources */,
 				BF3D6E38259038B3000477BF /* SuggestViewController.swift in Sources */,
+				3C13F8CE25A57FB90067DAEA /* UnsplashClassifier.mlmodel in Sources */,
 				3C5BC0D6251257DB00A74F4E /* ItemCopy.swift in Sources */,
 				BF3D6E6225903B81000477BF /* Observable.swift in Sources */,
 				3C76EEF1250C8E1E003B298D /* ItemType.swift in Sources */,

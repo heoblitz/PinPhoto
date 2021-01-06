@@ -8,6 +8,18 @@
 
 import Foundation
 
+struct Search: Codable {
+    let total: Int
+    let numberOfPages: Int
+    let unsplashes: [Unsplash]
+    
+    enum CodingKeys: String, CodingKey {
+        case total
+        case numberOfPages = "total_pages"
+        case unsplashes = "results"
+    }
+}
+
 struct Unsplash: Codable {
     let id: String
     let thumnail: Thumnail

@@ -12,11 +12,14 @@ import Kingfisher
 final class UnsplashViewModel {
     private let imageCache: ImageCache = ImageCache.default
     let unsplash: Observable<[Unsplash]> = Observable([])
-
+    let coreMLManager: CoreMLManager = CoreMLManager()
+    
+    var query: String?
+    
     init() {}
     
     func requestItems() {
-        Api.shared.request { unsplashes in
+        Api.shared.request(for: query) { unsplashes in
             OperationQueue.main.addOperation {
                 self.unsplash.value = unsplashes
             }
@@ -37,11 +40,11 @@ final class UnsplashViewModel {
         }
     }
     
-    func downloadInitialImages(completeHandler: @escaping () -> Void) {
+    func downloadInitialImages(query: String?, completeHandler: @escaping () -> Void) {
         let dispatchGroup = DispatchGroup()
         let downloadImageQueue = DispatchQueue(label: "downloadImage", attributes: .concurrent)
         
-        Api.shared.request { unsplashes in
+        Api.shared.request(for: query) { unsplashes in
             for unsplash in unsplashes {
                 let absoluteString = unsplash.thumnail.small
                 let url = URL(string: absoluteString)
@@ -57,5 +60,22 @@ final class UnsplashViewModel {
                 }
             })
         }
+    }
+    
+    func requestSuggestClassification(completeHandler: @escaping () -> ()) {
+        let itemViewModel: ItemViewModel = ItemViewModel()
+        
+        itemViewModel.loadItemImages()
+        
+        let images = itemViewModel.items.compactMap { $0.contentImage?.image }
+        coreMLManager.requestClassifications(for: images, completeHandler: { classification in
+            
+            if classification.count > 0 {
+                let order = classification.sorted(by: { $0.1 > $1.1 })
+                self.query = order.first?.key
+            }
+            
+            self.downloadInitialImages(query: self.query, completeHandler: completeHandler)
+        })
     }
 }
