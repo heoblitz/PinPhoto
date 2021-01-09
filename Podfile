@@ -5,7 +5,6 @@ target 'PinPhoto' do
   # Comment the next line if you don't want to use dynamic frameworks
   pod 'YPImagePicker'
   pod 'Firebase/Analytics'
-  pod 'Google-Mobile-Ads-SDK'
   pod 'Kingfisher', '~> 5.0'
   pod 'lottie-ios'
   use_frameworks!
@@ -18,7 +17,6 @@ target 'PinPhotoExtension' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'Firebase/Analytics'
-  pod 'Google-Mobile-Ads-SDK'
   # Pods for PinPhotoExtension
 
 end
@@ -29,4 +27,10 @@ target 'PinPhotoWidgetExtension' do
 
   # Pods for PinPhotoExtension
 
+end
+
+post_install do |installer|
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+  end
 end

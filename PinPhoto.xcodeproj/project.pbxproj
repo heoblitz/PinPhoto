@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,6 +39,8 @@
 		3C42652524FD1D4800FA4F03 /* URLextension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB644D24CF109A004D8C3C /* URLextension.swift */; };
 		3C42652624FD1EC800FA4F03 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF52DF824BF0D6400E7B8D4 /* ItemViewModel.swift */; };
 		3C44AC802598340C007D21E9 /* PinterestLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C44AC7F2598340C007D21E9 /* PinterestLayoutDelegate.swift */; };
+		3C44E2D025A98C2F00D54FF1 /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C44E2CF25A98C2F00D54FF1 /* GoogleMobileAds.xcframework */; };
+		3C44E30525A98D7900D54FF1 /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C44E2CF25A98C2F00D54FF1 /* GoogleMobileAds.xcframework */; };
 		3C4C579225186F7800B28A01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45324A9CBA700D6C11C /* Assets.xcassets */; };
 		3C4C5796251ADB4200B28A01 /* ItemCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5BC0D5251257DB00A74F4E /* ItemCopy.swift */; };
 		3C4C5797251ADB4200B28A01 /* SelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7888825110A7B00C5C42B /* SelectionType.swift */; };
@@ -217,6 +219,7 @@
 		3C3ACC9724BB5C2100311F7A /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3C3ACC9824BB5C2100311F7A /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3C44AC7F2598340C007D21E9 /* PinterestLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayoutDelegate.swift; sourceTree = "<group>"; };
+		3C44E2CF25A98C2F00D54FF1 /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "../../../Downloads/GoogleMobileAdsSdkiOS-7.69.0/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
 		3C4D139F24AB716B009BDCDE /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
 		3C585BCE24FD33A600203C18 /* ConvertImageToData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertImageToData.swift; sourceTree = "<group>"; };
 		3C5BC0D5251257DB00A74F4E /* ItemCopy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCopy.swift; sourceTree = "<group>"; };
@@ -342,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CEB643B24CEC742004D8C3C /* NotificationCenter.framework in Frameworks */,
+				3C44E30525A98D7900D54FF1 /* GoogleMobileAds.xcframework in Frameworks */,
 				C90E01E01A8F6C43633BD7C6 /* Pods_PinPhotoExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +357,7 @@
 				3CC81261251B45B6009D8580 /* WidgetKit.framework in Frameworks */,
 				F9F2675AD681C9FFF36395E4 /* Pods_PinPhoto.framework in Frameworks */,
 				3CBC319725947E7A00606A7A /* WebKit.framework in Frameworks */,
+				3C44E2D025A98C2F00D54FF1 /* GoogleMobileAds.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,6 +728,7 @@
 		FF87DE9F94AF38898587A269 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3C44E2CF25A98C2F00D54FF1 /* GoogleMobileAds.xcframework */,
 				3CBC319625947E7A00606A7A /* WebKit.framework */,
 				3CEB643A24CEC742004D8C3C /* NotificationCenter.framework */,
 				A6E3DD72E2F55C8639AAB2B9 /* Pods_PinPhoto.framework */,
@@ -1372,6 +1378,7 @@
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1436,6 +1443,7 @@
 				DEVELOPMENT_TEAM = HK54HM2TC6;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
