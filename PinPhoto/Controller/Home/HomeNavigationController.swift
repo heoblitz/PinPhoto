@@ -8,7 +8,6 @@
 
 import UIKit
 import YPImagePicker
-import GoogleMobileAds
 
 final class HomeNavigationController: UINavigationController {
     // MARK:- Properties
@@ -30,16 +29,6 @@ final class HomeNavigationController: UINavigationController {
         imageView.tintColor = .white
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
-    }()
-    
-    lazy var bannerView: GADBannerView = {
-        let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        // bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        bannerView.adUnitID = "ca-app-pub-8841719234465294/5699511091"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        return bannerView
     }()
     
     private let widgetGroupName: String = "위젯에 표시될 항목"
@@ -104,13 +93,6 @@ final class HomeNavigationController: UINavigationController {
     private func presentImagePikcer() {
         let picker = YPImagePicker(configuration: settingImagePickerConfig())
         
-        picker.view.addSubview(bannerView)
-        
-        NSLayoutConstraint.activate([
-            bannerView.centerXAnchor.constraint(equalTo: picker.view.centerXAnchor, constant: 0),
-            bannerView.bottomAnchor.constraint(equalTo: picker.view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
-        ])
-        
         picker.didFinishPicking { [unowned picker] items, isNotSelect in
             guard let vc = SelectGroupViewController.storyboardInstance() else { return }
             
@@ -144,12 +126,6 @@ final class HomeNavigationController: UINavigationController {
         
         let navVc = UINavigationController(rootViewController: vc)
         navVc.modalPresentationStyle = .fullScreen
-        navVc.view.addSubview(bannerView)
-        
-        NSLayoutConstraint.activate([
-            bannerView.centerXAnchor.constraint(equalTo: navVc.view.centerXAnchor, constant: 0),
-            bannerView.bottomAnchor.constraint(equalTo: navVc.view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
-        ])
         
         present(navVc, animated: true)
     }

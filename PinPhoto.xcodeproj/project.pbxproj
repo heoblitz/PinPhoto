@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,8 +39,6 @@
 		3C42652524FD1D4800FA4F03 /* URLextension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB644D24CF109A004D8C3C /* URLextension.swift */; };
 		3C42652624FD1EC800FA4F03 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF52DF824BF0D6400E7B8D4 /* ItemViewModel.swift */; };
 		3C44AC802598340C007D21E9 /* PinterestLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C44AC7F2598340C007D21E9 /* PinterestLayoutDelegate.swift */; };
-		3C44E2D025A98C2F00D54FF1 /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C44E2CF25A98C2F00D54FF1 /* GoogleMobileAds.xcframework */; };
-		3C44E30525A98D7900D54FF1 /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C44E2CF25A98C2F00D54FF1 /* GoogleMobileAds.xcframework */; };
 		3C4C579225186F7800B28A01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45324A9CBA700D6C11C /* Assets.xcassets */; };
 		3C4C5796251ADB4200B28A01 /* ItemCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5BC0D5251257DB00A74F4E /* ItemCopy.swift */; };
 		3C4C5797251ADB4200B28A01 /* SelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7888825110A7B00C5C42B /* SelectionType.swift */; };
@@ -75,7 +73,6 @@
 		3C8C6C6024EA368400689329 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C8C6C5F24EA368400689329 /* Home.storyboard */; };
 		3C9D666224ECB51C00021E48 /* SettingWidget.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C9D666124ECB51C00021E48 /* SettingWidget.storyboard */; };
 		3C9D666424ECD0B900021E48 /* SettingWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9D666324ECD0B900021E48 /* SettingWidgetViewController.swift */; };
-		3CA2A72C25A2BDC40005D9BA /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 3CA2A72B25A2BDC40005D9BA /* loading.json */; };
 		3CAA167E24BC211200635F6D /* ItemCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA167D24BC211200635F6D /* ItemCustomCell.swift */; };
 		3CAC4C3225468A8400ACE418 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC4C3625468A8400ACE418 /* Localizable.strings */; };
 		3CAC4C3325468A8400ACE418 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC4C3625468A8400ACE418 /* Localizable.strings */; };
@@ -88,12 +85,10 @@
 		3CAC4CC825486E6E00ACE418 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC4CCA25486E6E00ACE418 /* Setting.storyboard */; };
 		3CB8E0A124F1436D00FEE93C /* SettingWidgetSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB8E0A024F1436D00FEE93C /* SettingWidgetSliderCell.swift */; };
 		3CB8E0A324F1482600FEE93C /* SettingWidgetSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB8E0A224F1482600FEE93C /* SettingWidgetSwitchCell.swift */; };
-		3CBC319725947E7A00606A7A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBC319625947E7A00606A7A /* WebKit.framework */; };
 		3CBC319C25947EA800606A7A /* SuggestWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC319B25947EA800606A7A /* SuggestWebViewController.swift */; };
 		3CBC31A125947EDE00606A7A /* SuggestWeb.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CBC31A025947EDE00606A7A /* SuggestWeb.storyboard */; };
 		3CC13F5024D0259100726E51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45324A9CBA700D6C11C /* Assets.xcassets */; };
 		3CC7888925110A7B00C5C42B /* SelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7888825110A7B00C5C42B /* SelectionType.swift */; };
-		3CC81261251B45B6009D8580 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CDBF2E125186DBF00F84F66 /* WidgetKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3CCA19642508981F00F9CCEB /* HomeHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA19622508981F00F9CCEB /* HomeHeaderViewCell.swift */; };
 		3CCA19652508981F00F9CCEB /* HomeHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CCA19632508981F00F9CCEB /* HomeHeaderViewCell.xib */; };
 		3CCA19682508BD9700F9CCEB /* HomeSectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA19662508BD9700F9CCEB /* HomeSectionReusableView.swift */; };
@@ -106,13 +101,10 @@
 		3CD247BB25023973006F8757 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD247BA25023973006F8757 /* UIColorExtension.swift */; };
 		3CD4D52F2502064B002F1B7C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD4D52E2502064B002F1B7C /* SearchViewController.swift */; };
 		3CD4D53325020AB8002F1B7C /* SelectGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD4D53225020AB8002F1B7C /* SelectGroupViewController.swift */; };
-		3CDBF2E225186DBF00F84F66 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CDBF2E125186DBF00F84F66 /* WidgetKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		3CDBF2E425186DBF00F84F66 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CDBF2E325186DBF00F84F66 /* SwiftUI.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3CDBF2E725186DBF00F84F66 /* PinPhotoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDBF2E625186DBF00F84F66 /* PinPhotoWidget.swift */; };
 		3CDBF2EA25186DC100F84F66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CDBF2E925186DC100F84F66 /* Assets.xcassets */; };
 		3CDBF2EC25186DC100F84F66 /* PinPhotoWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3CDBF2E825186DBF00F84F66 /* PinPhotoWidget.intentdefinition */; };
 		3CDBF2F025186DC100F84F66 /* PinPhotoWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3CDBF2E025186DBF00F84F66 /* PinPhotoWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		3CEB643B24CEC742004D8C3C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CEB643A24CEC742004D8C3C /* NotificationCenter.framework */; };
 		3CEB643E24CEC742004D8C3C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB643D24CEC742004D8C3C /* TodayViewController.swift */; };
 		3CEB644124CEC742004D8C3C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CEB643F24CEC742004D8C3C /* MainInterface.storyboard */; };
 		3CEB644524CEC742004D8C3C /* PinPhotoExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3CEB643924CEC742004D8C3C /* PinPhotoExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -229,7 +221,6 @@
 		3C8C6C5F24EA368400689329 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		3C9D666124ECB51C00021E48 /* SettingWidget.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingWidget.storyboard; sourceTree = "<group>"; };
 		3C9D666324ECD0B900021E48 /* SettingWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWidgetViewController.swift; sourceTree = "<group>"; };
-		3CA2A72B25A2BDC40005D9BA /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loading.json; path = ../../../../../Downloads/loading.json; sourceTree = "<group>"; };
 		3CAA167D24BC211200635F6D /* ItemCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCustomCell.swift; sourceTree = "<group>"; };
 		3CAC4C3525468A8400ACE418 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3CAC4C3A25468AB400ACE418 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -334,8 +325,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CDBF2E425186DBF00F84F66 /* SwiftUI.framework in Frameworks */,
-				3CDBF2E225186DBF00F84F66 /* WidgetKit.framework in Frameworks */,
 				97EA7918B2D5D4E6C4A01BB1 /* Pods_PinPhotoWidgetExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,8 +333,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CEB643B24CEC742004D8C3C /* NotificationCenter.framework in Frameworks */,
-				3C44E30525A98D7900D54FF1 /* GoogleMobileAds.xcframework in Frameworks */,
 				C90E01E01A8F6C43633BD7C6 /* Pods_PinPhotoExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,10 +341,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CC81261251B45B6009D8580 /* WidgetKit.framework in Frameworks */,
 				F9F2675AD681C9FFF36395E4 /* Pods_PinPhoto.framework in Frameworks */,
-				3CBC319725947E7A00606A7A /* WebKit.framework in Frameworks */,
-				3C44E2D025A98C2F00D54FF1 /* GoogleMobileAds.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,7 +469,6 @@
 		3CA2A72A25A2BDA90005D9BA /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				3CA2A72B25A2BDC40005D9BA /* loading.json */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -878,7 +861,6 @@
 				3CBC31A125947EDE00606A7A /* SuggestWeb.storyboard in Resources */,
 				BF3D6E2C25903694000477BF /* Suggest.storyboard in Resources */,
 				BF3D6E7C2590439F000477BF /* SuggestHeaderView.xib in Resources */,
-				3CA2A72C25A2BDC40005D9BA /* loading.json in Resources */,
 				3C070A9824D3E3E90077C3AE /* Assets.xcassets in Resources */,
 				3CCA19692508BD9700F9CCEB /* HomeSectionReusableView.xib in Resources */,
 				3C0C004C24EA4F4500BF137B /* CreateTextItem.storyboard in Resources */,
@@ -1290,7 +1272,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D015C89250D6C3BF48144A61 /* Pods-PinPhotoExtension.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_ENTITLEMENTS = PinPhotoExtension/PinPhotoExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.5.2;
@@ -1316,7 +1297,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 54A8157C6B59B1A1802A8964 /* Pods-PinPhotoExtension.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_ENTITLEMENTS = PinPhotoExtension/PinPhotoExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.5.2;
@@ -1342,7 +1322,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				APPLICATION_EXTENSION_API_ONLY = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1407,7 +1387,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				APPLICATION_EXTENSION_API_ONLY = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
