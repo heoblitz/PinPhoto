@@ -98,6 +98,28 @@ public class CoreDataManager {
         return nil
     }
     
+    func getItemImages() -> [Item] {
+        var models: [Item] = []
+
+        let idSort = NSSortDescriptor(key: "id", ascending: false)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: modelName)
+
+        fetchRequest.sortDescriptors = [idSort]
+        fetchRequest.fetchLimit = 50
+        fetchRequest.predicate = NSPredicate(format: "contentType == 0")
+
+        do {
+            if let fetchResult = try context.fetch(fetchRequest) as? [Item] {
+                models = fetchResult
+            }
+        } catch let error as NSError {
+            print("---> could not fetch \(error)")
+            self.noticeError(error)
+        }
+        
+        return models
+    }
+    
     func saveItem(contentType: Int64, contentImage: Data?,
                   contentText: String?, updateDate: Date, id: Int64) {
         guard let entity = NSEntityDescription.entity(forEntityName: modelName, in: context) else {

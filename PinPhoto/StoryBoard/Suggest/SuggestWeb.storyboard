@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AWs-hK-TXK">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Suggest Web View Controller-->
+        <scene sceneID="ox8-TJ-t9d">
+            <objects>
+                <viewController id="AWs-hK-TXK" customClass="SuggestWebViewController" customModule="PinPhoto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hHK-7Y-pfS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zq2-g5-iAK">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAP-1n-gQO">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem image="chevron.left" catalog="system" id="5of-7l-crZ">
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="vq9-nP-0ug"/>
+                                    <barButtonItem title="Item" image="chevron.right" catalog="system" id="Y1Z-0v-Px5">
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aux-Mj-XUC">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="lMe-Hh-QAA"/>
+                                    <barButtonItem id="Oyp-oA-CoA"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Ah2-9W-0y8"/>
+                                    <barButtonItem image="xmark" catalog="system" id="rnL-ty-gSO">
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <connections>
+                                            <action selector="dissmissBarButtonTapped:" destination="AWs-hK-TXK" id="Hcb-bk-9xK"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="F3z-CS-BGe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="F3z-CS-BGe" firstAttribute="trailing" secondItem="nAP-1n-gQO" secondAttribute="trailing" id="15Q-Oc-BJ2"/>
+                            <constraint firstItem="F3z-CS-BGe" firstAttribute="trailing" secondItem="zq2-g5-iAK" secondAttribute="trailing" id="As3-K7-orK"/>
+                            <constraint firstItem="nAP-1n-gQO" firstAttribute="bottom" secondItem="F3z-CS-BGe" secondAttribute="bottom" id="FvN-Pn-9oF"/>
+                            <constraint firstItem="zq2-g5-iAK" firstAttribute="leading" secondItem="F3z-CS-BGe" secondAttribute="leading" id="G0S-DM-Fk7"/>
+                            <constraint firstItem="nAP-1n-gQO" firstAttribute="top" secondItem="zq2-g5-iAK" secondAttribute="bottom" id="Twd-Eu-Qxq"/>
+                            <constraint firstItem="F3z-CS-BGe" firstAttribute="trailing" secondItem="Aux-Mj-XUC" secondAttribute="trailing" id="U2v-YZ-fhr"/>
+                            <constraint firstItem="F3z-CS-BGe" firstAttribute="leading" secondItem="Aux-Mj-XUC" secondAttribute="leading" id="gqS-ih-yqy"/>
+                            <constraint firstItem="nAP-1n-gQO" firstAttribute="leading" secondItem="F3z-CS-BGe" secondAttribute="leading" id="iNV-Tg-vqy"/>
+                            <constraint firstItem="F3z-CS-BGe" firstAttribute="top" secondItem="Aux-Mj-XUC" secondAttribute="top" id="jI5-P2-WNA"/>
+                            <constraint firstItem="zq2-g5-iAK" firstAttribute="top" secondItem="Aux-Mj-XUC" secondAttribute="bottom" id="nzA-go-0y9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="zq2-g5-iAK" id="sNk-O2-Gm8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kzj-od-cNT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="365" y="-206"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

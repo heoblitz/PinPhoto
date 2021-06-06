@@ -65,6 +65,10 @@ public class ItemViewModel {
         items = shared.getItemFromIds(ids: ids)
     }
     
+    func loadItemImages() {
+        items = shared.getItemImages()
+    }
+    
     func creationData(date: Date?) -> String? {
         if let date = date {
             let dateFormatter = DateFormatter()

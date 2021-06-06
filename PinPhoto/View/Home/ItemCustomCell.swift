@@ -56,6 +56,7 @@ final class ItemCustomCell: UICollectionViewCell {
         }
     }
     
+    // MARK:- Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         reset()
