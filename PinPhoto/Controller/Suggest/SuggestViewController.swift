@@ -37,9 +37,7 @@ final class SuggestViewController: UIViewController {
         prepareCollectionView()
         prepareSearchBar()
         prepareAnimationView()
-        
-        // unsplashViewModel.fetchSuggestKeyword()
-        
+                
         unsplashViewModel.requestSuggestClassification {
             self.bind()
             self.completeIntialImages()

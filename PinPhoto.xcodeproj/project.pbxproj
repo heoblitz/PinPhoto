@@ -30,6 +30,7 @@
 		3C3ACC9624BB5BD600311F7A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9524BB5BD600311F7A /* CoreDataManager.swift */; };
 		3C3ACC9924BB5C2100311F7A /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9724BB5C2100311F7A /* Item+CoreDataClass.swift */; };
 		3C3ACC9A24BB5C2100311F7A /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9824BB5C2100311F7A /* Item+CoreDataProperties.swift */; };
+		3C3FFEF426BCE985008C2A34 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C3FFEF326BCE985008C2A34 /* loading.json */; };
 		3C42651F24FD1BA000FA4F03 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9524BB5BD600311F7A /* CoreDataManager.swift */; };
 		3C42652024FD1BA700FA4F03 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9824BB5C2100311F7A /* Item+CoreDataProperties.swift */; };
 		3C42652124FD1BAA00FA4F03 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9724BB5C2100311F7A /* Item+CoreDataClass.swift */; };
@@ -207,6 +208,7 @@
 		3C3ACC9524BB5BD600311F7A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3C3ACC9724BB5C2100311F7A /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3C3ACC9824BB5C2100311F7A /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3C3FFEF326BCE985008C2A34 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		3C44AC7F2598340C007D21E9 /* PinterestLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayoutDelegate.swift; sourceTree = "<group>"; };
 		3C44E2CF25A98C2F00D54FF1 /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "../../../Downloads/GoogleMobileAdsSdkiOS-7.69.0/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
 		3C4D139F24AB716B009BDCDE /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
@@ -636,10 +638,11 @@
 		3CF8B44924A9CBA300D6C11C /* PinPhoto */ = {
 			isa = PBXGroup;
 			children = (
-				3CA5825C26BCD3D900B5F6C7 /* Unsplashclassifier.mlmodel */,
 				3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */,
 				3CF8B44C24A9CBA300D6C11C /* SceneDelegate.swift */,
 				3CEB644A24CEC805004D8C3C /* PinPhoto.entitlements */,
+				3CA5825C26BCD3D900B5F6C7 /* Unsplashclassifier.mlmodel */,
+				3C3FFEF326BCE985008C2A34 /* loading.json */,
 				3C8C6C5E24EA363200689329 /* StoryBoard */,
 				3C3ACC8D24BB533F00311F7A /* Model */,
 				3C38CB062500E124007B6283 /* ViewModel */,
@@ -852,6 +855,7 @@
 				3C070A9824D3E3E90077C3AE /* Assets.xcassets in Resources */,
 				3CCA19692508BD9700F9CCEB /* HomeSectionReusableView.xib in Resources */,
 				3C0C004C24EA4F4500BF137B /* CreateTextItem.storyboard in Resources */,
+				3C3FFEF426BCE985008C2A34 /* loading.json in Resources */,
 				3CD247B925023434006F8757 /* SelectGroup.storyboard in Resources */,
 				3CCA196E2508DBC300F9CCEB /* HomeGroupViewCell.xib in Resources */,
 				3CAC4CC825486E6E00ACE418 /* Setting.storyboard in Resources */,
