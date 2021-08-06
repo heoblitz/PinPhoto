@@ -17,7 +17,7 @@ final class CoreMLManager {
             let config = MLModelConfiguration()
             config.computeUnits = .all
             
-            let model = try VNCoreMLModel(for: UnsplashClassifier(configuration: config).model)
+            let model = try VNCoreMLModel(for: Unsplashclassifier(configuration: config).model)
             
             let request = VNCoreMLRequest(model: model, completionHandler: {
                 [weak self] request, error in
