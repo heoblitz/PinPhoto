@@ -1,5 +1,5 @@
 //
-//  GroupDataManager.swift
+//  GroupDataRepository.swift
 //  PinPhoto
 //
 //  Created by won heo on 2020/09/03.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-class GroupDataManager {
-    static let shared = GroupDataManager()
+class GroupDataRepository {
+    static let shared = GroupDataRepository()
     static let fileName: String = "group.json"
     
     private let url: URL? = {
         var url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.wonheo.PinPhoto")
-        url?.appendPathComponent(GroupDataManager.fileName, isDirectory: false)
+        url?.appendPathComponent(GroupDataRepository.fileName, isDirectory: false)
         return url
     }()
     

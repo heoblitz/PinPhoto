@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum ItemType: CaseIterable {
+public enum ItemType: Int64, CaseIterable {
     case image
     case text
     

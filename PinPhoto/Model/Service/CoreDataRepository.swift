@@ -1,5 +1,5 @@
 //
-//  CoreDataManager.swift
+//  CoreDataRepository.swift
 //  PinPhoto
 //
 //  Created by won heo on 2020/07/12.
@@ -9,24 +9,21 @@
 import UIKit
 import CoreData
 
-public class CoreDataManager {
+public class CoreDataRepository {
     // MARK:- Propertises
-    static let shared: CoreDataManager = CoreDataManager()
-
+    static let shared: CoreDataRepository = CoreDataRepository()
     private lazy var context = persistentContainer.viewContext
-    // private let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     private let modelName: String = "Item"
     
     private let persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Item")
         let storeURL = URL.storeURL(for: "group.com.wonheo.PinPhoto", databaseName: "Pin")
         container.persistentStoreDescriptions = [NSPersistentStoreDescription(url: storeURL)]
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
-        })
-        print(storeURL)
+        }
         return container
     }()
     
@@ -99,30 +96,34 @@ public class CoreDataManager {
     }
     
     func getItemImages() -> [Item] {
-        var models: [Item] = []
-
         let idSort = NSSortDescriptor(key: "id", ascending: false)
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: modelName)
 
         fetchRequest.sortDescriptors = [idSort]
         fetchRequest.fetchLimit = 50
         fetchRequest.predicate = NSPredicate(format: "contentType == 0")
-
+        
         do {
-            if let fetchResult = try context.fetch(fetchRequest) as? [Item] {
-                models = fetchResult
+            if let items = try context.fetch(fetchRequest) as? [Item] {
+                return items
             }
         } catch let error as NSError {
             print("---> could not fetch \(error)")
             self.noticeError(error)
         }
         
-        return models
+        return []
     }
     
-    func saveItem(contentType: Int64, contentImage: Data?,
-                  contentText: String?, updateDate: Date, id: Int64) {
-        guard let entity = NSEntityDescription.entity(forEntityName: modelName, in: context) else {
+    func saveItem(
+        contentType: Int64,
+        contentImage: Data?,
+        contentText: String?,
+        updateDate: Date,
+        id: Int64
+    ) {
+        guard let entity = NSEntityDescription.entity(forEntityName: modelName, in: context)
+        else {
             return
         }
         
@@ -132,7 +133,7 @@ public class CoreDataManager {
             item.contentText = contentText
             item.updateDate = updateDate
             item.id = id
-        
+            
             contextSave { success in
                 print("---> CoreData save \(success)")
                 self.noticeUpdate()
@@ -160,18 +161,21 @@ public class CoreDataManager {
         }
     }
         
-    func editItem(contentType: Int64, contentImage: Data?,
-                  contentText: String?, updateDate: Date, id: Int64) {
+    func editItem(
+        contentType: Int64,
+        contentImage: Data?,
+        contentText: String?,
+        updateDate: Date,
+        id: Int64
+    ) {
         let fetchRequest = filteredRequest(id: id)
         
         do {
             if let results: [Item] = try context.fetch(fetchRequest) as? [Item] {
-                if results.count != 0 {
-                    results[0].setValue(contentType, forKey: "contentType")
-                    results[0].setValue(contentImage, forKey: "contentImage")
-                    results[0].setValue(contentText, forKey: "contentText")
-                    results[0].setValue(updateDate, forKey: "updateDate")
-                }
+                results.first?.setValue(contentType, forKey: "contentType")
+                results.first?.setValue(contentImage, forKey: "contentImage")
+                results.first?.setValue(contentText, forKey: "contentText")
+                results.first?.setValue(updateDate, forKey: "updateDate")
             }
         } catch let error as NSError {
             print("could not fetch \(error) \(error.userInfo)")
@@ -184,7 +188,7 @@ public class CoreDataManager {
         }
     }
     
-    func getItemCount() -> Int {
+    func itemAddingIdentifier() -> Int {
         let idSort = NSSortDescriptor(key: "id", ascending: false)
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: modelName)
         
@@ -192,7 +196,8 @@ public class CoreDataManager {
         fetchRequest.fetchLimit = 1
         
         do {
-            if let fetchResult = try context.fetch(fetchRequest) as? [Item], let id = fetchResult.first?.id  {
+            if let fetchResult = try context.fetch(fetchRequest) as? [Item],
+               let id = fetchResult.first?.id  {
                 return Int(id + 1)
             }
         } catch let error as NSError {
@@ -236,7 +241,7 @@ public class CoreDataManager {
     }
 }
 
-extension CoreDataManager {
+extension CoreDataRepository {
     fileprivate func filteredRequest(id: Int64) -> NSFetchRequest<NSFetchRequestResult> {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>
             = NSFetchRequest<NSFetchRequestResult>(entityName: modelName)

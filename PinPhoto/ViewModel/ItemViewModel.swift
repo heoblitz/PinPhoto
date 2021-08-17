@@ -10,7 +10,7 @@ import UIKit
 
 public class ItemViewModel {
     // deinit 될 때 옵저버 제거해주기. memory leak 제거
-    let shared: CoreDataManager = CoreDataManager.shared
+    let shared: CoreDataRepository = CoreDataRepository.shared
     private(set) var items: [Item] = []
     
     var numberOfImages: Int {
@@ -26,7 +26,7 @@ public class ItemViewModel {
     }
     
     var idForAdd: Int64 {
-        return Int64(shared.getItemCount())
+        return Int64(shared.itemAddingIdentifier())
     }
     
     var idForInitialize: [Int] {
@@ -36,19 +36,19 @@ public class ItemViewModel {
     func item(at index: Int) -> Item {
         return items[index]
     }
-
+    
     func itemFromId(at id: Int) -> Item? {
         return shared.getItemFromIds(ids: [id]).first
     }
- 
+    
     func thumbnailItem(ids: [Int]) -> Item? {
         return shared.thumbnailItem(ids: ids)
     }
-
+    
     func remove(id: Int64) {
         shared.removeItem(id: id)
     }
-
+    
     func add(content: Int64, image: Data?, text: String?, date: Date, id: Int64) {
         shared.saveItem(contentType: content, contentImage: image, contentText: text, updateDate: date, id: id)
     }

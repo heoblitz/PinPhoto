@@ -9,7 +9,7 @@
 import Foundation
 
 class GroupViewModel {
-    let groupDataManager = GroupDataManager.shared
+    let groupDataManager = GroupDataRepository.shared
     private weak var groupObserver: GroupObserver?
     private(set) var filterGroup: [Group] = []
     
