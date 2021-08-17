@@ -23,7 +23,7 @@ final class TodayViewController: UIViewController {
     @IBOutlet private weak var prevButtonImageView: UIImageView!
     
     // MARK:- Properties
-    private let itemViewModel = ItemViewModel()
+    private let itemViewModel = ItemService()
     private let widgetViewModel = WidgetViewModel()
     private let groupViewModel = GroupViewModel()
     
@@ -58,9 +58,8 @@ final class TodayViewController: UIViewController {
         groupViewModel.load()
         
         guard let ids = groupViewModel.groups.first?.ids else { return }
-        itemViewModel.loadFromIds(ids: ids)
-        
-        pageControl.numberOfPages = itemViewModel.numberOfItems
+        itemViewModel.fetch(by: ids)
+        pageControl.numberOfPages = itemViewModel.items.count
         nextButtonImageView.layer.opacity = 0.5
         prevButtonImageView.layer.opacity = 0.5
         itemCollectionView.dataSource = self
@@ -143,7 +142,7 @@ extension TodayViewController: NCWidgetProviding {
 // MARK:- UICollectionView Data Source
 extension TodayViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemViewModel.numberOfItems
+        return itemViewModel.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

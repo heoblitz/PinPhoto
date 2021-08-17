@@ -16,7 +16,7 @@ final class HomeViewController: UIViewController {
     
     // MARK:- Properties
     private let groupViewModel = GroupViewModel()
-    private let itemViewModel = ItemViewModel()
+    private let itemService = ItemService()
 
     // MARK:- View Life Sycle
     override func viewDidLoad() {
@@ -81,7 +81,7 @@ extension HomeViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             let group = groupViewModel.groups[0]
-            let item = itemViewModel.thumbnailItem(ids: group.ids)
+            let item = itemService.thumbnailItem(ids: group.ids)
             cell.update(at: item)
             return cell
         case 1:
@@ -89,7 +89,7 @@ extension HomeViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             let group = groupViewModel.groups[indexPath.item + 1]
-            let item = itemViewModel.thumbnailItem(ids: group.ids)
+            let item = itemService.thumbnailItem(ids: group.ids)
             cell.update(at: item, title: group.name)
             return cell
         default:

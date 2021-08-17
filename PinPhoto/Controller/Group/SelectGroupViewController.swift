@@ -12,9 +12,9 @@ import YPImagePicker
 final class SelectGroupViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     @IBOutlet private weak var groupTableView: UITableView!
-
+    
     // MARK:- Properties
-    private let itemViewModel: ItemViewModel = ItemViewModel()
+    private let itemService = ItemService()
     private let groupViewModel: GroupViewModel = GroupViewModel()
     private let widgetGroupName: String = "위젯에 표시될 항목"
     
@@ -102,7 +102,7 @@ final class SelectGroupViewController: UIViewController {
         guard let items = items else { return }
         guard let groupName = cellGroupName() else { return }
         
-        var id: Int64 = itemViewModel.idForAdd
+        var id: Int64 = itemService.idForAdd
 
         if ifWidgetMaxCount(itemCount: items.count) {
             alertMaxCount()
@@ -113,7 +113,7 @@ final class SelectGroupViewController: UIViewController {
             switch item {
             case .photo(let photo):
                 let imageData: Data? = photo.originalImage.data
-                itemViewModel.add(content: ItemType.image.value, image: imageData, text: nil, date: Date(), id: id)
+                itemService.add(content: ItemType.image.value, image: imageData, text: nil, date: Date(), id: id)
                 groupViewModel.insertId(at: groupName, ids: [Int(id)])
                 groupViewModel.load()
                 
@@ -135,8 +135,8 @@ final class SelectGroupViewController: UIViewController {
             return
         }
         
-        let id: Int64 = itemViewModel.idForAdd
-        itemViewModel.add(content: ItemType.text.value, image: nil, text: itemText, date: Date(), id: id)
+        let id: Int64 = itemService.idForAdd
+        itemService.add(content: ItemType.text.value, image: nil, text: itemText, date: Date(), id: id)
         groupViewModel.insertId(at: groupName, ids: [Int(id)])
         groupViewModel.load()
         groupViewModel.noticeObservers()
@@ -148,7 +148,7 @@ final class SelectGroupViewController: UIViewController {
         guard let moveIds = moveIds?.sorted(by: { $0 > $1 }), let moveGroupName = moveGroupName else { return }
         guard let groupName = cellGroupName() else { return }
         
-        var id: Int64 = itemViewModel.idForAdd
+        var id: Int64 = itemService.idForAdd
         
         if ifWidgetMaxCount(itemCount: moveIds.count) {
             alertMaxCount()
@@ -156,16 +156,16 @@ final class SelectGroupViewController: UIViewController {
         }
         
         for move in moveIds {
-            guard let item = itemViewModel.itemFromId(at: Int(move)) else { return }
+            guard let item = itemService.itemFromId(at: Int(move)) else { return }
             let copyItem: ItemCopy = ItemCopy(item: item)
             // remove
             groupViewModel.removeId(at: moveGroupName, ids: [Int(move)])
-            itemViewModel.remove(id: move)
+            itemService.remove(id: move)
             groupViewModel.load()
             
             // add
             groupViewModel.insertId(at: groupName, ids: [Int(id)])
-            itemViewModel.add(content: copyItem.contentType, image: copyItem.contentImage, text: copyItem.contentText, date: copyItem.updateDate, id: id)
+            itemService.add(content: copyItem.contentType, image: copyItem.contentImage, text: copyItem.contentText, date: copyItem.updateDate, id: id)
             groupViewModel.load()
             
             // next id
@@ -204,7 +204,6 @@ final class SelectGroupViewController: UIViewController {
                 }
             }
         }
-            
     }
 }
 

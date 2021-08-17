@@ -32,7 +32,7 @@ final class HomeNavigationController: UINavigationController {
     }()
     
     private let widgetGroupName: String = "위젯에 표시될 항목"
-    private let itemViewModel = ItemViewModel()
+    private let itemService = ItemService()
     private let groupViewModel = GroupViewModel()
 
     // MARK:- View Life Sycle
@@ -164,7 +164,7 @@ final class HomeNavigationController: UINavigationController {
     private func saveImageItems(items: [YPMediaItem]) {
         guard let groupName = getDetailVcGroup()?.name else { return }
 
-        var id: Int64 = itemViewModel.idForAdd
+        var id: Int64 = itemService.idForAdd
 
         if ifWidgetMaxCount(itemCount: items.count) {
             alertMaxCount()
@@ -175,7 +175,7 @@ final class HomeNavigationController: UINavigationController {
             switch item {
             case .photo(let photo):
                 let imageData: Data? = photo.originalImage.data
-                itemViewModel.add(content: ItemType.image.value, image: imageData, text: nil, date: Date(), id: id)
+                itemService.add(content: ItemType.image.value, image: imageData, text: nil, date: Date(), id: id)
                 groupViewModel.insertId(at: groupName, ids: [Int(id)])
                 groupViewModel.load()
                 

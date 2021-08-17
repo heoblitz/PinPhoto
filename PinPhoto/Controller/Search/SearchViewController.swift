@@ -22,7 +22,7 @@ final class SearchViewController: UIViewController {
     }()
     
     private let groupViewModel: GroupViewModel = GroupViewModel()
-    private let itemViewModel: ItemViewModel = ItemViewModel()
+    private let itemService = ItemService()
     
     // MARK:- View Life Cycle
     override func viewDidLoad() {
@@ -60,7 +60,7 @@ extension SearchViewController: UICollectionViewDataSource {
         }
         
         let group = groupViewModel.filterGroup[indexPath.item]
-        let item = itemViewModel.thumbnailItem(ids: group.ids)
+        let item = itemService.thumbnailItem(ids: group.ids)
         cell.update(at: item, title: group.name)
         return cell
     }

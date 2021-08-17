@@ -22,7 +22,7 @@ final class GroupViewController: UIViewController {
     private let widgetGroupNameJpn: String = "ウィジェット"
 
     private let groupViewModel = GroupViewModel()
-    private let itemViewModel = ItemViewModel()
+    private let itemViewModel = ItemService()
     
     // MARK:- View Life Cycle
     override func viewDidLoad() {

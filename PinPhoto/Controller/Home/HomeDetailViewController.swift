@@ -23,7 +23,7 @@ final class HomeDetailViewController: UIViewController {
     // MARK:- Propertises
     static var isEditMode: Bool = false
 
-    private let itemViewModel: ItemViewModel = ItemViewModel()
+    private let itemService = ItemService()
     private let groupViewModel: GroupViewModel = GroupViewModel()
     private let widgetViewModel: WidgetViewModel = WidgetViewModel()
     private let widgetGroupNameKr: String = "위젯에 표시될 항목"
@@ -44,7 +44,7 @@ final class HomeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let group = group {
-            itemViewModel.loadFromIds(ids: group.ids)
+            itemService.fetch(by: group.ids)
             groupViewModel.attachObserver(self)
             navigationItem.title = group.name
             
@@ -149,7 +149,7 @@ final class HomeDetailViewController: UIViewController {
                 widgetViewModel.displayItemIndex = nil
             }
             
-            self?.itemViewModel.remove(id: id)
+            self?.itemService.remove(id: id)
             self?.groupViewModel.removeId(at: group.name, ids: [Int(id)])
             self?.groupViewModel.load()
         }
@@ -177,14 +177,14 @@ final class HomeDetailViewController: UIViewController {
 // MARK:- UICollectionView Data Source
 extension HomeDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemViewModel.numberOfItems
+        return itemService.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCustomCell.cellIdentifier, for: indexPath) as? ItemCustomCell else {
             return UICollectionViewCell()
         }
-        let item = itemViewModel.item(at: indexPath.item)
+        let item = itemService.item(at: indexPath.item)
         
         if let group = group, group.name == widgetGroupNameKr, !widgetViewModel.isShowAllItems { // 위젯에 표시되어 있는 셀인지 파악
             if widgetViewModel.displayItemIndex == indexPath.item {
@@ -209,7 +209,7 @@ extension HomeDetailViewController: UICollectionViewDelegate {
         guard let cell = collectionView.cellForItem(at: indexPath) as? ItemCustomCell else {
             return
         }
-        let item = itemViewModel.item(at: indexPath.item)
+        let item = itemService.item(at: indexPath.item)
         
         if !HomeDetailViewController.isEditMode { // Default Mode
             cell.freezeAnimations()
@@ -268,11 +268,12 @@ extension HomeDetailViewController: GroupObserver {
             navigationController?.popToRootViewController(animated: true)
             return
         }
+        
         if group.name == widgetGroupNameKr, newGroup.ids.count == 1 {
             widgetViewModel.displayItemIndex = 0
         }
         
-        itemViewModel.loadFromIds(ids: newGroup.ids)
+        itemService.fetch(by: newGroup.ids)
         itemCollectionView.reloadData()
     }
 }

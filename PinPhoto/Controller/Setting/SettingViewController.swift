@@ -13,7 +13,7 @@ final class SettingViewController: UIViewController {
     @IBOutlet private weak var settingTableView: UITableView!
     
     // MARK:- Properties
-    private let itemViewModel: ItemViewModel = ItemViewModel()
+    private let itemService = ItemService()
     private let groupViewModel: GroupViewModel = GroupViewModel()
     private let settingTitleDatas: [String] = ["PinPhoto", "Today Widget", "Home Widget", "Exit"].map { $0.localized }
     private let settingCellDatas: [[String]] = [
@@ -42,7 +42,7 @@ final class SettingViewController: UIViewController {
         let alert = UIAlertController(title: "Do you want to initialize the data?".localized, message: "Do you want to initialize the data?".localized, preferredStyle: .alert)
         
         let removeAction = UIAlertAction(title: "Remove".localized, style: .destructive, handler: { [unowned self] action in
-            self.itemViewModel.shared.destructive()
+            self.itemService.coreDataRepository.destructive()
             self.groupViewModel.groupDataManager.destructive()
             self.groupViewModel.noticeObservers()
         })

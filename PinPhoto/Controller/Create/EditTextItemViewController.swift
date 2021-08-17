@@ -14,7 +14,7 @@ final class EditTextItemViewController: UIViewController {
     @IBOutlet private weak var saveButton: UIBarButtonItem!
     
     // MARK:- Propertises
-    var itemViewModel: ItemViewModel = ItemViewModel()
+    var itemService = ItemService()
     var groupViewModel: GroupViewModel = GroupViewModel()
     var item: Item?
     
@@ -84,7 +84,7 @@ final class EditTextItemViewController: UIViewController {
     // MARK:- @IBAction Methods
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         if let item = item {
-            itemViewModel.edit(content: item.contentType, image: nil, text: itemTextView.text, date: item.updateDate, id: item.id)
+            itemService.edit(content: item.contentType, image: nil, text: itemTextView.text, date: item.updateDate, id: item.id)
         }
         
         groupViewModel.load()

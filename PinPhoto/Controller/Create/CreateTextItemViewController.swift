@@ -33,7 +33,7 @@ final class CreateTextItemViewController: UIViewController {
     }()
     
     private let widgetGroupName: String = "위젯에 표시될 항목"
-    private let itemViewModel = ItemViewModel()
+    private let itemService = ItemService()
     private let groupViewModel = GroupViewModel()
     
     var selectedGroup: Group?
@@ -122,8 +122,8 @@ final class CreateTextItemViewController: UIViewController {
             return
         }
         
-        let id: Int64 = itemViewModel.idForAdd
-        itemViewModel.add(content: ItemType.text.value, image: nil, text: inputTextView.text, date: Date(), id: id)
+        let id: Int64 = itemService.idForAdd
+        itemService.add(content: ItemType.text.value, image: nil, text: inputTextView.text, date: Date(), id: id)
         groupViewModel.insertId(at: group.name, ids: [Int(id)])
         groupViewModel.load()
         groupViewModel.noticeObservers()

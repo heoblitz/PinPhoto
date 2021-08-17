@@ -10,14 +10,14 @@ import SwiftUI
 import Intents
 
 struct Provider: IntentTimelineProvider {
-    private let itemViewModel: ItemViewModel = ItemViewModel()
+    private let itemService = ItemService()
     private let groupViewModel: GroupViewModel = GroupViewModel()
     private let widgetViewModel: WidgetViewModel = WidgetViewModel()
 
     private func loadItems() {
         groupViewModel.load()
         guard let widgetGroup = groupViewModel.groups.first else { return }
-        itemViewModel.loadFromIds(ids: widgetGroup.ids)
+        itemService.fetch(by: widgetGroup.ids)
     }
         
     private func placeItem() -> Item? {
@@ -26,8 +26,8 @@ struct Provider: IntentTimelineProvider {
 
         let index: Int = min(current, widgetGroup.ids.count - 1)
 
-        itemViewModel.loadFromIds(ids: [widgetGroup.ids[index]])
-        return itemViewModel.items.first
+        itemService.fetch(by: widgetGroup.ids)
+        return itemService.items.first
     }
         
     func placeholder(in context: Context) -> TimeEntry {
@@ -56,7 +56,7 @@ struct Provider: IntentTimelineProvider {
             let second = widgetViewModel.changeTimeSecond
             var count: TimeInterval = 0
             
-            itemViewModel.items.forEach {
+            itemService.items.forEach {
                 let sec = second * count
                 let date = Calendar.current.date(byAdding: .second, value: Int(sec), to: currentDate)!
                 let entry = TimeEntry(date: date, item: $0, configuration: configuration)
@@ -67,7 +67,7 @@ struct Provider: IntentTimelineProvider {
             policy = .never
             
             if let index = widgetViewModel.displayItemIndex {
-                let entry: TimeEntry = TimeEntry(date: Date(), item: itemViewModel.items[index], configuration: configuration)
+                let entry: TimeEntry = TimeEntry(date: Date(), item: itemService.items[index], configuration: configuration)
                 entries.append(entry)
             }
         }

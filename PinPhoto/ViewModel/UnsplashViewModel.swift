@@ -63,11 +63,11 @@ final class UnsplashViewModel {
     }
     
     func requestSuggestClassification(completeHandler: @escaping () -> ()) {
-        let itemViewModel: ItemViewModel = ItemViewModel()
+        let itemService = ItemService()
         
-        itemViewModel.loadItemImages()
+        itemService.fetchImages()
         
-        let images = itemViewModel.items.compactMap { $0.contentImage?.image }
+        let images = itemService.items.compactMap { $0.contentImage?.image }
         coreMLManager.requestClassifications(for: images, completeHandler: { classification in
             
             if classification.count > 0 {
