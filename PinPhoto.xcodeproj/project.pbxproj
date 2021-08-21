@@ -50,7 +50,7 @@
 		3C4C579E251ADB4200B28A01 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C76EEF0250C8E1E003B298D /* ItemType.swift */; };
 		3C4C57A2251ADBC900B28A01 /* ItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF52DF824BF0D6400E7B8D4 /* ItemService.swift */; };
 		3C4C57A3251ADBC900B28A01 /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB092500E4A4007B6283 /* GroupViewModel.swift */; };
-		3C4C57A4251ADBC900B28A01 /* WidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF07B9324FE387E006D48CE /* WidgetViewModel.swift */; };
+		3C4C57A4251ADBC900B28A01 /* WidgetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF07B9324FE387E006D48CE /* WidgetRepository.swift */; };
 		3C4C57B0251ADBD400B28A01 /* SelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7888825110A7B00C5C42B /* SelectionType.swift */; };
 		3C4C57B4251ADC1600B28A01 /* Item.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC8E24BB558B00311F7A /* Item.xcdatamodeld */; };
 		3C4C57CA251ADD9700B28A01 /* URLextension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB644D24CF109A004D8C3C /* URLextension.swift */; };
@@ -112,8 +112,8 @@
 		3CEB644524CEC742004D8C3C /* PinPhotoExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3CEB643924CEC742004D8C3C /* PinPhotoExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3CEB644C24CF01B5004D8C3C /* Item.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC8E24BB558B00311F7A /* Item.xcdatamodeld */; };
 		3CEB644E24CF109A004D8C3C /* URLextension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEB644D24CF109A004D8C3C /* URLextension.swift */; };
-		3CF07B9424FE387E006D48CE /* WidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF07B9324FE387E006D48CE /* WidgetViewModel.swift */; };
-		3CF07B9524FE387E006D48CE /* WidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF07B9324FE387E006D48CE /* WidgetViewModel.swift */; };
+		3CF07B9424FE387E006D48CE /* WidgetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF07B9324FE387E006D48CE /* WidgetRepository.swift */; };
+		3CF07B9524FE387E006D48CE /* WidgetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF07B9324FE387E006D48CE /* WidgetRepository.swift */; };
 		3CF07B9A24FE4B67006D48CE /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF07B9924FE4B67006D48CE /* GroupViewController.swift */; };
 		3CF52DF924BF0D6400E7B8D4 /* ItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF52DF824BF0D6400E7B8D4 /* ItemService.swift */; };
 		3CF6C2FF250DDCBD00548737 /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB092500E4A4007B6283 /* GroupViewModel.swift */; };
@@ -272,7 +272,7 @@
 		3CEB644A24CEC805004D8C3C /* PinPhoto.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PinPhoto.entitlements; sourceTree = "<group>"; };
 		3CEB644B24CEC80E004D8C3C /* PinPhotoExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PinPhotoExtension.entitlements; sourceTree = "<group>"; };
 		3CEB644D24CF109A004D8C3C /* URLextension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLextension.swift; sourceTree = "<group>"; };
-		3CF07B9324FE387E006D48CE /* WidgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewModel.swift; sourceTree = "<group>"; };
+		3CF07B9324FE387E006D48CE /* WidgetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetRepository.swift; sourceTree = "<group>"; };
 		3CF07B9924FE4B67006D48CE /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		3CF52DF824BF0D6400E7B8D4 /* ItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemService.swift; sourceTree = "<group>"; };
 		3CF8B44724A9CBA300D6C11C /* PinPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -406,8 +406,8 @@
 			isa = PBXGroup;
 			children = (
 				3CF52DF824BF0D6400E7B8D4 /* ItemService.swift */,
+				3CF07B9324FE387E006D48CE /* WidgetRepository.swift */,
 				3C38CB092500E4A4007B6283 /* GroupViewModel.swift */,
-				3CF07B9324FE387E006D48CE /* WidgetViewModel.swift */,
 				BF3D6E5C25903B2C000477BF /* UnsplashViewModel.swift */,
 			);
 			name = Service;
@@ -989,7 +989,7 @@
 				3CDBF2E725186DBF00F84F66 /* PinPhotoWidget.swift in Sources */,
 				3C4C5796251ADB4200B28A01 /* ItemCopy.swift in Sources */,
 				3C4C57CE251ADD9A00B28A01 /* UIColorExtension.swift in Sources */,
-				3C4C57A4251ADBC900B28A01 /* WidgetViewModel.swift in Sources */,
+				3C4C57A4251ADBC900B28A01 /* WidgetRepository.swift in Sources */,
 				3C4C57CA251ADD9700B28A01 /* URLextension.swift in Sources */,
 				3C4C579D251ADB4200B28A01 /* Group.swift in Sources */,
 				3C4C57D5251ADDAC00B28A01 /* ItemObserver.swift in Sources */,
@@ -1019,7 +1019,7 @@
 				3CF6C302250DDCC600548737 /* ItemType.swift in Sources */,
 				3C4C57B0251ADBD400B28A01 /* SelectionType.swift in Sources */,
 				3C42652024FD1BA700FA4F03 /* Item+CoreDataProperties.swift in Sources */,
-				3CF07B9524FE387E006D48CE /* WidgetViewModel.swift in Sources */,
+				3CF07B9524FE387E006D48CE /* WidgetRepository.swift in Sources */,
 				3CF6C300250DDCC100548737 /* GroupDataRepository.swift in Sources */,
 				3CEB644C24CF01B5004D8C3C /* Item.xcdatamodeld in Sources */,
 				BF3FCA7825536574002B5AB5 /* GroupObserver.swift in Sources */,
@@ -1044,7 +1044,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C0CADC825A553F100B2006D /* CoreMLManager.swift in Sources */,
-				3CF07B9424FE387E006D48CE /* WidgetViewModel.swift in Sources */,
+				3CF07B9424FE387E006D48CE /* WidgetRepository.swift in Sources */,
 				3C33F290254A5C5B009406CF /* DateExtension.swift in Sources */,
 				3C585BCF24FD33A600203C18 /* ConvertImageToData.swift in Sources */,
 				3C76EEFB250C951E003B298D /* CoreDataType.swift in Sources */,

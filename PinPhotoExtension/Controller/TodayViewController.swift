@@ -24,7 +24,7 @@ final class TodayViewController: UIViewController {
     
     // MARK:- Properties
     private let itemViewModel = ItemService()
-    private let widgetViewModel = WidgetViewModel()
+    private let widgetViewModel = WidgetRepository()
     private let groupViewModel = GroupViewModel()
     
     private var shouldContentAppear: Bool = false {

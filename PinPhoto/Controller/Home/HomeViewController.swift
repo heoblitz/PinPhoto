@@ -17,7 +17,7 @@ final class HomeViewController: UIViewController {
     // MARK:- Properties
     private let groupViewModel = GroupViewModel()
     private let itemService = ItemService()
-
+    
     // MARK:- View Life Sycle
     override func viewDidLoad() {
         super.viewDidLoad()

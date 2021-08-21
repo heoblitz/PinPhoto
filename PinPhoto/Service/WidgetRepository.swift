@@ -9,51 +9,54 @@
 import Foundation
 import WidgetKit
 
-public class WidgetViewModel {
+enum WidgetRepositoryKey: String {
+    case widgetHeight
+    case widgetImageFill
+    case currentIndex
+    case displayItemIndex
+    case showAllItems
+    case changeItemTime
+}
+
+public class WidgetRepository {
     private let defaults: UserDefaults? = UserDefaults(suiteName: "group.com.wonheo.PinPhoto")
-    private let widgetHeightKey: String = "widgetHeight"
-    private let widgetImageFillKey: String = "widgetImageFill"
-    private let currentIndexKey: String = "widgetIndex"
-    private let displayItemIndexKey: String = "displayItemIndex"
-    private let showAllItemsKey: String = "showAllItemsKey"
-    private let changeItemTimeKey: String = "changeItemTime"
     
     var height: Float {
         get {
-            return defaults?.value(forKey: widgetHeightKey) as? Float ?? 300
+            return defaults?.value(forKey: WidgetRepositoryKey.widgetHeight.rawValue) as? Float ?? 300
         }
         set {
-            defaults?.set(newValue, forKey: widgetHeightKey)
+            defaults?.set(newValue, forKey: WidgetRepositoryKey.widgetHeight.rawValue)
             defaults?.synchronize()
         }
     }
     
     var isImageFill: Bool {
         get {
-            return defaults?.value(forKey: widgetImageFillKey) as? Bool ?? false
+            return defaults?.value(forKey: WidgetRepositoryKey.widgetImageFill.rawValue) as? Bool ?? false
         }
         set {
-            defaults?.set(newValue, forKey: widgetImageFillKey)
+            defaults?.set(newValue, forKey:  WidgetRepositoryKey.widgetImageFill.rawValue)
             defaults?.synchronize()
         }
     }
     
     var currentIndex: Int? {
         get {
-            return defaults?.value(forKey: currentIndexKey) as? Int
+            return defaults?.value(forKey: WidgetRepositoryKey.currentIndex.rawValue) as? Int
         }
         set {
-            defaults?.set(newValue, forKey: currentIndexKey)
+            defaults?.set(newValue, forKey: WidgetRepositoryKey.currentIndex.rawValue)
             defaults?.synchronize()
         }
     }
     
     var displayItemIndex: Int? {
         get {
-            return defaults?.value(forKey: displayItemIndexKey) as? Int
+            return defaults?.value(forKey: WidgetRepositoryKey.displayItemIndex.rawValue) as? Int
         }
         set {
-            defaults?.set(newValue, forKey: displayItemIndexKey)
+            defaults?.set(newValue, forKey: WidgetRepositoryKey.displayItemIndex.rawValue)
             defaults?.synchronize()
 
             if #available(iOS 14, *) {
@@ -64,10 +67,10 @@ public class WidgetViewModel {
     
     var isShowAllItems: Bool {
         get {
-            return defaults?.value(forKey: showAllItemsKey) as? Bool ?? false
+            return defaults?.value(forKey: WidgetRepositoryKey.showAllItems.rawValue) as? Bool ?? false
         }
         set {
-            defaults?.set(newValue, forKey: showAllItemsKey)
+            defaults?.set(newValue, forKey: WidgetRepositoryKey.showAllItems.rawValue)
             defaults?.synchronize()
             
             if #available(iOS 14, *) {
@@ -78,14 +81,14 @@ public class WidgetViewModel {
     
     var changeItemTime: Date? {
         get {
-            if let date = defaults?.object(forKey: changeItemTimeKey) as? Date {
+            if let date = defaults?.object(forKey: WidgetRepositoryKey.changeItemTime.rawValue) as? Date {
                 return date
             } else {
                 return nil
             }
         }
         set {
-            defaults?.set(newValue, forKey: changeItemTimeKey)
+            defaults?.set(newValue, forKey: WidgetRepositoryKey.changeItemTime.rawValue)
             defaults?.synchronize()
 
             if #available(iOS 14, *) {
@@ -96,7 +99,7 @@ public class WidgetViewModel {
     
     var changeTimeSecond: TimeInterval {
         get {
-            guard let date = defaults?.object(forKey: changeItemTimeKey) as? Date else {
+            guard let date = defaults?.object(forKey: WidgetRepositoryKey.changeItemTime.rawValue) as? Date else {
                 return 60
             }
             

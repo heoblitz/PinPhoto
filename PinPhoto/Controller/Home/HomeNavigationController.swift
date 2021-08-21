@@ -39,7 +39,6 @@ final class HomeNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarItem?.title = "Item".localized
-        // bannerView = GADBannerView(adSize: kGADAdSizeBanner)
     }
     
     override var childForStatusBarHidden: UIViewController? { // for child vc status bar hidden
@@ -48,7 +47,9 @@ final class HomeNavigationController: UINavigationController {
     
     // MARK:- Methods
     func presentAddButtonView() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentAddActionSheet))
+        let tapGesture = UITapGestureRecognizer(
+            target: self, action: #selector(presentAddActionSheet)
+        )
         addButtonView.addGestureRecognizer(tapGesture)
         addButtonView.isUserInteractionEnabled = true
         addButtonView.addSubview(plusImageView)
