@@ -390,7 +390,7 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		3C142A9226CB4E9200C5C819 /* Service */ = {
+		3C142A9226CB4E9200C5C819 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
 				3CC7888825110A7B00C5C42B /* SelectionType.swift */,
@@ -399,10 +399,10 @@
 				3C38CB072500E17D007B6283 /* GroupDataRepository.swift */,
 				3C0CADC725A553F100B2006D /* CoreMLManager.swift */,
 			);
-			path = Service;
+			path = Repository;
 			sourceTree = "<group>";
 		};
-		3C38CB062500E124007B6283 /* ViewModel */ = {
+		3C38CB062500E124007B6283 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				3CF52DF824BF0D6400E7B8D4 /* ItemService.swift */,
@@ -410,7 +410,8 @@
 				3CF07B9324FE387E006D48CE /* WidgetViewModel.swift */,
 				BF3D6E5C25903B2C000477BF /* UnsplashViewModel.swift */,
 			);
-			path = ViewModel;
+			name = Service;
+			path = ../Service;
 			sourceTree = "<group>";
 		};
 		3C3ACC8924BB52A300311F7A /* Controller */ = {
@@ -439,8 +440,9 @@
 		3C3ACC8D24BB533F00311F7A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3C142A9226CB4E9200C5C819 /* Repository */,
+				3C38CB062500E124007B6283 /* Service */,
 				3C142A9126CB4E7000C5C819 /* Entity */,
-				3C142A9226CB4E9200C5C819 /* Service */,
 				BF3D6E4B2590392C000477BF /* Network */,
 			);
 			path = Model;
@@ -661,7 +663,6 @@
 				3C3FFEF326BCE985008C2A34 /* loading.json */,
 				3C8C6C5E24EA363200689329 /* StoryBoard */,
 				3C3ACC8D24BB533F00311F7A /* Model */,
-				3C38CB062500E124007B6283 /* ViewModel */,
 				3C3ACC8A24BB52C600311F7A /* View */,
 				3C3ACC8924BB52A300311F7A /* Controller */,
 				3CEB644F24CF10A3004D8C3C /* Extension */,
