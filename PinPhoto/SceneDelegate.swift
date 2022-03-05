@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   var window: UIWindow?
@@ -17,9 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     options connectionOptions: UIScene.ConnectionOptions
   ) {
     guard let scene = (scene as? UIWindowScene) else { return }
-    
+
     self.window = UIWindow(windowScene: scene)
-    self.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+    self.window?.rootViewController = UIHostingController(rootView: MainView())
     self.window?.makeKeyAndVisible()
   }
 }
