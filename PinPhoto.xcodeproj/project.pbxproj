@@ -139,6 +139,13 @@
 		EF6CDD1727D350E200F0CD0C /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD1627D350E200F0CD0C /* SearchView.swift */; };
 		EF6CDD1927D350EA00F0CD0C /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD1827D350EA00F0CD0C /* GroupView.swift */; };
 		EF6CDD1D27D3510400F0CD0C /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD1C27D3510400F0CD0C /* SettingView.swift */; };
+		EF6CDD2027D3544B00F0CD0C /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD1F27D3544B00F0CD0C /* HomeHeaderView.swift */; };
+		EF6CDD2227D358BC00F0CD0C /* HomeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD2127D358BC00F0CD0C /* HomeDetailView.swift */; };
+		EF6CDD2427D35ACD00F0CD0C /* ScaleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD2327D35ACD00F0CD0C /* ScaleButtonStyle.swift */; };
+		EF6CDD2727D35C8100F0CD0C /* HomeItemHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD2627D35C8100F0CD0C /* HomeItemHeaderView.swift */; };
+		EF6CDD2927D362A000F0CD0C /* HomeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD2827D362A000F0CD0C /* HomeItemView.swift */; };
+		EF6CDD2B27D362BF00F0CD0C /* HomeAddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD2A27D362BF00F0CD0C /* HomeAddButtonView.swift */; };
+		EF6CDD2F27D363FC00F0CD0C /* Int+f.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD2E27D363FC00F0CD0C /* Int+f.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -285,6 +292,13 @@
 		EF6CDD1627D350E200F0CD0C /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		EF6CDD1827D350EA00F0CD0C /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
 		EF6CDD1C27D3510400F0CD0C /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		EF6CDD1F27D3544B00F0CD0C /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
+		EF6CDD2127D358BC00F0CD0C /* HomeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailView.swift; sourceTree = "<group>"; };
+		EF6CDD2327D35ACD00F0CD0C /* ScaleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonStyle.swift; sourceTree = "<group>"; };
+		EF6CDD2627D35C8100F0CD0C /* HomeItemHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemHeaderView.swift; sourceTree = "<group>"; };
+		EF6CDD2827D362A000F0CD0C /* HomeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemView.swift; sourceTree = "<group>"; };
+		EF6CDD2A27D362BF00F0CD0C /* HomeAddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddButtonView.swift; sourceTree = "<group>"; };
+		EF6CDD2E27D363FC00F0CD0C /* Int+f.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+f.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -611,12 +625,43 @@
 			isa = PBXGroup;
 			children = (
 				EF6CDD0F27D347E900F0CD0C /* MainView.swift */,
-				EF6CDD1127D3488400F0CD0C /* HomeView.swift */,
+				EF6CDD1E27D3543A00F0CD0C /* Home */,
+				EF6CDD2127D358BC00F0CD0C /* HomeDetailView.swift */,
 				EF6CDD1627D350E200F0CD0C /* SearchView.swift */,
 				EF6CDD1827D350EA00F0CD0C /* GroupView.swift */,
 				EF6CDD1C27D3510400F0CD0C /* SettingView.swift */,
+				EF6CDD2C27D363E500F0CD0C /* Support */,
 			);
 			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		EF6CDD1E27D3543A00F0CD0C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EF6CDD2527D35C3E00F0CD0C /* ReuseViews */,
+				EF6CDD1127D3488400F0CD0C /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		EF6CDD2527D35C3E00F0CD0C /* ReuseViews */ = {
+			isa = PBXGroup;
+			children = (
+				EF6CDD1F27D3544B00F0CD0C /* HomeHeaderView.swift */,
+				EF6CDD2627D35C8100F0CD0C /* HomeItemHeaderView.swift */,
+				EF6CDD2827D362A000F0CD0C /* HomeItemView.swift */,
+				EF6CDD2A27D362BF00F0CD0C /* HomeAddButtonView.swift */,
+			);
+			path = ReuseViews;
+			sourceTree = "<group>";
+		};
+		EF6CDD2C27D363E500F0CD0C /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				EF6CDD2327D35ACD00F0CD0C /* ScaleButtonStyle.swift */,
+				EF6CDD2E27D363FC00F0CD0C /* Int+f.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		FF87DE9F94AF38898587A269 /* Frameworks */ = {
@@ -861,6 +906,7 @@
 				3CCA19682508BD9700F9CCEB /* HomeSectionReusableView.swift in Sources */,
 				3CF52DF924BF0D6400E7B8D4 /* ItemViewModel.swift in Sources */,
 				3CCA196D2508DBC300F9CCEB /* HomeGroupViewCell.swift in Sources */,
+				EF6CDD2F27D363FC00F0CD0C /* Int+f.swift in Sources */,
 				BF13207525614AAF006FB5B7 /* SettingHomeWidgetSwitchCell.swift in Sources */,
 				3C3ACC9024BB558B00311F7A /* Item.xcdatamodeld in Sources */,
 				3CF07B9A24FE4B67006D48CE /* GroupViewController.swift in Sources */,
@@ -870,16 +916,21 @@
 				3C21CC0724BEDC10004BEAF0 /* CreateTextItemViewController.swift in Sources */,
 				3C38CB0A2500E4A4007B6283 /* GroupViewModel.swift in Sources */,
 				3CCA560224D6853F00F32671 /* ManualViewController.swift in Sources */,
+				EF6CDD2727D35C8100F0CD0C /* HomeItemHeaderView.swift in Sources */,
 				3C8AA01024B05D32005EB75C /* SettingViewController.swift in Sources */,
+				EF6CDD2B27D362BF00F0CD0C /* HomeAddButtonView.swift in Sources */,
+				EF6CDD2227D358BC00F0CD0C /* HomeDetailView.swift in Sources */,
 				3CD247BB25023973006F8757 /* UIColorExtension.swift in Sources */,
 				3C3ACC9924BB5C2100311F7A /* Item+CoreDataClass.swift in Sources */,
 				EF6CDD1027D347E900F0CD0C /* MainView.swift in Sources */,
+				EF6CDD2427D35ACD00F0CD0C /* ScaleButtonStyle.swift in Sources */,
 				3CD4D53325020AB8002F1B7C /* SelectGroupViewController.swift in Sources */,
 				BF3FCA7425536550002B5AB5 /* GroupObserver.swift in Sources */,
 				3C3ACC9A24BB5C2100311F7A /* Item+CoreDataProperties.swift in Sources */,
 				3C0C005224EA581900BF137B /* ClassNameToString.swift in Sources */,
 				3C25284E24EFD2C4002ADBDC /* HomeNavigationController.swift in Sources */,
 				BF13207A25614B6E006FB5B7 /* SettingHomeWidgetPickerCell.swift in Sources */,
+				EF6CDD2927D362A000F0CD0C /* HomeItemView.swift in Sources */,
 				3C070A9524D3A4CA0077C3AE /* EditTextItemViewController.swift in Sources */,
 				EF6CDD1227D3488400F0CD0C /* HomeView.swift in Sources */,
 				EF6CDD1727D350E200F0CD0C /* SearchView.swift in Sources */,
@@ -895,6 +946,7 @@
 				3CF8B44D24A9CBA300D6C11C /* SceneDelegate.swift in Sources */,
 				3C4D13A024AB716B009BDCDE /* HomeDetailViewController.swift in Sources */,
 				BF13206D256148C9006FB5B7 /* SettingHomeWidgetViewController.swift in Sources */,
+				EF6CDD2027D3544B00F0CD0C /* HomeHeaderView.swift in Sources */,
 				3C5BC0D6251257DB00A74F4E /* ItemCopy.swift in Sources */,
 				3C76EEF1250C8E1E003B298D /* ItemType.swift in Sources */,
 				3CCA560424D697EE00F32671 /* ManualCustomCell.swift in Sources */,
@@ -1051,7 +1103,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1080,7 +1132,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1108,7 +1160,7 @@
 				PRODUCT_NAME = PinPhotoExtension;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1136,7 +1188,7 @@
 				PRODUCT_NAME = PinPhotoExtension;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1283,7 +1335,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto;
 				PRODUCT_NAME = PinPhoto;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1309,7 +1361,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto;
 				PRODUCT_NAME = PinPhoto;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

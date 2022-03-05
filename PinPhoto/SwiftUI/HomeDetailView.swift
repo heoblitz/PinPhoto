@@ -1,5 +1,5 @@
 //
-//  SearchView.swift
+//  HomeDetailView.swift
 //  PinPhoto
 //
 //  Created by woody on 2022/03/05.
@@ -8,14 +8,14 @@
 
 import SwiftUI
 
-struct SearchView: View {
+struct HomeDetailView: View {
   var body: some View {
     Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
   }
 }
 
-struct SearchView_Previews: PreviewProvider {
+struct HomeDetailView_Previews: PreviewProvider {
   static var previews: some View {
-    SearchView()
+    HomeDetailView()
   }
 }
