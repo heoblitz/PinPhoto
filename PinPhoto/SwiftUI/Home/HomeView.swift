@@ -22,7 +22,7 @@ struct HomeView: View {
     GeometryReader { g in
       let columns: [GridItem] = Array(repeating: GridItem(.fixed((g.size.width - 40) / 2)), count: 2)
       let height = (g.size.width - 40) / 2
-       
+      
       NavigationView {
         ZStack {
           ScrollView(.vertical) {
@@ -43,9 +43,6 @@ struct HomeView: View {
               Spacer()
               HomeAddButtonView()
                 .padding()
-                .onTapGesture {
-                  
-                }
             }
           }
         }

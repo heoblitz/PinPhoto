@@ -26,7 +26,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     configurationForConnecting connectingSceneSession: UISceneSession,
     options: UIScene.ConnectionOptions
   ) -> UISceneConfiguration {
+    self.initStyles()
     return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+  }
+}
+
+extension AppDelegate {
+  private func initStyles() {
+    if #available(iOS 15, *) {
+      let appearance = UITabBarAppearance()
+      appearance.configureWithOpaqueBackground()
+      UITabBar.appearance().standardAppearance = appearance
+      UITabBar.appearance().scrollEdgeAppearance = appearance
+    }
   }
 }
 

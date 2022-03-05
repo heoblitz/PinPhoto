@@ -20,7 +20,7 @@ struct HomeItemView: View {
   
   var body: some View {
       ZStack {
-        Text("항목을 추가해주세요.")
+        Text("Please Add Items".localized)
           .font(Style.placeholderFont)
           .foregroundColor(.white)
         VStack {
