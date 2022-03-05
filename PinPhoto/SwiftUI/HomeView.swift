@@ -9,8 +9,16 @@
 import SwiftUI
 
 struct HomeView: View {
+  private enum Localized {
+    static let item = "Item".localized
+  }
+  
   var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    NavigationView {
+      NavigationLink(destination: Text("text")) {
+        Text("text")
+      }.navigationTitle(Localized.item)
+    }
   }
 }
 

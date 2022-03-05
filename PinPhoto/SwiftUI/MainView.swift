@@ -10,16 +10,17 @@ import SwiftUI
 
 struct MainView: View {
   private enum Constant {
-    static let itemImageName = "house.fill"
+    static let itemImageName = "tray.full.fill"
+    static let searchImageName = "magnifyingglass"
+    static let groupImageName = "folder.badge.plus"
+    static let settingImageName = "gear"
   }
   
   private enum Localized {
     static let item = "Item".localized
-  }
-  
-  init() {
-    UITabBar.appearance().barTintColor = .systemPink
-    UITabBar.appearance().tintColor = .systemPink
+    static let search = "Search".localized
+    static let group = "Group".localized
+    static let setting = "Setting".localized
   }
   
   var body: some View {
@@ -27,6 +28,18 @@ struct MainView: View {
       HomeView().tabItem {
         Image(systemName: Constant.itemImageName)
         Text(Localized.item)
+      }
+      SearchView().tabItem {
+        Image(systemName: Constant.searchImageName)
+        Text(Localized.search)
+      }
+      GroupView().tabItem {
+        Image(systemName: Constant.groupImageName)
+        Text(Localized.group)
+      }
+      SettingView().tabItem {
+        Image(systemName: Constant.settingImageName)
+        Text(Localized.setting)
       }
     }.accentColor(.pink)
   }
