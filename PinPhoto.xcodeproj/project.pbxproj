@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -135,7 +135,6 @@
 		BFC7521B254D7A4B00C34E63 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFC7521D254D7A4B00C34E63 /* InfoPlist.strings */; };
 		EF6CDD1027D347E900F0CD0C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD0F27D347E900F0CD0C /* MainView.swift */; };
 		EF6CDD1227D3488400F0CD0C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD1127D3488400F0CD0C /* HomeView.swift */; };
-		EF6CDD1527D34FE500F0CD0C /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = EF6CDD1427D34FE500F0CD0C /* ComposableArchitecture */; };
 		EF6CDD1727D350E200F0CD0C /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD1627D350E200F0CD0C /* SearchView.swift */; };
 		EF6CDD1927D350EA00F0CD0C /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD1827D350EA00F0CD0C /* GroupView.swift */; };
 		EF6CDD1D27D3510400F0CD0C /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD1C27D3510400F0CD0C /* SettingView.swift */; };
@@ -323,7 +322,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF6CDD1527D34FE500F0CD0C /* ComposableArchitecture in Frameworks */,
 				3CC81261251B45B6009D8580 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -728,7 +726,6 @@
 			);
 			name = PinPhoto;
 			packageProductDependencies = (
-				EF6CDD1427D34FE500F0CD0C /* ComposableArchitecture */,
 			);
 			productName = PinPhoto;
 			productReference = 3CF8B44724A9CBA300D6C11C /* PinPhoto.app */;
@@ -767,7 +764,6 @@
 			);
 			mainGroup = 3CF8B43E24A9CBA300D6C11C;
 			packageReferences = (
-				EF6CDD1327D34FE500F0CD0C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 3CF8B44824A9CBA300D6C11C /* Products */;
 			projectDirPath = "";
@@ -1085,11 +1081,11 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = PinPhotoWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = PinPhotoWidget/PinPhotoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.5.2;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = PinPhotoWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1098,12 +1094,13 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.5.2;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
@@ -1114,11 +1111,11 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = PinPhotoWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = PinPhotoWidget/PinPhotoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.5.2;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = PinPhotoWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1127,7 +1124,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.5.2;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1145,7 +1142,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.5.2;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = PinPhotoExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1155,12 +1152,13 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.5.2;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoExtension;
 				PRODUCT_NAME = PinPhotoExtension;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
@@ -1173,7 +1171,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.5.2;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = PinPhotoExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1183,7 +1181,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.5.2;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoExtension;
 				PRODUCT_NAME = PinPhotoExtension;
 				SKIP_INSTALL = YES;
@@ -1249,7 +1247,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1324,7 +1322,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.5.2;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = PinPhoto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1332,10 +1330,12 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.5.2;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto;
 				PRODUCT_NAME = PinPhoto;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
@@ -1349,7 +1349,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.5.2;
 				DEVELOPMENT_TEAM = HK54HM2TC6;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = PinPhoto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1357,7 +1357,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.5.2;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto;
 				PRODUCT_NAME = PinPhoto;
 				SWIFT_VERSION = 5.0;
@@ -1405,25 +1405,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		EF6CDD1327D34FE500F0CD0C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		EF6CDD1427D34FE500F0CD0C /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EF6CDD1327D34FE500F0CD0C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		3C3ACC8E24BB558B00311F7A /* Item.xcdatamodeld */ = {
