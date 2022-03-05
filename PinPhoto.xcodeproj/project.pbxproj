@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -121,7 +121,6 @@
 		3CF8B44D24A9CBA300D6C11C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8B44C24A9CBA300D6C11C /* SceneDelegate.swift */; };
 		3CF8B45224A9CBA300D6C11C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45024A9CBA300D6C11C /* Main.storyboard */; };
 		3CF8B45724A9CBA700D6C11C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8B45524A9CBA700D6C11C /* LaunchScreen.storyboard */; };
-		97EA7918B2D5D4E6C4A01BB1 /* Pods_PinPhotoWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A84883FF2DE19D2F1436A2 /* Pods_PinPhotoWidgetExtension.framework */; };
 		BF13206525614642006FB5B7 /* SettingHomeWidget.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF13206425614642006FB5B7 /* SettingHomeWidget.storyboard */; };
 		BF13206D256148C9006FB5B7 /* SettingHomeWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13206C256148C9006FB5B7 /* SettingHomeWidgetViewController.swift */; };
 		BF13207525614AAF006FB5B7 /* SettingHomeWidgetSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13207425614AAF006FB5B7 /* SettingHomeWidgetSwitchCell.swift */; };
@@ -134,8 +133,6 @@
 		BF661A742580D63100794A04 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF661A722580D63100794A04 /* GoogleService-Info.plist */; };
 		BF661A752580D63100794A04 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF661A722580D63100794A04 /* GoogleService-Info.plist */; };
 		BFC7521B254D7A4B00C34E63 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFC7521D254D7A4B00C34E63 /* InfoPlist.strings */; };
-		C90E01E01A8F6C43633BD7C6 /* Pods_PinPhotoExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90816F65DC997A4BDA8F0CA1 /* Pods_PinPhotoExtension.framework */; };
-		F9F2675AD681C9FFF36395E4 /* Pods_PinPhoto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E3DD72E2F55C8639AAB2B9 /* Pods_PinPhoto.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -261,13 +258,6 @@
 		3CF8B45324A9CBA700D6C11C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CF8B45624A9CBA700D6C11C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CF8B45824A9CBA700D6C11C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		53D1D62CEDE3097467685511 /* Pods-PinPhotoWidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPhotoWidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-PinPhotoWidgetExtension/Pods-PinPhotoWidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
-		54A8157C6B59B1A1802A8964 /* Pods-PinPhotoExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPhotoExtension.release.xcconfig"; path = "Target Support Files/Pods-PinPhotoExtension/Pods-PinPhotoExtension.release.xcconfig"; sourceTree = "<group>"; };
-		54A84883FF2DE19D2F1436A2 /* Pods_PinPhotoWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPhotoWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		80EE58D3FBED7D66C4295092 /* Pods-PinPhoto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPhoto.debug.xcconfig"; path = "Target Support Files/Pods-PinPhoto/Pods-PinPhoto.debug.xcconfig"; sourceTree = "<group>"; };
-		90816F65DC997A4BDA8F0CA1 /* Pods_PinPhotoExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPhotoExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1624057D1CAB01FABDD5A48 /* Pods-PinPhoto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPhoto.release.xcconfig"; path = "Target Support Files/Pods-PinPhoto/Pods-PinPhoto.release.xcconfig"; sourceTree = "<group>"; };
-		A6E3DD72E2F55C8639AAB2B9 /* Pods_PinPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF13206425614642006FB5B7 /* SettingHomeWidget.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingHomeWidget.storyboard; sourceTree = "<group>"; };
 		BF13206C256148C9006FB5B7 /* SettingHomeWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHomeWidgetViewController.swift; sourceTree = "<group>"; };
 		BF13207425614AAF006FB5B7 /* SettingHomeWidgetSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHomeWidgetSwitchCell.swift; sourceTree = "<group>"; };
@@ -284,8 +274,6 @@
 		BFC75227254D7B0F00C34E63 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		BFC75229254D7B1200C34E63 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		BFC7522B254D7B1600C34E63 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/MainInterface.strings; sourceTree = "<group>"; };
-		D015C89250D6C3BF48144A61 /* Pods-PinPhotoExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPhotoExtension.debug.xcconfig"; path = "Target Support Files/Pods-PinPhotoExtension/Pods-PinPhotoExtension.debug.xcconfig"; sourceTree = "<group>"; };
-		D50908D6AEFCF2463675C346 /* Pods-PinPhotoWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPhotoWidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-PinPhotoWidgetExtension/Pods-PinPhotoWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,7 +283,6 @@
 			files = (
 				3CDBF2E425186DBF00F84F66 /* SwiftUI.framework in Frameworks */,
 				3CDBF2E225186DBF00F84F66 /* WidgetKit.framework in Frameworks */,
-				97EA7918B2D5D4E6C4A01BB1 /* Pods_PinPhotoWidgetExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +291,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CEB643B24CEC742004D8C3C /* NotificationCenter.framework in Frameworks */,
-				C90E01E01A8F6C43633BD7C6 /* Pods_PinPhotoExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,26 +299,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CC81261251B45B6009D8580 /* WidgetKit.framework in Frameworks */,
-				F9F2675AD681C9FFF36395E4 /* Pods_PinPhoto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		309399C368E69F88FF9A34D3 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				80EE58D3FBED7D66C4295092 /* Pods-PinPhoto.debug.xcconfig */,
-				A1624057D1CAB01FABDD5A48 /* Pods-PinPhoto.release.xcconfig */,
-				D015C89250D6C3BF48144A61 /* Pods-PinPhotoExtension.debug.xcconfig */,
-				54A8157C6B59B1A1802A8964 /* Pods-PinPhotoExtension.release.xcconfig */,
-				53D1D62CEDE3097467685511 /* Pods-PinPhotoWidgetExtension.debug.xcconfig */,
-				D50908D6AEFCF2463675C346 /* Pods-PinPhotoWidgetExtension.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		3C070A9924D3FD0C0077C3AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -586,7 +558,6 @@
 				3CEB643C24CEC742004D8C3C /* PinPhotoExtension */,
 				3CDBF2E525186DBF00F84F66 /* PinPhotoWidget */,
 				3CF8B44824A9CBA300D6C11C /* Products */,
-				309399C368E69F88FF9A34D3 /* Pods */,
 				FF87DE9F94AF38898587A269 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -627,11 +598,8 @@
 			isa = PBXGroup;
 			children = (
 				3CEB643A24CEC742004D8C3C /* NotificationCenter.framework */,
-				A6E3DD72E2F55C8639AAB2B9 /* Pods_PinPhoto.framework */,
-				90816F65DC997A4BDA8F0CA1 /* Pods_PinPhotoExtension.framework */,
 				3CDBF2E125186DBF00F84F66 /* WidgetKit.framework */,
 				3CDBF2E325186DBF00F84F66 /* SwiftUI.framework */,
-				54A84883FF2DE19D2F1436A2 /* Pods_PinPhotoWidgetExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -643,7 +611,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3CDBF2F325186DC100F84F66 /* Build configuration list for PBXNativeTarget "PinPhotoWidgetExtension" */;
 			buildPhases = (
-				92EECC3DD290FF6A24415647 /* [CP] Check Pods Manifest.lock */,
 				3CDBF2DC25186DBE00F84F66 /* Sources */,
 				3CDBF2DD25186DBE00F84F66 /* Frameworks */,
 				3CDBF2DE25186DBE00F84F66 /* Resources */,
@@ -661,7 +628,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3CEB644924CEC742004D8C3C /* Build configuration list for PBXNativeTarget "PinPhotoExtension" */;
 			buildPhases = (
-				0E0FA6BDE5AE7D294CFE9260 /* [CP] Check Pods Manifest.lock */,
 				3CEB643524CEC742004D8C3C /* Sources */,
 				3CEB643624CEC742004D8C3C /* Frameworks */,
 				3CEB643724CEC742004D8C3C /* Resources */,
@@ -679,12 +645,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3CF8B45B24A9CBA700D6C11C /* Build configuration list for PBXNativeTarget "PinPhoto" */;
 			buildPhases = (
-				8758A29B7180F601CF37ED1A /* [CP] Check Pods Manifest.lock */,
 				3CF8B44324A9CBA300D6C11C /* Sources */,
 				3CF8B44424A9CBA300D6C11C /* Frameworks */,
 				3CF8B44524A9CBA300D6C11C /* Resources */,
 				3CEB644624CEC742004D8C3C /* Embed App Extensions */,
-				F823E3E0DC86A41486B79F08 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -693,6 +657,8 @@
 				3CDBF2EF25186DC100F84F66 /* PBXTargetDependency */,
 			);
 			name = PinPhoto;
+			packageProductDependencies = (
+			);
 			productName = PinPhoto;
 			productReference = 3CF8B44724A9CBA300D6C11C /* PinPhoto.app */;
 			productType = "com.apple.product-type.application";
@@ -729,6 +695,8 @@
 				ja,
 			);
 			mainGroup = 3CF8B43E24A9CBA300D6C11C;
+			packageReferences = (
+			);
 			productRefGroup = 3CF8B44824A9CBA300D6C11C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -793,92 +761,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		0E0FA6BDE5AE7D294CFE9260 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PinPhotoExtension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8758A29B7180F601CF37ED1A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PinPhoto-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		92EECC3DD290FF6A24415647 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PinPhotoWidgetExtension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F823E3E0DC86A41486B79F08 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PinPhoto/Pods-PinPhoto-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PinPhoto/Pods-PinPhoto-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PinPhoto/Pods-PinPhoto-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3CDBF2DC25186DBE00F84F66 /* Sources */ = {
@@ -1114,8 +996,8 @@
 /* Begin XCBuildConfiguration section */
 		3CDBF2F125186DC100F84F66 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53D1D62CEDE3097467685511 /* Pods-PinPhotoWidgetExtension.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -1132,6 +1014,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.5.2;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1142,8 +1025,8 @@
 		};
 		3CDBF2F225186DC100F84F66 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D50908D6AEFCF2463675C346 /* Pods-PinPhotoWidgetExtension.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -1160,6 +1043,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.5.2;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1170,9 +1054,8 @@
 		};
 		3CEB644724CEC742004D8C3C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D015C89250D6C3BF48144A61 /* Pods-PinPhotoExtension.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = PinPhotoExtension/PinPhotoExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1188,6 +1071,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.5.2;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoExtension;
 				PRODUCT_NAME = PinPhotoExtension;
 				SKIP_INSTALL = YES;
@@ -1198,9 +1082,8 @@
 		};
 		3CEB644824CEC742004D8C3C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 54A8157C6B59B1A1802A8964 /* Pods-PinPhotoExtension.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = PinPhotoExtension/PinPhotoExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1216,6 +1099,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.5.2;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoExtension;
 				PRODUCT_NAME = PinPhotoExtension;
 				SKIP_INSTALL = YES;
@@ -1348,9 +1232,8 @@
 		};
 		3CF8B45C24A9CBA700D6C11C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80EE58D3FBED7D66C4295092 /* Pods-PinPhoto.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PinPhoto/PinPhoto.entitlements;
@@ -1374,9 +1257,8 @@
 		};
 		3CF8B45D24A9CBA700D6C11C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1624057D1CAB01FABDD5A48 /* Pods-PinPhoto.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PinPhoto/PinPhoto.entitlements;
@@ -1391,6 +1273,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.5.2;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto;
 				PRODUCT_NAME = PinPhoto;
 				SWIFT_VERSION = 5.0;

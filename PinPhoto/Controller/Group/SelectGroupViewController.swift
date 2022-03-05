@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import YPImagePicker
 
 final class SelectGroupViewController: UIViewController {
     // MARK:- @IBOutlet Properties
@@ -27,7 +26,7 @@ final class SelectGroupViewController: UIViewController {
     var selectionType: SelectionType?
     
     // Add Image
-    var items: [YPMediaItem]?
+    // var items: [YPMediaItem]?
     
     // Add Text
     var itemText: String?
@@ -99,31 +98,31 @@ final class SelectGroupViewController: UIViewController {
     }
     
     private func addImageItem() {
-        guard let items = items else { return }
-        guard let groupName = cellGroupName() else { return }
-        
-        var id: Int64 = itemViewModel.idForAdd
-
-        if ifWidgetMaxCount(itemCount: items.count) {
-            alertMaxCount()
-            return
-        }
-        
-        for item in items {
-            switch item {
-            case .photo(let photo):
-                let imageData: Data? = photo.originalImage.data
-                itemViewModel.add(content: ItemType.image.value, image: imageData, text: nil, date: Date(), id: id)
-                groupViewModel.insertId(at: groupName, ids: [Int(id)])
-                groupViewModel.load()
-                
-                id += 1
-            default:
-                break
-            }
-        }
-        groupViewModel.noticeObservers()
-        navigationController?.dismiss(animated: true, completion: nil)
+//        guard let items = items else { return }
+//        guard let groupName = cellGroupName() else { return }
+//
+//        var id: Int64 = itemViewModel.idForAdd
+//
+//        if ifWidgetMaxCount(itemCount: items.count) {
+//            alertMaxCount()
+//            return
+//        }
+//
+//        for item in items {
+//            switch item {
+//            case .photo(let photo):
+//                let imageData: Data? = photo.originalImage.data
+//                itemViewModel.add(content: ItemType.image.value, image: imageData, text: nil, date: Date(), id: id)
+//                groupViewModel.insertId(at: groupName, ids: [Int(id)])
+//                groupViewModel.load()
+//
+//                id += 1
+//            default:
+//                break
+//            }
+//        }
+//        groupViewModel.noticeObservers()
+//        navigationController?.dismiss(animated: true, completion: nil)
     }
     
     private func addTextItem() {

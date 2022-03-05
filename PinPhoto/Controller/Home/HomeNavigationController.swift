@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import YPImagePicker
+// import YPImagePicker
 
 final class HomeNavigationController: UINavigationController {
     // MARK:- Properties
@@ -91,28 +91,28 @@ final class HomeNavigationController: UINavigationController {
     }
     
     private func presentImagePikcer() {
-        let picker = YPImagePicker(configuration: settingImagePickerConfig())
-        
-        picker.didFinishPicking { [unowned picker] items, isNotSelect in
-            guard let vc = SelectGroupViewController.storyboardInstance() else { return }
-            
-            if isNotSelect { // 사용자가 선택을 취소했을 때
-                picker.dismiss(animated: true, completion: nil)
-            }
-            
-            if self.isNotNeedGroupSelect() {
-                self.saveImageItems(items: items)
-                picker.dismiss(animated: true, completion: nil)
-            }
-            
-            // 사용자가 선택을 완료했을 때
-            vc.items = items
-            vc.selectionType = .addImage
-            
-            picker.pushViewController(vc, animated: true)
-        }
-        
-        present(picker, animated: true, completion: nil)
+//        let picker = YPImagePicker(configuration: settingImagePickerConfig())
+//        
+//        picker.didFinishPicking { [unowned picker] items, isNotSelect in
+//            guard let vc = SelectGroupViewController.storyboardInstance() else { return }
+//            
+//            if isNotSelect { // 사용자가 선택을 취소했을 때
+//                picker.dismiss(animated: true, completion: nil)
+//            }
+//            
+//            if self.isNotNeedGroupSelect() {
+//                self.saveImageItems(items: items)
+//                picker.dismiss(animated: true, completion: nil)
+//            }
+//            
+//            // 사용자가 선택을 완료했을 때
+//            vc.items = items
+//            vc.selectionType = .addImage
+//            
+//            picker.pushViewController(vc, animated: true)
+//        }
+//        
+//        present(picker, animated: true, completion: nil)
     }
     
     private func presentaddTextItem() {
@@ -144,49 +144,49 @@ final class HomeNavigationController: UINavigationController {
         return group
     }
     
-    private func settingImagePickerConfig() -> YPImagePickerConfiguration {
-        var config = YPImagePickerConfiguration()
-        config.showsPhotoFilters = false
-        config.screens = [.library]
-        config.targetImageSize = YPImageSize.cappedTo(size: view.frame.height)
-        config.library.defaultMultipleSelection = false
-        config.library.maxNumberOfItems = 15
-        config.hidesStatusBar = false
-        config.library.skipSelectionsGallery = true
-        
-        if isNotNeedGroupSelect() {
-            config.wordings.next = "Complete".localized
-        }
-        
-        return config
-    }
+//    private func settingImagePickerConfig() -> YPImagePickerConfiguration {
+//        var config = YPImagePickerConfiguration()
+//        config.showsPhotoFilters = false
+//        config.screens = [.library]
+//        config.targetImageSize = YPImageSize.cappedTo(size: view.frame.height)
+//        config.library.defaultMultipleSelection = false
+//        config.library.maxNumberOfItems = 15
+//        config.hidesStatusBar = false
+//        config.library.skipSelectionsGallery = true
+//
+//        if isNotNeedGroupSelect() {
+//            config.wordings.next = "Complete".localized
+//        }
+//
+//        return config
+//    }
     
-    private func saveImageItems(items: [YPMediaItem]) {
-        guard let groupName = getDetailVcGroup()?.name else { return }
-
-        var id: Int64 = itemViewModel.idForAdd
-
-        if ifWidgetMaxCount(itemCount: items.count) {
-            alertMaxCount()
-            return
-        }
-        
-        for item in items {
-            switch item {
-            case .photo(let photo):
-                let imageData: Data? = photo.originalImage.data
-                itemViewModel.add(content: ItemType.image.value, image: imageData, text: nil, date: Date(), id: id)
-                groupViewModel.insertId(at: groupName, ids: [Int(id)])
-                groupViewModel.load()
-                
-                id += 1
-            default:
-                break
-            }
-        }
-        
-        groupViewModel.noticeObservers()
-    }
+//    private func saveImageItems(items: [YPMediaItem]) {
+//        guard let groupName = getDetailVcGroup()?.name else { return }
+//
+//        var id: Int64 = itemViewModel.idForAdd
+//
+//        if ifWidgetMaxCount(itemCount: items.count) {
+//            alertMaxCount()
+//            return
+//        }
+//
+//        for item in items {
+//            switch item {
+//            case .photo(let photo):
+//                let imageData: Data? = photo.originalImage.data
+//                itemViewModel.add(content: ItemType.image.value, image: imageData, text: nil, date: Date(), id: id)
+//                groupViewModel.insertId(at: groupName, ids: [Int(id)])
+//                groupViewModel.load()
+//
+//                id += 1
+//            default:
+//                break
+//            }
+//        }
+//
+//        groupViewModel.noticeObservers()
+//    }
     
     private func ifWidgetMaxCount(itemCount: Int) -> Bool {
         guard let groupName = getDetailVcGroup()?.name else { return false }
