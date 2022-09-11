@@ -9,14 +9,20 @@
 import Foundation
 
 struct Group: Codable {
-    var sectionName: String
-    var ids: [Int]
-    
-    var name: String {
-        return sectionName
-    }
-    
-    var numberOfItem: Int {
-        return ids.count
-    }
+  var sectionName: String
+  var ids: [Int]
 }
+
+extension Group {
+  var id: String { self.sectionName }
+  
+  var name: String {
+    return sectionName
+  }
+  
+  var numberOfItem: Int {
+    return ids.count
+  }
+}
+
+extension Group: Equatable {}

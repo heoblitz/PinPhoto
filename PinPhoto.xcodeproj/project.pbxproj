@@ -46,7 +46,6 @@
 		3C4C579D251ADB4200B28A01 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB042500E06C007B6283 /* Group.swift */; };
 		3C4C579E251ADB4200B28A01 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C76EEF0250C8E1E003B298D /* ItemType.swift */; };
 		3C4C57A2251ADBC900B28A01 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF52DF824BF0D6400E7B8D4 /* ItemViewModel.swift */; };
-		3C4C57A3251ADBC900B28A01 /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB092500E4A4007B6283 /* GroupViewModel.swift */; };
 		3C4C57A4251ADBC900B28A01 /* WidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF07B9324FE387E006D48CE /* WidgetViewModel.swift */; };
 		3C4C57B0251ADBD400B28A01 /* SelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7888825110A7B00C5C42B /* SelectionType.swift */; };
 		3C4C57B4251ADC1600B28A01 /* Item.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC8E24BB558B00311F7A /* Item.xcdatamodeld */; };
@@ -56,7 +55,6 @@
 		3C4C57D0251ADD9A00B28A01 /* ClassNameToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C005124EA581900BF137B /* ClassNameToString.swift */; };
 		3C4C57D1251ADD9B00B28A01 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD247BA25023973006F8757 /* UIColorExtension.swift */; };
 		3C4C57D5251ADDAC00B28A01 /* ItemObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C070AA224D419600077C3AE /* ItemObserver.swift */; };
-		3C4C57E5251ADDFA00B28A01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */; };
 		3C4C57FA251ADE9600B28A01 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACC9524BB5BD600311F7A /* CoreDataManager.swift */; };
 		3C4D13A024AB716B009BDCDE /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4D139F24AB716B009BDCDE /* HomeDetailViewController.swift */; };
 		3C585BCF24FD33A600203C18 /* ConvertImageToData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C585BCE24FD33A600203C18 /* ConvertImageToData.swift */; };
@@ -113,7 +111,6 @@
 		3CF07B9524FE387E006D48CE /* WidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF07B9324FE387E006D48CE /* WidgetViewModel.swift */; };
 		3CF07B9A24FE4B67006D48CE /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF07B9924FE4B67006D48CE /* GroupViewController.swift */; };
 		3CF52DF924BF0D6400E7B8D4 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF52DF824BF0D6400E7B8D4 /* ItemViewModel.swift */; };
-		3CF6C2FF250DDCBD00548737 /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB092500E4A4007B6283 /* GroupViewModel.swift */; };
 		3CF6C300250DDCC100548737 /* GroupDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB072500E17D007B6283 /* GroupDataManager.swift */; };
 		3CF6C301250DDCC400548737 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB042500E06C007B6283 /* Group.swift */; };
 		3CF6C302250DDCC600548737 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C76EEF0250C8E1E003B298D /* ItemType.swift */; };
@@ -146,6 +143,13 @@
 		EF6CDD2B27D362BF00F0CD0C /* HomeAddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD2A27D362BF00F0CD0C /* HomeAddButtonView.swift */; };
 		EF6CDD2F27D363FC00F0CD0C /* Int+f.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD2E27D363FC00F0CD0C /* Int+f.swift */; };
 		EFFFF91D28CE20F50080D00A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = EFFFF91C28CE20F50080D00A /* ComposableArchitecture */; };
+		EFFFF91F28CE233E0080D00A /* GroupDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFF91E28CE233E0080D00A /* GroupDataRepository.swift */; };
+		EFFFF92128CE30320080D00A /* MockGroupDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFF92028CE30320080D00A /* MockGroupDataRepository.swift */; };
+		EFFFF92A28CE325F0080D00A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */; };
+		EFFFF92C28CE33D20080D00A /* MainCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFF92B28CE33D20080D00A /* MainCore.swift */; };
+		EFFFF93228CE344D0080D00A /* GroupCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFF93128CE344D0080D00A /* GroupCore.swift */; };
+		EFFFF93528CE35000080D00A /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB092500E4A4007B6283 /* GroupViewModel.swift */; };
+		EFFFF93628CE35000080D00A /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB092500E4A4007B6283 /* GroupViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -299,6 +303,10 @@
 		EF6CDD2827D362A000F0CD0C /* HomeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemView.swift; sourceTree = "<group>"; };
 		EF6CDD2A27D362BF00F0CD0C /* HomeAddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddButtonView.swift; sourceTree = "<group>"; };
 		EF6CDD2E27D363FC00F0CD0C /* Int+f.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+f.swift"; sourceTree = "<group>"; };
+		EFFFF91E28CE233E0080D00A /* GroupDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDataRepository.swift; sourceTree = "<group>"; };
+		EFFFF92028CE30320080D00A /* MockGroupDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGroupDataRepository.swift; sourceTree = "<group>"; };
+		EFFFF92B28CE33D20080D00A /* MainCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCore.swift; sourceTree = "<group>"; };
+		EFFFF93128CE344D0080D00A /* GroupCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,6 +399,8 @@
 				3C38CB042500E06C007B6283 /* Group.swift */,
 				3C38CB072500E17D007B6283 /* GroupDataManager.swift */,
 				3C3ACC8E24BB558B00311F7A /* Item.xcdatamodeld */,
+				EFFFF91E28CE233E0080D00A /* GroupDataRepository.swift */,
+				EFFFF92028CE30320080D00A /* MockGroupDataRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -624,12 +634,8 @@
 		EF6CDD0E27D347DA00F0CD0C /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				EF6CDD0F27D347E900F0CD0C /* MainView.swift */,
-				EF6CDD1E27D3543A00F0CD0C /* Home */,
-				EF6CDD2127D358BC00F0CD0C /* HomeDetailView.swift */,
-				EF6CDD1627D350E200F0CD0C /* SearchView.swift */,
-				EF6CDD1827D350EA00F0CD0C /* GroupView.swift */,
-				EF6CDD1C27D3510400F0CD0C /* SettingView.swift */,
+				EFFFF93028CE34110080D00A /* Cores */,
+				EFFFF92F28CE34020080D00A /* Views */,
 				EF6CDD2C27D363E500F0CD0C /* Support */,
 			);
 			path = SwiftUI;
@@ -662,6 +668,28 @@
 				EF6CDD2E27D363FC00F0CD0C /* Int+f.swift */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		EFFFF92F28CE34020080D00A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EF6CDD0F27D347E900F0CD0C /* MainView.swift */,
+				EF6CDD1E27D3543A00F0CD0C /* Home */,
+				EF6CDD2127D358BC00F0CD0C /* HomeDetailView.swift */,
+				EF6CDD1627D350E200F0CD0C /* SearchView.swift */,
+				EF6CDD1827D350EA00F0CD0C /* GroupView.swift */,
+				EF6CDD1C27D3510400F0CD0C /* SettingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EFFFF93028CE34110080D00A /* Cores */ = {
+			isa = PBXGroup;
+			children = (
+				EFFFF93128CE344D0080D00A /* GroupCore.swift */,
+				EFFFF92B28CE33D20080D00A /* MainCore.swift */,
+			);
+			path = Cores;
 			sourceTree = "<group>";
 		};
 		FF87DE9F94AF38898587A269 /* Frameworks */ = {
@@ -839,7 +867,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C4C57A3251ADBC900B28A01 /* GroupViewModel.swift in Sources */,
 				3C4C5799251ADB4200B28A01 /* Item+CoreDataProperties.swift in Sources */,
 				3CDBF2E725186DBF00F84F66 /* PinPhotoWidget.swift in Sources */,
 				3C4C5796251ADB4200B28A01 /* ItemCopy.swift in Sources */,
@@ -851,6 +878,7 @@
 				3C4C57CF251ADD9A00B28A01 /* ConvertImageToData.swift in Sources */,
 				3C4C579C251ADB4200B28A01 /* Item+CoreDataClass.swift in Sources */,
 				3C4C57B4251ADC1600B28A01 /* Item.xcdatamodeld in Sources */,
+				EFFFF93528CE35000080D00A /* GroupViewModel.swift in Sources */,
 				3C4C57D0251ADD9A00B28A01 /* ClassNameToString.swift in Sources */,
 				3C4C57A2251ADBC900B28A01 /* ItemViewModel.swift in Sources */,
 				3C4C579B251ADB4200B28A01 /* GroupDataManager.swift in Sources */,
@@ -868,6 +896,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFFFF92A28CE325F0080D00A /* AppDelegate.swift in Sources */,
 				3C42652324FD1BCE00FA4F03 /* ClassNameToString.swift in Sources */,
 				3CF6C301250DDCC400548737 /* Group.swift in Sources */,
 				3C5BC0D72513743A00A74F4E /* ItemCopy.swift in Sources */,
@@ -875,6 +904,7 @@
 				3C4C57B0251ADBD400B28A01 /* SelectionType.swift in Sources */,
 				3C42652024FD1BA700FA4F03 /* Item+CoreDataProperties.swift in Sources */,
 				3CF07B9524FE387E006D48CE /* WidgetViewModel.swift in Sources */,
+				EFFFF93628CE35000080D00A /* GroupViewModel.swift in Sources */,
 				3CF6C300250DDCC100548737 /* GroupDataManager.swift in Sources */,
 				3CEB644C24CF01B5004D8C3C /* Item.xcdatamodeld in Sources */,
 				BF3FCA7825536574002B5AB5 /* GroupObserver.swift in Sources */,
@@ -888,9 +918,7 @@
 				3CEB643E24CEC742004D8C3C /* TodayViewController.swift in Sources */,
 				3CAC4C4125468E0900ACE418 /* LocalizedExtension.swift in Sources */,
 				3C4C57D1251ADD9B00B28A01 /* UIColorExtension.swift in Sources */,
-				3C4C57E5251ADDFA00B28A01 /* AppDelegate.swift in Sources */,
 				3C42652124FD1BAA00FA4F03 /* Item+CoreDataClass.swift in Sources */,
-				3CF6C2FF250DDCBD00548737 /* GroupViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -911,9 +939,11 @@
 				3C3ACC9024BB558B00311F7A /* Item.xcdatamodeld in Sources */,
 				3CF07B9A24FE4B67006D48CE /* GroupViewController.swift in Sources */,
 				3CAA167E24BC211200635F6D /* ItemCustomCell.swift in Sources */,
+				EFFFF93228CE344D0080D00A /* GroupCore.swift in Sources */,
 				3C070AA324D419600077C3AE /* ItemObserver.swift in Sources */,
 				3CAC4C4025468E0900ACE418 /* LocalizedExtension.swift in Sources */,
 				3C21CC0724BEDC10004BEAF0 /* CreateTextItemViewController.swift in Sources */,
+				EFFFF92128CE30320080D00A /* MockGroupDataRepository.swift in Sources */,
 				3C38CB0A2500E4A4007B6283 /* GroupViewModel.swift in Sources */,
 				3CCA560224D6853F00F32671 /* ManualViewController.swift in Sources */,
 				EF6CDD2727D35C8100F0CD0C /* HomeItemHeaderView.swift in Sources */,
@@ -944,7 +974,9 @@
 				3C38CB052500E06C007B6283 /* Group.swift in Sources */,
 				3CB8E0A324F1482600FEE93C /* SettingWidgetSwitchCell.swift in Sources */,
 				3CF8B44D24A9CBA300D6C11C /* SceneDelegate.swift in Sources */,
+				EFFFF92C28CE33D20080D00A /* MainCore.swift in Sources */,
 				3C4D13A024AB716B009BDCDE /* HomeDetailViewController.swift in Sources */,
+				EFFFF91F28CE233E0080D00A /* GroupDataRepository.swift in Sources */,
 				BF13206D256148C9006FB5B7 /* SettingHomeWidgetViewController.swift in Sources */,
 				EF6CDD2027D3544B00F0CD0C /* HomeHeaderView.swift in Sources */,
 				3C5BC0D6251257DB00A74F4E /* ItemCopy.swift in Sources */,
@@ -1098,7 +1130,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.5.2;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1128,7 +1160,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.5.2;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1156,7 +1188,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.5.2;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoExtension;
 				PRODUCT_NAME = PinPhotoExtension;
 				SKIP_INSTALL = YES;
@@ -1185,7 +1217,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.5.2;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto.PinPhotoExtension;
 				PRODUCT_NAME = PinPhotoExtension;
 				SKIP_INSTALL = YES;
@@ -1248,10 +1280,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1306,9 +1338,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1334,7 +1367,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.5.2;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto;
 				PRODUCT_NAME = PinPhoto;
 				SWIFT_VERSION = 5.0;
@@ -1361,7 +1394,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.5.2;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wonheo.PinPhoto;
 				PRODUCT_NAME = PinPhoto;
 				SWIFT_VERSION = 5.0;

@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct MainView: View {
   private enum Constant {
@@ -22,7 +23,7 @@ struct MainView: View {
     static let group = "Group".localized
     static let setting = "Setting".localized
   }
-  
+    
   var body: some View {
     TabView {
       HomeView().tabItem {
@@ -45,8 +46,3 @@ struct MainView: View {
   }
 }
 
-struct MainView_Previews: PreviewProvider {
-  static var previews: some View {
-    MainView()
-  }
-}
