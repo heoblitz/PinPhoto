@@ -23,10 +23,16 @@ struct MainView: View {
     static let group = "Group".localized
     static let setting = "Setting".localized
   }
-    
+  
+  private let store: Store<MainState, MainAction>
+  
+  init(store: Store<MainState, MainAction>) {
+    self.store = store
+  }
+  
   var body: some View {
     TabView {
-      HomeView().tabItem {
+      HomeView(store: store.scope(state: \.groupState, action: MainAction.groupActions)).tabItem {
         Image(systemName: Constant.itemImageName)
         Text(Localized.item)
       }

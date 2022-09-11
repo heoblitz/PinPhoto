@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct HomeView: View {
   private enum Localized {
@@ -14,46 +15,54 @@ struct HomeView: View {
   }
   
   private enum Metric {
+    static let numberOfColumns = 2.f
+    static let columnPadding = 40.f
+  }  
+  
+  private let store: Store<GroupState, GroupAction>
+  
+  init(store: Store<GroupState, GroupAction>) {
+    self.store = store
   }
   
-  let items: [String] = (1...20).map { String($0) }
-  
   var body: some View {
-    GeometryReader { g in
-      let columns: [GridItem] = Array(repeating: GridItem(.fixed((g.size.width - 40) / 2)), count: 2)
-      let height = (g.size.width - 40) / 2
-      
-      NavigationView {
-        ZStack {
-          ScrollView(.vertical) {
-            NavigationLink(destination: HomeDetailView()) {
-              HomeHeaderView()
-            }.buttonStyle(ScaleButtonStyle())
-            Divider()
-            HomeItemHeaderView()
-            LazyVGrid(columns: columns) {
-              ForEach(self.items, id: \.self) { _ in
-                HomeItemView().frame(minHeight: height, maxHeight: height)
+    WithViewStore(store) { state in
+      GeometryReader { proxy in
+        let columns: [GridItem] = Array(
+          repeating: GridItem(.fixed((proxy.size.width - Metric.columnPadding) / Metric.numberOfColumns)),
+          count: Int(Metric.numberOfColumns)
+        )
+        let height = (proxy.size.width - Metric.columnPadding) / Metric.numberOfColumns
+        
+        NavigationView {
+          ZStack {
+            ScrollView(.vertical) {
+              NavigationLink(destination: HomeDetailView()) {
+                HomeHeaderView()
+              }.buttonStyle(ScaleButtonStyle())
+              Divider()
+              HomeItemHeaderView()
+              LazyVGrid(columns: columns) {
+                ForEach(state.groups, id: \.self) { group in
+                  NavigationLink(destination: HomeDetailView()) {
+                    HomeItemView(group: group)
+                      .frame(minHeight: height, maxHeight: height)
+                  }.buttonStyle(ScaleButtonStyle())
+                }
               }
-            }
-          }.navigationTitle(Localized.item).padding([.leading, .trailing])
-          VStack {
-            Spacer()
-            HStack() {
+            }.navigationTitle(Localized.item).padding([.leading, .trailing])
+            VStack {
               Spacer()
-              HomeAddButtonView()
-                .padding()
+              HStack() {
+                Spacer()
+                HomeAddButtonView()
+                  .padding()
+              }
             }
           }
         }
+        .navigationViewStyle(.stack)
       }
-      .navigationViewStyle(.stack)
     }
-  }
-}
-
-struct HomeView_Previews: PreviewProvider {
-  static var previews: some View {
-    HomeView()
   }
 }

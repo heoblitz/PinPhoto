@@ -26,3 +26,5 @@ extension Group {
 }
 
 extension Group: Equatable {}
+
+extension Group: Hashable {}

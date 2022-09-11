@@ -9,8 +9,12 @@
 import SwiftUI
 
 struct HomeItemView: View {
+  private enum Localized {
+    static let addItem = "Please Add Items".localized
+  }
+  
   private enum Style {
-    static let titleFont = Font.system(size: 24, weight: .bold)
+    static let titleFont = Font.system(size: 20, weight: .bold)
     static let placeholderFont = Font.system(size: 17, weight: .medium)
   }
   
@@ -18,15 +22,23 @@ struct HomeItemView: View {
     static let viewCornerRadius = 10.f
   }
   
+  private let group: Group
+  
+  init(group: Group) {
+    self.group = group
+  }
+  
   var body: some View {
       ZStack {
-        Text("Please Add Items".localized)
-          .font(Style.placeholderFont)
-          .foregroundColor(.white)
+        if self.group.ids.isEmpty {
+          Text(Localized.addItem)
+            .font(Style.placeholderFont)
+            .foregroundColor(.white)
+        }
         VStack {
           Spacer()
           HStack() {
-            Text("안녕")
+            Text(self.group.sectionName)
               .font(Style.titleFont)
               .foregroundColor(.white)
               .padding()
@@ -36,12 +48,5 @@ struct HomeItemView: View {
       }
       .background(.gray)
       .cornerRadius(Metrix.viewCornerRadius)
-  }
-}
-
-struct HomeItemView_Previews: PreviewProvider {
-  static var previews: some View {
-    HomeItemView()
-      .previewLayout(.fixed(width: 200, height: 200))
   }
 }

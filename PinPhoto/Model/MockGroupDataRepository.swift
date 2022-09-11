@@ -24,7 +24,7 @@ extension MockGroupDataRepository: GroupDataRepositoryProtocol {
     return Deferred {
       Future { promise in
         let mockGroups: [Group] = [
-          .init(sectionName: "학교", ids: []),
+          .init(sectionName: "학교", ids: [1]),
           .init(sectionName: "해외 여행", ids: []),
           .init(sectionName: "QR 모음", ids: []),
           .init(sectionName: "출입증", ids: [])

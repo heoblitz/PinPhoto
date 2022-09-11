@@ -10,7 +10,12 @@ import ComposableArchitecture
 
 typealias GroupReducer = Reducer<GroupState, GroupAction, MainEnvironment>
 
-let groupReducer = GroupReducer.init { _, _, _ in
+let groupReducer = GroupReducer.init { state, action, _ in
+  switch action {
+  case .groupFetched(let groups):
+    state.groups = groups
+  }
+  
   return .none
 }
 
@@ -20,5 +25,5 @@ struct GroupState: Equatable {
 }
 
 enum GroupAction {
-  case groupFetched
+  case groupFetched([Group])
 }
