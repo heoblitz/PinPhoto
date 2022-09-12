@@ -22,15 +22,15 @@ struct HomeItemView: View {
     static let viewCornerRadius = 10.f
   }
   
-  private let group: Group
+  private let thumbnail: HomeThumbnail
   
-  init(group: Group) {
-    self.group = group
+  init(thumbnail: HomeThumbnail) {
+    self.thumbnail = thumbnail
   }
   
   var body: some View {
       ZStack {
-        if self.group.ids.isEmpty {
+        if self.thumbnail.group.ids.isEmpty {
           Text(Localized.addItem)
             .font(Style.placeholderFont)
             .foregroundColor(.white)
@@ -38,7 +38,7 @@ struct HomeItemView: View {
         VStack {
           Spacer()
           HStack() {
-            Text(self.group.sectionName)
+            Text(self.thumbnail.group.sectionName)
               .font(Style.titleFont)
               .foregroundColor(.white)
               .padding()

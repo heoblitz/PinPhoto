@@ -32,7 +32,7 @@ struct MainView: View {
   
   var body: some View {
     TabView {
-      HomeView(store: store.scope(state: \.groupState, action: MainAction.groupActions)).tabItem {
+      HomeView(store: store.scope(state: \.homeState, action: MainAction.homeActions)).tabItem {
         Image(systemName: Constant.itemImageName)
         Text(Localized.item)
       }

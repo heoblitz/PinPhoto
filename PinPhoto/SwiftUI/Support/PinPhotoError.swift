@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+enum PinPhotoError: Error {
+  case saveFailed
+  case decodeFailed
+  case fetchFailed
+  case optionalUnwrappingFailed
+  case isSelfReleased
+  case invalid
+}

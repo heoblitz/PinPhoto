@@ -9,17 +9,9 @@
 import Foundation
 import Combine
 
-enum GroupDataError: Error {
-  case saveFailed
-  case decodeFailed
-  case optionalWrappingFailed
-  case isSelfReleased
-  case invalid
-}
-
 protocol GroupDataRepositoryProtocol {
-  func save(group: Group) -> AnyPublisher<Void, GroupDataError>
-  func fetchGroups() -> AnyPublisher<[Group], GroupDataError>
+  func save(group: Group) -> AnyPublisher<Void, PinPhotoError>
+  func fetchGroups() -> AnyPublisher<[Group], PinPhotoError>
 }
 
 final class GroupDataRepository {
@@ -46,7 +38,7 @@ final class GroupDataRepository {
 }
 
 extension GroupDataRepository: GroupDataRepositoryProtocol {
-  func save(group: Group) -> AnyPublisher<Void, GroupDataError> {
+  func save(group: Group) -> AnyPublisher<Void, PinPhotoError> {
     return Deferred { [weak self] in
       Future { [weak self] promise in
         guard let self = self else {
@@ -55,11 +47,11 @@ extension GroupDataRepository: GroupDataRepositoryProtocol {
         }
         
         guard let url = self.url else {
-          promise(.failure(.optionalWrappingFailed))
+          promise(.failure(.optionalUnwrappingFailed))
           return
         }
         
-        self.fetchGroups()
+        self._fetchGroups()
           .sink(receiveCompletion: { completion in
             guard case let .failure(error) = completion else {
               promise(.failure(.invalid))
@@ -82,7 +74,13 @@ extension GroupDataRepository: GroupDataRepositoryProtocol {
     }.eraseToAnyPublisher()
   }
   
-  func fetchGroups() -> AnyPublisher<[Group], GroupDataError> {
+  func fetchGroups() -> AnyPublisher<[Group], PinPhotoError> {
+    return self._fetchGroups()
+  }
+}
+
+extension GroupDataRepository {
+  private func _fetchGroups() -> AnyPublisher<[Group], PinPhotoError> {
     return Deferred { [weak self] in
       Future { [weak self] promise in
         guard let self = self else {
@@ -91,7 +89,7 @@ extension GroupDataRepository: GroupDataRepositoryProtocol {
         }
         
         guard let url = self.url else {
-          promise(.failure(.optionalWrappingFailed))
+          promise(.failure(.optionalUnwrappingFailed))
           return
         }
         

@@ -19,9 +19,13 @@ let groupReducer = GroupReducer.init { state, action, _ in
   return .none
 }
 
+struct Thumbnail: Equatable {
+  var group: Group
+  var item: Item?
+}
+
 struct GroupState: Equatable {
   var groups: [Group] = []
-  var thumbnails: [String: Item] = [:]
 }
 
 enum GroupAction {

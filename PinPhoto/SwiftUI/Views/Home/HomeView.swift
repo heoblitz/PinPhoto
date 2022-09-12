@@ -19,9 +19,9 @@ struct HomeView: View {
     static let columnPadding = 40.f
   }  
   
-  private let store: Store<GroupState, GroupAction>
+  private let store: Store<HomeState, HomeAction>
   
-  init(store: Store<GroupState, GroupAction>) {
+  init(store: Store<HomeState, HomeAction>) {
     self.store = store
   }
   
@@ -43,9 +43,9 @@ struct HomeView: View {
               Divider()
               HomeItemHeaderView()
               LazyVGrid(columns: columns) {
-                ForEach(state.groups, id: \.self) { group in
+                ForEach(state.homeThumbnails, id: \.self) { thumbnail in
                   NavigationLink(destination: HomeDetailView()) {
-                    HomeItemView(group: group)
+                    HomeItemView(thumbnail: thumbnail)
                       .frame(minHeight: height, maxHeight: height)
                   }.buttonStyle(ScaleButtonStyle())
                 }

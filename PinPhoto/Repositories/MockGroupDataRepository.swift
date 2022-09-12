@@ -12,7 +12,7 @@ import Combine
 final class MockGroupDataRepository {}
 
 extension MockGroupDataRepository: GroupDataRepositoryProtocol {
-  func save(group: Group) -> AnyPublisher<Void, GroupDataError> {
+  func save(group: Group) -> AnyPublisher<Void, PinPhotoError> {
     return Deferred {
       Future { promise in
         promise(.success(()))
@@ -20,7 +20,7 @@ extension MockGroupDataRepository: GroupDataRepositoryProtocol {
     }.eraseToAnyPublisher()
   }
   
-  func fetchGroups() -> AnyPublisher<[Group], GroupDataError> {
+  func fetchGroups() -> AnyPublisher<[Group], PinPhotoError> {
     return Deferred {
       Future { promise in
         let mockGroups: [Group] = [

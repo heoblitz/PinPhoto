@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+struct ItemDto {
+  let contentType: Int64
+  let contentImage: Data?
+  let contentText: String?
+  let updateDate: Date
+  let id: Int64
+  
+  init(item: Item) {
+    self.contentType = item.contentType
+    self.contentImage = item.contentImage
+    self.contentText = item.contentText
+    self.updateDate = item.updateDate
+    self.id = item.id
+  }
+}

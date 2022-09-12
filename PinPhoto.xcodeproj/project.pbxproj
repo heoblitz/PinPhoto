@@ -142,6 +142,9 @@
 		EF6CDD2927D362A000F0CD0C /* HomeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD2827D362A000F0CD0C /* HomeItemView.swift */; };
 		EF6CDD2B27D362BF00F0CD0C /* HomeAddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD2A27D362BF00F0CD0C /* HomeAddButtonView.swift */; };
 		EF6CDD2F27D363FC00F0CD0C /* Int+f.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD2E27D363FC00F0CD0C /* Int+f.swift */; };
+		EFBCE70A28CEE18400B7C4BE /* MockCoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBCE70928CEE18400B7C4BE /* MockCoreDataRepository.swift */; };
+		EFBCE70C28CEE40A00B7C4BE /* ItemCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBCE70B28CEE40A00B7C4BE /* ItemCore.swift */; };
+		EFBCE70E28CEE5AE00B7C4BE /* HomeCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBCE70D28CEE5AE00B7C4BE /* HomeCore.swift */; };
 		EFFFF91D28CE20F50080D00A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = EFFFF91C28CE20F50080D00A /* ComposableArchitecture */; };
 		EFFFF91F28CE233E0080D00A /* GroupDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFF91E28CE233E0080D00A /* GroupDataRepository.swift */; };
 		EFFFF92128CE30320080D00A /* MockGroupDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFF92028CE30320080D00A /* MockGroupDataRepository.swift */; };
@@ -150,6 +153,13 @@
 		EFFFF93228CE344D0080D00A /* GroupCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFF93128CE344D0080D00A /* GroupCore.swift */; };
 		EFFFF93528CE35000080D00A /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB092500E4A4007B6283 /* GroupViewModel.swift */; };
 		EFFFF93628CE35000080D00A /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB092500E4A4007B6283 /* GroupViewModel.swift */; };
+		EFFFF93928CE41350080D00A /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFF93828CE41350080D00A /* CoreDataRepository.swift */; };
+		EFFFF93B28CE44690080D00A /* PinPhotoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFF93A28CE44690080D00A /* PinPhotoError.swift */; };
+		EFFFF93C28CE44690080D00A /* PinPhotoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFF93A28CE44690080D00A /* PinPhotoError.swift */; };
+		EFFFF93D28CE44690080D00A /* PinPhotoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFF93A28CE44690080D00A /* PinPhotoError.swift */; };
+		EFFFF93F28CE45400080D00A /* ItemDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFF93E28CE45400080D00A /* ItemDto.swift */; };
+		EFFFF94028CE45400080D00A /* ItemDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFF93E28CE45400080D00A /* ItemDto.swift */; };
+		EFFFF94128CE45400080D00A /* ItemDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFF93E28CE45400080D00A /* ItemDto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -303,10 +313,16 @@
 		EF6CDD2827D362A000F0CD0C /* HomeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemView.swift; sourceTree = "<group>"; };
 		EF6CDD2A27D362BF00F0CD0C /* HomeAddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddButtonView.swift; sourceTree = "<group>"; };
 		EF6CDD2E27D363FC00F0CD0C /* Int+f.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+f.swift"; sourceTree = "<group>"; };
+		EFBCE70928CEE18400B7C4BE /* MockCoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataRepository.swift; sourceTree = "<group>"; };
+		EFBCE70B28CEE40A00B7C4BE /* ItemCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCore.swift; sourceTree = "<group>"; };
+		EFBCE70D28CEE5AE00B7C4BE /* HomeCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCore.swift; sourceTree = "<group>"; };
 		EFFFF91E28CE233E0080D00A /* GroupDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDataRepository.swift; sourceTree = "<group>"; };
 		EFFFF92028CE30320080D00A /* MockGroupDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGroupDataRepository.swift; sourceTree = "<group>"; };
 		EFFFF92B28CE33D20080D00A /* MainCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCore.swift; sourceTree = "<group>"; };
 		EFFFF93128CE344D0080D00A /* GroupCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCore.swift; sourceTree = "<group>"; };
+		EFFFF93828CE41350080D00A /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
+		EFFFF93A28CE44690080D00A /* PinPhotoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinPhotoError.swift; sourceTree = "<group>"; };
+		EFFFF93E28CE45400080D00A /* ItemDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,7 +402,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		3C3ACC8D24BB533F00311F7A /* Model */ = {
+		3C3ACC8D24BB533F00311F7A /* Entities */ = {
 			isa = PBXGroup;
 			children = (
 				3C3ACC9724BB5C2100311F7A /* Item+CoreDataClass.swift */,
@@ -394,15 +410,14 @@
 				3C76EEF0250C8E1E003B298D /* ItemType.swift */,
 				3C5BC0D5251257DB00A74F4E /* ItemCopy.swift */,
 				3CC7888825110A7B00C5C42B /* SelectionType.swift */,
-				3C3ACC9524BB5BD600311F7A /* CoreDataManager.swift */,
 				3C76EEFA250C951E003B298D /* CoreDataType.swift */,
 				3C38CB042500E06C007B6283 /* Group.swift */,
+				3C3ACC9524BB5BD600311F7A /* CoreDataManager.swift */,
 				3C38CB072500E17D007B6283 /* GroupDataManager.swift */,
+				EFFFF93E28CE45400080D00A /* ItemDto.swift */,
 				3C3ACC8E24BB558B00311F7A /* Item.xcdatamodeld */,
-				EFFFF91E28CE233E0080D00A /* GroupDataRepository.swift */,
-				EFFFF92028CE30320080D00A /* MockGroupDataRepository.swift */,
 			);
-			path = Model;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		3C585BD124FD34A900203C18 /* Protocol */ = {
@@ -617,7 +632,8 @@
 				3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */,
 				3CF8B44C24A9CBA300D6C11C /* SceneDelegate.swift */,
 				3C8C6C5E24EA363200689329 /* StoryBoard */,
-				3C3ACC8D24BB533F00311F7A /* Model */,
+				3C3ACC8D24BB533F00311F7A /* Entities */,
+				EFFFF93728CE41090080D00A /* Repositories */,
 				3C38CB062500E124007B6283 /* ViewModel */,
 				3C3ACC8A24BB52C600311F7A /* View */,
 				3C3ACC8924BB52A300311F7A /* Controller */,
@@ -666,6 +682,7 @@
 			children = (
 				EF6CDD2327D35ACD00F0CD0C /* ScaleButtonStyle.swift */,
 				EF6CDD2E27D363FC00F0CD0C /* Int+f.swift */,
+				EFFFF93A28CE44690080D00A /* PinPhotoError.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -686,10 +703,23 @@
 		EFFFF93028CE34110080D00A /* Cores */ = {
 			isa = PBXGroup;
 			children = (
+				EFBCE70D28CEE5AE00B7C4BE /* HomeCore.swift */,
 				EFFFF93128CE344D0080D00A /* GroupCore.swift */,
+				EFBCE70B28CEE40A00B7C4BE /* ItemCore.swift */,
 				EFFFF92B28CE33D20080D00A /* MainCore.swift */,
 			);
 			path = Cores;
+			sourceTree = "<group>";
+		};
+		EFFFF93728CE41090080D00A /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				EFFFF93828CE41350080D00A /* CoreDataRepository.swift */,
+				EFBCE70928CEE18400B7C4BE /* MockCoreDataRepository.swift */,
+				EFFFF91E28CE233E0080D00A /* GroupDataRepository.swift */,
+				EFFFF92028CE30320080D00A /* MockGroupDataRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		FF87DE9F94AF38898587A269 /* Frameworks */ = {
@@ -876,6 +906,7 @@
 				3C4C579D251ADB4200B28A01 /* Group.swift in Sources */,
 				3C4C57D5251ADDAC00B28A01 /* ItemObserver.swift in Sources */,
 				3C4C57CF251ADD9A00B28A01 /* ConvertImageToData.swift in Sources */,
+				EFFFF93D28CE44690080D00A /* PinPhotoError.swift in Sources */,
 				3C4C579C251ADB4200B28A01 /* Item+CoreDataClass.swift in Sources */,
 				3C4C57B4251ADC1600B28A01 /* Item.xcdatamodeld in Sources */,
 				EFFFF93528CE35000080D00A /* GroupViewModel.swift in Sources */,
@@ -888,6 +919,7 @@
 				3C4C57FA251ADE9600B28A01 /* CoreDataManager.swift in Sources */,
 				BF3FCA7C25536575002B5AB5 /* GroupObserver.swift in Sources */,
 				3CDBF2EC25186DC100F84F66 /* PinPhotoWidget.intentdefinition in Sources */,
+				EFFFF94128CE45400080D00A /* ItemDto.swift in Sources */,
 				3CAC4C4225468E0900ACE418 /* LocalizedExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -898,8 +930,10 @@
 			files = (
 				EFFFF92A28CE325F0080D00A /* AppDelegate.swift in Sources */,
 				3C42652324FD1BCE00FA4F03 /* ClassNameToString.swift in Sources */,
+				EFFFF93C28CE44690080D00A /* PinPhotoError.swift in Sources */,
 				3CF6C301250DDCC400548737 /* Group.swift in Sources */,
 				3C5BC0D72513743A00A74F4E /* ItemCopy.swift in Sources */,
+				EFFFF94028CE45400080D00A /* ItemDto.swift in Sources */,
 				3CF6C302250DDCC600548737 /* ItemType.swift in Sources */,
 				3C4C57B0251ADBD400B28A01 /* SelectionType.swift in Sources */,
 				3C42652024FD1BA700FA4F03 /* Item+CoreDataProperties.swift in Sources */,
@@ -938,6 +972,7 @@
 				BF13207525614AAF006FB5B7 /* SettingHomeWidgetSwitchCell.swift in Sources */,
 				3C3ACC9024BB558B00311F7A /* Item.xcdatamodeld in Sources */,
 				3CF07B9A24FE4B67006D48CE /* GroupViewController.swift in Sources */,
+				EFFFF93928CE41350080D00A /* CoreDataRepository.swift in Sources */,
 				3CAA167E24BC211200635F6D /* ItemCustomCell.swift in Sources */,
 				EFFFF93228CE344D0080D00A /* GroupCore.swift in Sources */,
 				3C070AA324D419600077C3AE /* ItemObserver.swift in Sources */,
@@ -955,9 +990,11 @@
 				EF6CDD1027D347E900F0CD0C /* MainView.swift in Sources */,
 				EF6CDD2427D35ACD00F0CD0C /* ScaleButtonStyle.swift in Sources */,
 				3CD4D53325020AB8002F1B7C /* SelectGroupViewController.swift in Sources */,
+				EFFFF93F28CE45400080D00A /* ItemDto.swift in Sources */,
 				BF3FCA7425536550002B5AB5 /* GroupObserver.swift in Sources */,
 				3C3ACC9A24BB5C2100311F7A /* Item+CoreDataProperties.swift in Sources */,
 				3C0C005224EA581900BF137B /* ClassNameToString.swift in Sources */,
+				EFBCE70E28CEE5AE00B7C4BE /* HomeCore.swift in Sources */,
 				3C25284E24EFD2C4002ADBDC /* HomeNavigationController.swift in Sources */,
 				BF13207A25614B6E006FB5B7 /* SettingHomeWidgetPickerCell.swift in Sources */,
 				EF6CDD2927D362A000F0CD0C /* HomeItemView.swift in Sources */,
@@ -965,7 +1002,9 @@
 				EF6CDD1227D3488400F0CD0C /* HomeView.swift in Sources */,
 				EF6CDD1727D350E200F0CD0C /* SearchView.swift in Sources */,
 				3CEB644E24CF109A004D8C3C /* URLextension.swift in Sources */,
+				EFBCE70C28CEE40A00B7C4BE /* ItemCore.swift in Sources */,
 				EF6CDD1D27D3510400F0CD0C /* SettingView.swift in Sources */,
+				EFFFF93B28CE44690080D00A /* PinPhotoError.swift in Sources */,
 				3C070A9724D3BAB30077C3AE /* EditImageItemViewController.swift in Sources */,
 				3CCA19642508981F00F9CCEB /* HomeHeaderViewCell.swift in Sources */,
 				3CF8B44B24A9CBA300D6C11C /* AppDelegate.swift in Sources */,
@@ -987,6 +1026,7 @@
 				3C38CB082500E17D007B6283 /* GroupDataManager.swift in Sources */,
 				3CD4D52F2502064B002F1B7C /* SearchViewController.swift in Sources */,
 				3C23693225036ADF0064637A /* HomeViewController.swift in Sources */,
+				EFBCE70A28CEE18400B7C4BE /* MockCoreDataRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
