@@ -14,9 +14,18 @@ typealias AppAction = AppReducer.Action
 
 struct AppReducer: ReducerProtocol {
   struct State: Equatable {
-    var group = GroupReducer.State()
-    var item = ItemReducer.State()
-    var home = HomeReducer.State()
+    var group = GroupState()
+    var item = ItemState()
+    
+    var home: HomeState {
+      get {
+        HomeState(groups: self.group.groups, items: self.item.items)
+      }
+      set {
+        self.group.groups = newValue.groups
+        self.item.items = newValue.items
+      }
+    }
   }
   
   enum Action: Equatable {
@@ -42,6 +51,13 @@ struct AppReducer: ReducerProtocol {
     Reduce { state, action in
       switch action {
       case .sceneWillConnect:
+        let fetchItemsEffect = appEnvironment
+          .itemDataRepository
+          .fetchItems()
+          .map { Action.itemActions(.itemFetched($0)) }
+          .replaceError(with: Action.errorOccurred)
+          .eraseToEffect()
+        
         let fetchGroups = appEnvironment
           .groupDataRepository
           .fetchGroups()
@@ -49,26 +65,7 @@ struct AppReducer: ReducerProtocol {
           .replaceError(with: Action.errorOccurred)
           .eraseToEffect()
 
-        return fetchGroups
-
-      case .groupActions(.groupFetched(let groups)):
-        let fetchItemsEffect = appEnvironment
-          .itemDataRepository
-          .fetchItems()
-          .map { Action.itemActions(.itemFetched($0)) }
-          .replaceError(with: Action.errorOccurred)
-          .eraseToEffect()
-
-        let homeGroupFetchedEffect = Just(Action.homeActions(.groupFetched(groups)))
-          .eraseToEffect()
-
-        return .merge(fetchItemsEffect, homeGroupFetchedEffect)
-
-      case .itemActions(.itemFetched(let items)):
-        let homeGroupFetchedEffect = Just(Action.homeActions(.itemFetched(items)))
-          .eraseToEffect()
-
-        return homeGroupFetchedEffect
+        return .merge(fetchItemsEffect, fetchGroups)
       default: break
       }
 

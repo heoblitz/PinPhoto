@@ -13,47 +13,20 @@ typealias HomeAction = HomeReducer.Action
 
 struct HomeReducer: ReducerProtocol {
   struct State: Equatable {
-    var homeThumbnails: [HomeThumbnail] = []
+    var groups: [Group] = []
+    var items: [Item] = []
   }
   
-  enum Action: Equatable {
-    case groupFetched([Group])
-    case itemFetched([Item])
-  }
+  enum Action: Equatable { }
   
   var body: some ReducerProtocol<State, Action> {
     Reduce { state, action in
-      switch action {
-      case .groupFetched(let groups):
-        state.homeThumbnails = groups.map { HomeThumbnail(group: $0, item: nil) }
-      case .itemFetched(let items):
-        let itemIds = state.homeThumbnails.map {
-          $0.group.ids.first
-        }
-        
-        let thumbnailItems = itemIds.map { id -> Item? in
-          guard let id = id else { return nil }
-          
-          return items.first { $0.id == id }
-        }
-        
-        let newThumbnails = zip(
-          state.homeThumbnails,
-          thumbnailItems
-        )
-          .map { thumbnail, item in
-            thumbnail.mutateItem(with: item)
-          }
-        
-        state.homeThumbnails = newThumbnails
-      }
-      
       return .none
     }
   }
 }
 
-struct HomeThumbnail: Equatable {
+struct HomeThumbnail: Equatable, Hashable {
   var group: Group
   var item: Item?
   
@@ -61,5 +34,3 @@ struct HomeThumbnail: Equatable {
     return Self(group: self.group, item: item)
   }
 }
-
-extension HomeThumbnail: Hashable {}

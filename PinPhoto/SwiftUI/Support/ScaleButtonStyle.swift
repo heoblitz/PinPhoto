@@ -13,6 +13,7 @@ struct ScaleButtonStyle: ButtonStyle {
     configuration
       .label
       .buttonStyle(.plain)
-      .scaleEffect(configuration.isPressed ? 0.98 : 1)
+      .scaleEffect(configuration.isPressed ? 0.95 : 1)
+      .animation(.easeInOut(duration: 0.15), value: configuration.isPressed ? 0.95 : 1)
   }
 }
