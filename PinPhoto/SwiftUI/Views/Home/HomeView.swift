@@ -20,6 +20,7 @@ struct HomeView: View {
   }
   
   private struct ViewState: Equatable {
+    var headerThumbnail: HomeThumbnail?
     var thumbnails: [HomeThumbnail]
     
     init(_ homeState: HomeState) {
@@ -31,11 +32,15 @@ struct HomeView: View {
         return homeState.items.first { $0.id == id }
       }
       
-      let newThumbnails = zip(
+      var newThumbnails = zip(
         homeThumbnails,
         thumbnailItems
       ).map { thumbnail, item in
         thumbnail.mutateItem(with: item)
+      }
+      
+      if let headerIndex = newThumbnails.firstIndex(where: { $0.group.isHeaderGroup }) {
+        self.headerThumbnail = newThumbnails.remove(at: headerIndex)
       }
       
       self.thumbnails = newThumbnails
@@ -84,7 +89,8 @@ struct HomeView: View {
             }
           }
         }
-      }.navigationViewStyle(.stack)
+      }
+      .navigationViewStyle(.stack)
     }
   }
 }

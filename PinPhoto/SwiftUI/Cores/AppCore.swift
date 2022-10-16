@@ -74,11 +74,17 @@ struct AppReducer: ReducerProtocol {
   }
 }
 
-final class AppEnvironment: TestDependencyKey {
-  static let previewValue = AppEnvironment(
-    groupDataRepository: MockGroupDataRepository(), // GroupDataRepository(),
+final class AppEnvironment: TestDependencyKey, DependencyKey {
+  static var liveValue = AppEnvironment(
+    groupDataRepository: GroupDataRepository(),
     itemDataRepository: CoreDataRepository()
   )
+  
+  static let previewValue = AppEnvironment(
+    groupDataRepository: MockGroupDataRepository(),
+    itemDataRepository: CoreDataRepository()
+  )
+  
   static let testValue = AppEnvironment(
     groupDataRepository: MockGroupDataRepository(),
     itemDataRepository: CoreDataRepository()

@@ -9,20 +9,17 @@
 import Foundation
 
 struct Group: Codable {
+  var id = UUID()
   var sectionName: String
   var ids: [Int]
 }
 
 extension Group {
-  var id: String { self.sectionName }
+  var name: String { sectionName }
   
-  var name: String {
-    return sectionName
-  }
+  var numberOfItem: Int { ids.count }
   
-  var numberOfItem: Int {
-    return ids.count
-  }
+  var isHeaderGroup: Bool { sectionName == "위젯에 표시될 항목".localized }
 }
 
 extension Group: Equatable {}
