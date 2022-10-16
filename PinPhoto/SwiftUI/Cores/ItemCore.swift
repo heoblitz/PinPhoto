@@ -8,21 +8,26 @@
 
 import ComposableArchitecture
 
-typealias ItemReducer = Reducer<ItemState, ItemAction, MainEnvironment>
+typealias ItemState = ItemReducer.State
+typealias ItemAction = ItemReducer.Action
 
-let itemReducer = ItemReducer.init { state, action, _ in
-  switch action {
-  case .itemFetched(let items):
-    state.items = items
+struct ItemReducer: ReducerProtocol {
+  struct State: Equatable {
+    var items: [Item] = []
   }
   
-  return .none
-}
-
-struct ItemState: Equatable {
-  var items: [Item] = []
-}
-
-enum ItemAction {
-  case itemFetched([Item])
+  enum Action: Equatable {
+    case itemFetched([Item])
+  }
+  
+  var body: some ReducerProtocol<State, Action> {
+    Reduce { state, action in
+      switch action {
+      case .itemFetched(let items):
+        state.items = items
+      }
+      
+      return .none
+    }
+  }
 }

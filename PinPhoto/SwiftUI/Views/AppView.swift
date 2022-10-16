@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  AppView.swift
 //  PinPhoto
 //
 //  Created by woody on 2022/03/05.
@@ -9,7 +9,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct MainView: View {
+struct AppView: View {
   private enum Constant {
     static let itemImageName = "tray.full.fill"
     static let searchImageName = "magnifyingglass"
@@ -24,15 +24,15 @@ struct MainView: View {
     static let setting = "Setting".localized
   }
   
-  private let store: Store<MainState, MainAction>
+  private let store: Store<AppState, AppAction>
   
-  init(store: Store<MainState, MainAction>) {
+  init(store: Store<AppState, AppAction>) {
     self.store = store
   }
   
   var body: some View {
     TabView {
-      HomeView(store: store.scope(state: \.homeState, action: MainAction.homeActions)).tabItem {
+      HomeView(store: store.scope(state: \.home, action: AppAction.homeActions)).tabItem {
         Image(systemName: Constant.itemImageName)
         Text(Localized.item)
       }

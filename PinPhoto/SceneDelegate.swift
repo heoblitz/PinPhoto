@@ -10,12 +10,6 @@ import UIKit
 import SwiftUI
 import ComposableArchitecture
 
-let mainStore = Store<MainState, MainAction>(
-  initialState: .init(),
-  reducer: mainReducer,
-  environment: .mock
-)
-
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   var window: UIWindow?
 
@@ -26,9 +20,9 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   ) {
     guard let scene = (scene as? UIWindowScene) else { return }
     
-    ViewStore(mainStore).send(.sceneWillConnect)
+    ViewStore(appStore).send(.sceneWillConnect)
     self.window = UIWindow(windowScene: scene)
-    self.window?.rootViewController = UIHostingController(rootView: MainView(store: mainStore))
+    self.window?.rootViewController = UIHostingController(rootView: AppView(store: appStore))
     self.window?.makeKeyAndVisible()
   }
 }

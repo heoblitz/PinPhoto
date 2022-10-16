@@ -20,9 +20,11 @@ struct HomeView: View {
   }  
   
   private let store: Store<HomeState, HomeAction>
+  @ObservedObject private var viewStore: ViewStore<HomeState, HomeAction>
   
   init(store: Store<HomeState, HomeAction>) {
     self.store = store
+    self.viewStore = ViewStore(store)
   }
   
   var body: some View {

@@ -8,26 +8,26 @@
 
 import ComposableArchitecture
 
-typealias GroupReducer = Reducer<GroupState, GroupAction, MainEnvironment>
+typealias GroupState = GroupReducer.State
+typealias GroupAction = GroupReducer.Action
 
-let groupReducer = GroupReducer.init { state, action, _ in
-  switch action {
-  case .groupFetched(let groups):
-    state.groups = groups
+struct GroupReducer: ReducerProtocol {
+  struct State: Equatable {
+    var groups: [Group] = []
   }
   
-  return .none
-}
-
-struct Thumbnail: Equatable {
-  var group: Group
-  var item: Item?
-}
-
-struct GroupState: Equatable {
-  var groups: [Group] = []
-}
-
-enum GroupAction {
-  case groupFetched([Group])
+  enum Action: Equatable {
+    case groupFetched([Group])
+  }
+  
+  var body: some ReducerProtocol<State, Action> {
+    Reduce { state, action in
+      switch action {
+      case .groupFetched(let groups):
+        state.groups = groups
+      }
+      
+      return .none
+    }
+  }
 }

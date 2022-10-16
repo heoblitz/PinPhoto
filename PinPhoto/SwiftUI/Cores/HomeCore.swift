@@ -8,39 +8,49 @@
 
 import ComposableArchitecture
 
-typealias HomeReducer = Reducer<HomeState, HomeAction, MainEnvironment>
+typealias HomeState = HomeReducer.State
+typealias HomeAction = HomeReducer.Action
 
-let homeReducer = HomeReducer.init { state, action, _ in
-  switch action {
-  case .groupFetched(let groups):
-    state.homeThumbnails = groups.map { HomeThumbnail(group: $0, item: nil) }
-  case .itemFetched(let items):
-    let itemIds = state.homeThumbnails.map {
-      $0.group.ids.first
-    }
-    
-    let thumbnailItems = itemIds.map { id -> Item? in
-      guard let id = id else { return nil }
-      
-      return items.first { $0.id == id }
-    }
-    
-    let newThumbnails = zip(
-      state.homeThumbnails,
-      thumbnailItems
-    )
-    .map { thumbnail, item in
-      thumbnail.mutateItem(with: item)
-    }
-    
-    state.homeThumbnails = newThumbnails
+struct HomeReducer: ReducerProtocol {
+  struct State: Equatable {
+    var homeThumbnails: [HomeThumbnail] = []
   }
   
-  return .none
-}
-
-struct HomeState: Equatable {
-  var homeThumbnails: [HomeThumbnail] = []
+  enum Action: Equatable {
+    case groupFetched([Group])
+    case itemFetched([Item])
+  }
+  
+  var body: some ReducerProtocol<State, Action> {
+    Reduce { state, action in
+      switch action {
+      case .groupFetched(let groups):
+        state.homeThumbnails = groups.map { HomeThumbnail(group: $0, item: nil) }
+      case .itemFetched(let items):
+        let itemIds = state.homeThumbnails.map {
+          $0.group.ids.first
+        }
+        
+        let thumbnailItems = itemIds.map { id -> Item? in
+          guard let id = id else { return nil }
+          
+          return items.first { $0.id == id }
+        }
+        
+        let newThumbnails = zip(
+          state.homeThumbnails,
+          thumbnailItems
+        )
+          .map { thumbnail, item in
+            thumbnail.mutateItem(with: item)
+          }
+        
+        state.homeThumbnails = newThumbnails
+      }
+      
+      return .none
+    }
+  }
 }
 
 struct HomeThumbnail: Equatable {
@@ -53,8 +63,3 @@ struct HomeThumbnail: Equatable {
 }
 
 extension HomeThumbnail: Hashable {}
-
-enum HomeAction {
-  case groupFetched([Group])
-  case itemFetched([Item])
-}

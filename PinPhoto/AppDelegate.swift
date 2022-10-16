@@ -8,6 +8,12 @@
 
 import UIKit
 import CoreData
+import ComposableArchitecture
+
+let appStore = Store<AppState, AppAction>(
+  initialState: .init(),
+  reducer: AppReducer()._printChanges()
+)
 
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,7 +32,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     configurationForConnecting connectingSceneSession: UISceneSession,
     options: UIScene.ConnectionOptions
   ) -> UISceneConfiguration {
-    self.initStyles()
+    initStyles()
     return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
   }
 }

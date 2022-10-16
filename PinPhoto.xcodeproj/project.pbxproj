@@ -130,7 +130,7 @@
 		BF661A742580D63100794A04 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF661A722580D63100794A04 /* GoogleService-Info.plist */; };
 		BF661A752580D63100794A04 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF661A722580D63100794A04 /* GoogleService-Info.plist */; };
 		BFC7521B254D7A4B00C34E63 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFC7521D254D7A4B00C34E63 /* InfoPlist.strings */; };
-		EF6CDD1027D347E900F0CD0C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD0F27D347E900F0CD0C /* MainView.swift */; };
+		EF6CDD1027D347E900F0CD0C /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD0F27D347E900F0CD0C /* AppView.swift */; };
 		EF6CDD1227D3488400F0CD0C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD1127D3488400F0CD0C /* HomeView.swift */; };
 		EF6CDD1727D350E200F0CD0C /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD1627D350E200F0CD0C /* SearchView.swift */; };
 		EF6CDD1927D350EA00F0CD0C /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CDD1827D350EA00F0CD0C /* GroupView.swift */; };
@@ -148,8 +148,7 @@
 		EFFFF91D28CE20F50080D00A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = EFFFF91C28CE20F50080D00A /* ComposableArchitecture */; };
 		EFFFF91F28CE233E0080D00A /* GroupDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFF91E28CE233E0080D00A /* GroupDataRepository.swift */; };
 		EFFFF92128CE30320080D00A /* MockGroupDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFF92028CE30320080D00A /* MockGroupDataRepository.swift */; };
-		EFFFF92A28CE325F0080D00A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8B44A24A9CBA300D6C11C /* AppDelegate.swift */; };
-		EFFFF92C28CE33D20080D00A /* MainCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFF92B28CE33D20080D00A /* MainCore.swift */; };
+		EFFFF92C28CE33D20080D00A /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFF92B28CE33D20080D00A /* AppCore.swift */; };
 		EFFFF93228CE344D0080D00A /* GroupCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFFF93128CE344D0080D00A /* GroupCore.swift */; };
 		EFFFF93528CE35000080D00A /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB092500E4A4007B6283 /* GroupViewModel.swift */; };
 		EFFFF93628CE35000080D00A /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38CB092500E4A4007B6283 /* GroupViewModel.swift */; };
@@ -301,7 +300,7 @@
 		BFC75227254D7B0F00C34E63 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		BFC75229254D7B1200C34E63 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		BFC7522B254D7B1600C34E63 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/MainInterface.strings; sourceTree = "<group>"; };
-		EF6CDD0F27D347E900F0CD0C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		EF6CDD0F27D347E900F0CD0C /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		EF6CDD1127D3488400F0CD0C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EF6CDD1627D350E200F0CD0C /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		EF6CDD1827D350EA00F0CD0C /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
@@ -318,7 +317,7 @@
 		EFBCE70D28CEE5AE00B7C4BE /* HomeCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCore.swift; sourceTree = "<group>"; };
 		EFFFF91E28CE233E0080D00A /* GroupDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDataRepository.swift; sourceTree = "<group>"; };
 		EFFFF92028CE30320080D00A /* MockGroupDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGroupDataRepository.swift; sourceTree = "<group>"; };
-		EFFFF92B28CE33D20080D00A /* MainCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCore.swift; sourceTree = "<group>"; };
+		EFFFF92B28CE33D20080D00A /* AppCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
 		EFFFF93128CE344D0080D00A /* GroupCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCore.swift; sourceTree = "<group>"; };
 		EFFFF93828CE41350080D00A /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
 		EFFFF93A28CE44690080D00A /* PinPhotoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinPhotoError.swift; sourceTree = "<group>"; };
@@ -690,7 +689,7 @@
 		EFFFF92F28CE34020080D00A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EF6CDD0F27D347E900F0CD0C /* MainView.swift */,
+				EF6CDD0F27D347E900F0CD0C /* AppView.swift */,
 				EF6CDD1E27D3543A00F0CD0C /* Home */,
 				EF6CDD2127D358BC00F0CD0C /* HomeDetailView.swift */,
 				EF6CDD1627D350E200F0CD0C /* SearchView.swift */,
@@ -703,10 +702,10 @@
 		EFFFF93028CE34110080D00A /* Cores */ = {
 			isa = PBXGroup;
 			children = (
-				EFBCE70D28CEE5AE00B7C4BE /* HomeCore.swift */,
 				EFFFF93128CE344D0080D00A /* GroupCore.swift */,
 				EFBCE70B28CEE40A00B7C4BE /* ItemCore.swift */,
-				EFFFF92B28CE33D20080D00A /* MainCore.swift */,
+				EFFFF92B28CE33D20080D00A /* AppCore.swift */,
+				EFBCE70D28CEE5AE00B7C4BE /* HomeCore.swift */,
 			);
 			path = Cores;
 			sourceTree = "<group>";
@@ -928,7 +927,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFFFF92A28CE325F0080D00A /* AppDelegate.swift in Sources */,
 				3C42652324FD1BCE00FA4F03 /* ClassNameToString.swift in Sources */,
 				EFFFF93C28CE44690080D00A /* PinPhotoError.swift in Sources */,
 				3CF6C301250DDCC400548737 /* Group.swift in Sources */,
@@ -987,7 +985,7 @@
 				EF6CDD2227D358BC00F0CD0C /* HomeDetailView.swift in Sources */,
 				3CD247BB25023973006F8757 /* UIColorExtension.swift in Sources */,
 				3C3ACC9924BB5C2100311F7A /* Item+CoreDataClass.swift in Sources */,
-				EF6CDD1027D347E900F0CD0C /* MainView.swift in Sources */,
+				EF6CDD1027D347E900F0CD0C /* AppView.swift in Sources */,
 				EF6CDD2427D35ACD00F0CD0C /* ScaleButtonStyle.swift in Sources */,
 				3CD4D53325020AB8002F1B7C /* SelectGroupViewController.swift in Sources */,
 				EFFFF93F28CE45400080D00A /* ItemDto.swift in Sources */,
@@ -1013,7 +1011,7 @@
 				3C38CB052500E06C007B6283 /* Group.swift in Sources */,
 				3CB8E0A324F1482600FEE93C /* SettingWidgetSwitchCell.swift in Sources */,
 				3CF8B44D24A9CBA300D6C11C /* SceneDelegate.swift in Sources */,
-				EFFFF92C28CE33D20080D00A /* MainCore.swift in Sources */,
+				EFFFF92C28CE33D20080D00A /* AppCore.swift in Sources */,
 				3C4D13A024AB716B009BDCDE /* HomeDetailViewController.swift in Sources */,
 				EFFFF91F28CE233E0080D00A /* GroupDataRepository.swift in Sources */,
 				BF13206D256148C9006FB5B7 /* SettingHomeWidgetViewController.swift in Sources */,
@@ -1489,7 +1487,7 @@
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.0;
+				minimumVersion = 0.42.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
